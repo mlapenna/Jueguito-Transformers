@@ -1,5 +1,7 @@
 package fiuba.algo3.tests;
 
+import fiuba.algo3.modelo.Algoformer;
+import fiuba.algo3.modelo.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,8 +11,8 @@ public class IntegracionTest {
 	
 	@Test
 	public void testJugar() {
-		Jugador jugador1 = new Jugador('Pedro', 'autobots');
-		Jugador jugador2 = new Jugador('Juan', 'decepticons');
+		Jugador jugador1 = new Jugador('Pedro', Algoformer.MODO_AUTOBOT);
+		Jugador jugador2 = new Jugador('Juan', Algoformer.MODO_DECEPTICON);
 		Juego juego = new Juego(jugador1, jugador2); // El juego crea al azar 3 robots diferentes para cada jugador y los posiciona
 
 		Tablero tablero = juego.obtenerTablero(); // Necesario para dibujar y actualizar la interfaz gráfica

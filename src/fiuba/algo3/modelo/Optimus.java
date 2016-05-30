@@ -30,7 +30,13 @@ public class Optimus extends Autobot{
 		this.distanciaDeAtaque=distanciaAtaqueOptimusAlterno;
 		this.Velocidad=VelocidadOptimusAlterno;
 	}
-	
+
+
+	public boolean esDelMismoTipoQue(Algoformer unRobot) {
+		return unRobot.soyOptimus();
+	};
+
+	public boolean soyOptimus() { return true; }
 	
 
 }
