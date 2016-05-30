@@ -1,19 +1,26 @@
 package fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
-import static fiuba.algo3.modelo.Algoformer.*;
+import fiuba.algo3.modelo.Algoformer.*;
+import fiuba.algo3.modelo.Tablero;
 
 public class Jugador {
 
     private String nombre;
     private ArrayList<Algoformer> misRobots;
+    private Tablero tablero;
 
-    public Jugador(String nombre, int modo) {
+
+    public Jugador(String nombre, int modo, Tablero tablero) {
         this.nombre = nombre;
+        this.tablero = tablero;
 
         this.generarRobotsAlAzar(modo);
+
+        this.agregarRobotsAlTablero();
     }
 
 
@@ -76,5 +83,33 @@ public class Jugador {
 
         }
 
+    }
+
+
+    private void agregarRobotsAlTablero() {
+        switch (modo) {
+            case Algoformer.MODO_AUTOBOT:
+                int fila = 0;
+                int columna = 0;
+
+                Iterator<Algoformer> algoformersIterator = this.misRobots.iterator();
+
+                while (algoformersIterator.hasNext()) {
+                    this.tablero.agregarRobot(algoformersIterator.next(), fila, columna, Superficie.MODO_TIERRA);
+                    fila++;
+                }
+                break;
+            case Algoformer.MODO_DECEPTICON:
+                int fila = this.tablero.obtenerCantidadFilas() - 1;
+                int columna = this.tablero.obtenerCantidadColumnas() - 1;
+
+                Iterator<Algoformer> algoformersIterator = this.misRobots.iterator();
+
+                while (algoformersIterator.hasNext()) {
+                    this.tablero.agregarRobot(algoformersIterator.next(), fila, columna, Superficie.MODO_TIERRA);
+                    fila--;
+                }
+                break;
+        }
     }
 }
