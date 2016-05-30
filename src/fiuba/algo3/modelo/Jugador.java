@@ -9,7 +9,6 @@ public class Jugador {
 
     private String nombre;
     private ArrayList<Algoformer> misRobots;
-    private final int CANTIDAD_DE_ROBOTS_INICIAL = 3;
 
     public Jugador(String nombre, int modo) {
         this.nombre = nombre;
@@ -22,7 +21,7 @@ public class Jugador {
     private void generarRobotsAlAzar(int modo) {
         Random rnd = new Random();
 
-        while (this.misRobots.size() < this.CANTIDAD_DE_ROBOTS_INICIAL) {
+        while (this.misRobots.size() < Juego.CANTIDAD_DE_ROBOTS_INICIAL) {
 
             // Genero un entero entre 0 y la cantidad de robots existentes por tipo
             int numeAzar = (int) (rnd.nextDouble() * TOTAL_ROBOTS_DISPONIBLES_POR_TIPO);

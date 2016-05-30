@@ -1,6 +1,8 @@
 package fiuba.algo3.modelo;
 
-public class Bonecrusher {
+import fiuba.algo3.modelo.Decepticon;
+
+public class Bonecrusher extends Decepticon {
     public boolean esDelMismoTipoQue(Algoformer unRobot) {
         return unRobot.soyBonecrusher();
     };

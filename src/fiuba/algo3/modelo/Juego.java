@@ -3,6 +3,7 @@ package fiuba.algo3.modelo;
 import fiuba.algo3.modelo.Jugador;
 
 public class Juego {
+    private final int CANTIDAD_DE_ROBOTS_INICIAL = 3;
 
     private Jugador jugador1;
     private Jugador jugador2;

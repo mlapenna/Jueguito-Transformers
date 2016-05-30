@@ -1,6 +1,8 @@
 package fiuba.algo3.modelo;
 
-public class Frenzy {
+import fiuba.algo3.modelo.Decepticon;
+
+public class Frenzy extends Decepticon {
     public boolean esDelMismoTipoQue(Algoformer unRobot) {
         return unRobot.soyFrenzy();
     };

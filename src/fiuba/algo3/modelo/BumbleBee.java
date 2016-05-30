@@ -1,7 +1,8 @@
 package fiuba.algo3.modelo;
 
+import fiuba.algo3.modelo.Decepticon;
 
-public class BumbleBee {
+public class BumbleBee extends Decepticon {
     public boolean esDelMismoTipoQue(Algoformer unRobot) {
         return unRobot.soyBumbleBee();
     };

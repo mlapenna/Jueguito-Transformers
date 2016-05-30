@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-public class Optimus extends Autobot{
+public class Optimus extends Autobot {
 	private static final int ataqueOptimusHumanoide = 50;
 	private static final int distanciaAtaqueOptimusHumanoide = 2;
 	private static final int VelocidadOptimusHumanoide = 2;
