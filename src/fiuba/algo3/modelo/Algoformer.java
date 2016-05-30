@@ -6,15 +6,13 @@ public abstract class Algoformer {
 	
 	protected int vida;
 	protected String nombre;
-	
+	protected String modo;
 	
 	public abstract void transformarHumanoide();
 	
 	public abstract void transformarAlterno();
 	
-	public void agregarATablero(Algoformer transformer){
-		
-	}
+	public abstract void agregarATablero();
 	
 	public void moverNuevaPosicion(Tablero tablero, Posicion posicion){
 		
@@ -23,6 +21,10 @@ public abstract class Algoformer {
 	public Posicion obtenerPosicion(Tablero tablero){
 		Posicion posicion = new Posicion();
 		return posicion;		
+	}
+
+	public String getModo() {
+		return this.modo;
 	}
 
 }

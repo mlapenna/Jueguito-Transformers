@@ -10,9 +10,9 @@ public class Optimus extends Autobot{
 	
 	public Optimus(){
 		this.vida = 500;
+		this.modo = modoHumanoide;
 		this.nombre = "optimus"; //CREAR CTE
 	}
-	private String modo = modoHumanoide;
 	private int ataque = ataqueOptimusHumanoide;
 	private int distanciaDeAtaque = distanciaAtaqueOptimusHumanoide;
 	private int Velocidad = VelocidadOptimusHumanoide;

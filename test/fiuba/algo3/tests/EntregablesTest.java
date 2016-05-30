@@ -49,17 +49,17 @@ public class EntregablesTest {
 	}
 	
 	@Test
-	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() {
+	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() {
 		
 		Tablero tablero = new Tablero();
 		Algoformer prime = new Optimus();
 		prime.agregarATablero(prime);
 		
 		prime.transformarAlterno();
-		Assert.assertTrue(prime.getModo==modoAlterno);
+		Assert.assertTrue(prime.getModo()=="alterno");
 		
 		prime.transformarHumanoide();
-		Assert.assertTrue(prime.getModo==modoHumanoide);
+		Assert.assertTrue(prime.getModo()=="humanoide");
 	}
 	
 	// 

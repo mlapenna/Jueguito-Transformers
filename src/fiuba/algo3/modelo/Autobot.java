@@ -1,5 +1,8 @@
 package fiuba.algo3.modelo;
 
-public class Autobot extends Algoformer{
+public abstract class Autobot extends Algoformer{
 
+	public void agregarATablero(){
+		//AL TABLERO LE TENGO QUE MANDAR UBICARAUTOBOT(THIS);
+	}
 }
