@@ -8,17 +8,17 @@ public abstract class Algoformer {
 	protected String nombre;
 	protected String modo;
 	
-	public abstract void transformarHumanoide();
+	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
-	public abstract void transformarAlterno();
+	public abstract void transformarAlterno(); //redefinida en cada Algoformer
 	
-	public abstract void agregarATablero();
+	public abstract void agregarATablero(); //redefinida en Autobot y Decepticon
 	
 	public void moverNuevaPosicion(Tablero tablero, Posicion posicion){
 		
 	}
 	
-	public Posicion obtenerPosicion(Tablero tablero){
+	public Posicion obtenerPosicion(Tablero tablero){  //NO PARECE HACER NADA
 		Posicion posicion = new Posicion();
 		return posicion;		
 	}
