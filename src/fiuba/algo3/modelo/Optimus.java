@@ -17,5 +17,20 @@ public class Optimus extends Autobot{
 	private int distanciaDeAtaque = distanciaAtaqueOptimusHumanoide;
 	private int Velocidad = VelocidadOptimusHumanoide;
 	
+	public void transformarHumanoide() {
+		this.modo=modoHumanoide;
+		this.ataque=ataqueOptimusHumanoide;
+		this.distanciaDeAtaque=distanciaAtaqueOptimusHumanoide;
+		this.Velocidad=VelocidadOptimusHumanoide;
+	}
+	
+	public void transformarAlterno(){
+		this.modo=modoAlterno;
+		this.ataque=ataqueOptimusAlterno;
+		this.distanciaDeAtaque=distanciaAtaqueOptimusAlterno;
+		this.Velocidad=VelocidadOptimusAlterno;
+	}
+	
+	
 
 }

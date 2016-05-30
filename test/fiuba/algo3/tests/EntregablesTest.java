@@ -41,14 +41,26 @@ public class EntregablesTest {
 		nuevaPosicion.cargarPosicion(3,1);
 		
 		prime.transformarAlterno();
-		prime.agregarATablero(prime);
+		prime.agregarATablero(prime); // por que le pasamos el objeto como parametro?
 		prime.moverNuevaPosicion(tablero,nuevaPosicion);
 		
 		finalPosicion = prime.obtenerPosicion(tablero);
 		
 	}
 	
-	
+	@Test
+	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() {
+		
+		Tablero tablero = new Tablero();
+		Algoformer prime = new Optimus();
+		prime.agregarATablero(prime);
+		
+		prime.transformarAlterno();
+		Assert.assertTrue(prime.getModo==modoAlterno);
+		
+		prime.transformarHumanoide();
+		Assert.assertTrue(prime.getModo==modoHumanoide);
+	}
 	
 	// 
 

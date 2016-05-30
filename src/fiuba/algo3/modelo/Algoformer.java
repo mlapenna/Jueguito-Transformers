@@ -1,8 +1,5 @@
 package fiuba.algo3.modelo;
 
-import fiuba.algo3.modelo.Posicion;
-import fiuba.algo3.modelo.Tablero;
-
 public abstract class Algoformer {
 	static final String modoHumanoide = "humanoide";
 	static final String modoAlterno = "alterno";
@@ -11,13 +8,9 @@ public abstract class Algoformer {
 	protected String nombre;
 	
 	
-	public void transformarHumanoide() {
-		
-	}
+	public abstract void transformarHumanoide();
 	
-	public void transformarAlterno(){
-		
-	}
+	public abstract void transformarAlterno();
 	
 	public void agregarATablero(Algoformer transformer){
 		
@@ -31,5 +24,5 @@ public abstract class Algoformer {
 		Posicion posicion = new Posicion();
 		return posicion;		
 	}
-	
+
 }
