@@ -2,7 +2,12 @@ package fiuba.algo3.modelo;
 
 import fiuba.algo3.modelo.Decepticon;
 
-public class Menasor extends Menasor {
+public class Menasor extends Decepticon {
+	
+	public Menasor(){
+		
+	}
+	
     public boolean esDelMismoTipoQue(Algoformer unRobot) {
         return unRobot.soyMenasor();
     };
