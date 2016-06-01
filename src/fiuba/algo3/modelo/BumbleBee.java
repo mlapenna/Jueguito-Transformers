@@ -11,9 +11,10 @@ public class BumbleBee extends Autobot {
 	private static final int velocidadBumbleBeeAlterno = 5;
 	private static final int VIDABUMBLEBEE = 350;
 	
-	public BumbleBee(){
+	public BumbleBee(Posicion posicion){
 		this.vida = VIDABUMBLEBEE;
 		this.movimiento = new MovimientoHumanoide();
+		this.posicion = posicion;
 	}
 	private int ataque = ataqueBumbleBeeHumanoide;
 	private int distanciaDeAtaque = distanciaAtaqueBumbleBeeHumanoide;
@@ -36,7 +37,7 @@ public class BumbleBee extends Autobot {
 
 	@Override
 	public void transformarAlterno() {
-		this.movimiento = new MovimientoAlterno();
+		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque=ataqueBumbleBeeAlterno;
 		this.distanciaDeAtaque=distanciaAtaqueBumbleBeeAlterno;
 		this.velocidad=velocidadBumbleBeeAlterno;

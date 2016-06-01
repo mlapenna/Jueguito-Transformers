@@ -7,10 +7,12 @@ public class Menasor {
 	private static final int ataqueMenasor = 115;
 	private static final int velocidadMenasor = 2;
 	
-	public Menasor(){
+	public Menasor(Posicion posicion){
 		this.vida = 1; //HACER METODO OBTENER VIDAS TOTALES
 		this.movimiento = new MovimientoHumanoide();
+		this.posicion = posicion;
 	}
+	private Posicion posicion;
 	private int vida;
 	private Movimiento movimiento;
 	private int ataque = ataqueMenasor;

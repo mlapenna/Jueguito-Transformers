@@ -12,6 +12,7 @@ public abstract class Algoformer {
 	
 	protected int vida;
 	protected Movimiento movimiento;
+	protected Posicion posicion;
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
@@ -22,7 +23,7 @@ public abstract class Algoformer {
 	} 
 	
 	public void moverNuevaPosicion(Posicion nuevaPosicion){
-		movimiento.moverPosicionAlgoformer(this,nuevaPosicion);
+		this.movimiento.moverPosicionAlgoformer(this,nuevaPosicion);
 	}
 
 	// Patr�n doble dispatch
@@ -36,10 +37,8 @@ public abstract class Algoformer {
 	public boolean soyFrenzy() { return false; }
 	public boolean soyMenasor() { return false; }
 
-
-	public Posicion obtenerPosicion(Tablero tablero){  //NO PARECE HACER NADA
-		Posicion posicion = new Posicion();
-		return posicion;		
+	public Posicion obtenerPosicion(){  //NO PARECE HACER NADA
+		return this.posicion;		
 	}
 
 }

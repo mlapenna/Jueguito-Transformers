@@ -9,9 +9,10 @@ public class Optimus extends Autobot {
 	private static final int velocidadOptimusAlterno = 2;
 	private static final int VIDAOPTIMUS = 500;
 	
-	public Optimus(){
+	public Optimus(Posicion posicion){
 		this.vida = VIDAOPTIMUS;
 		this.movimiento = new MovimientoHumanoide(); 
+		this.posicion = posicion;
 	}
 	
 	private int ataque = ataqueOptimusHumanoide;
@@ -26,7 +27,7 @@ public class Optimus extends Autobot {
 	}
 	
 	public void transformarAlterno(){
-		this.movimiento = new MovimientoAlterno();
+		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque=ataqueOptimusAlterno;
 		this.distanciaDeAtaque=distanciaAtaqueOptimusAlterno;
 		this.velocidad=velocidadOptimusAlterno;
@@ -38,6 +39,5 @@ public class Optimus extends Autobot {
 	};
 
 	public boolean soyOptimus() { return true; }
-	
 
 }

@@ -11,8 +11,10 @@ public class Frenzy extends Decepticon {
 	private static final int velocidadFrenzyAlterno = 6;
 	private static final int VIDAFRENZY = 400;
 	
-	public Frenzy(){
+	public Frenzy(Posicion posicion){
 		this.vida = VIDAFRENZY;
+		this.movimiento = new MovimientoHumanoide();
+		this.posicion = posicion;
 	}
 	private int ataque = ataqueFrenzyHumanoide;
 	private int distanciaDeAtaque = distanciaAtaqueFrenzyHumanoide;
@@ -26,7 +28,7 @@ public class Frenzy extends Decepticon {
 	}
 	
 	public void transformarAlterno(){
-		this.movimiento = new MovimientoAlterno();
+		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque=ataqueFrenzyAlterno;
 		this.distanciaDeAtaque=distanciaAtaqueFrenzyAlterno;
 		this.velocidad=velocidadFrenzyAlterno;

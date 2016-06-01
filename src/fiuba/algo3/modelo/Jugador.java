@@ -96,6 +96,7 @@ public class Jugador {
 
                 while (algoformersIterator.hasNext()) {
                     this.tablero.agregarRobot(algoformersIterator.next(), fila, columna, Superficie.MODO_TIERRA);
+                    
                     fila++;
                 }
                 break;
@@ -104,7 +105,6 @@ public class Jugador {
                 int columna = this.tablero.obtenerCantidadColumnas() - 1;
 
                 Iterator<Algoformer> algoformersIterator = this.misRobots.iterator();
-
                 while (algoformersIterator.hasNext()) {
                     this.tablero.agregarRobot(algoformersIterator.next(), fila, columna, Superficie.MODO_TIERRA);
                     fila--;

@@ -11,8 +11,9 @@ public class Megatron extends Decepticon {
 	private static final int velocidadMegatronAlterno = 8;
 	private static final int VIDAMEGATRON = 550;
 	
-	public Megatron(){
+	public Megatron(Posicion posicion){
 		this.vida=VIDAMEGATRON;
+		this.posicion = posicion;
 	}
 	private int ataque = ataqueMegatronHumanoide;
 	private int distanciaDeAtaque = distanciaAtaqueMegatronHumanoide;
@@ -32,7 +33,7 @@ public class Megatron extends Decepticon {
 	}
 	
 	public void transformarAlterno(){
-		this.movimiento = new MovimientoAlterno();
+		this.movimiento = new MovimientoAlternoAereo();
 		this.ataque = ataqueMegatronAlterno;
 		this.distanciaDeAtaque = distanciaAtaqueMegatronAlterno;
 		this.velocidad = velocidadMegatronAlterno;

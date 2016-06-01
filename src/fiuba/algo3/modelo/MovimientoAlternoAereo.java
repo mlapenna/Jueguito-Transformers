@@ -1,10 +1,10 @@
 package fiuba.algo3.modelo;
 
-public class MovimientoHumanoide extends Movimiento{
-	
+public class MovimientoAlternoAereo extends MovimientoAlterno{
+
 	@Override
 	public void moverPosicionAlgoformer(Algoformer algoformer, Posicion nuevaPosicion) {
-		this.tablero.moverAlgoformerHumanoide(algoformer,nuevaPosicion);
+		// TODO Auto-generated method stub
 	}
-
+	
 }

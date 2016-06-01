@@ -11,9 +11,10 @@ public class Bonecrusher extends Decepticon {
 	private static final int velocidadBonecrusherAlterno = 8;
 	private static final int VIDABONECRUSHER=200;
 	
-	public Bonecrusher(){
+	public Bonecrusher(Posicion posicion){
 		this.vida = VIDABONECRUSHER;
 		this.movimiento = new MovimientoHumanoide();
+		this.posicion = posicion;
 	}
 	private int ataque = ataqueBonecrusherHumanoide;
 	private int distanciaDeAtaque = distanciaAtaqueBonecrusherHumanoide;
@@ -36,7 +37,7 @@ public class Bonecrusher extends Decepticon {
 
 	@Override
 	public void transformarAlterno() {
-		this.movimiento = new MovimientoAlterno();
+		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque=ataqueBonecrusherAlterno;
 		this.distanciaDeAtaque=distanciaAtaqueBonecrusherAlterno;
 		this.velocidad=velocidadBonecrusherAlterno;
