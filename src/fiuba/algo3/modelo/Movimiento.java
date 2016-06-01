@@ -10,11 +10,11 @@ import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.Casillero;
 import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupado;
 
-public class Movimiento {
+public abstract class Movimiento {
 	
-	Tablero tablero;
+	protected Tablero tablero;
 
-	public void moverPosicionAlgoformer(Algoformer algoformer,Posicion nuevaPosicion){
+	public abstract void moverPosicionAlgoformer(Algoformer algoformer,Posicion nuevaPosicion); // VA A DEPENDER DEL MODO
 		// Acá tiene que preguntar al teclado:
 		// está ocupada la posicion final?
 		// es movimiento válido?
@@ -22,23 +22,22 @@ public class Movimiento {
 			// qué efecto tiene la superficie donde está parado el algoformer?
 		
 		// Ver q la posición que se quiere poner el algoformer, no esté ocupada
-		Casillero nuevoCasillero = this.obtenerCasillero(nuevaPosicion);
-		movimientoACasilleroVacio(nuevoCasillero);
+		//Casillero nuevoCasillero = this.obtenerCasillero(nuevaPosicion);
+		//movimientoACasilleroVacio(nuevoCasillero);
 		
 		// Hay que ver si le da la distancia/velocidad que quiere
 		// Esto se hace con una diferencia entre las posiciones (cantidad de casilleros) y la velocidad 
 		// del algoformer. 
 		// Si la Posicion que quiero que tenga es mayor a la velocidad (cantidad de casillas máximas de movimiento)
 		// entonces no se puede mover.
-		try{
-			distanciaDeMovimientoValida(algoformer,nuevaPosicion);
-		}
-		catch(Exception e)
-		{
-			throw new MovimientoInvalidoDistanciaNoValida();
-		}
+		//try{
+		//	distanciaDeMovimientoValida(algoformer,nuevaPosicion);
+		//}
+		//catch(Exception e)
+		//{
+		//	throw new MovimientoInvalidoDistanciaNoValida();
+		//}
 		
-	}
 	
 	private Casillero obtenerCasillero(Posicion nuevaPoscion){
 		// TODO: buscar el casillero en el tablero

@@ -11,10 +11,7 @@ public abstract class Algoformer {
 	static final int TOTAL_ROBOTS_DISPONIBLES_POR_TIPO = 4;
 	
 	protected int vida;
-	protected String nombre;
-	protected String modo;
-	
-	Movimiento movimiento = new Movimiento();
+	protected Movimiento movimiento;
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
@@ -25,7 +22,6 @@ public abstract class Algoformer {
 	} 
 	
 	public void moverNuevaPosicion(Posicion nuevaPosicion){
-		Movimiento movimiento = new Movimiento();
 		movimiento.moverPosicionAlgoformer(this,nuevaPosicion);
 	}
 
@@ -44,10 +40,6 @@ public abstract class Algoformer {
 	public Posicion obtenerPosicion(Tablero tablero){  //NO PARECE HACER NADA
 		Posicion posicion = new Posicion();
 		return posicion;		
-	}
-
-	public String getModo() {
-		return this.modo;
 	}
 
 }

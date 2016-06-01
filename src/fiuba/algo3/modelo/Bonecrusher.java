@@ -13,11 +13,11 @@ public class Bonecrusher extends Decepticon {
 	
 	public Bonecrusher(){
 		this.vida = VIDABONECRUSHER;
+		this.movimiento = new MovimientoHumanoide();
 	}
-	
 	private int ataque = ataqueBonecrusherHumanoide;
 	private int distanciaDeAtaque = distanciaAtaqueBonecrusherHumanoide;
-	private int Velocidad = velocidadBonecrusherHumanoide;
+	private int velocidad = velocidadBonecrusherHumanoide;
 	
 	
     public boolean esDelMismoTipoQue(Algoformer unRobot) {
@@ -28,13 +28,17 @@ public class Bonecrusher extends Decepticon {
 
 	@Override
 	public void transformarHumanoide() {
-		// TODO Auto-generated method stub
-		
+		this.movimiento = new MovimientoHumanoide();
+		this.ataque=ataqueBonecrusherHumanoide;
+		this.distanciaDeAtaque=distanciaAtaqueBonecrusherHumanoide;
+		this.velocidad=velocidadBonecrusherHumanoide;
 	}
 
 	@Override
 	public void transformarAlterno() {
-		// TODO Auto-generated method stub
-		
+		this.movimiento = new MovimientoAlterno();
+		this.ataque=ataqueBonecrusherAlterno;
+		this.distanciaDeAtaque=distanciaAtaqueBonecrusherAlterno;
+		this.velocidad=velocidadBonecrusherAlterno;
 	}
 }

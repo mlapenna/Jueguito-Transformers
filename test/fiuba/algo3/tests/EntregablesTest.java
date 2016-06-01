@@ -56,10 +56,10 @@ public class EntregablesTest {
 		prime.agregarATablero(prime);
 		
 		prime.transformarAlterno();
-		Assert.assertTrue(prime.getModo()=="alterno");
+		Assert.assertTrue(prime.getAtaque()==15);
 		
 		prime.transformarHumanoide();
-		Assert.assertTrue(prime.getModo()=="humanoide");
+		Assert.assertTrue(prime.getAtaque()==50);
 	}
 	
 	// 
