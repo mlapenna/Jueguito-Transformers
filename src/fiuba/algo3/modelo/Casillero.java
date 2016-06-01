@@ -33,4 +33,9 @@ public class Casillero {
 	public void agregarBonus(Bonus bonus){
 		this.bonus=bonus;
 	}
+	
+	public void obtenerContenido(){
+		
+	}
+	
 }
