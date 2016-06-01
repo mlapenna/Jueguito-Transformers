@@ -1,5 +1,8 @@
 package fiuba.algo3.modelo;
 
+import fiuba.algo3.modelo.Movimiento;
+import fiuba.algo3.modelo.Posicion;
+
 public abstract class Algoformer {
 	static final String modoHumanoide = "humanoide";
 	static final String modoAlterno = "alterno";
@@ -11,17 +14,22 @@ public abstract class Algoformer {
 	protected String nombre;
 	protected String modo;
 	
+	Movimiento movimiento = new Movimiento();
+	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
 	public abstract void transformarAlterno(); //redefinida en cada Algoformer
 	
-	public abstract void agregarATablero(); //redefinida en Autobot y Decepticon
+	public void agregarATablero() {
+
+	} 
 	
-	public void moverNuevaPosicion(Tablero tablero, Posicion posicion){
-		
+	public void moverNuevaPosicion(Posicion nuevaPosicion){
+		Movimiento movimiento = new Movimiento();
+		movimiento.moverPosicionAlgoformer(this,nuevaPosicion);
 	}
 
-	// Patrón doble dispatch
+	// Patrï¿½n doble dispatch
 	public abstract boolean esDelMismoTipoQue(Algoformer unRobot);
 	public boolean soyOptimus() { return false; }
 	public boolean soyBumbleBee() { return false; }
