@@ -66,7 +66,5 @@ public abstract class Movimiento {
 		// Acá tomo la velocidad que tenga el algoformer y me fijo hasta donde puede ir
 		
 	}
-	
-		
-	}
+
 }

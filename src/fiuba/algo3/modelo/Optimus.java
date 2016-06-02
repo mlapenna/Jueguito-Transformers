@@ -21,16 +21,16 @@ public class Optimus extends Autobot {
 	
 	public void transformarHumanoide() {
 		this.movimiento = new MovimientoHumanoide();
-		this.ataque=ATAQUE_HUMANOIDE;
-		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
-		this.velocidad=VELOCIDAD_HUMANOIDE;
+		this.ataque = ATAQUE_HUMANOIDE;
+		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+		this.velocidad = VELOCIDAD_HUMANOIDE;
 	}
 	
 	public void transformarAlterno(){
 		this.movimiento = new MovimientoAlternoTerrestre();
-		this.ataque=ATAQUE_ALTERNO;
-		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;
-		this.velocidad=VELOCIDAD_ALTERNO;
+		this.ataque = ATAQUE_ALTERNO;
+		this.distanciaDeAtaque = DISTANCIA_ATAQUE_ALTERNO;
+		this.velocidad = VELOCIDAD_ALTERNO;
 	}
 
 }

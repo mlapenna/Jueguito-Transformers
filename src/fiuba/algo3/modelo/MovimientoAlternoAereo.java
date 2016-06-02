@@ -14,4 +14,16 @@ public class MovimientoAlternoAereo extends MovimientoAlterno{
 		
 	}
 
+	@Override
+	public void moverPosicionAlgoformerVerticalAbajo(Algoformer algoformer, Posicion nuevaPosicion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moverPosicionAlgoformerVerticalArriba(Algoformer algoformer, Posicion nuevaPosicion) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

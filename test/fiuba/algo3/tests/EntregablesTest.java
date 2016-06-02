@@ -51,12 +51,11 @@ public class EntregablesTest {
 	@Test
 	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() {
 		
-		Tablero tablero = new Tablero();
 		Algoformer prime = new Optimus();
-		prime.agregarATablero(prime);
 		
 		prime.transformarAlterno();
 		Assert.assertTrue(prime.getAtaque()==15);
+		
 		
 		prime.transformarHumanoide();
 		Assert.assertTrue(prime.getAtaque()==50);
