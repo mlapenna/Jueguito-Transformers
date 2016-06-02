@@ -25,12 +25,12 @@ public class Posicion {
 	//	}
 	}
 	
-	private int obtenerPosicionX()
+	public int obtenerPosicionX()
 	{
 		return this.x;
 	}
 	
-	private int obtenerPosicionY()
+	public int obtenerPosicionY()
 	{
 		return this.y;
 	}

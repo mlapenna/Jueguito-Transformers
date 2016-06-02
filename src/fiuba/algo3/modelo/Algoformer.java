@@ -22,9 +22,9 @@ public abstract class Algoformer {
 
 	} 
 	
-	public void moverNuevaPosicion(Posicion nuevaPosicion){
-		this.movimiento.moverPosicionAlgoformer(this,nuevaPosicion);
-	}
+	//public void moverNuevaPosicion(Posicion nuevaPosicion){
+	//	this.movimiento.moverPosicionAlgoformer(this,nuevaPosicion);
+	//}
 
 	// Patr�n doble dispatch
 	public abstract boolean esDelMismoTipoQue(Algoformer unRobot);
@@ -39,6 +39,21 @@ public abstract class Algoformer {
 
 	public Posicion obtenerPosicion(){  //NO PARECE HACER NADA
 		return this.posicion;		
+	}
+	
+	public void cargarNuevaPosicion(Posicion posicion){
+		this.posicion=posicion;
+	}
+
+	public int getVida() {
+		return this.vida;
+	}
+
+	public void reducirVida(int ataque) {
+		this.vida = this.vida - ataque;
+		//if (this.getVida()<0)
+		//	this.morir();
+		
 	}
 
 }

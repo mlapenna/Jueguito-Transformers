@@ -14,7 +14,8 @@ public abstract class Movimiento {
 	
 	protected Tablero tablero;
 
-	public abstract void moverPosicionAlgoformer(Algoformer algoformer,Posicion nuevaPosicion); // VA A DEPENDER DEL MODO
+	public abstract void moverPosicionAlgoformerHorizontalIzquierda(Algoformer algoformer,Posicion nuevaPosicion);
+	public abstract void moverPosicionAlgoformerHorizontalDerecha(Algoformer algoformer,Posicion nuevaPosicion); // VA A DEPENDER DEL MODO
 		// Acá tiene que preguntar al teclado:
 		// está ocupada la posicion final?
 		// es movimiento válido?

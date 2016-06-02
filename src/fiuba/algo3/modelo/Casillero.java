@@ -1,14 +1,22 @@
 package fiuba.algo3.modelo;
 
 public class Casillero {
-	
+	public static final int ataqueEspinas = 5;
 	private Algoformer algoformer = null; //VER QUE ESTA FEO EL NULL ACA
-	private boolean vacio=true;
+	private boolean vacio = true;
 	private Tierra tierra;
 	private Aire aire;
 	private Bonus bonus;
 
-	public void agregarAlgoformer(Algoformer algoformer) {
+	public void agregarAlgoformerHumanoide(Algoformer algoformer) {
+		
+		if (tierra.superficie()=="pantano") //PONER CTE
+			throw new MovimientoInvalidoIncapazDeAtravezarSuperficie();
+		if (tierra.superficie()=="espinas")
+			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100));
+		if (this.estaVacio()==false)
+			throw new MovimientoInvalidoCasilleroOcupado();
+		//VER Q ONDA EL BONUS, NO SE SI HAY Q HACERLO
 		this.algoformer=algoformer;
 		this.vacio=false;
 	}
