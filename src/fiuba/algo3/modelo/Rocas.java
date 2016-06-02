@@ -1,6 +1,9 @@
 package fiuba.algo3.modelo;
 
 public class Rocas extends Tierra {
-	public static String SUPERFICIE = "rocas";
+
+	public Rocas(){
+		this.superficie = rocas;
+	}
 
 }

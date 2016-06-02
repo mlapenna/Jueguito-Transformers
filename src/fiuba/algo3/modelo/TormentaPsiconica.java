@@ -1,5 +1,9 @@
 package fiuba.algo3.modelo;
 
 public class TormentaPsiconica extends Aire {
-	public static String SUPERFICIE = "tormentaPsiconica";
+
+	public TormentaPsiconica(){
+		this.superficie = TORMENTA_PSIONICA;
+	}
+
 }
