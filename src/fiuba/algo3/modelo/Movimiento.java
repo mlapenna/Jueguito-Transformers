@@ -13,7 +13,9 @@ import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupado;
 public abstract class Movimiento {
 	
 	protected Tablero tablero;
-
+	
+	public abstract void moverPosicionAlgoformerVerticalAbajo(Algoformer algoformer, Posicion nuevaPosicion);
+	public abstract void moverPosicionAlgoformerVerticalArriba(Algoformer algoformer, Posicion nuevaPosicion);
 	public abstract void moverPosicionAlgoformerHorizontalIzquierda(Algoformer algoformer,Posicion nuevaPosicion);
 	public abstract void moverPosicionAlgoformerHorizontalDerecha(Algoformer algoformer,Posicion nuevaPosicion); // VA A DEPENDER DEL MODO
 		// Acá tiene que preguntar al teclado:
@@ -62,6 +64,9 @@ public abstract class Movimiento {
 	private void distanciaDeMovimientoValida(Algoformer algoformer,Posicion destino){
 		// TODO
 		// Acá tomo la velocidad que tenga el algoformer y me fijo hasta donde puede ir
+		
+	}
+	
 		
 	}
 }

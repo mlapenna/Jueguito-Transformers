@@ -13,7 +13,6 @@ public class Tablero {
 		algoformer.cargarNuevaPosicion(posicionFinal);
 	}
 	
-	
 	private Casillero atCasillero(Posicion posicion){
 		return casilleros[posicion.obtenerPosicionX()][posicion.obtenerPosicionY()];
 	}

@@ -12,7 +12,7 @@ public class Bonecrusher extends Decepticon {
 	private static final int VIDA=200;
 	
 	public Bonecrusher(Posicion posicion){
-		this.vida = VIDABONECRUSHER;
+		this.vida = VIDA;
 		this.movimiento = new MovimientoHumanoide();
 		this.posicion = posicion;
 	}

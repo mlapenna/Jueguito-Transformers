@@ -7,7 +7,7 @@ public class MovimientoHumanoide extends Movimiento{
 		Posicion posicionInicial = algoformer.obtenerPosicion();
 		Posicion posicionAuxiliar = new Posicion();
 		int fila = posicionInicial.obtenerPosicionY();
-		for (int i=posicionInicial.obtenerPosicionX(); i>=nuevaPosicion.obtenerPosicionX(); i++)
+		for (int i=posicionInicial.obtenerPosicionX(); i<=nuevaPosicion.obtenerPosicionX(); i++)
 		{
 			//try{
 				posicionAuxiliar.cargarPosicion(i, fila);
@@ -21,11 +21,41 @@ public class MovimientoHumanoide extends Movimiento{
 	public void moverPosicionAlgoformerHorizontalIzquierda(Algoformer algoformer, Posicion nuevaPosicion) {
 		Posicion posicionInicial = algoformer.obtenerPosicion();
 		Posicion posicionAuxiliar = new Posicion();
-		int fila = posicionInicial.obtenerPosicionY();
-		for (int i=posicionInicial.obtenerPosicionX(); i<=nuevaPosicion.obtenerPosicionX(); i--)
+		int columna = posicionInicial.obtenerPosicionY();
+		for (int i=posicionInicial.obtenerPosicionX(); i>=nuevaPosicion.obtenerPosicionX(); i--)
 		{
 			//try{
-				posicionAuxiliar.cargarPosicion(i, fila);
+				posicionAuxiliar.cargarPosicion(i, columna);
+				this.tablero.moverAlgoformerHumanoide(algoformer,posicionAuxiliar);
+			//}catch Exception SI NO SE PUDO MOVER AGREGAR DENUEVO A POSICION INICIAL
+		}
+		
+	}
+
+	@Override
+	public void moverPosicionAlgoformerVerticalArriba(Algoformer algoformer, Posicion nuevaPosicion) {
+		Posicion posicionInicial = algoformer.obtenerPosicion();
+		Posicion posicionAuxiliar = new Posicion();
+		int fila = posicionInicial.obtenerPosicionX();
+		for (int i=posicionInicial.obtenerPosicionY(); i<=nuevaPosicion.obtenerPosicionY(); i++)
+		{
+			//try{
+				posicionAuxiliar.cargarPosicion(fila, i);
+				this.tablero.moverAlgoformerHumanoide(algoformer,posicionAuxiliar);
+			//}catch Exception SI NO SE PUDO MOVER AGREGAR DENUEVO A POSICION INICIAL
+		}
+		
+	}
+	
+	@Override
+	public void moverPosicionAlgoformerVerticalAbajo(Algoformer algoformer, Posicion nuevaPosicion) {
+		Posicion posicionInicial = algoformer.obtenerPosicion();
+		Posicion posicionAuxiliar = new Posicion();
+		int fila = posicionInicial.obtenerPosicionX();
+		for (int i=posicionInicial.obtenerPosicionY(); i>=nuevaPosicion.obtenerPosicionY(); i--)
+		{
+			//try{
+				posicionAuxiliar.cargarPosicion(fila, i);
 				this.tablero.moverAlgoformerHumanoide(algoformer,posicionAuxiliar);
 			//}catch Exception SI NO SE PUDO MOVER AGREGAR DENUEVO A POSICION INICIAL
 		}
