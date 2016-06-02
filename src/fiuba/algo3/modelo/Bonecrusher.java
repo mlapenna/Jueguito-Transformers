@@ -23,9 +23,9 @@ public class Bonecrusher extends Decepticon {
     @Override
 	public void transformarHumanoide() {
 		this.movimiento = new MovimientoHumanoide();
-		this.ataque=ATAQUE_HUMANOIDE;
-		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
-		this.velocidad=VELOCIDAD_HUMANOIDE;
+		this.ataque = ATAQUE_HUMANOIDE;
+		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+		this.velocidad = VELOCIDAD_HUMANOIDE;
 	}
 
 	@Override

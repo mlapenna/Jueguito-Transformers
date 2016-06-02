@@ -1,5 +1,7 @@
 package fiuba.algo3.modelo;
 
-public class Vacio {
+import fiuba.algo3.modelo.Casillero;
+
+public class Vacio extends Casillero {
 
 }
