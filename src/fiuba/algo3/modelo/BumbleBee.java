@@ -3,43 +3,37 @@ package fiuba.algo3.modelo;
 import fiuba.algo3.modelo.Decepticon;
 
 public class BumbleBee extends Autobot {
-	private static final int ataqueBumbleBeeHumanoide = 40;
-	private static final int distanciaAtaqueBumbleBeeHumanoide = 1;
-	private static final int velocidadBumbleBeeHumanoide = 2;
-	private static final int ataqueBumbleBeeAlterno = 20;
-	private static final int distanciaAtaqueBumbleBeeAlterno = 3;
-	private static final int velocidadBumbleBeeAlterno = 5;
-	private static final int VIDABUMBLEBEE = 350;
+	private static final int ATAQUE_HUMANOIDE = 40;
+	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 1;
+	private static final int VELOCIDAD_HUMANOIDE = 2;
+	private static final int ATAQUE_ALTERNO = 20;
+	private static final int DISTANCIA_ATAQUE_ALTERNO = 3;
+	private static final int VELOCIDAD_ALTERNO = 5;
+	private static final int VIDA = 350;
 	
 	public BumbleBee(Posicion posicion){
-		this.vida = VIDABUMBLEBEE;
+		this.vida = VIDA;
 		this.movimiento = new MovimientoHumanoide();
 		this.posicion = posicion;
 	}
-	private int ataque = ataqueBumbleBeeHumanoide;
-	private int distanciaDeAtaque = distanciaAtaqueBumbleBeeHumanoide;
-	private int velocidad = velocidadBumbleBeeHumanoide;
+	private int ataque = ATAQUE_HUMANOIDE;
+	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+	private int velocidad = VELOCIDAD_HUMANOIDE;
 	
 	
-    public boolean esDelMismoTipoQue(Algoformer unRobot) {
-        return unRobot.soyBumbleBee();
-    };
-
-    public boolean soyBumbleBee() { return true; }
-
-	@Override
+  	@Override
 	public void transformarHumanoide() {
 		this.movimiento = new MovimientoHumanoide();
-		this.ataque=ataqueBumbleBeeHumanoide;
-		this.distanciaDeAtaque=distanciaAtaqueBumbleBeeHumanoide;
-		this.velocidad=velocidadBumbleBeeHumanoide;
+		this.ataque=ATAQUE_HUMANOIDE;
+		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
+		this.velocidad=VELOCIDAD_HUMANOIDE;
 	}
 
 	@Override
 	public void transformarAlterno() {
 		this.movimiento = new MovimientoAlternoTerrestre();
-		this.ataque=ataqueBumbleBeeAlterno;
-		this.distanciaDeAtaque=distanciaAtaqueBumbleBeeAlterno;
-		this.velocidad=velocidadBumbleBeeAlterno;
+		this.ataque=ATAQUE_ALTERNO;
+		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;
+		this.velocidad=VELOCIDAD_ALTERNO;
 	}
 }

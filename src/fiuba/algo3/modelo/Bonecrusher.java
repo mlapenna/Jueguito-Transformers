@@ -3,43 +3,36 @@ package fiuba.algo3.modelo;
 import fiuba.algo3.modelo.Decepticon;
 
 public class Bonecrusher extends Decepticon {
-	private static final int ataqueBonecrusherHumanoide = 30;
-	private static final int distanciaAtaqueBonecrusherHumanoide = 3;
-	private static final int velocidadBonecrusherHumanoide = 1;
-	private static final int ataqueBonecrusherAlterno = 30;
-	private static final int distanciaAtaqueBonecrusherAlterno = 3;
-	private static final int velocidadBonecrusherAlterno = 8;
-	private static final int VIDABONECRUSHER=200;
+	private static final int ATAQUE_HUMANOIDE = 30;
+	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 3;
+	private static final int VELOCIDAD_HUMANOIDE = 1;
+	private static final int ATAQUE_ALTERNO = 30;
+	private static final int DISTANCIA_ATAQUE_ALTERNO = 3;
+	private static final int VELOCIDAD_ALTERNO = 8;
+	private static final int VIDA=200;
 	
 	public Bonecrusher(Posicion posicion){
 		this.vida = VIDABONECRUSHER;
 		this.movimiento = new MovimientoHumanoide();
 		this.posicion = posicion;
 	}
-	private int ataque = ataqueBonecrusherHumanoide;
-	private int distanciaDeAtaque = distanciaAtaqueBonecrusherHumanoide;
-	private int velocidad = velocidadBonecrusherHumanoide;
-	
-	
-    public boolean esDelMismoTipoQue(Algoformer unRobot) {
-        return unRobot.soyBonecrusher();
-    };
+	private int ataque = ATAQUE_HUMANOIDE;
+	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+	private int velocidad = VELOCIDAD_HUMANOIDE;
 
-    public boolean soyBonecrusher() { return true; }
-
-	@Override
+    @Override
 	public void transformarHumanoide() {
 		this.movimiento = new MovimientoHumanoide();
-		this.ataque=ataqueBonecrusherHumanoide;
-		this.distanciaDeAtaque=distanciaAtaqueBonecrusherHumanoide;
-		this.velocidad=velocidadBonecrusherHumanoide;
+		this.ataque=ATAQUE_HUMANOIDE;
+		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
+		this.velocidad=VELOCIDAD_HUMANOIDE;
 	}
 
 	@Override
 	public void transformarAlterno() {
 		this.movimiento = new MovimientoAlternoTerrestre();
-		this.ataque=ataqueBonecrusherAlterno;
-		this.distanciaDeAtaque=distanciaAtaqueBonecrusherAlterno;
-		this.velocidad=velocidadBonecrusherAlterno;
+		this.ataque=ATAQUE_ALTERNO;
+		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;
+		this.velocidad=VELOCIDAD_ALTERNO;
 	}
 }

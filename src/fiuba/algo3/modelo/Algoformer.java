@@ -26,16 +26,6 @@ public abstract class Algoformer {
 	//	this.movimiento.moverPosicionAlgoformer(this,nuevaPosicion);
 	//}
 
-	// Patr�n doble dispatch
-	public abstract boolean esDelMismoTipoQue(Algoformer unRobot);
-	public boolean soyOptimus() { return false; }
-	public boolean soyBumbleBee() { return false; }
-	public boolean soyRatchet() { return false; }
-	public boolean soySuperion() { return false; }
-	public boolean soyMegatron() { return false; }
-	public boolean soyBonecrusher() { return false; }
-	public boolean soyFrenzy() { return false; }
-	public boolean soyMenasor() { return false; }
 
 	public Posicion obtenerPosicion(){  //NO PARECE HACER NADA
 		return this.posicion;		

@@ -1,43 +1,36 @@
 package fiuba.algo3.modelo;
 
 public class Optimus extends Autobot {
-	private static final int ataqueOptimusHumanoide = 50;
-	private static final int distanciaAtaqueOptimusHumanoide = 2;
-	private static final int velocidadOptimusHumanoide = 2;
-	private static final int ataqueOptimusAlterno = 15;
-	private static final int distanciaAtaqueOptimusAlterno = 4;
-	private static final int velocidadOptimusAlterno = 2;
-	private static final int VIDAOPTIMUS = 500;
+	private static final int ATAQUE_HUMANOIDE = 50;
+	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 2;
+	private static final int VELOCIDAD_HUMANOIDE = 2;
+	private static final int ATAQUE_ALTERNO = 15;
+	private static final int DISTANCIA_ATAQUE_ALTERNO = 4;
+	private static final int VELOCIDAD_ALTERNO = 2;
+	private static final int VIDA = 500;
 	
 	public Optimus(Posicion posicion){
-		this.vida = VIDAOPTIMUS;
+		this.vida = VIDA;
 		this.movimiento = new MovimientoHumanoide(); 
 		this.posicion = posicion;
 	}
 	
-	private int ataque = ataqueOptimusHumanoide;
-	private int distanciaDeAtaque = distanciaAtaqueOptimusHumanoide;
-	private int velocidad = velocidadOptimusHumanoide;
+	private int ataque = ATAQUE_HUMANOIDE;
+	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+	private int velocidad = VELOCIDAD_HUMANOIDE;
 	
 	public void transformarHumanoide() {
 		this.movimiento = new MovimientoHumanoide();
-		this.ataque=ataqueOptimusHumanoide;
-		this.distanciaDeAtaque=distanciaAtaqueOptimusHumanoide;
-		this.velocidad=velocidadOptimusHumanoide;
+		this.ataque=ATAQUE_HUMANOIDE;
+		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
+		this.velocidad=VELOCIDAD_HUMANOIDE;
 	}
 	
 	public void transformarAlterno(){
 		this.movimiento = new MovimientoAlternoTerrestre();
-		this.ataque=ataqueOptimusAlterno;
-		this.distanciaDeAtaque=distanciaAtaqueOptimusAlterno;
-		this.velocidad=velocidadOptimusAlterno;
+		this.ataque=ATAQUE_ALTERNO;
+		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;
+		this.velocidad=VELOCIDAD_ALTERNO;
 	}
-
-
-	public boolean esDelMismoTipoQue(Algoformer unRobot) {
-		return unRobot.soyOptimus();
-	};
-
-	public boolean soyOptimus() { return true; }
 
 }

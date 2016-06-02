@@ -3,39 +3,33 @@ package fiuba.algo3.modelo;
 import fiuba.algo3.modelo.Decepticon;
 
 public class Megatron extends Decepticon {
-	private static final int ataqueMegatronHumanoide = 10;
-	private static final int distanciaAtaqueMegatronHumanoide = 3;
-	private static final int velocidadMegatronHumanoide = 1;
-	private static final int ataqueMegatronAlterno = 55;
-	private static final int distanciaAtaqueMegatronAlterno = 2;
-	private static final int velocidadMegatronAlterno = 8;
-	private static final int VIDAMEGATRON = 550;
+	private static final int ATAQUE_HUMANOIDE = 10;
+	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 3;
+	private static final int VELOCIDAD_HUMANOIDE = 1;
+	private static final int ATAQUE_ALTERNO = 55;
+	private static final int DISTANCIA_ATAQUE_ALTERNO = 2;
+	private static final int VELOCIDAD_ALTERNO = 8;
+	private static final int VIDA = 550;
 	
 	public Megatron(Posicion posicion){
-		this.vida=VIDAMEGATRON;
+		this.vida=VIDA_;
 		this.posicion = posicion;
 	}
-	private int ataque = ataqueMegatronHumanoide;
-	private int distanciaDeAtaque = distanciaAtaqueMegatronHumanoide;
-	private int velocidad = velocidadMegatronHumanoide;
+	private int ataque = ATAQUE_HUMANOIDE;
+	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+	private int velocidad = VELOCIDAD_HUMANOIDE;
 	
-    public boolean esDelMismoTipoQue(Algoformer unRobot) {
-        return unRobot.soyMegatron();
-    };
-
-    public boolean soyMegatron() { return true; }
-
-	public void transformarHumanoide() {
+ 	public void transformarHumanoide() {
 		this.movimiento = new MovimientoHumanoide();
-		this.ataque = ataqueMegatronHumanoide;
-		this.distanciaDeAtaque = distanciaAtaqueMegatronHumanoide;
-		this.velocidad = velocidadMegatronHumanoide;
+		this.ataque = ATAQUE_HUMANOIDE;
+		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+		this.velocidad = VELOCIDAD_HUMANOIDE;
 	}
 	
 	public void transformarAlterno(){
 		this.movimiento = new MovimientoAlternoAereo();
-		this.ataque = ataqueMegatronAlterno;
-		this.distanciaDeAtaque = distanciaAtaqueMegatronAlterno;
-		this.velocidad = velocidadMegatronAlterno;
+		this.ataque = ATAQUE_ALTERNO;
+		this.distanciaDeAtaque = DISTANCIA_ATAQUE_ALTERNO;
+		this.velocidad = VELOCIDAD_ALTERNO;
 	}
 }

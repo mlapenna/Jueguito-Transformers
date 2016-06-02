@@ -3,9 +3,9 @@ package fiuba.algo3.modelo;
 import fiuba.algo3.modelo.Decepticon;
 
 public class Menasor {
-	private static final int distanciaAtaqueMenasor = 2;
-	private static final int ataqueMenasor = 115;
-	private static final int velocidadMenasor = 2;
+	private static final int DISTANCIA_ATAQUE = 2;
+	private static final int ATAQUE = 115;
+	private static final int VELOCIDAD = 2;
 	
 	public Menasor(Posicion posicion){
 		this.vida = 1; //HACER METODO OBTENER VIDAS TOTALES
@@ -15,13 +15,8 @@ public class Menasor {
 	private Posicion posicion;
 	private int vida;
 	private Movimiento movimiento;
-	private int ataque = ataqueMenasor;
-	private int distanciaDeAtaque = distanciaAtaqueMenasor;
-	private int velocidad = velocidadMenasor;
-	
-    public boolean esDelMismoTipoQue(Algoformer unRobot) {
-        return unRobot.soyMenasor();
-    };
+	private int ataque = ATAQUE;
+	private int distanciaDeAtaque = DISTANCIA_ATAQUE;
+	private int velocidad = VELOCIDAD;
 
-    public boolean soyMenasor() { return true; }
 }
