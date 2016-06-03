@@ -2,7 +2,7 @@ package fiuba.algo3.modelo;
 
 public class Tablero {
 	
-	private Casillero[][] casilleros;
+	private casillero[][] casilleros;
 	
 	public void moverAlgoformerHumanoide(Algoformer algoformer, Posicion posicionFinal){
 		this.atCasillero(algoformer.obtenerPosicion()).quitarAlgoformer(algoformer);
