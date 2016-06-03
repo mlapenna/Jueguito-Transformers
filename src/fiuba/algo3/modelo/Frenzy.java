@@ -11,11 +11,11 @@ public class Frenzy extends Decepticon {
 	private static final int VELOCIDAD_ALTERNO = 6;
 	private static final int VIDA = 400;
 	
-	public Frenzy(Posicion posicion){
+	public Frenzy() {
 		this.vida = VIDA;
 		this.movimiento = new MovimientoHumanoide();
-		this.posicion = posicion;
 	}
+
 	private int ataque = ATAQUE_HUMANOIDE;
 	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
 	private int velocidad = this.VELOCIDAD_HUMANOIDE;

@@ -11,11 +11,11 @@ public class Bonecrusher extends Decepticon {
 	private static final int VELOCIDAD_ALTERNO = 8;
 	private static final int VIDA=200;
 	
-	public Bonecrusher(Posicion posicion){
+	public Bonecrusher() {
 		this.vida = VIDA;
 		this.movimiento = new MovimientoHumanoide();
-		this.posicion = posicion;
 	}
+
 	private int ataque = ATAQUE_HUMANOIDE;
 	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
 	private int velocidad = VELOCIDAD_HUMANOIDE;

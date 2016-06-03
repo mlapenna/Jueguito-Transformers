@@ -18,98 +18,56 @@ public class Jugador {
         this.nombre = nombre;
         this.tablero = tablero;
 
-        this.generarRobotsAlAzar(modo);
-
-        this.agregarRobotsAlTablero();
-    }
-
-
-    // Agrega a la clase 3 robots diferentes al azar y del tipo correcto
-    private void generarRobotsAlAzar(int modo) {
-        Random rnd = new Random();
-
-        while (this.misRobots.size() < Juego.CANTIDAD_DE_ROBOTS_INICIAL) {
-
-            // Genero un entero entre 0 y la cantidad de robots existentes por tipo
-            int numeAzar = (int) (rnd.nextDouble() * TOTAL_ROBOTS_DISPONIBLES_POR_TIPO);
-
-            switch (modo) {
-                case Algoformer.MODO_AUTOBOT:
-                    switch (numeAzar) {
-                        case 0:
-                            Optimus robotNuevo = new Optimus();
-                            break;
-                        case 1:
-                            BumbleBee robotNuevo = new BumbleBee();
-                            break;
-                        case 2:
-                            Ratchet robotNuevo = new Ratchet();
-                            break;
-                        case 3:
-                            Superion robotNuevo = new Superion();
-                            break;
-                    }
-                    break;
-                case Algoformer.MODO_DECEPTICON:
-                    switch (numeAzar) {
-                        case 0:
-                            Megatron robotNuevo = new Megatron();
-                            break;
-                        case 1:
-                            Bonecrusher robotNuevo = new Bonecrusher();
-                            break;
-                        case 2:
-                            Frenzy robotNuevo = new Frenzy();
-                            break;
-                        case 3:
-                            Menasor robotNuevo = new Menasor();
-                            break;
-                    }
-            }
-
-            // Ver si el tipo de robot ya existe
-            int i = 0;
-            boolean elTipoDeRobotYaExiste = false;
-            while (i < this.misRobots.size() && !elTipoDeRobotYaExiste) {
-                if (this.misRobots[i].esDelMismoTipoQue(robotNuevo)) {
-                    elTipoDeRobotYaExiste = true;
-                }
-                i++;
-            }
-
-            if (!elTipoDeRobotYaExiste) {
-                this.misRobots.add(unRobot);
-            }
-
-        }
+        this.agregarRobotsAlTablero(modo);
 
     }
 
 
-    private void agregarRobotsAlTablero() {
+    private void agregarRobotsAlTablero(int modo) {
+        Posicion posicion1 = new Posicion();
+        Posicion posicion2 = new Posicion();
+        Posicion posicion3 = new Posicion();
+
         switch (modo) {
             case Algoformer.MODO_AUTOBOT:
-                int fila = 0;
-                int columna = 0;
+                // Esquina superior izquierda
+                posicion1.cargarPosicion(0, 0);
+                posicion2.cargarPosicion(0, 1);
+                posicion3.cargarPosicion(0, 2);
 
-                Iterator<Algoformer> algoformersIterator = this.misRobots.iterator();
+                Optimus optimus = new Optimus();
+                BumbleBee bumbleBee = new BumbleBee();
+                Ratchet ratchet = new Ratchet();
 
-                while (algoformersIterator.hasNext()) {
-                    this.tablero.agregarRobot(algoformersIterator.next(), fila, columna, Superficie.MODO_TIERRA);
-                    
-                    fila++;
-                }
+                this.tablero.agregarAlgoformerHumanoide(optimus, posicion1);
+                this.tablero.agregarAlgoformerHumanoide(bumbleBee, posicion2);
+                this.tablero.agregarAlgoformerHumanoide(ratchet, posicion3);
+
+                this.misRobots.add(optimus);
+                this.misRobots.add(bumbleBee);
+                this.misRobots.add(ratchet);
+
                 break;
             case Algoformer.MODO_DECEPTICON:
-                int fila = this.tablero.obtenerCantidadFilas() - 1;
-                int columna = this.tablero.obtenerCantidadColumnas() - 1;
+                // Esquina inferior derecha
+                posicion1.cargarPosicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 3);
+                posicion2.cargarPosicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 2);
+                posicion3.cargarPosicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 1);
 
-                Iterator<Algoformer> algoformersIterator = this.misRobots.iterator();
-                while (algoformersIterator.hasNext()) {
-                    this.tablero.agregarRobot(algoformersIterator.next(), fila, columna, Superficie.MODO_TIERRA);
-                    fila--;
-                }
+                Megatron megatron = new Megatron();
+                Bonecrusher bonecrusher = new Bonecrusher();
+                Frenzy frenzy = new Frenzy();
+
+                this.tablero.agregarAlgoformerHumanoide(megatron, posicion1);
+                this.tablero.agregarAlgoformerHumanoide(bonecrusher, posicion2);
+                this.tablero.agregarAlgoformerHumanoide(frenzy, posicion3);
+
+                this.misRobots.add(megatron);
+                this.misRobots.add(bonecrusher);
+                this.misRobots.add(frenzy);
+
                 break;
         }
+
     }
 }

@@ -11,11 +11,11 @@ public class Ratchet extends Autobot {
 	private static final int VELOCIDAD_ALTERNO = 8;
 	private static final int VIDA = 150;
 	
-	public Ratchet(Posicion posicion){
+	public Ratchet() {
 		this.vida=VIDA;
 		this.movimiento = new MovimientoHumanoide();
-		this.posicion = posicion;
 	}
+
 	private int ataque = ATAQUE_HUMANOIDE;
 	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
 	private int velocidad = VELOCIDAD_HUMANOIDE;

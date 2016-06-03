@@ -5,11 +5,11 @@ public class Superion {
 	private static final int ATAQUE = 100;
 	private static final int VELOCIDAD = 3;
 	
-	public Superion(Posicion posicion){
+	public Superion() {
 		this.vida = 1; //HACER METODO OBTENER VIDAS TOTALES
 		this.movimiento = new MovimientoHumanoide();
-		this.posicion = posicion;
 	}
+
 	private Posicion posicion;
 	private int vida;
 	private Movimiento movimiento;

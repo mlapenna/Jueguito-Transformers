@@ -11,10 +11,10 @@ public class Megatron extends Decepticon {
 	private static final int VELOCIDAD_ALTERNO = 8;
 	private static final int VIDA = 550;
 	
-	public Megatron(Posicion posicion){
+	public Megatron() {
 		this.vida=VIDA;
-		this.posicion = posicion;
 	}
+
 	private int ataque = ATAQUE_HUMANOIDE;
 	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
 	private int velocidad = VELOCIDAD_HUMANOIDE;

@@ -11,11 +11,12 @@ public class BumbleBee extends Autobot {
 	private static final int VELOCIDAD_ALTERNO = 5;
 	private static final int VIDA = 350;
 	
-	public BumbleBee(Posicion posicion){
+	public BumbleBee() {
 		this.vida = VIDA;
 		this.movimiento = new MovimientoHumanoide();
-		this.posicion = posicion;
 	}
+
+
 	private int ataque = ATAQUE_HUMANOIDE;
 	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
 	private int velocidad = VELOCIDAD_HUMANOIDE;

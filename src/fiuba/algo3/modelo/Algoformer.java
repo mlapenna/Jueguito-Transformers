@@ -6,8 +6,8 @@ import fiuba.algo3.modelo.Posicion;
 public abstract class Algoformer {
 	static final String modoHumanoide = "humanoide";
 	static final String modoAlterno = "alterno";
-	static final int MODO_AUTOBOT = 0;
-	static final int MODO_DECEPTICON = 1;
+	static public final int MODO_AUTOBOT = 0;
+	static public final int MODO_DECEPTICON = 1;
 	static final int TOTAL_ROBOTS_DISPONIBLES_POR_TIPO = 4;
 	
 	protected int vida;

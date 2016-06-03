@@ -9,10 +9,9 @@ public class Optimus extends Autobot {
 	private static final int VELOCIDAD_ALTERNO = 2;
 	private static final int VIDA = 500;
 	
-	public Optimus(Posicion posicion){
+	public Optimus() {
 		this.vida = VIDA;
-		this.movimiento = new MovimientoHumanoide(); 
-		this.posicion = posicion;
+		this.movimiento = new MovimientoHumanoide();
 	}
 	
 	private int ataque = ATAQUE_HUMANOIDE;
