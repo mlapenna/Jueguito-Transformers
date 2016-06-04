@@ -19,7 +19,7 @@ public class Casillero {
 	
 	public void agregarAlgoformerHumanoide(Algoformer algoformer) {
 		
-		if (this.tierra.superficie()=="pantano") //PONER CTE
+		if (this.tierra.superficie() == "pantano") //PONER CTE
 			throw new MovimientoInvalidoIncapazDeAtravezarSuperficie();
 		if (this.tierra.superficie()=="espinas")
 			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100));
