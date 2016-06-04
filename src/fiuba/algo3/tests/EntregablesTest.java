@@ -41,7 +41,7 @@ public class EntregablesTest {
 		catch(Exception e){}
 		
 		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(prime,nuevaPosicion);
-		tablero.moverAlgoformerHumanoide(prime,ultimaPosicion);
+		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime,ultimaPosicion);
 				
 		auxPosicion = prime.obtenerPosicion();
 		

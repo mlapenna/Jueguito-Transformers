@@ -20,7 +20,7 @@ public class IntegracionTest {
 	public void testJugar() {
 		try {
 			JSONParser parser = new JSONParser();
-			JSONObject jsonTablero = (JSONObject)parser.parse(new FileReader("mapas/1.json"));
+			JSONObject jsonTablero = (JSONObject)parser.parse(new FileReader("mapa.json"));
 			Tablero tablero = new Tablero(jsonTablero);
 			Jugador jugador1 = new Jugador("Pedro", Algoformer.MODO_AUTOBOT, tablero);
 			Jugador jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, tablero);
