@@ -3,7 +3,7 @@ package fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import javafx.geometry.Pos;
+//import javafx.geometry.Pos;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
@@ -33,7 +33,7 @@ public class Tablero {
 	}
 	
 	private Casillero atCasillero(Posicion posicion){
-		return new Casillero(); // Como no está terminado, para que no de error al correr los tests
+		return new Casillero(); // Como no estï¿½ terminado, para que no de error al correr los tests
 		//return casilleros[posicion.obtenerPosicionX()][posicion.obtenerPosicionY()];
 	}
 
@@ -56,6 +56,10 @@ public class Tablero {
 
 	public void agregarAlgoformerHumanoide(Algoformer algoformer, Posicion posicion) {
 		this.atCasillero(posicion).agregarAlgoformerHumanoide(algoformer);
+	}
+	
+	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer, Posicion posicion) {
+		this.atCasillero(posicion).agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
 	}
 
 	public int getDimensionX() {
