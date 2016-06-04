@@ -12,7 +12,10 @@ public abstract class Algoformer {
 	
 	protected int vida;
 	protected Movimiento movimiento;
-	protected Posicion posicion;
+	Posicion posicion;
+	protected int distanciaDeAtaque;
+	protected int ataque;
+	protected int velocidad;
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
@@ -22,12 +25,7 @@ public abstract class Algoformer {
 
 	} 
 	
-	//public void moverNuevaPosicion(Posicion nuevaPosicion){
-	//	this.movimiento.moverPosicionAlgoformer(this,nuevaPosicion);
-	//}
-
-
-	public Posicion obtenerPosicion(){  //NO PARECE HACER NADA
+	public Posicion obtenerPosicion(){  
 		return this.posicion;		
 	}
 	
@@ -43,7 +41,18 @@ public abstract class Algoformer {
 		this.vida = this.vida - ataque;
 		//if (this.getVida()<0)
 		//	this.morir();
-		
+	}
+	
+	public int obtenerAtaque() {
+		return this.ataque;
+	}
+	
+	public int obtenerDistanciaDeAtaque() {
+		return this.distanciaDeAtaque;
+	}
+	
+	public int obtenerVelocidad() {
+		return this.velocidad;
 	}
 
 }
