@@ -3,8 +3,8 @@ import java.lang.Math;
 
 public class Posicion {
 	
-	private int x;
-	private int y;
+	private int x = 0;
+	private int y = 0;
 	
 	public void cargarPosicion(int posX,int posY) {
 		this.x = posX;
