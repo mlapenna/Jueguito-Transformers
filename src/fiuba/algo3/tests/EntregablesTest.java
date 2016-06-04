@@ -51,34 +51,44 @@ public class EntregablesTest {
 	}
 	
 	@Test
-	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() {
-		// Como no est� terminado, para que no de error al correr los tests lo comento
-		/*Tablero tablero = new Tablero();
+	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() throws FileNotFoundException, 
+	 IOException, ParseException {
+
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapa.json"));
+		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer prime = new Optimus();
 		Posicion nuevaPosicion = new Posicion();
-		Posicion finalPosicion = new Posicion();
+		Posicion ultimaPosicion = new Posicion();
+		Posicion auxPosicion = new Posicion();
 		
 		nuevaPosicion.cargarPosicion(3,1);
+		ultimaPosicion.cargarPosicion(5,1);
 		
-		prime.transformarAlterno();
-		prime.agregarATablero(prime); // por que le pasamos el objeto como parametro?
-		prime.moverNuevaPosicion(tablero,nuevaPosicion);
+		try {prime.transformarAlterno();}
+		catch(Exception e){}
 		
-		finalPosicion = prime.obtenerPosicion(tablero);*/
+		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(prime,nuevaPosicion);
+		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime,ultimaPosicion);
+				
+		auxPosicion = prime.obtenerPosicion();
+		
+		Assert.assertTrue(auxPosicion.obtenerPosicionX()==ultimaPosicion.obtenerPosicionX());
+		Assert.assertTrue(auxPosicion.obtenerPosicionY()==ultimaPosicion.obtenerPosicionY());
 		
 	}
 	
 	@Test
 	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() {
-		// Como no est� terminado, para que no de error al correr los tests lo comento
-		/*Algoformer prime = new Optimus();
+		Algoformer prime = new Optimus();
 		
-		prime.transformarAlterno();
-		Assert.assertTrue(prime.getAtaque()==15);
+		try {prime.transformarAlterno();}
+		catch(Exception e){}
+		Assert.assertTrue(prime.obtenerAtaque()==15);
 		
-		
-		prime.transformarHumanoide();
-		Assert.assertTrue(prime.getAtaque()==50);*/
+		try {prime.transformarHumanoide();}
+		catch(Exception e){}
+		Assert.assertTrue(prime.obtenerAtaque()==50);
 	}
 
 }
