@@ -1,5 +1,8 @@
 package fiuba.algo3.modelo;
 
+import java.util.Calendar;
+import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoide;
+
 public class Optimus extends Autobot {
 	private static final int ATAQUE_HUMANOIDE = 50;
 	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 2;
@@ -11,14 +14,21 @@ public class Optimus extends Autobot {
 	
 	public Optimus() {
 		this.vida = VIDA;
+		this.ataque = ATAQUE_HUMANOIDE;
+		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+		this.velocidad = VELOCIDAD_HUMANOIDE;
 		this.movimiento = new MovimientoHumanoide();
 	}
 	
-	private int ataque = ATAQUE_HUMANOIDE;
-	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
-	private int velocidad = VELOCIDAD_HUMANOIDE;
+//	private int ataque = ATAQUE_HUMANOIDE;
+//	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+//	private int velocidad = VELOCIDAD_HUMANOIDE;
 	
 	public void transformarHumanoide() {
+		
+		if(this.ataque == ATAQUE_HUMANOIDE || this.distanciaDeAtaque == DISTANCIA_ATAQUE_HUMANOIDE || this.velocidad == VELOCIDAD_HUMANOIDE)
+			throw new TransformacionIncorresctaYaEsHumanoide();
+		
 		this.movimiento = new MovimientoHumanoide();
 		this.ataque = ATAQUE_HUMANOIDE;
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
@@ -26,6 +36,9 @@ public class Optimus extends Autobot {
 	}
 	
 	public void transformarAlterno(){
+		if(this.ataque == ATAQUE_ALTERNO || this.distanciaDeAtaque == DISTANCIA_ATAQUE_ALTERNO || this.velocidad == VELOCIDAD_ALTERNO)
+			throw new TransformacionIncorresctaYaEsHumanoide();
+		
 		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque = ATAQUE_ALTERNO;
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE_ALTERNO;
