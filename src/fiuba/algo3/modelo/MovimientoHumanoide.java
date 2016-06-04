@@ -1,5 +1,7 @@
 package fiuba.algo3.modelo;
 
+import fiuba.algo3.modelo.Movimiento;
+
 public class MovimientoHumanoide extends Movimiento{
 	
 	@Override  

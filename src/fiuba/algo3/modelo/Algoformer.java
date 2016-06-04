@@ -55,4 +55,15 @@ public abstract class Algoformer {
 		return this.velocidad;
 	}
 
+/*	public Algoformer clonarAlgoformer() {
+		Algoformer algoformer = new Algoformer();
+		
+		algoformer.vida = this.getVida();
+		algoformer.ataque = this.obtenerAtaque();
+		algoformer.distanciaDeAtaque = this.obtenerDistanciaDeAtaque();
+		algoformer.velocidad = this.obtenerVelocidad();
+		algoformer.movimiento = this.movimiento;
+		algoformer.posicion = this.posicion;
+		return algoformer;
+	}*/
 }
