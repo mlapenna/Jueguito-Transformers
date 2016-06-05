@@ -73,9 +73,8 @@ public abstract class Algoformer {
 		this.vida = vida;
 	}
 
-	public boolean fueraDelAlcanceDelAlgoformer(Posicion posicionFinal) {  //NO SIRVE PARA MOVIMIENTO DIAGONAL
-		if ( (this.posicion.obtenerPosicionX() + this.posicion.obtenerPosicionY() + this.velocidad) < 
-			(posicionFinal.obtenerPosicionX() + posicionFinal.obtenerPosicionY()))
+	public boolean fueraDelAlcanceDelAlgoformer(Posicion posicionFinal) { 
+		if ( (this.posicion.getDistancia(posicionFinal)) > this.velocidad )
 			return true;
 		return false;
 		
