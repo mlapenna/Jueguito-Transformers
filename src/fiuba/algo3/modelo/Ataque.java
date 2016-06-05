@@ -1,24 +1,23 @@
 package fiuba.algo3.modelo;
 
+import fiuba.algo3.modelo.Casillero;
 
 public class Ataque {
 
     public Ataque(Tablero tablero, Posicion posicionOrigen, Posicion posicionDestino) {
-        if (tablero.getCasillero( posicionOrigen).hayAlgoformer() && tablero.getCasillero( posicionDestino).hayAlgoformer() ) {
+    	
+    	Casillero casilleroOrigen = tablero.getCasillero( posicionOrigen);
+    	Casillero casilleroDestino = tablero.getCasillero( posicionDestino);
+    	
+        if (casilleroOrigen.hayAlgoformer() && casilleroDestino.hayAlgoformer() ) {
 
-            Algoformer algoformer1 = tablero.getCasillero(posicionOrigen).getAlgoformer();
-            Algoformer algoformer2 = tablero.getCasillero(posicionDestino).getAlgoformer();
+            Algoformer algoformer1 = casilleroOrigen.getAlgoformer();
+            Algoformer algoformer2 = casilleroDestino.getAlgoformer();
 
             int distanciaEntrePosiciones = posicionOrigen.getDistancia(posicionDestino);
 
             if (algoformer1.getDistanciaDeAtaque() >= distanciaEntrePosiciones && algoformer1.puedeAtacarA(algoformer2) ) {
-
-                int nuevaVida = 0;
-
-                if (algoformer1.getVida() >= algoformer2.getAtaque()) {
-                    nuevaVida = algoformer2.getVida() - algoformer1.getAtaque();
-                }
-                algoformer2.setVida(nuevaVida);
+                algoformer2.recibirAtaque(algoformer1.getAtaque());
             }
         }
     }
