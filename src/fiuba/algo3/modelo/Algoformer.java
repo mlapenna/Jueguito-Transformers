@@ -79,7 +79,14 @@ public abstract class Algoformer {
 		return false;
 		
 	}
-
+	
+	public void recibirAtaque(int danio) {
+		
+		int vidaAux = this.getVida() - danio;
+		if(vidaAux < 0) vidaAux = 0;
+		this.setVida(vidaAux);
+		
+	}
 
 /*	public Algoformer clonarAlgoformer() {
 		Algoformer algoformer = new Algoformer();
