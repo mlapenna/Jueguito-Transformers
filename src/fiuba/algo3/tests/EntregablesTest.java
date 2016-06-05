@@ -49,7 +49,7 @@ public class EntregablesTest {
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer prime = new Optimus();
-		Posicion nuevaPosicion = new Posicion(3, 1);
+		Posicion nuevaPosicion = new Posicion(3,1);
 		Posicion ultimaPosicion = new Posicion(5,1);
 
 		try {prime.transformarAlterno();}
@@ -65,17 +65,35 @@ public class EntregablesTest {
 		
 	}
 	
-	@Test
-	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() {
+	@Test(expected=MovimientoInvalidoDistanciaNoValida.class)
+	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() throws FileNotFoundException, IOException, ParseException {
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
+		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer prime = new Optimus();
+		Posicion nuevaPosicion = new Posicion(0,1);
+		Posicion ultimaPosicionAlterno = new Posicion(4,1);
 		
-		try {prime.transformarAlterno();}
+		try {prime.transformarAlterno();} //Optimus alterno tiene velocidad 5
 		catch(Exception e){}
-		Assert.assertEquals(15, prime.getAtaque());
+		
+		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(prime,nuevaPosicion);
+		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime, ultimaPosicionAlterno);
+		Posicion auxPosicion = prime.getPosicion();
+		Assert.assertEquals(ultimaPosicionAlterno.obtenerPosicionX(), auxPosicion.obtenerPosicionX());
+		Assert.assertEquals(ultimaPosicionAlterno.obtenerPosicionY(), auxPosicion.obtenerPosicionY());
 		
 		try {prime.transformarHumanoide();}
 		catch(Exception e){}
-		Assert.assertEquals(50, prime.getAtaque());
+		
+		Posicion ultimaPosicionHumanoide = new Posicion (6,1);
+		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime, ultimaPosicionHumanoide);
+		Posicion auxPosicion2 = prime.getPosicion();
+		Assert.assertEquals(ultimaPosicionHumanoide.obtenerPosicionX(), auxPosicion2.obtenerPosicionX());
+		Assert.assertEquals(ultimaPosicionHumanoide.obtenerPosicionY(), auxPosicion2.obtenerPosicionY());
+		Posicion posicionInvalidaHumanoide = new Posicion (9,1);
+		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime, posicionInvalidaHumanoide);
+		
 	}
 
 

@@ -43,6 +43,9 @@ public class Tablero {
 
 	
 	public void moverAlgoformerHumanoidesinEfectoDeLaSuperficie(Algoformer algoformer, Posicion posicionFinal){
+		if(algoformer.fueraDelAlcanceDelAlgoformer(posicionFinal))
+			throw new MovimientoInvalidoDistanciaNoValida();
+		
 		this.getCasillero(algoformer.getPosicion()).quitarAlgoformer(algoformer);
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
