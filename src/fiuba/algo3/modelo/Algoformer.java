@@ -80,13 +80,13 @@ public abstract class Algoformer {
 		
 	}
 	
-	public void recibirAtaque(int danio) {
-		
-		int vidaAux = this.getVida() - danio;
-		if(vidaAux < 0) vidaAux = 0;
+
+	public void recibirAtaque(Algoformer algoformerQueAtaca) {
+		int vidaAux = this.getVida() - algoformerQueAtaca.getAtaque();
+		if (vidaAux < 0) vidaAux = 0;
 		this.setVida(vidaAux);
-		
 	}
+
 
 /*	public Algoformer clonarAlgoformer() {
 		Algoformer algoformer = new Algoformer();

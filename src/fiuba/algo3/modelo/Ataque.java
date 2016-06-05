@@ -17,7 +17,7 @@ public class Ataque {
             int distanciaEntrePosiciones = posicionOrigen.getDistancia(posicionDestino);
 
             if (algoformer1.getDistanciaDeAtaque() >= distanciaEntrePosiciones && algoformer1.puedeAtacarA(algoformer2) ) {
-                algoformer2.recibirAtaque(algoformer1.getAtaque());
+                algoformer2.recibirAtaque(algoformer1);
             }
         }
     }
