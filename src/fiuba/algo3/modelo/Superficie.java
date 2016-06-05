@@ -4,7 +4,7 @@ public class Superficie {
 	
 	protected String superficie;
 	
-	public String superficie(){
-		return this.superficie();
+	public String getSuperficie(){
+		return this.superficie;
 	}
 }

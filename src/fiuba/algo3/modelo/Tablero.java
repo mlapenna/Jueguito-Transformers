@@ -9,7 +9,7 @@ import org.json.simple.JSONArray;
 
 public class Tablero {
 
-	ArrayList<ArrayList<Casillero>> Casilleros = new ArrayList<ArrayList<Casillero>>();
+	ArrayList<ArrayList<Casillero>> casilleros = new ArrayList<ArrayList<Casillero>>();
 	
 	private int dimensionX;
 	private int dimensionY;
@@ -21,73 +21,72 @@ public class Tablero {
 	public Tablero(JSONObject json){
 		this.dimensionX = Integer.parseInt( json.get(DIMENSION_X_JSON_FIELD_KEY).toString() );
 		this.dimensionY = Integer.parseInt( json.get(DIMENSION_Y_JSON_FIELD_KEY).toString() );
-		crearTablero(this.dimensionX,this.dimensionY);
-	}
 
-	private void crearTablero(int columnas,int filas){
-  	    for(int i=0; i<filas ;i++) 
-		{
+		// Se pone Vacio en todas las ubicaciones posibles
+		for (int i = 0; i < this.dimensionY; i++) {
 			ArrayList<Casillero> fila = new ArrayList<Casillero>();
-			for(int j=0; j<columnas ; j++){	
-				Casillero nuevoCasillero = new Casillero();
-				fila.add(nuevoCasillero);
+			for(int j=0; j < this.dimensionX ; j++) {
+				fila.add( new Casillero() );
 			}
-			this.Casilleros.add(fila);			
+			this.casilleros.add(fila);
 		}
 	}
 
+
 	public void moverAlgoformerHumanoide(Algoformer algoformer, Posicion posicionFinal){
-		this.atCasillero(algoformer.obtenerPosicion()).quitarAlgoformer(algoformer);
+		this.getCasillero(algoformer.getPosicion()).quitarAlgoformer(algoformer);
 		//try{
-			this.atCasillero(posicionFinal).agregarAlgoformerHumanoide(algoformer);
+			this.getCasillero(posicionFinal).agregarAlgoformerHumanoide(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
 		algoformer.cargarNuevaPosicion(posicionFinal);
 	}
+
 	
 	public void moverAlgoformerHumanoidesinEfectoDeLaSuperficie(Algoformer algoformer, Posicion posicionFinal){
-		this.atCasillero(algoformer.obtenerPosicion()).quitarAlgoformer(algoformer);
+		this.getCasillero(algoformer.getPosicion()).quitarAlgoformer(algoformer);
 		//try{
-			this.atCasillero(posicionFinal).agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
+			this.getCasillero(posicionFinal).agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
 		algoformer.cargarNuevaPosicion(posicionFinal);
 	}
 	
-	private Casillero atCasillero(Posicion posicion){
-		
-		int posX = posicion.obtenerPosicionX();
-		int posY = posicion.obtenerPosicionY();
-		ArrayList<Casillero> filaDelCasillero = new ArrayList<Casillero>();
-		filaDelCasillero = Casilleros.get(posY-1);
-		return filaDelCasillero.get(posX-1);
-		
+
+	public Casillero getCasillero(Posicion posicion) {
+		ArrayList<Casillero> fila = this.casilleros.get( posicion.obtenerPosicionY() );
+		return fila.get( posicion.obtenerPosicionX() );
 	}
 
+
 	public void moverAlgoformerAlternoTerrestre(Algoformer algoformer, Posicion posicionFinal) {
-		this.atCasillero(algoformer.obtenerPosicion()).quitarAlgoformer(algoformer);
+		this.getCasillero(algoformer.getPosicion()).quitarAlgoformer(algoformer);
 		//try{
-			this.atCasillero(posicionFinal).agregarAlgoformerAlternoTerrestre(algoformer);
+			this.getCasillero(posicionFinal).agregarAlgoformerAlternoTerrestre(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
 		algoformer.cargarNuevaPosicion(posicionFinal);
 	}
 
+
 	public void moverAlgoformerAlternoAereo(Algoformer algoformer, Posicion posicionFinal) {
-		this.atCasillero(algoformer.obtenerPosicion()).quitarAlgoformer(algoformer);
+		this.getCasillero(algoformer.getPosicion()).quitarAlgoformer(algoformer);
 		//try{
-			this.atCasillero(posicionFinal).agregarAlgoformerAlternoAereo(algoformer);
+			this.getCasillero(posicionFinal).agregarAlgoformerAlternoAereo(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
 		algoformer.cargarNuevaPosicion(posicionFinal);	
 	}
 
 
 	public void agregarAlgoformerHumanoide(Algoformer algoformer, Posicion posicion) {
-		this.atCasillero(posicion).agregarAlgoformerHumanoide(algoformer);
+		this.getCasillero(posicion).agregarAlgoformerHumanoide(algoformer);
+		algoformer.setPosicion(posicion);
 	}
+
 	
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer, Posicion posicion) {
-		Casillero casillero = this.atCasillero(posicion);
+		Casillero casillero = this.getCasillero(posicion);
 		casillero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
 		algoformer.cargarNuevaPosicion(posicion);
 	}
+
 
 	public int getDimensionX() {
 		return this.dimensionX;

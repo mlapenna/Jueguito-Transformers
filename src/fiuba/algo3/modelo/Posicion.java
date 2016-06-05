@@ -5,13 +5,18 @@ public class Posicion {
 	
 	private int x = 0;
 	private int y = 0;
-	
-	public void cargarPosicion(int posX,int posY) {
+
+	public Posicion(int posX, int posY) {
 		this.x = posX;
 		this.y = posY;
 	}
 
-	public Posicion obtenerPosicion() {
+	public void setCoordenadas(int posX, int posY) {
+		this.x = posX;
+		this.y = posY;
+	}
+
+	public Posicion getPosicion() {
 		return this;
 	}
 	
@@ -33,5 +38,18 @@ public class Posicion {
 	public int obtenerPosicionY()
 	{
 		return this.y;
+	}
+
+	public int getDistancia(Posicion posicionDestino) {
+		int distanciaX = Math.abs( this.obtenerPosicionX() - posicionDestino.obtenerPosicionX() );
+		int distanciaY = Math.abs( this.obtenerPosicionY() - posicionDestino.obtenerPosicionY() );
+		int resultado;
+
+		if (distanciaX >= distanciaY) {
+			resultado = distanciaX;
+		} else {
+			resultado = distanciaY;
+		}
+		return resultado;
 	}
 }

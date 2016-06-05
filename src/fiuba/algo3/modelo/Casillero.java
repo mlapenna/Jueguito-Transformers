@@ -1,47 +1,47 @@
 package fiuba.algo3.modelo;
 
 import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupado;
-import fiuba.algo3.modelo.Algoformer;
 
 public class Casillero {
 	public static final int ataqueEspinas = 5;
-	private Algoformer algoformer;
+	private Algoformer algoformer = null; //VER QUE ESTA FEO EL NULL ACA
 	private boolean vacio = true;
 	private Tierra tierra;
 	private Aire aire;
 	private Bonus bonus;
 
+
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer) {
-		if (this.estaVacio()==false)
+		if (this.estaVacio() == false)
 			throw new MovimientoInvalidoCasilleroOcupado();
-		//this.algoformer=algoformer.clonarAlgoformer();
-		this.algoformer=(Algoformer) algoformer;
-		this.vacio=false;
-	}
-	
-	public void agregarAlgoformerHumanoide(Algoformer algoformer) {
-		
-		if (this.tierra.superficie()=="pantano") //PONER CTE
-			throw new MovimientoInvalidoIncapazDeAtravezarSuperficie();
-		if (this.tierra.superficie()=="espinas")
-			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100));
-		if (this.estaVacio()==false)
-			throw new MovimientoInvalidoCasilleroOcupado();
-		//VER Q ONDA EL BONUS, NO SE SI HAY Q HACERLO
 		this.algoformer=algoformer;
 		this.vacio=false;
+	}
+
+	public void agregarAlgoformerHumanoide(Algoformer algoformer) {
+		/*
+		if (this.tierra.superficie()=="pantano") //PONER CTE
+			throw new MovimientoInvalidoIncapazDeAtravezarSuperficie(); // ESTO VA EN Pantano
+		if (this.tierra.superficie()=="espinas")
+			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100)); // ESTO VA EN Espinas
+		if (this.estaVacio()==false)
+			throw new MovimientoInvalidoCasilleroOcupado();
+		*/
+		this.algoformer = algoformer;
+		this.vacio = false;
 	}
 	
 	public void agregarAlgoformerAlternoTerrestre(Algoformer algoformer) {
-		
+		/*
 		if (this.tierra.superficie()=="espinas")
-			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100));
+			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100)); // Esto va en Espinas
 		if (this.estaVacio()==false)
 			throw new MovimientoInvalidoCasilleroOcupado();
-		
-		this.algoformer=algoformer;
-		this.vacio=false;
+		*/
+		this.algoformer = algoformer;
+		this.vacio = false;
 	}
+
 	
 	public void agregarAlgoformerAlternoAereo(Algoformer algoformer) {
 		
@@ -64,6 +64,10 @@ public class Casillero {
 	public boolean estaVacio(){
 		return this.vacio;
 	}
+
+	public boolean hayAlgoformer(){
+		return this.algoformer != null;
+	}
 	
 	public void agregarSuperficieTerrestre(Tierra tierra){
 		this.tierra=tierra;
@@ -77,12 +81,12 @@ public class Casillero {
 		this.bonus=bonus;
 	}
 	
-	public Algoformer obtenerAlgoformerContenido(){
+	public Algoformer getAlgoformerContenido(){
 		return this.algoformer;
 	}
 	
-	public void obtenerContenido(){
-		
+	public Algoformer getAlgoformer() {
+		return this.algoformer;
 	}
 
 

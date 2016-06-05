@@ -20,15 +20,14 @@ public class CasilleroTest {
 		
 		casillero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
 		
-		auxAlgoformer = casillero.obtenerAlgoformerContenido();
+		auxAlgoformer = casillero.getAlgoformerContenido();
 		
 		//Comparo todos los campos de un algoformer
 		
 		Assert.assertTrue(algoformer.getVida()==auxAlgoformer.getVida());
-		Assert.assertTrue(algoformer.obtenerDistanciaDeAtaque()==auxAlgoformer.obtenerDistanciaDeAtaque());
-		Assert.assertTrue(algoformer.obtenerAtaque()==auxAlgoformer.obtenerAtaque());
-		Assert.assertTrue(algoformer.obtenerVelocidad()==auxAlgoformer.obtenerVelocidad());
-		
+		Assert.assertTrue(algoformer.getDistanciaDeAtaque()==auxAlgoformer.getDistanciaDeAtaque());
+		Assert.assertTrue(algoformer.getAtaque()==auxAlgoformer.getAtaque());
+		Assert.assertTrue(algoformer.getVelocidad()==auxAlgoformer.getVelocidad());
 	}
 	
 	@Test(expected=MovimientoInvalidoCasilleroOcupado.class)

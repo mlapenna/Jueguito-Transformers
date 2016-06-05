@@ -14,7 +14,7 @@ import fiuba.algo3.modelo.Juego;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class IntegracionTest {
+public class JuegoTest {
 
 	@Test
 	public void testJugar() {
@@ -26,8 +26,9 @@ public class IntegracionTest {
 			Jugador jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, tablero);
 			Juego juego = new Juego(jugador1, jugador2); // El juego crea al azar 3 robots diferentes para cada jugador y los posiciona
 
+
+
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParseException e) {
 			e.printStackTrace();

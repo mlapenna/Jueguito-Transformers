@@ -20,17 +20,31 @@ public abstract class Algoformer {
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
 	public abstract void transformarAlterno(); //redefinida en cada Algoformer
-	
+
+	public abstract boolean puedeAtacarA(Algoformer otroAlgoformer);
+
+	public boolean esDecepticon() {
+		return false;
+	};
+
+	public boolean esAutobot() {
+		return false;
+	};
+
 	public void agregarATablero() {
 
 	} 
 	
-	public Posicion obtenerPosicion(){  
+	public Posicion getPosicion(){  
 		return this.posicion;		
+	}
+
+	public void setPosicion(Posicion posicion) {
+		this.posicion = posicion;
 	}
 	
 	public void cargarNuevaPosicion(Posicion posicion){
-		this.posicion=posicion;
+		this.posicion=posicion; // ESTO DEBE SER PROCESADO y CHEQUEADO MEDIANTE Movimiento
 	}
 
 	public int getVida() {
@@ -43,25 +57,30 @@ public abstract class Algoformer {
 		//	this.morir();
 	}
 	
-	public int obtenerAtaque() {
+	public int getAtaque() {
 		return this.ataque;
 	}
 	
-	public int obtenerDistanciaDeAtaque() {
+	public int getDistanciaDeAtaque() {
 		return this.distanciaDeAtaque;
 	}
 	
-	public int obtenerVelocidad() {
+	public int getVelocidad() {
 		return this.velocidad;
 	}
+
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+
 
 /*	public Algoformer clonarAlgoformer() {
 		Algoformer algoformer = new Algoformer();
 		
 		algoformer.vida = this.getVida();
-		algoformer.ataque = this.obtenerAtaque();
-		algoformer.distanciaDeAtaque = this.obtenerDistanciaDeAtaque();
-		algoformer.velocidad = this.obtenerVelocidad();
+		algoformer.ataque = this.getAtaque();
+		algoformer.distanciaDeAtaque = this.getDistanciaDeAtaque();
+		algoformer.velocidad = this.getVelocidad();
 		algoformer.movimiento = this.movimiento;
 		algoformer.posicion = this.posicion;
 		return algoformer;

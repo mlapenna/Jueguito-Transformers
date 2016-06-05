@@ -17,23 +17,23 @@ public class Jugador {
     public Jugador(String nombre, int modo, Tablero tablero) {
         this.nombre = nombre;
         this.tablero = tablero;
-
+        this.misRobots = new ArrayList<Algoformer>();
         this.agregarRobotsAlTablero(modo);
 
     }
 
 
     private void agregarRobotsAlTablero(int modo) {
-        Posicion posicion1 = new Posicion();
-        Posicion posicion2 = new Posicion();
-        Posicion posicion3 = new Posicion();
+        Posicion posicion1;
+        Posicion posicion2;
+        Posicion posicion3;
 
         switch (modo) {
             case Algoformer.MODO_AUTOBOT:
                 // Esquina superior izquierda
-                posicion1.cargarPosicion(0, 0);
-                posicion2.cargarPosicion(0, 1);
-                posicion3.cargarPosicion(0, 2);
+                posicion1 = new Posicion(0, 0);
+                posicion2 = new Posicion(0, 1);
+                posicion3 = new Posicion(0, 2);
 
                 Optimus optimus = new Optimus();
                 BumbleBee bumbleBee = new BumbleBee();
@@ -50,9 +50,9 @@ public class Jugador {
                 break;
             case Algoformer.MODO_DECEPTICON:
                 // Esquina inferior derecha
-                posicion1.cargarPosicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 3);
-                posicion2.cargarPosicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 2);
-                posicion3.cargarPosicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 1);
+                posicion1 = new Posicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 3);
+                posicion2 = new Posicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 2);
+                posicion3 = new Posicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 1);
 
                 Megatron megatron = new Megatron();
                 Bonecrusher bonecrusher = new Bonecrusher();
