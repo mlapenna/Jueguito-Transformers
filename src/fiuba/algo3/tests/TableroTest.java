@@ -23,7 +23,7 @@ public class TableroTest {
 	public void testAgregarAlgoformerHumanoideSinEfectoDeSuperficie () throws FileNotFoundException, 
 	 IOException, ParseException {
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer algoformer = new Optimus();
 		Posicion nuevaPosicion = new Posicion();
