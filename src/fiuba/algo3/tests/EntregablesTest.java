@@ -96,6 +96,18 @@ public class EntregablesTest {
 		
 	}
 
+	@Test(expected=TransformacionIncorresctaYaEsHumanoide.class)
+	public void testCrearAlgoformerHumanoideYCambiarAlMismoModo(){
+		Algoformer prime = new Optimus();
+		prime.transformarHumanoide();
+	}
+
+	@Test(expected=TransformacionIncorresctaYaEsAlterno.class)
+	public void testCrearAlgoformerTransformarAAlternoYCambiarAlMismoModo(){
+		Algoformer prime = new Optimus();
+		prime.transformarAlterno();
+		prime.transformarAlterno();
+	}
 
 	@Test
 	public void testAutobotAtacaDecepticonConDanos() throws FileNotFoundException, IOException, ParseException {
