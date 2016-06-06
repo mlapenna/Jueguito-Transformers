@@ -25,7 +25,7 @@ public class Megatron extends Decepticon {
 	}
 	
  	public void transformarHumanoide() {
- 		this.esHumanoide(this);
+ 		this.validarQueNoSoyHumanoide();
 		this.movimiento = new MovimientoHumanoide();
 		this.ataque = ATAQUE_HUMANOIDE;
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
@@ -34,7 +34,7 @@ public class Megatron extends Decepticon {
 	}
 	
 	public void transformarAlterno(){
-		this.esAlterno(this);
+		this.validarQueNoSoyAlterno();
 		this.movimiento = new MovimientoAlternoAereo();
 		this.ataque = ATAQUE_ALTERNO;
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE_ALTERNO;

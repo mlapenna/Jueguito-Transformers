@@ -26,7 +26,7 @@ public class BumbleBee extends Autobot {
 	
   	@Override
 	public void transformarHumanoide() {
-  		this.esHumanoide(this);
+  		this.validarQueNoSoyHumanoide();
 		this.movimiento = new MovimientoHumanoide();
 		this.ataque=ATAQUE_HUMANOIDE;
 		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
@@ -36,7 +36,7 @@ public class BumbleBee extends Autobot {
 
 	@Override
 	public void transformarAlterno() {
-		this.esAlterno(this);
+		this.validarQueNoSoyAlterno();
 		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque=ATAQUE_ALTERNO;
 		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;

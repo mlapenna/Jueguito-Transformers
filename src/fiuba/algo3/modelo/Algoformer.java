@@ -4,8 +4,8 @@ import fiuba.algo3.modelo.Movimiento;
 import fiuba.algo3.modelo.Posicion;
 
 public abstract class Algoformer {
-	static final String modoHumanoide = "humanoide";
-	static final String modoAlterno = "alterno";
+	static final String MODO_HUMANOIDE = "humanoide";
+	static final String MODO_ALTERNO = "alterno";
 	static public final int MODO_AUTOBOT = 0;
 	static public final int MODO_DECEPTICON = 1;
 	static final int TOTAL_ROBOTS_DISPONIBLES_POR_TIPO = 4;
@@ -76,13 +76,13 @@ public abstract class Algoformer {
 		this.setVida(vidaAux);
 	}
 	
-	public void esHumanoide(Algoformer algoformer) {
-		if(this.modo == modoHumanoide)
+	public void validarQueNoSoyHumanoide() {
+		if(this.modo == MODO_HUMANOIDE)
 			throw new TransformacionIncorresctaYaEsHumanoideExcepcion();
 	}
 	
-	public void esAlterno(Algoformer algoformer) {
-		if(this.modo == modoAlterno)
+	public void validarQueNoSoyAlterno() {
+		if(this.modo == MODO_ALTERNO)
 			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
 	}
 }
