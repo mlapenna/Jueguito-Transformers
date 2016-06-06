@@ -21,25 +21,24 @@ public class Megatron extends Decepticon {
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
 		this.velocidad = VELOCIDAD_HUMANOIDE;
 		this.movimiento = new MovimientoHumanoide();
+		this.modo = "humanoide";
 	}
 	
  	public void transformarHumanoide() {
-		if(this.ataque == ATAQUE_HUMANOIDE || this.distanciaDeAtaque == DISTANCIA_ATAQUE_HUMANOIDE || this.velocidad == VELOCIDAD_HUMANOIDE)
-			throw new TransformacionIncorresctaYaEsHumanoideExcepcion();
-    	
+ 		this.esHumanoide(this);
 		this.movimiento = new MovimientoHumanoide();
 		this.ataque = ATAQUE_HUMANOIDE;
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
 		this.velocidad = VELOCIDAD_HUMANOIDE;
+		this.modo = "humanoide";
 	}
 	
 	public void transformarAlterno(){
-		if((this.ataque == ATAQUE_ALTERNO) || (this.distanciaDeAtaque == DISTANCIA_ATAQUE_ALTERNO) || (this.velocidad == VELOCIDAD_ALTERNO))
-			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
-		
+		this.esAlterno(this);
 		this.movimiento = new MovimientoAlternoAereo();
 		this.ataque = ATAQUE_ALTERNO;
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE_ALTERNO;
 		this.velocidad = VELOCIDAD_ALTERNO;
+		this.modo = "alterno";
 	}
 }

@@ -16,6 +16,7 @@ public abstract class Algoformer {
 	protected int distanciaDeAtaque;
 	protected int ataque;
 	protected int velocidad;
+	protected String modo;
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
@@ -73,5 +74,15 @@ public abstract class Algoformer {
 		int vidaAux = this.getVida() - algoformerQueAtaca.getAtaque();
 		if (vidaAux < 0) vidaAux = 0;
 		this.setVida(vidaAux);
+	}
+	
+	public void esHumanoide(Algoformer algoformer) {
+		if(this.modo == modoHumanoide)
+			throw new TransformacionIncorresctaYaEsHumanoideExcepcion();
+	}
+	
+	public void esAlterno(Algoformer algoformer) {
+		if(this.modo == modoAlterno)
+			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
 	}
 }
