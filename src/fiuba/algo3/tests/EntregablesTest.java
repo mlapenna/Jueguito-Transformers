@@ -128,7 +128,7 @@ public class EntregablesTest {
 
 		Ataque ataque = new Ataque(tablero, posicion1, posicion2);
 
-		// El primer ataque está dentro de la distancia y debe restarle vida
+		// El primer ataque esta dentro de la distancia y debe restarle vida
 		Assert.assertEquals(vidaFrenzyEsperadaLuegoDeAtaque, frenzy.getVida());
 
 		posicion2.setCoordenadas(2, 3);
@@ -136,21 +136,21 @@ public class EntregablesTest {
 		vidaFrenzyEsperadaLuegoDeAtaque = frenzy.getVida();
 		ataque = new Ataque(tablero, posicion1, posicion2);
 
-		Assert.assertEquals(vidaFrenzyEsperadaLuegoDeAtaque, frenzy.getVida()); // Este está fuera de la distancia y no debe restarle
+		Assert.assertEquals(vidaFrenzyEsperadaLuegoDeAtaque, frenzy.getVida()); // Este esta fuera de la distancia y no debe restarle
 
 		posicion2.setCoordenadas(7, 7);
 		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(frenzy, posicion2);
 		vidaFrenzyEsperadaLuegoDeAtaque = frenzy.getVida();
 		ataque = new Ataque(tablero, posicion1, posicion2);
 
-		Assert.assertEquals(vidaFrenzyEsperadaLuegoDeAtaque, frenzy.getVida()); // Este está fuera de la distancia y no debe restarle
+		Assert.assertEquals(vidaFrenzyEsperadaLuegoDeAtaque, frenzy.getVida()); // Este esta fuera de la distancia y no debe restarle
 
 		posicion2.setCoordenadas(1, 1);
 		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(frenzy, posicion2);
 		vidaFrenzyEsperadaLuegoDeAtaque = frenzy.getVida() - optimus.getAtaque();;
 		ataque = new Ataque(tablero, posicion1, posicion2);
 
-		Assert.assertEquals(vidaFrenzyEsperadaLuegoDeAtaque, frenzy.getVida()); // Este está dentro de la distancia y debe restarle
+		Assert.assertEquals(vidaFrenzyEsperadaLuegoDeAtaque, frenzy.getVida()); // Este esta dentro de la distancia y debe restarle
 
 	}
 }
