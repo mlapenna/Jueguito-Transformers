@@ -10,6 +10,9 @@ public abstract class Autobot extends Algoformer{
 		return true;
 	}
 
+	public boolean esDecepticon() {
+		return false;
+	}
 
 	public void agregarATablero(){
 		//AL TABLERO LE TENGO QUE MANDAR UBICARAUTOBOT(THIS);

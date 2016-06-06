@@ -38,7 +38,7 @@ public class Tablero {
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerHumanoide(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
-		algoformer.cargarNuevaPosicion(posicionFinal);
+		algoformer.setPosicion(posicionFinal);
 	}
 
 	
@@ -50,7 +50,7 @@ public class Tablero {
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
-		algoformer.cargarNuevaPosicion(posicionFinal);
+		algoformer.setPosicion(posicionFinal);
 	}
 	
 
@@ -65,7 +65,7 @@ public class Tablero {
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerAlternoTerrestre(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
-		algoformer.cargarNuevaPosicion(posicionFinal);
+		algoformer.setPosicion(posicionFinal);
 	}
 
 
@@ -74,7 +74,7 @@ public class Tablero {
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerAlternoAereo(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
-		algoformer.cargarNuevaPosicion(posicionFinal);	
+		algoformer.setPosicion(posicionFinal);	
 	}
 
 
@@ -87,7 +87,7 @@ public class Tablero {
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer, Posicion posicion) {
 		Casillero casillero = this.getCasillero(posicion);
 		casillero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
-		algoformer.cargarNuevaPosicion(posicion);
+		algoformer.setPosicion(posicion);
 	}
 
 

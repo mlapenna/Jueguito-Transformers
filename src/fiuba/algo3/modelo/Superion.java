@@ -1,20 +1,29 @@
 package fiuba.algo3.modelo;
 
-public class Superion {
+import fiuba.algo3.modelo.Autobot;
+import fiuba.algo3.modelo.MovimientoHumanoide;
+import fiuba.algo3.modelo.TransformacionIncorrectaSuperionNoPuedeTransformarse;
+
+public class Superion extends Autobot {
 	private static final int DISTANCIA_ATAQUE = 2;
 	private static final int ATAQUE = 100;
 	private static final int VELOCIDAD = 3;
+	private static final int VIDA = 3; // hay que ver el proceso de fusion
 	
 	public Superion() {
-		this.vida = 1; //HACER METODO OBTENER VIDAS TOTALES
+		this.vida = VIDA;
+		this.ataque = ATAQUE;
+		this.distanciaDeAtaque = DISTANCIA_ATAQUE;
+		this.velocidad = VELOCIDAD;
 		this.movimiento = new MovimientoHumanoide();
 	}
 
-	private Posicion posicion;
-	private int vida;
-	private Movimiento movimiento;
-	private int ataque = ATAQUE;
-	private int distanciaDeAtaque = DISTANCIA_ATAQUE;
-	private int velocidad = VELOCIDAD;
+	public void transformarHumanoide() {
+		throw new TransformacionIncorrectaSuperionNoPuedeTransformarse();
+	}
+	
+	public void transformarAlterno(){
+		throw new TransformacionIncorrectaSuperionNoPuedeTransformarse();
+	}
 
 }

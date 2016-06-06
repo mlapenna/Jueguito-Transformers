@@ -1,6 +1,8 @@
 package fiuba.algo3.modelo;
 
-import java.util.Calendar;
+import fiuba.algo3.modelo.Autobot;
+import fiuba.algo3.modelo.MovimientoHumanoide;
+import fiuba.algo3.modelo.MovimientoAlternoTerrestre;
 import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoide;
 import fiuba.algo3.modelo.TransformacionIncorresctaYaEsAlterno;
 
@@ -22,7 +24,6 @@ public class Optimus extends Autobot {
 	}
 	
 	public void transformarHumanoide() {
-		
 		if(this.ataque == ATAQUE_HUMANOIDE || this.distanciaDeAtaque == DISTANCIA_ATAQUE_HUMANOIDE || this.velocidad == VELOCIDAD_HUMANOIDE)
 			throw new TransformacionIncorresctaYaEsHumanoide();
 		
@@ -33,11 +34,8 @@ public class Optimus extends Autobot {
 	}
 	
 	public void transformarAlterno(){
-
 		if((this.ataque == ATAQUE_ALTERNO) || (this.distanciaDeAtaque == DISTANCIA_ATAQUE_ALTERNO) || (this.velocidad == VELOCIDAD_ALTERNO))
-		{
 			throw new TransformacionIncorresctaYaEsAlterno();
-		}
 
 		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque = ATAQUE_ALTERNO;

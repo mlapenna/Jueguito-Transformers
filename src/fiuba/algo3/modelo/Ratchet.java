@@ -1,6 +1,10 @@
 package fiuba.algo3.modelo;
 
-import fiuba.algo3.modelo.Decepticon;
+import fiuba.algo3.modelo.Autobot;
+import fiuba.algo3.modelo.MovimientoHumanoide;
+import fiuba.algo3.modelo.MovimientoAlternoTerrestre;
+import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoide;
+import fiuba.algo3.modelo.TransformacionIncorresctaYaEsAlterno;
 
 public class Ratchet extends Autobot {
 	private static final int ATAQUE_HUMANOIDE = 5;
@@ -12,15 +16,17 @@ public class Ratchet extends Autobot {
 	private static final int VIDA = 150;
 	
 	public Ratchet() {
-		this.vida=VIDA;
+		this.vida = VIDA;
+		this.ataque = ATAQUE_HUMANOIDE;
+		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
+		this.velocidad = VELOCIDAD_HUMANOIDE;
 		this.movimiento = new MovimientoHumanoide();
 	}
-
-	private int ataque = ATAQUE_HUMANOIDE;
-	private int distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
-	private int velocidad = VELOCIDAD_HUMANOIDE;
 	
 	public void transformarHumanoide() {
+		if(this.ataque == ATAQUE_HUMANOIDE || this.distanciaDeAtaque == DISTANCIA_ATAQUE_HUMANOIDE || this.velocidad == VELOCIDAD_HUMANOIDE)
+			throw new TransformacionIncorresctaYaEsHumanoide();
+		
 		this.movimiento = new MovimientoHumanoide();
 		this.ataque=ATAQUE_HUMANOIDE;
 		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
@@ -28,6 +34,9 @@ public class Ratchet extends Autobot {
 	}
 	
 	public void transformarAlterno(){
+		if((this.ataque == ATAQUE_ALTERNO) || (this.distanciaDeAtaque == DISTANCIA_ATAQUE_ALTERNO) || (this.velocidad == VELOCIDAD_ALTERNO))
+			throw new TransformacionIncorresctaYaEsAlterno();
+		
 		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque=ATAQUE_ALTERNO;
 		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;

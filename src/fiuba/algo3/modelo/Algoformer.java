@@ -43,18 +43,8 @@ public abstract class Algoformer {
 		this.posicion = posicion;
 	}
 	
-	public void cargarNuevaPosicion(Posicion posicion){
-		this.posicion=posicion; // ESTO DEBE SER PROCESADO y CHEQUEADO MEDIANTE Movimiento
-	}
-
 	public int getVida() {
 		return this.vida;
-	}
-
-	public void reducirVida(int ataque) {
-		this.vida = this.vida - ataque;
-		//if (this.getVida()<0)
-		//	this.morir();
 	}
 	
 	public int getAtaque() {
@@ -77,26 +67,11 @@ public abstract class Algoformer {
 		if ( (this.posicion.getDistancia(posicionFinal)) > this.velocidad )
 			return true;
 		return false;
-		
 	}
-	
 
 	public void recibirAtaque(Algoformer algoformerQueAtaca) {
 		int vidaAux = this.getVida() - algoformerQueAtaca.getAtaque();
 		if (vidaAux < 0) vidaAux = 0;
 		this.setVida(vidaAux);
 	}
-
-
-/*	public Algoformer clonarAlgoformer() {
-		Algoformer algoformer = new Algoformer();
-		
-		algoformer.vida = this.getVida();
-		algoformer.ataque = this.getAtaque();
-		algoformer.distanciaDeAtaque = this.getDistanciaDeAtaque();
-		algoformer.velocidad = this.getVelocidad();
-		algoformer.movimiento = this.movimiento;
-		algoformer.posicion = this.posicion;
-		return algoformer;
-	}*/
 }
