@@ -5,7 +5,6 @@ import fiuba.algo3.modelo.Posicion;
 import java.util.Calendar;
 
 import fiuba.algo3.modelo.Algoformer;
-import fiuba.algo3.modelo.Vacio;
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.Casillero;
 import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupado;
@@ -49,7 +48,7 @@ public abstract class Movimiento {
 	
 	private void movimientoACasilleroVacio(Casillero casillero){
 		
-		Vacio contenidoVacio = new Vacio();
+		//Vacio contenidoVacio = new Vacio();
 		try{ //TODO
 			// comparacion del contenido del casillero con vacio.
 			//if(nuevoCasillero.obtenerContenido() == contenidoVacio) {
