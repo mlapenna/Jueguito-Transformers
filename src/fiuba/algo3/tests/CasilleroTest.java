@@ -6,7 +6,7 @@ import org.junit.Test;
 import fiuba.algo3.modelo.Algoformer;
 import fiuba.algo3.modelo.Optimus;
 import fiuba.algo3.modelo.Casillero;
-import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupado;
+import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupadoExcepcion;
 
 public class CasilleroTest {
 
@@ -30,7 +30,7 @@ public class CasilleroTest {
 		Assert.assertTrue(algoformer.getVelocidad()==auxAlgoformer.getVelocidad());
 	}
 	
-	@Test(expected=MovimientoInvalidoCasilleroOcupado.class)
+	@Test(expected=MovimientoInvalidoCasilleroOcupadoExcepcion.class)
 	public void testAgregarAlgoformerHumanoideSinEfectoDeSuperficieEnCasilleroOcupado() {
 		// Casillero vacio quiere decir uno nuevo
 		Casillero casillero = new Casillero();

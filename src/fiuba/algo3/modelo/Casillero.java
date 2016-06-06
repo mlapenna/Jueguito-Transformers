@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupado;
+import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupadoExcepcion;
 
 public class Casillero {
 	public static final int ataqueEspinas = 5;
@@ -13,7 +13,7 @@ public class Casillero {
 
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer) {
 		if (this.estaVacio() == false)
-			throw new MovimientoInvalidoCasilleroOcupado();
+			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		this.algoformer=algoformer;
 		this.vacio=false;
 	}
@@ -21,11 +21,11 @@ public class Casillero {
 	public void agregarAlgoformerHumanoide(Algoformer algoformer) {
 		/*
 		if (this.tierra.superficie()=="pantano") //PONER CTE
-			throw new MovimientoInvalidoIncapazDeAtravezarSuperficie(); // ESTO VA EN Pantano
+			throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion(); // ESTO VA EN Pantano
 		if (this.tierra.superficie()=="espinas")
 			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100)); // ESTO VA EN Espinas
 		if (this.estaVacio()==false)
-			throw new MovimientoInvalidoCasilleroOcupado();
+			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		*/
 		this.algoformer = algoformer;
 		this.vacio = false;
@@ -36,7 +36,7 @@ public class Casillero {
 		if (this.tierra.superficie()=="espinas")
 			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100)); // Esto va en Espinas
 		if (this.estaVacio()==false)
-			throw new MovimientoInvalidoCasilleroOcupado();
+			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		*/
 		this.algoformer = algoformer;
 		this.vacio = false;
@@ -50,7 +50,7 @@ public class Casillero {
 		//if (this.aire.superficie()=="tormentaPsiconica")
 			//algoformer.cambiarAtaqueDelModoAlterno(-40%);
 		if (this.estaVacio()==false)
-			throw new MovimientoInvalidoCasilleroOcupado();
+			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		
 		this.algoformer=algoformer;
 		this.vacio=false;		

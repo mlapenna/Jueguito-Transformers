@@ -65,7 +65,7 @@ public class EntregablesTest {
 		
 	}
 	
-	@Test(expected=MovimientoInvalidoDistanciaNoValida.class)
+	@Test(expected=MovimientoInvalidoDistanciaNoValidaExcepcion.class)
 	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() throws FileNotFoundException, IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
@@ -96,13 +96,13 @@ public class EntregablesTest {
 		
 	}
 
-	@Test(expected=TransformacionIncorresctaYaEsHumanoide.class)
+	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
 	public void testCrearAlgoformerHumanoideYCambiarAlMismoModo(){
 		Algoformer prime = new Optimus();
 		prime.transformarHumanoide();
 	}
 
-	@Test(expected=TransformacionIncorresctaYaEsAlterno.class)
+	@Test(expected=TransformacionIncorresctaYaEsAlternoExcepcion.class)
 	public void testCrearAlgoformerTransformarAAlternoYCambiarAlMismoModo(){
 		Algoformer prime = new Optimus();
 		prime.transformarAlterno();

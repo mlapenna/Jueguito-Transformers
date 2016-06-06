@@ -26,7 +26,7 @@ public class Posicion {
 		// hacer bien: un metod para X otro Y 
 	//	if(((Math.abs(this.x) - posicion.obtenerPosicionX())>0) || ((Math.abs(this.y) - posicion.obtenerPosicionY())>0))
 	//	{
-	//		throw new DistanciasMuyGrandes();
+	//		throw new DistanciasMuyGrandesExcepcion();
 	//	}
 	}
 	

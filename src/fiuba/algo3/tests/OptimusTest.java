@@ -5,11 +5,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.modelo.Optimus;
-import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoide;
+import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoideExcepcion;
 
 public class OptimusTest {
 	
-	@Test(expected=TransformacionIncorresctaYaEsHumanoide.class)
+	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
 	public void testOptimusTransformarHumanoide () {
 		
 		Optimus prime = new Optimus();

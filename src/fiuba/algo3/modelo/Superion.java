@@ -2,7 +2,7 @@ package fiuba.algo3.modelo;
 
 import fiuba.algo3.modelo.Autobot;
 import fiuba.algo3.modelo.MovimientoHumanoide;
-import fiuba.algo3.modelo.TransformacionIncorrectaSuperionNoPuedeTransformarse;
+import fiuba.algo3.modelo.SuperionNoPuedeTransformarseExcepcion;
 
 public class Superion extends Autobot {
 	private static final int DISTANCIA_ATAQUE = 2;
@@ -19,11 +19,11 @@ public class Superion extends Autobot {
 	}
 
 	public void transformarHumanoide() {
-		throw new TransformacionIncorrectaSuperionNoPuedeTransformarse();
+		throw new SuperionNoPuedeTransformarseExcepcion();
 	}
 	
 	public void transformarAlterno(){
-		throw new TransformacionIncorrectaSuperionNoPuedeTransformarse();
+		throw new SuperionNoPuedeTransformarseExcepcion();
 	}
 
 }

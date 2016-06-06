@@ -2,7 +2,7 @@ package fiuba.algo3.modelo;
 
 import fiuba.algo3.modelo.Decepticon;
 import fiuba.algo3.modelo.MovimientoHumanoide;
-import fiuba.algo3.modelo.TransformacionIncorrectaMenasorNoPuedeTransformarse;
+import fiuba.algo3.modelo.MenasorNoPuedeTransformarseExcepcion;
 
 public class Menasor extends Decepticon {
 	private static final int DISTANCIA_ATAQUE = 2;
@@ -19,10 +19,10 @@ public class Menasor extends Decepticon {
 	}
 
 	public void transformarHumanoide() {
-		throw new TransformacionIncorrectaMenasorNoPuedeTransformarse();
+		throw new MenasorNoPuedeTransformarseExcepcion();
 	}
 	
 	public void transformarAlterno(){
-		throw new TransformacionIncorrectaMenasorNoPuedeTransformarse();
+		throw new MenasorNoPuedeTransformarseExcepcion();
 	}
 }

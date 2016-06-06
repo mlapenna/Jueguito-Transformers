@@ -3,8 +3,8 @@ package fiuba.algo3.modelo;
 import fiuba.algo3.modelo.Decepticon;
 import fiuba.algo3.modelo.MovimientoHumanoide;
 import fiuba.algo3.modelo.MovimientoAlternoTerrestre;
-import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoide;
-import fiuba.algo3.modelo.TransformacionIncorresctaYaEsAlterno;
+import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoideExcepcion;
+import fiuba.algo3.modelo.TransformacionIncorresctaYaEsAlternoExcepcion;
 
 public class Frenzy extends Decepticon {
 	private static final int ATAQUE_HUMANOIDE = 10;
@@ -25,7 +25,7 @@ public class Frenzy extends Decepticon {
 
 	public void transformarHumanoide() {
 		if(this.ataque == ATAQUE_HUMANOIDE || this.distanciaDeAtaque == DISTANCIA_ATAQUE_HUMANOIDE || this.velocidad == VELOCIDAD_HUMANOIDE)
-			throw new TransformacionIncorresctaYaEsHumanoide();
+			throw new TransformacionIncorresctaYaEsHumanoideExcepcion();
     	
 		this.movimiento = new MovimientoHumanoide();
 		this.ataque=ATAQUE_HUMANOIDE;
@@ -35,7 +35,7 @@ public class Frenzy extends Decepticon {
 
 	public void transformarAlterno(){
 		if((this.ataque == ATAQUE_ALTERNO) || (this.distanciaDeAtaque == DISTANCIA_ATAQUE_ALTERNO) || (this.velocidad == VELOCIDAD_ALTERNO))
-			throw new TransformacionIncorresctaYaEsAlterno();
+			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
 		
 		this.movimiento = new MovimientoAlternoTerrestre();
 		this.ataque=ATAQUE_ALTERNO;
