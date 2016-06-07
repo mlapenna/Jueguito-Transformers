@@ -36,10 +36,9 @@ public class EntregablesTest {
 
 		Posicion auxPosicion = prime.getPosicion();
 		
-		Assert.assertEquals(ultimaPosicion.obtenerPosicionX(), auxPosicion.obtenerPosicionX());
-		Assert.assertEquals(ultimaPosicion.obtenerPosicionY(), auxPosicion.obtenerPosicionY());
-		
+		Assert.assertEquals(auxPosicion, ultimaPosicion);
 	}
+
 	
 	@Test
 	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() throws FileNotFoundException, 
@@ -55,15 +54,14 @@ public class EntregablesTest {
 		try {prime.transformarAlterno();}
 		catch(Exception e){}
 		
-		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(prime,nuevaPosicion);
-		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime,ultimaPosicion);
+		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(prime, nuevaPosicion);
+		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime, ultimaPosicion);
 
 		Posicion auxPosicion = prime.getPosicion();
 		
-		Assert.assertEquals(ultimaPosicion.obtenerPosicionX(), auxPosicion.obtenerPosicionX());
-		Assert.assertEquals(ultimaPosicion.obtenerPosicionY(), auxPosicion.obtenerPosicionY());
-		
+		Assert.assertEquals(auxPosicion, ultimaPosicion);
 	}
+
 	
 	@Test(expected=MovimientoInvalidoDistanciaNoValidaExcepcion.class)
 	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() throws FileNotFoundException, IOException, ParseException {
@@ -77,11 +75,10 @@ public class EntregablesTest {
 		try {prime.transformarAlterno();} //Optimus alterno tiene velocidad 5
 		catch(Exception e){}
 		
-		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(prime,nuevaPosicion);
+		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(prime, nuevaPosicion);
 		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime, ultimaPosicionAlterno);
 		Posicion auxPosicion = prime.getPosicion();
-		Assert.assertEquals(ultimaPosicionAlterno.obtenerPosicionX(), auxPosicion.obtenerPosicionX());
-		Assert.assertEquals(ultimaPosicionAlterno.obtenerPosicionY(), auxPosicion.obtenerPosicionY());
+		Assert.assertEquals(auxPosicion, ultimaPosicionAlterno);
 		
 		try {prime.transformarHumanoide();}
 		catch(Exception e){}
@@ -89,12 +86,12 @@ public class EntregablesTest {
 		Posicion ultimaPosicionHumanoide = new Posicion (6,1);
 		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime, ultimaPosicionHumanoide);
 		Posicion auxPosicion2 = prime.getPosicion();
-		Assert.assertEquals(ultimaPosicionHumanoide.obtenerPosicionX(), auxPosicion2.obtenerPosicionX());
-		Assert.assertEquals(ultimaPosicionHumanoide.obtenerPosicionY(), auxPosicion2.obtenerPosicionY());
+		Assert.assertEquals(auxPosicion2, ultimaPosicionHumanoide);
+
 		Posicion posicionInvalidaHumanoide = new Posicion (9,1);
 		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime, posicionInvalidaHumanoide);
-		
 	}
+
 
 	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
 	public void testCrearAlgoformerHumanoideYCambiarAlMismoModo(){

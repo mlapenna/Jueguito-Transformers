@@ -31,9 +31,7 @@ public class TableroTest {
 		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer,nuevaPosicion);
 		Posicion algoformerPosicion = algoformer.getPosicion();
 
-		Assert.assertTrue(nuevaPosicion.obtenerPosicionX()==algoformerPosicion.obtenerPosicionX());
-		Assert.assertTrue(nuevaPosicion.obtenerPosicionY()==algoformerPosicion.obtenerPosicionY());		
-		
+		Assert.assertEquals(nuevaPosicion, algoformerPosicion);
 	}
 	
 	
