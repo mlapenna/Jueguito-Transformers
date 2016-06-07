@@ -1,6 +1,7 @@
 package fiuba.algo3.modelo;
 
 import fiuba.algo3.modelo.MovimientoAlterno;
+import fiuba.algo3.modelo.algoformers.Algoformer;
 
 public class MovimientoAlternoAereo extends MovimientoAlterno{
 

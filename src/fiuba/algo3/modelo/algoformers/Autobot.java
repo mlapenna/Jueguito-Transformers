@@ -1,4 +1,4 @@
-package fiuba.algo3.modelo;
+package fiuba.algo3.modelo.algoformers;
 
 public abstract class Autobot extends Algoformer{
 

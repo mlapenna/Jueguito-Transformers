@@ -1,6 +1,6 @@
-package fiuba.algo3.modelo;
+package fiuba.algo3.modelo.algoformers;
 
-import fiuba.algo3.modelo.Autobot;
+import fiuba.algo3.modelo.algoformers.Autobot;
 import fiuba.algo3.modelo.MovimientoHumanoide;
 import fiuba.algo3.modelo.SuperionNoPuedeTransformarseExcepcion;
 

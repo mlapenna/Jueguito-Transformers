@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 //import javafx.geometry.Pos;
+import fiuba.algo3.modelo.algoformers.Algoformer;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 

@@ -1,6 +1,7 @@
 package fiuba.algo3.modelo;
 
 import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupadoExcepcion;
+import fiuba.algo3.modelo.algoformers.Algoformer;
 
 public class Casillero {
 	public static final int ataqueEspinas = 5;
@@ -8,7 +9,6 @@ public class Casillero {
 	private boolean vacio = true;
 	private Tierra tierra;
 	private Aire aire;
-	private Bonus bonus;
 
 
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer) {
@@ -76,11 +76,7 @@ public class Casillero {
 	public void agregarSuperficieAerea(Aire aire){
 		this.aire=aire;
 	}
-	
-	public void agregarBonus(Bonus bonus){
-		this.bonus=bonus;
-	}
-	
+
 	public Algoformer getAlgoformerContenido(){
 		return this.algoformer;
 	}

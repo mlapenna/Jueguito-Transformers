@@ -1,7 +1,9 @@
-package fiuba.algo3.modelo;
+package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Movimiento;
 import fiuba.algo3.modelo.Posicion;
+import fiuba.algo3.modelo.TransformacionIncorresctaYaEsAlternoExcepcion;
+import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoideExcepcion;
 
 public abstract class Algoformer {
 	static final String MODO_HUMANOIDE = "humanoide";

@@ -3,6 +3,9 @@ package fiuba.algo3.tests;
 import java.io.FileReader;
 
 import fiuba.algo3.modelo.*;
+import fiuba.algo3.modelo.algoformers.Algoformer;
+import fiuba.algo3.modelo.algoformers.Frenzy;
+import fiuba.algo3.modelo.algoformers.Optimus;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

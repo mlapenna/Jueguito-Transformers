@@ -1,8 +1,8 @@
 package fiuba.algo3.tests;
 
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.Algoformer;
-import fiuba.algo3.modelo.Optimus;
+import fiuba.algo3.modelo.algoformers.Algoformer;
+import fiuba.algo3.modelo.algoformers.Optimus;
 import fiuba.algo3.modelo.Posicion;
 
 import org.junit.Assert;
@@ -28,7 +28,7 @@ public class TableroTest {
 		Algoformer algoformer = new Optimus();
 		Posicion nuevaPosicion = new Posicion(3,1);
 
-		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer,nuevaPosicion);
+		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer, nuevaPosicion);
 		Posicion algoformerPosicion = algoformer.getPosicion();
 
 		Assert.assertEquals(nuevaPosicion, algoformerPosicion);

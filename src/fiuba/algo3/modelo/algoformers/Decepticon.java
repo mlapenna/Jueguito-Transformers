@@ -1,6 +1,6 @@
-package fiuba.algo3.modelo;
+package fiuba.algo3.modelo.algoformers;
 
-import fiuba.algo3.modelo.Algoformer;
+import fiuba.algo3.modelo.algoformers.Algoformer;
 
 public abstract class Decepticon extends Algoformer {
 

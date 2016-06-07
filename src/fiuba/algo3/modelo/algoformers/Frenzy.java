@@ -1,6 +1,6 @@
-package fiuba.algo3.modelo;
+package fiuba.algo3.modelo.algoformers;
 
-import fiuba.algo3.modelo.Decepticon;
+import fiuba.algo3.modelo.algoformers.Decepticon;
 import fiuba.algo3.modelo.MovimientoHumanoide;
 import fiuba.algo3.modelo.MovimientoAlternoTerrestre;
 import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoideExcepcion;

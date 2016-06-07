@@ -4,7 +4,7 @@ import fiuba.algo3.modelo.Posicion;
 
 import java.util.Calendar;
 
-import fiuba.algo3.modelo.Algoformer;
+import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.Casillero;
 import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupadoExcepcion;
@@ -20,7 +20,6 @@ public abstract class Movimiento {
 		// Acá tiene que preguntar al teclado:
 		// está ocupada la posicion final?
 		// es movimiento válido?
-			// tiene bonus el algoformer?
 			// qué efecto tiene la superficie donde está parado el algoformer?
 		
 		// Ver q la posición que se quiere poner el algoformer, no esté ocupada
