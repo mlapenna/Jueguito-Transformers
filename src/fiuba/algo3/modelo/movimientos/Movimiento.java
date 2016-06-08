@@ -8,15 +8,17 @@ import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.Casillero;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcion;
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroInvalido;
 
-public abstract class Movimiento {
+public class Movimiento {
 	
 	protected Tablero tablero;
 	
-	public abstract void moverPosicionAlgoformerVerticalAbajo(Algoformer algoformer, Posicion nuevaPosicion);
-	public abstract void moverPosicionAlgoformerVerticalArriba(Algoformer algoformer, Posicion nuevaPosicion);
-	public abstract void moverPosicionAlgoformerHorizontalIzquierda(Algoformer algoformer,Posicion nuevaPosicion);
-	public abstract void moverPosicionAlgoformerHorizontalDerecha(Algoformer algoformer,Posicion nuevaPosicion); // VA A DEPENDER DEL MODO
+//	public abstract void moverPosicionAlgoformerVerticalAbajo(Algoformer algoformer, Posicion nuevaPosicion);
+//	public abstract void moverPosicionAlgoformerVerticalArriba(Algoformer algoformer, Posicion nuevaPosicion);
+//	public abstract void moverPosicionAlgoformerHorizontalIzquierda(Algoformer algoformer,Posicion nuevaPosicion);
+//	public abstract void moverPosicionAlgoformerHorizontalDerecha(Algoformer algoformer,Posicion nuevaPosicion); // VA A DEPENDER DEL MODO
 		// Acá tiene que preguntar al teclado:
 		// está ocupada la posicion final?
 		// es movimiento válido?
@@ -63,6 +65,33 @@ public abstract class Movimiento {
 		// TODO
 		// Acá tomo la velocidad que tenga el algoformer y me fijo hasta donde puede ir
 		
+	}
+	
+	public void validarPosibleMovimiento(Algoformer algoformer, Posicion posicionDestino) {
+		
+		// Acá validamos las distancias, velocidad, caminos rectos
+		
+		Posicion posicionOrigen = algoformer.getPosicion();
+		
+		if (posicionOrigen.getDistancia(posicionDestino) > algoformer.getVelocidad()) {
+			throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
+		}
+		
+		if (posicionOrigen.mismaPosicion(posicionDestino)) {
+			throw new MovimientoInvalidoCasilleroInvalido();
+		}
+		
+		if (!movimientoRecto(posicionOrigen,posicionDestino) || !movimientoDiagonal(posicionOrigen,posicionDestino)) {
+			throw new MovimientoInvalidoCasilleroInvalido();
+		}		
+	}
+	
+	private boolean movimientoRecto(Posicion posicionOrigen,Posicion posicionDestino) {
+		return posicionOrigen.formaSegmento(posicionDestino);
+	}
+	
+	private boolean movimientoDiagonal(Posicion posicionOrigen,Posicion posicionDestino) {
+		return posicionOrigen.formaDiagonal(posicionDestino);
 	}
 
 }

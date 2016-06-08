@@ -5,7 +5,7 @@ import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.Posicion;
 
 public class MovimientoHumanoide extends Movimiento{
-	
+/*
 	@Override  
 	public void moverPosicionAlgoformerHorizontalDerecha(Algoformer algoformer, Posicion nuevaPosicion) {
 		Posicion posicionInicial = algoformer.getPosicion();
@@ -65,5 +65,5 @@ public class MovimientoHumanoide extends Movimiento{
 		}
 		
 	}
-
+*/
 }

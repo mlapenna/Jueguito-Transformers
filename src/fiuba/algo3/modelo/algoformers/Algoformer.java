@@ -4,6 +4,8 @@ import fiuba.algo3.modelo.movimientos.Movimiento;
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
+import fiuba.algo3.modelo.Tablero;
+import fiuba.algo3.modelo.excepciones.AlgoformerNoEstaHabilitadoParaMoverse;
 
 public abstract class Algoformer {
 	static final String MODO_HUMANOIDE = "humanoide";
@@ -11,6 +13,7 @@ public abstract class Algoformer {
 	static public final int MODO_AUTOBOT = 0;
 	static public final int MODO_DECEPTICON = 1;
 	static final int TOTAL_ROBOTS_DISPONIBLES_POR_TIPO = 4;
+	static final int CANTIDAD_MINIMA_TURNOS_INMOVIL = 0;
 	
 	protected int vida;
 	protected Movimiento movimiento;
@@ -19,6 +22,9 @@ public abstract class Algoformer {
 	protected int ataque;
 	protected int velocidad;
 	protected String modo;
+	protected int turnosInmovil = CANTIDAD_MINIMA_TURNOS_INMOVIL;
+	
+	Tablero tablero;
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
@@ -34,8 +40,8 @@ public abstract class Algoformer {
 		return false;
 	};
 
-	public void agregarATablero() {
-
+	public void agregarATablero(Tablero tablero) {
+		this.tablero = tablero;
 	} 
 	
 	public Posicion getPosicion(){  
@@ -86,5 +92,15 @@ public abstract class Algoformer {
 	public void validarQueNoSoyAlterno() {
 		if(this.modo == MODO_ALTERNO)
 			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
+	}
+	
+	public boolean validarQuePuedeMoverse() {
+		return (turnosInmovil==CANTIDAD_MINIMA_TURNOS_INMOVIL)?true:false;
+	}
+	
+	public void moverAlgoformer(Posicion posicionDestino) {
+		if(!this.validarQuePuedeMoverse())
+			throw new AlgoformerNoEstaHabilitadoParaMoverse();
+		this.tablero.moverAlgoformer(this, posicionDestino);
 	}
 }

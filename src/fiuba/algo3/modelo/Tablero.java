@@ -7,6 +7,7 @@ import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepci
 import fiuba.algo3.modelo.algoformers.Algoformer;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+import fiuba.algo3.modelo.movimientos.Movimiento;
 
 public class Tablero {
 
@@ -33,6 +34,12 @@ public class Tablero {
 		}
 	}
 
+	public void moverAlgoformer(Algoformer algoformer,Posicion posicionDestino) {
+		Movimiento movimiento = new Movimiento();
+		
+		movimiento.validarPosibleMovimiento(algoformer,posicionDestino);	
+		
+	}
 
 	public void moverAlgoformerHumanoide(Algoformer algoformer, Posicion posicionFinal){
 		this.getCasillero(algoformer.getPosicion()).quitarAlgoformer(algoformer);
