@@ -39,6 +39,8 @@ public class Tablero {
 		
 		movimiento.validarPosibleMovimiento(algoformer,posicionDestino);	
 		
+		movimiento.realizarMovimiento(algoformer,posicionDestino);
+		
 	}
 
 	public void moverAlgoformerHumanoide(Algoformer algoformer, Posicion posicionFinal){

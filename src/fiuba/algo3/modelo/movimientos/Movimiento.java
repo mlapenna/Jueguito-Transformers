@@ -93,5 +93,9 @@ public class Movimiento {
 	private boolean movimientoDiagonal(Posicion posicionOrigen,Posicion posicionDestino) {
 		return posicionOrigen.formaDiagonal(posicionDestino);
 	}
+	
+	public void realizarMovimiento(Algoformer algoformer,Posicion posicionDestino) {
+		
+	}
 
 }
