@@ -6,8 +6,9 @@ import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepc
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.excepciones.AlgoformerNoEstaHabilitadoParaMoverse;
+import fiuba.algo3.modelo.Contenido;
 
-public abstract class Algoformer {
+public abstract class Algoformer extends Contenido {
 	static final String MODO_HUMANOIDE = "humanoide";
 	static final String MODO_ALTERNO = "alterno";
 	static public final int MODO_AUTOBOT = 0;
