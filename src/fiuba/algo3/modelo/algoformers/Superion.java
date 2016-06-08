@@ -1,8 +1,8 @@
 package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.algoformers.Autobot;
-import fiuba.algo3.modelo.MovimientoHumanoide;
-import fiuba.algo3.modelo.SuperionNoPuedeTransformarseExcepcion;
+import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
+import fiuba.algo3.modelo.excepciones.SuperionNoPuedeTransformarseExcepcion;
 
 public class Superion extends Autobot {
 	private static final int DISTANCIA_ATAQUE = 2;

@@ -1,7 +1,9 @@
 package fiuba.algo3.modelo;
 
-import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupadoExcepcion;
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcion;
 import fiuba.algo3.modelo.algoformers.Algoformer;
+import fiuba.algo3.modelo.superficies.Tierra;
+import fiuba.algo3.modelo.superficies.Aire;
 
 public class Casillero {
 	public static final int ataqueEspinas = 5;

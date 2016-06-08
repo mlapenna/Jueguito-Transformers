@@ -2,7 +2,7 @@ package fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 //import javafx.geometry.Pos;
 import fiuba.algo3.modelo.algoformers.Algoformer;
 import org.json.simple.JSONObject;

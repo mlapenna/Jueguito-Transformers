@@ -1,8 +1,8 @@
 package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.algoformers.Decepticon;
-import fiuba.algo3.modelo.MovimientoHumanoide;
-import fiuba.algo3.modelo.MenasorNoPuedeTransformarseExcepcion;
+import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
+import fiuba.algo3.modelo.excepciones.MenasorNoPuedeTransformarseExcepcion;
 
 public class Menasor extends Decepticon {
 	private static final int DISTANCIA_ATAQUE = 2;

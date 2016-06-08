@@ -1,10 +1,10 @@
 package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.algoformers.Decepticon;
-import fiuba.algo3.modelo.MovimientoAlternoAereo;
-import fiuba.algo3.modelo.MovimientoHumanoide;
-import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoideExcepcion;
-import fiuba.algo3.modelo.TransformacionIncorresctaYaEsAlternoExcepcion;
+import fiuba.algo3.modelo.movimientos.MovimientoAlternoAereo;
+import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
+import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
+import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
 
 public class Megatron extends Decepticon {
 	private static final int ATAQUE_HUMANOIDE = 10;
