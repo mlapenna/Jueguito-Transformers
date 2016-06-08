@@ -6,7 +6,7 @@ import org.junit.Test;
 import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.algoformers.Optimus;
 import fiuba.algo3.modelo.Casillero;
-import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupadoExcepcion;
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcion;
 
 public class CasilleroTest {
 
