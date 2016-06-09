@@ -5,7 +5,7 @@ import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.excepciones.AlgoformerNoEstaHabilitadoParaMoverse;
+import fiuba.algo3.modelo.excepciones.AlgoformerNoEstaHabilitadoParaMoverseExcepcion;
 import fiuba.algo3.modelo.Contenido;
 
 public abstract class Algoformer extends Contenido {
@@ -101,7 +101,7 @@ public abstract class Algoformer extends Contenido {
 	
 	public void moverAlgoformer(Posicion posicionDestino) {
 		if(!this.validarQuePuedeMoverse())
-			throw new AlgoformerNoEstaHabilitadoParaMoverse();
+			throw new AlgoformerNoEstaHabilitadoParaMoverseExcepcion();
 		this.tablero.moverAlgoformer(this, posicionDestino);
 	}
 }

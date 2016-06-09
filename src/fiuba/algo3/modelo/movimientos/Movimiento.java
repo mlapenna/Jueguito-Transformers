@@ -9,7 +9,7 @@ import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.Casillero;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
-import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroInvalido;
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroInvalidoExcepcion;
 
 public class Movimiento {
 	
@@ -78,11 +78,11 @@ public class Movimiento {
 		}
 		
 		if (posicionOrigen.mismaPosicion(posicionDestino)) {
-			throw new MovimientoInvalidoCasilleroInvalido();
+			throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 		}
 		
 		if (!movimientoRecto(posicionOrigen,posicionDestino) || !movimientoDiagonal(posicionOrigen,posicionDestino)) {
-			throw new MovimientoInvalidoCasilleroInvalido();
+			throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 		}		
 	}
 	

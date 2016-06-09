@@ -7,7 +7,7 @@ import fiuba.algo3.modelo.algoformers.*;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
-import fiuba.algo3.modelo.excepciones.ZonaPantanoProhibidoPasar;
+import fiuba.algo3.modelo.excepciones.ZonaPantanoProhibidoPasarExcepcion;
 import fiuba.algo3.modelo.Posicion;
 
 import org.json.simple.JSONObject;
@@ -300,7 +300,7 @@ public class Entregables20160613Test {
 	
 	
 	//     SEGUNDO TEST
-	@Test(expected=ZonaPantanoProhibidoPasar.class)
+	@Test(expected=ZonaPantanoProhibidoPasarExcepcion.class)
 	public void testLlenarZonaPantanoYVerificarEnModoHumanoideNoSePuedeAtravasar() throws FileNotFoundException, 
 	 IOException, ParseException{
 		
