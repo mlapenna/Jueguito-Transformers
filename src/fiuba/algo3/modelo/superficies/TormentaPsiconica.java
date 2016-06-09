@@ -10,10 +10,15 @@ public class TormentaPsiconica extends Aire {
 	}
 
 	@Override
-	public void afectarAlgoformer(Algoformer algoformer) {
+	public void afectarAlgoformerAlterno(Algoformer algoformer) {
 		int vida = algoformer.getVida();
 		int vidaAux = ( vida - ( DANIO / 100) * vida );
 		algoformer.setVida(vidaAux);
+	}
+
+	@Override
+	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
+		//NO AFECTA		
 	}
 
 }

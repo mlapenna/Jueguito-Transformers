@@ -7,6 +7,8 @@ public abstract class Aire extends Superficie{
 	static final String NEBULOSA_DE_ANDROMEDA ="nebulosaDeAndromeda";
 	static final String TORMENTA_PSIONICA="tormentaPsiconica";
 	
-	public abstract void afectarAlgoformer(Algoformer algoformer);
+	public abstract void afectarAlgoformerHumanoide(Algoformer algoformer);
 
+	public abstract void afectarAlgoformerAlterno(Algoformer algoformer);
+	
 }

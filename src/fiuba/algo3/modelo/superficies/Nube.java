@@ -9,8 +9,13 @@ public class Nube extends Aire{
 	}
 
 	@Override
-	public void afectarAlgoformer(Algoformer algoformer) {
-		
+	public void afectarAlgoformerAlterno(Algoformer algoformer) {
+		//NO AFECTA
+	}
+
+	@Override
+	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
+		//NO AFECTA
 	}
 	
 }

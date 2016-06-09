@@ -9,7 +9,13 @@ public class Rocas extends Tierra {
 	}
 
 	@Override
-	public void afectarAlgoformer(Algoformer algoformer) {
+	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
+		//NO AFECTA
+	}
+
+	@Override
+	public void afectarAlgoformerAlterno(Algoformer algoformer) {
+		//NO AFECTA
 		
 	}
 

@@ -10,5 +10,7 @@ public abstract class Superficie {
 		return this.superficie;
 	}
 	
-	public abstract void afectarAlgoformer(Algoformer algoformer);
+	public abstract void afectarAlgoformerHumanoide(Algoformer algoformer);
+	
+	public abstract void afectarAlgoformerAlterno(Algoformer algoformer);
 }

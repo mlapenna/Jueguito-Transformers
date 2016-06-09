@@ -7,6 +7,7 @@ public abstract class Tierra extends Superficie{
 	static final String rocas="rocas";
 	static final String pantano="pantano";
 
-	public abstract void afectarAlgoformer(Algoformer algoformer);
+	public abstract void afectarAlgoformerHumanoide(Algoformer algoformer);
 
+	public abstract void afectarAlgoformerAlterno(Algoformer algoformer);
 }

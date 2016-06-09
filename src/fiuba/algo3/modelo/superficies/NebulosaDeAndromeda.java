@@ -10,8 +10,13 @@ public class NebulosaDeAndromeda extends Aire{
 	}
 
 	@Override
-	public void afectarAlgoformer(Algoformer algoformer) {
+	public void afectarAlgoformerAlterno(Algoformer algoformer) {
 		algoformer.establecerTurnosAtrapado(TURNOS_ATRAPADO);
 		
+	}
+
+	@Override
+	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
+		//NO AFECTA
 	}
 }
