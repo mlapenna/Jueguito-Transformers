@@ -1,10 +1,14 @@
 package fiuba.algo3.modelo.superficies;
 
-public class Superficie {
+import fiuba.algo3.modelo.algoformers.Algoformer;
+
+public abstract class Superficie {
 	
 	protected String superficie;
 	
 	public String getSuperficie(){
 		return this.superficie;
 	}
+	
+	public abstract void afectarAlgoformer(Algoformer algoformer);
 }

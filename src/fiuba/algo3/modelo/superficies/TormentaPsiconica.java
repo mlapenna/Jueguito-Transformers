@@ -1,9 +1,19 @@
 package fiuba.algo3.modelo.superficies;
 
-public class TormentaPsiconica extends Aire {
+import fiuba.algo3.modelo.algoformers.Algoformer;
 
+public class TormentaPsiconica extends Aire {
+	public static final int DANIO = 40;
+	
 	public TormentaPsiconica(){
 		this.superficie = TORMENTA_PSIONICA;
+	}
+
+	@Override
+	public void afectarAlgoformer(Algoformer algoformer) {
+		int vida = algoformer.getVida();
+		int vidaAux = ( vida - ( DANIO / 100) * vida );
+		algoformer.setVida(vidaAux);
 	}
 
 }

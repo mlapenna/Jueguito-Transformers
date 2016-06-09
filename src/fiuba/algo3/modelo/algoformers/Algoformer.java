@@ -26,6 +26,7 @@ public abstract class Algoformer extends Contenido {
 	protected int turnosInmovil = CANTIDAD_MINIMA_TURNOS_INMOVIL;
 	
 	Tablero tablero;
+
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
@@ -103,5 +104,9 @@ public abstract class Algoformer extends Contenido {
 		if(!this.validarQuePuedeMoverse())
 			throw new AlgoformerNoEstaHabilitadoParaMoverseExcepcion();
 		this.tablero.moverAlgoformer(this, posicionDestino);
+	}
+
+	public void establecerTurnosAtrapado(int turnosAtrapado) {
+		this.turnosInmovil = turnosAtrapado;
 	}
 }
