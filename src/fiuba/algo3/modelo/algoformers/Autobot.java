@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo.algoformers;
 
-public abstract class Autobot extends Algoformer{
+public abstract class Autobot extends Algoformer {
 
 	public boolean puedeAtacarA(Algoformer otroAlgoformer) {
 		return !otroAlgoformer.esAutobot();

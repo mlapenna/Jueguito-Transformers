@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 //import javafx.geometry.Pos;
 import fiuba.algo3.modelo.algoformers.Algoformer;
+import fiuba.algo3.modelo.superficies.*;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import fiuba.algo3.modelo.movimientos.Movimiento;
@@ -16,23 +17,73 @@ public class Tablero {
 	private int dimensionX;
 	private int dimensionY;
 
-	private static final String DIMENSION_X_JSON_FIELD_KEY = "dimensionX";
-	private static final String DIMENSION_Y_JSON_FIELD_KEY = "dimensionY";
+	private static final String JSON_FIELD_KEY_DIMENSION_X = "dimensionX";
+	private static final String JSON_FIELD_KEY_DIMENSION_Y = "dimensionY";
+	private static final String JSON_FIELD_KEY_CASILLEROS = "casilleros";
+	private static final String JSON_FIELD_KEY_POSICION_X = "posicionX";
+	private static final String JSON_FIELD_KEY_POSICION_Y = "posicionY";
+	private static final String JSON_FIELD_KEY_TIERRA = "tierra";
+	private static final String JSON_FIELD_KEY_AIRE = "aire";
 
 
-	public Tablero(JSONObject json){
-		this.dimensionX = Integer.parseInt( json.get(DIMENSION_X_JSON_FIELD_KEY).toString() );
-		this.dimensionY = Integer.parseInt( json.get(DIMENSION_Y_JSON_FIELD_KEY).toString() );
+	public Tablero(JSONObject json) {
 
+		this.dimensionX = Integer.parseInt( json.get(JSON_FIELD_KEY_DIMENSION_X).toString() );
+		this.dimensionY = Integer.parseInt( json.get(JSON_FIELD_KEY_DIMENSION_Y).toString() );
+		
 		// Se pone Vacio en todas las ubicaciones posibles
 		for (int i = 0; i < this.dimensionY; i++) {
 			ArrayList<Casillero> fila = new ArrayList<Casillero>();
-			for(int j=0; j < this.dimensionX ; j++) {
+			for (int j=0; j < this.dimensionX ; j++) {
 				fila.add( new Casillero() );
 			}
 			this.casilleros.add(fila);
 		}
+
+		// Por cada casillero del mapa, se guardan sus superficies
+		JSONArray casilleros = (JSONArray) json.get(JSON_FIELD_KEY_CASILLEROS);
+
+		for (int i = 0; i < casilleros.size(); i++) {
+			JSONObject unCasillero = (JSONObject) casilleros.get(i);
+
+			int posicionX = Integer.parseInt( unCasillero.get(JSON_FIELD_KEY_POSICION_X).toString() );
+			int posicionY = Integer.parseInt( unCasillero.get(JSON_FIELD_KEY_POSICION_Y).toString() );
+			String superficieTierraString = unCasillero.get(JSON_FIELD_KEY_TIERRA).toString();
+			String superficieAireString = unCasillero.get(JSON_FIELD_KEY_AIRE).toString();
+
+			Tierra superficieTierra;
+			Aire superficieAire;
+
+			switch (superficieTierraString) {
+				case Rocas.NOMBRE_JSON:
+					superficieTierra = new Rocas();
+					break;
+				case Pantano.NOMBRE_JSON:
+					superficieTierra = new Pantano();
+					break;
+				case Espinas.NOMBRE_JSON:
+					superficieTierra = new Espinas();
+					break;
+			}
+
+			switch (superficieAireString) {
+				case Nube.NOMBRE_JSON:
+					superficieAire = new Nube();
+					break;
+				case NebulosaDeAndromeda.NOMBRE_JSON:
+					superficieAire = new NebulosaDeAndromeda();
+					break;
+				case TormentaPsionica.NOMBRE_JSON:
+					superficieAire = new TormentaPsionica();
+					break;
+			}
+
+			this.casilleros.get(posicionX).get(posicionY).setSuperficies(superficieTierra, superficieAire);
+		}
 	}
+
+
+
 
 	public void moverAlgoformer(Algoformer algoformer,Posicion posicionDestino) {
 		Movimiento movimiento = new Movimiento();

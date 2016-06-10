@@ -1,5 +1,7 @@
 package fiuba.algo3.modelo.algoformers;
 
+import fiuba.algo3.modelo.Posicion;
+import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.algoformers.Autobot;
 import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
 import fiuba.algo3.modelo.excepciones.SuperionNoPuedeTransformarseExcepcion;
@@ -10,7 +12,9 @@ public class Superion extends Autobot {
 	private static final int VELOCIDAD = 3;
 	private static final int VIDA = 3; // hay que ver el proceso de fusion
 	
-	public Superion() {
+	public Superion(Posicion posicion, Tablero tablero) {
+		super(posicion, tablero);
+
 		this.vida = VIDA;
 		this.ataque = ATAQUE;
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE;

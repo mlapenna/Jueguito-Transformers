@@ -2,8 +2,9 @@ package fiuba.algo3.modelo.superficies;
 
 import fiuba.algo3.modelo.algoformers.Algoformer;
 
-public class Nube extends Aire{
-	
+public class Nube extends Aire {
+	public static final string NOMBRE_JSON = "Nube";
+
 	public Nube(){
 		this.superficie = NUBE;
 	}

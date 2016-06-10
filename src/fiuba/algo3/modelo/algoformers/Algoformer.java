@@ -1,16 +1,19 @@
 package fiuba.algo3.modelo.algoformers;
 
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroLejano;
 import fiuba.algo3.modelo.movimientos.Movimiento;
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.excepciones.AlgoformerNoEstaHabilitadoParaMoverseExcepcion;
+import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.Contenido;
+import javafx.geometry.Pos;
+
 
 public abstract class Algoformer extends Contenido {
-	static final String MODO_HUMANOIDE = "humanoide";
-	static final String MODO_ALTERNO = "alterno";
+	static final int MODO_HUMANOIDE = 0;
+	static final int MODO_ALTERNO = 1;
 	static public final int MODO_AUTOBOT = 0;
 	static public final int MODO_DECEPTICON = 1;
 	static final int CANTIDAD_MINIMA_TURNOS_INMOVIL = 0;
@@ -21,11 +24,16 @@ public abstract class Algoformer extends Contenido {
 	protected int distanciaDeAtaque;
 	protected int ataque;
 	protected int velocidad;
-	protected String modo;
+	protected int modo;
 	protected int turnosInmovil = CANTIDAD_MINIMA_TURNOS_INMOVIL;
 	protected Tablero tablero;
 
 
+	public Algoformer(Posicion posicion, Tablero tablero) {
+		this.posicion = posicion;
+		this.tablero = tablero;
+		this.modo = MODO_HUMANOIDE;
+	}
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
@@ -46,10 +54,6 @@ public abstract class Algoformer extends Contenido {
 		return this.posicion;		
 	}
 
-	public void setPosicion(Posicion posicion) {
-		this.posicion = posicion;
-	}
-	
 	public int getVida() {
 		return this.vida;
 	}
@@ -70,10 +74,6 @@ public abstract class Algoformer extends Contenido {
 		this.vida = vida;
 	}
 
-	public boolean estaAlAlcance(Posicion posicionFinal) {
-		return (this.velocidad >= this.posicion.getDistancia(posicionFinal));
-	}
-
 	public void recibirAtaque(Algoformer algoformerQueAtaca) {
 		int vidaAux = this.getVida() - algoformerQueAtaca.getAtaque();
 		if (vidaAux < 0) vidaAux = 0;
@@ -90,15 +90,26 @@ public abstract class Algoformer extends Contenido {
 			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
 	}
 	
-	public boolean validarQuePuedeMoverse() {
-		return (turnosInmovil == CANTIDAD_MINIMA_TURNOS_INMOVIL);
+	private void validarQueNoEstaInmovilizado() {
+		if (turnosInmovil > CANTIDAD_MINIMA_TURNOS_INMOVIL) {
+			throw new AlgoformerInmovilizadoExcepcion();
+		}
 	}
-	
-	public void moverAlgoformer(Posicion posicionDestino) {
-		if (!this.validarQuePuedeMoverse())
-			throw new AlgoformerNoEstaHabilitadoParaMoverseExcepcion();
+
+	private void validarDistanciaDentroDelRango(Posicion posicionDestino) {
+		if (this.velocidad >= this.posicion.getDistancia(posicionDestino)) {
+			throw new MovimientoInvalidoCasilleroLejano();
+		}
+	}
+
+
+	public void mover(Posicion posicionDestino) {
+		this.validarQueNoEstaInmovilizado();
+		this.validarDistanciaDentroDelRango(posicionDestino);
+
 		this.tablero.moverAlgoformer(this, posicionDestino);
 	}
+
 
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
 		this.turnosInmovil = turnosAtrapado;

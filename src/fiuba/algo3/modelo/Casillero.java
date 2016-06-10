@@ -5,12 +5,24 @@ import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.superficies.Tierra;
 import fiuba.algo3.modelo.superficies.Aire;
 
+
 public class Casillero {
 	public static final int ataqueEspinas = 5;
 	private Algoformer algoformer = null; //VER QUE ESTA FEO EL NULL ACA
-	private boolean vacio = true;
+	private Contenido contenido;
 	private Tierra tierra;
 	private Aire aire;
+
+
+	public Casillero() {
+		this.contenido = new Vacio();
+	}
+
+
+	public void setSuperficies(Tierra tierra, Aire aire) {
+		this.tierra = tierra;
+		this.aire = aire;
+	)
 
 
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer) {
@@ -49,7 +61,7 @@ public class Casillero {
 		
 		//if (this.aire.superficie()=="nebulosaDeAndromeda")
 			//algoformer.atrapadoPorTurnos(3);
-		//if (this.aire.superficie()=="tormentaPsiconica")
+		//if (this.aire.superficie()=="tormentaPsionica")
 			//algoformer.cambiarAtaqueDelModoAlterno(-40%);
 		if (this.estaVacio()==false)
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();

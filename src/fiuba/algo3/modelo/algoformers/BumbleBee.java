@@ -1,5 +1,7 @@
 package fiuba.algo3.modelo.algoformers;
 
+import fiuba.algo3.modelo.Posicion;
+import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.algoformers.Autobot;
 import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
 import fiuba.algo3.modelo.movimientos.MovimientoAlternoTerrestre;
@@ -15,13 +17,13 @@ public class BumbleBee extends Autobot {
 	private static final int VELOCIDAD_ALTERNO = 5;
 	private static final int VIDA = 350;
 	
-	public BumbleBee() {
+	public BumbleBee(Posicion posicion, Tablero tablero) {
+		super(posicion, tablero);
 		this.vida = VIDA;
 		this.ataque = ATAQUE_HUMANOIDE;
 		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
 		this.velocidad = VELOCIDAD_HUMANOIDE;
 		this.movimiento = new MovimientoHumanoide();
-		this.modo = "humanoide";
 	}
 	
   	@Override
@@ -31,7 +33,7 @@ public class BumbleBee extends Autobot {
 		this.ataque=ATAQUE_HUMANOIDE;
 		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
 		this.velocidad=VELOCIDAD_HUMANOIDE;
-		this.modo = "humanoide";
+		this.modo = MODO_HUMANOIDE;
 	}
 
 	@Override
@@ -41,6 +43,6 @@ public class BumbleBee extends Autobot {
 		this.ataque=ATAQUE_ALTERNO;
 		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;
 		this.velocidad=VELOCIDAD_ALTERNO;
-		this.modo = "alterno";
+		this.modo = 1;
 	}
 }

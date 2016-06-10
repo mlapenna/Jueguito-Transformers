@@ -22,35 +22,36 @@ import org.junit.Test;
 
 public class Entregables20160613Test {
 
-	// PRIMER TEST
-	
+
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarAOptimusHumanoidePorElla() throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarAOptimusHumanoidePorElla() throws FileNotFoundException,
 	 IOException, ParseException{
-		
+
+		// El tablero contiene 4 casilleros en distribucion horizontal, todos con superficie terrestre Rocas, el algoformer en el casillero de la izquierda.
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer prime = new Optimus();
-		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
+
+		Posicion posicion = new Posicion(0, 0);
+		Optimus optimus = new Optimus(posicion, tablero);
+
+		int vidaOriginal = optimus.getVida();
+
+		Posicion posicionDestino = new Posicion(4, 0);
+
+		optimus.mover(posicionDestino);
 		
-		try {prime.transformarHumanoide();}
-		catch(Exception e){}
-		
-		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona rocosa en el medio.
-		
-		prime.moverAlgoformer(posicionDestino);
-		
-		Assert.assertEquals(prime.getPosicion(), posicionDestino);
+		Assert.assertEquals(posicionDestino, optimus.getPosicion());
+		Assert.assertEquals(vidaOriginal, optimus.getVida());
 	}
 	
+
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarAOptimusAlternoPorElla () throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarAOptimusAlternoPorElla () throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer prime = new Optimus();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -58,17 +59,17 @@ public class Entregables20160613Test {
 		try {prime.transformarAlterno();}
 		catch(Exception e){}
 		
-		prime.moverAlgoformer(posicionDestino);
+		prime.mover(posicionDestino);
 
 		Assert.assertEquals(prime.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarARatchetHumanoidePorElla() throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarARatchetHumanoidePorElla() throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer ratchet = new Ratchet();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -77,19 +78,19 @@ public class Entregables20160613Test {
 		catch(Exception e){}
 		
 		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona rocosa en el medio.
+		// El algoformer en el casillero de la izquierda, la zona Rocas en el medio.
 		
-		ratchet.moverAlgoformer(posicionDestino);
+		ratchet.mover(posicionDestino);
 		
 		Assert.assertEquals(ratchet.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarARatchetAlternoPorElla () throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarARatchetAlternoPorElla () throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer ratchet = new Ratchet();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -97,17 +98,17 @@ public class Entregables20160613Test {
 		try {ratchet.transformarAlterno();}
 		catch(Exception e){}
 		
-		ratchet.moverAlgoformer(posicionDestino);
+		ratchet.mover(posicionDestino);
 
 		Assert.assertEquals(ratchet.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarABumbleBeeHumanoidePorElla() throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarABumbleBeeHumanoidePorElla() throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer bumblebee = new BumbleBee();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -116,19 +117,19 @@ public class Entregables20160613Test {
 		catch(Exception e){}
 		
 		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona rocosa en el medio.
+		// El algoformer en el casillero de la izquierda, la zona Rocas en el medio.
 		
-		bumblebee.moverAlgoformer(posicionDestino);
+		bumblebee.mover(posicionDestino);
 		
 		Assert.assertEquals(bumblebee.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarABumbleBeeAlternoPorElla () throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarABumbleBeeAlternoPorElla () throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer bumblebee = new BumbleBee();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -136,17 +137,17 @@ public class Entregables20160613Test {
 		try {bumblebee.transformarAlterno();}
 		catch(Exception e){}
 		
-		bumblebee.moverAlgoformer(posicionDestino);
+		bumblebee.mover(posicionDestino);
 
 		Assert.assertEquals(bumblebee.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarASuperionPorElla() throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarASuperionPorElla() throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer Superion = new Superion();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -155,19 +156,19 @@ public class Entregables20160613Test {
 		catch(Exception e){}
 		
 		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona rocosa en el medio.
+		// El algoformer en el casillero de la izquierda, la zona Rocas en el medio.
 		
-		Superion.moverAlgoformer(posicionDestino);
+		Superion.mover(posicionDestino);
 		
 		Assert.assertEquals(Superion.getPosicion(), posicionDestino);
 	}
 		
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarAMegatronHumanoidePorElla() throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarAMegatronHumanoidePorElla() throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer megatron = new Megatron();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -176,19 +177,19 @@ public class Entregables20160613Test {
 		catch(Exception e){}
 		
 		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona rocosa en el medio.
+		// El algoformer en el casillero de la izquierda, la zona Rocas en el medio.
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 		
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarAMegatronAlternoPorElla () throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarAMegatronAlternoPorElla () throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer megatron = new Megatron();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -196,17 +197,17 @@ public class Entregables20160613Test {
 		try {megatron.transformarAlterno();}
 		catch(Exception e){}
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
 		
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarABonecrusherHumanoidePorElla() throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarABonecrusherHumanoidePorElla() throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer bonecrusher = new Bonecrusher();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -215,19 +216,19 @@ public class Entregables20160613Test {
 		catch(Exception e){}
 		
 		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona rocosa en el medio.
+		// El algoformer en el casillero de la izquierda, la zona Rocas en el medio.
 		
-		bonecrusher.moverAlgoformer(posicionDestino);
+		bonecrusher.mover(posicionDestino);
 		
 		Assert.assertEquals(bonecrusher.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarABonecrusherAlternoPorElla () throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarABonecrusherAlternoPorElla () throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer bonecrusher = new Bonecrusher();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -235,17 +236,17 @@ public class Entregables20160613Test {
 		try {bonecrusher.transformarAlterno();}
 		catch(Exception e){}
 		
-		bonecrusher.moverAlgoformer(posicionDestino);
+		bonecrusher.mover(posicionDestino);
 
 		Assert.assertEquals(bonecrusher.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarAFrenzyHumanoidePorElla() throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarAFrenzyHumanoidePorElla() throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer frenzy = new Frenzy();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -254,19 +255,19 @@ public class Entregables20160613Test {
 		catch(Exception e){}
 		
 		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona rocosa en el medio.
+		// El algoformer en el casillero de la izquierda, la zona Rocas en el medio.
 		
-		frenzy.moverAlgoformer(posicionDestino);
+		frenzy.mover(posicionDestino);
 		
 		Assert.assertEquals(frenzy.getPosicion(), posicionDestino);
 	}
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarAFrenzyAlternoPorElla () throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarAFrenzyAlternoPorElla () throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer frenzy = new Frenzy();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -274,18 +275,18 @@ public class Entregables20160613Test {
 		try {frenzy.transformarAlterno();}
 		catch(Exception e){}
 		
-		frenzy.moverAlgoformer(posicionDestino);
+		frenzy.mover(posicionDestino);
 
 		Assert.assertEquals(frenzy.getPosicion(), posicionDestino);
 	}
 	
 	
 	@Test
-	public void testLlenarZonaRocosaYHacerPasarAMenasorAlternoPorElla () throws FileNotFoundException, 
+	public void testLlenarZonaRocasYHacerPasarAMenasorAlternoPorElla () throws FileNotFoundException,
 	 IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Algoformer menasor = new Menasor();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
@@ -293,7 +294,7 @@ public class Entregables20160613Test {
 		try {menasor.transformarAlterno();}
 		catch(Exception e){}
 		
-		menasor.moverAlgoformer(posicionDestino);
+		menasor.mover(posicionDestino);
 
 		Assert.assertEquals(menasor.getPosicion(), posicionDestino);
 	}
@@ -314,9 +315,9 @@ public class Entregables20160613Test {
 		catch(Exception e){}
 		
 		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona rocosa en el medio.
+		// El algoformer en el casillero de la izquierda, la zona Rocas en el medio.
 		
-		prime.moverAlgoformer(posicionDestino);
+		prime.mover(posicionDestino);
 		
 	}
 	
@@ -337,7 +338,7 @@ public class Entregables20160613Test {
 		try {prime.transformarAlterno();}
 		catch(Exception e){}		
 		
-		//prime.moverAlgoformer(posicionDestino);
+		//prime.mover(posicionDestino);
 		
 		//Assert.assertEquals(prime.getPosicion(), posicionDestino);
 	}
@@ -355,7 +356,7 @@ public class Entregables20160613Test {
 		try {megatron.transformarAlterno();} // Megatron alterno es unidad aerea
 		catch(Exception e){}		
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 		
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
@@ -376,7 +377,7 @@ public class Entregables20160613Test {
 		try {megatron.transformarHumanoide();}
 		catch(Exception e){}		
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 		
 		Assert.assertTrue(megatron.getVida() == (vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05))));
 	}
@@ -397,7 +398,7 @@ public class Entregables20160613Test {
 		try {megatron.transformarHumanoide();}
 		catch(Exception e){}		
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 		
 		Assert.assertTrue(megatron.getVida() == (vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05))));
 	}
@@ -418,7 +419,7 @@ public class Entregables20160613Test {
 		try {megatron.transformarAlterno();}
 		catch(Exception e){}		
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 		
 		Assert.assertEquals(megatron.getVida(),vidaInicial);
 	}
@@ -436,7 +437,7 @@ public class Entregables20160613Test {
 		try {megatron.transformarAlterno();} // Megatron alterno es unidad aerea
 		catch(Exception e){}		
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 		
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
@@ -457,7 +458,7 @@ public class Entregables20160613Test {
 		// Acá habrá que hacer 4 test : uno por cada turno inmovil, 
 		// en donde se verifica el lanzado de excepcion que impide mover el robot
 		
-		//megatron.moverAlgoformer(posicionDestino);
+		//megatron.mover(posicionDestino);
 		
 		//Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
@@ -477,7 +478,7 @@ public class Entregables20160613Test {
 		try {megatron.transformarAlterno();}
 		catch(Exception e){}		
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 		
 		Assert.assertEquals(megatron.getAtaque(),ataqueInicial);
 	}
@@ -497,13 +498,13 @@ public class Entregables20160613Test {
 		try {megatron.transformarAlterno();}
 		catch(Exception e){}		
 		
-		megatron.moverAlgoformer(posicionDestino);
+		megatron.mover(posicionDestino);
 		
 		int ataqueAfectado = megatron.getAtaque();
 		
 		Posicion posicionDestinoDeVuelta = new Posicion(1,1); 
 		
-		megatron.moverAlgoformer(posicionDestinoDeVuelta);
+		megatron.mover(posicionDestinoDeVuelta);
 		
 		Assert.assertEquals(megatron.getAtaque(),ataqueAfectado);
 	}
