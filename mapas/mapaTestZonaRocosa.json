@@ -1,9 +1,9 @@
 {"dimensionX": 4,
  "dimensionY": 1,
  "casilleros": [
-   {"posicionX": 0, "posicionY": 0, "superficies": [{ "tierra": "Rocas", "aire": "Nube"} }],
-   {"posicionX": 1, "posicionY": 0, "superficies": [{ "tierra": "Rocas", "aire": "Nube"} }],
-   {"posicionX": 2, "posicionY": 0, "superficies": [{ "tierra": "Rocas", "aire": "Nube"} }],
-   {"posicionX": 3, "posicionY": 0, "superficies": [{ "tierra": "Rocas", "aire": "Nube"} }]
+   {"posicionX": 0, "posicionY": 0, "superficies": [{ "tierra": "Rocas", "aire": "Nube" }] },
+   {"posicionX": 1, "posicionY": 0, "superficies": [{ "tierra": "Rocas", "aire": "Nube" }] },
+   {"posicionX": 2, "posicionY": 0, "superficies": [{ "tierra": "Rocas", "aire": "Nube" }] },
+   {"posicionX": 3, "posicionY": 0, "superficies": [{ "tierra": "Rocas", "aire": "Nube" }] }
  ]
 }
