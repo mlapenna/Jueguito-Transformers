@@ -1,8 +1,0 @@
-{"dimensionX": 3,
- "dimensionY": 1,
- "casilleros": [
-   {"posicionX": 0, "posicionY": 0, "tierra": "", "aire": ""},
-   {"posicionX": 1, "posicionY": 0, "tierra": "Pantano", "aire": ""},
-   {"posicionX": 2, "posicionY": 0, "tierra": "", "aire": ""},
- ]
-}

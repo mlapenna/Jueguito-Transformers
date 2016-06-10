@@ -107,7 +107,7 @@ public abstract class Algoformer extends Contenido {
 		this.validarQueNoEstaInmovilizado();
 		this.validarDistanciaDentroDelRango(posicionDestino);
 
-		this.tablero.moverAlgoformer(this, posicionDestino);
+		//this.tablero.moverAlgoformer(this, posicionDestino);
 	}
 
 
