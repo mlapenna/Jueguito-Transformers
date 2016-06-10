@@ -4,8 +4,8 @@ package fiuba.algo3.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.modelo.Optimus;
-import fiuba.algo3.modelo.TransformacionIncorresctaYaEsHumanoideExcepcion;
+import fiuba.algo3.modelo.algoformers.Optimus;
+import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
 
 public class OptimusTest {
 	

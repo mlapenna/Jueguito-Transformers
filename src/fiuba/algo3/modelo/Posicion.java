@@ -52,4 +52,27 @@ public class Posicion {
 		}
 		return resultado;
 	}
+	
+	public boolean mismaPosicion(Posicion posicionDestino) {
+		if((this.obtenerPosicionX()==posicionDestino.obtenerPosicionX()) && 
+				 (this.obtenerPosicionY()==posicionDestino.obtenerPosicionY()))
+			return true;
+		return false;
+	}
+	
+	public boolean formaSegmento(Posicion posicionDestino) {
+		if( (this.obtenerPosicionX() != posicionDestino.obtenerPosicionX()) 
+				|| ( this.obtenerPosicionY() != posicionDestino.obtenerPosicionY() ))
+			return false;
+		return true;
+	}
+	
+	public boolean formaDiagonal(Posicion posicionDestino){
+		int diffX = this.obtenerPosicionX() - posicionDestino.obtenerPosicionX();
+		int diffY = this.obtenerPosicionY() - posicionDestino.obtenerPosicionY();
+		
+		if(diffX != diffY)
+			return false;
+		return true;
+	}
 }

@@ -1,45 +1,79 @@
 package fiuba.algo3.modelo;
 
-import fiuba.algo3.modelo.MovimientoInvalidoCasilleroOcupadoExcepcion;
+import fiuba.algo3.modelo.superficies.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 
 public class Casillero {
-	public static final int ataqueEspinas = 5;
-	private Algoformer algoformer = null; //VER QUE ESTA FEO EL NULL ACA
-	private boolean vacio = true;
+	private static final String JSON_FIELD_KEY_TIERRA = "tierra";
+	private static final String JSON_FIELD_KEY_AIRE = "aire";
+
+	private Contenido contenido;
 	private Tierra tierra;
 	private Aire aire;
-	private Bonus bonus;
+
+	public Casillero() {
+		this.contenido = new Vacio();
+	}
 
 
+	public void setSuperficies(JSONArray superficiesArray) {
+		JSONObject superficiesObject = (JSONObject) superficiesArray.get(0);
+
+		String superficieTierraString = superficiesObject.get(JSON_FIELD_KEY_TIERRA).toString();
+		String superficieAireString = superficiesObject.get(JSON_FIELD_KEY_AIRE).toString();
+
+		switch (superficieTierraString) {
+			case Rocas.NOMBRE_JSON:
+				this.tierra = new Rocas();
+				break;
+			case Pantano.NOMBRE_JSON:
+				this.tierra = new Pantano();
+				break;
+			case Espinas.NOMBRE_JSON:
+				this.tierra = new Espinas();
+				break;
+		}
+
+		switch (superficieAireString) {
+			case Nube.NOMBRE_JSON:
+				this.aire = new Nube();
+				break;
+			case NebulosaDeAndromeda.NOMBRE_JSON:
+				this.aire = new NebulosaDeAndromeda();
+				break;
+			case TormentaPsionica.NOMBRE_JSON:
+				this.aire = new TormentaPsionica();
+				break;
+		}
+	}
+
+
+	/*
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer) {
 		if (this.estaVacio() == false)
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		this.algoformer=algoformer;
-		this.vacio=false;
 	}
 
 	public void agregarAlgoformerHumanoide(Algoformer algoformer) {
-		/*
 		if (this.tierra.superficie()=="pantano") //PONER CTE
 			throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion(); // ESTO VA EN Pantano
 		if (this.tierra.superficie()=="espinas")
 			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100)); // ESTO VA EN Espinas
 		if (this.estaVacio()==false)
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
-		*/
+
 		this.algoformer = algoformer;
-		this.vacio = false;
 	}
 	
 	public void agregarAlgoformerAlternoTerrestre(Algoformer algoformer) {
-		/*
 		if (this.tierra.superficie()=="espinas")
 			algoformer.reducirVida((algoformer.getVida())*(ataqueEspinas/100)); // Esto va en Espinas
 		if (this.estaVacio()==false)
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
-		*/
 		this.algoformer = algoformer;
-		this.vacio = false;
 	}
 
 	
@@ -47,47 +81,36 @@ public class Casillero {
 		
 		//if (this.aire.superficie()=="nebulosaDeAndromeda")
 			//algoformer.atrapadoPorTurnos(3);
-		//if (this.aire.superficie()=="tormentaPsiconica")
+		//if (this.aire.superficie()=="tormentaPsionica")
 			//algoformer.cambiarAtaqueDelModoAlterno(-40%);
 		if (this.estaVacio()==false)
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		
-		this.algoformer=algoformer;
-		this.vacio=false;		
+		this.algoformer=algoformer;		
 	}
 	
 	public void quitarAlgoformer(Algoformer algoformer){
 		this.algoformer=null;
-		this.vacio=true;
+		this.contenido = new Vacio();
 	}
 	
 	public boolean estaVacio(){
-		return this.vacio;
+		return this.contenido.hayAlgo();
+	}
+
+	public Algoformer getAlgoformerContenido(){
+		return this.algoformer;
+	}
+
+	public Algoformer getAlgoformer() {
+		return this.algoformer;
 	}
 
 	public boolean hayAlgoformer(){
 		return this.algoformer != null;
 	}
-	
-	public void agregarSuperficieTerrestre(Tierra tierra){
-		this.tierra=tierra;
-	}
-	
-	public void agregarSuperficieAerea(Aire aire){
-		this.aire=aire;
-	}
-	
-	public void agregarBonus(Bonus bonus){
-		this.bonus=bonus;
-	}
-	
-	public Algoformer getAlgoformerContenido(){
-		return this.algoformer;
-	}
-	
-	public Algoformer getAlgoformer() {
-		return this.algoformer;
-	}
+
+	*/
 
 
 

@@ -1,6 +1,6 @@
 package fiuba.algo3.tests;
 
-import fiuba.algo3.modelo.Algoformer;
+import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.Jugador;
 import fiuba.algo3.modelo.Tablero;
 import org.json.simple.JSONObject;

@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-import fiuba.algo3.modelo.Algoformer.*;
 import fiuba.algo3.modelo.Tablero;
+import fiuba.algo3.modelo.algoformers.*;
+
 
 public class Jugador {
 
@@ -35,13 +36,13 @@ public class Jugador {
                 posicion2 = new Posicion(0, 1);
                 posicion3 = new Posicion(0, 2);
 
-                Optimus optimus = new Optimus();
-                BumbleBee bumbleBee = new BumbleBee();
-                Ratchet ratchet = new Ratchet();
+                Optimus optimus = new Optimus(posicion1, tablero);
+                BumbleBee bumbleBee = new BumbleBee(posicion2,tablero);
+                Ratchet ratchet = new Ratchet(posicion3,tablero);
 
-                this.tablero.agregarAlgoformerHumanoide(optimus, posicion1);
-                this.tablero.agregarAlgoformerHumanoide(bumbleBee, posicion2);
-                this.tablero.agregarAlgoformerHumanoide(ratchet, posicion3);
+                //this.tablero.agregarAlgoformerHumanoide(optimus, posicion1); AGREGAR_CONTENIDO VA ACA
+                //this.tablero.agregarAlgoformerHumanoide(bumbleBee, posicion2);
+                //this.tablero.agregarAlgoformerHumanoide(ratchet, posicion3);
 
                 this.misRobots.add(optimus);
                 this.misRobots.add(bumbleBee);
@@ -54,13 +55,13 @@ public class Jugador {
                 posicion2 = new Posicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 2);
                 posicion3 = new Posicion(this.tablero.getDimensionX() - 3, this.tablero.getDimensionY() - 1);
 
-                Megatron megatron = new Megatron();
-                Bonecrusher bonecrusher = new Bonecrusher();
-                Frenzy frenzy = new Frenzy();
+                Megatron megatron = new Megatron(posicion1,tablero);
+                Bonecrusher bonecrusher = new Bonecrusher(posicion2,tablero);
+                Frenzy frenzy = new Frenzy(posicion3,tablero);
 
-                this.tablero.agregarAlgoformerHumanoide(megatron, posicion1);
-                this.tablero.agregarAlgoformerHumanoide(bonecrusher, posicion2);
-                this.tablero.agregarAlgoformerHumanoide(frenzy, posicion3);
+                //this.tablero.agregarAlgoformerHumanoide(megatron, posicion1);  AGREGAR_CONTENIDO VA ACA
+                //this.tablero.agregarAlgoformerHumanoide(bonecrusher, posicion2);
+                //this.tablero.agregarAlgoformerHumanoide(frenzy, posicion3);
 
                 this.misRobots.add(megatron);
                 this.misRobots.add(bonecrusher);
