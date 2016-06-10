@@ -104,7 +104,7 @@ public class Movimiento {
 	}
 
 
-	// Arma un recorrido (armado por cada una de las posiciones intermedias más la final) de acuerdo a las posiciones de origen y destino recibidas
+	// Arma un recorrido (compuesto por cada una de las posiciones intermedias más la final) de acuerdo a las posiciones de origen y destino recibidas
 	private ArrayList<Posicion> getRecorrido(Posicion posicionOrigen, Posicion posicionDestino) {
 		ArrayList<Posicion> recorrido = new ArrayList<Posicion>();
 
