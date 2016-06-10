@@ -12,7 +12,4 @@ public abstract class Decepticon extends Algoformer {
 		return true;
 	}
 
-	public void agregarATablero(){
-		//AL TABLERO LE TENGO QUE MANDAR UBICARDECEPTICON(THIS);
-	}
 }

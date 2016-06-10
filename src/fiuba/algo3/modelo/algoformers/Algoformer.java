@@ -13,19 +13,18 @@ public abstract class Algoformer extends Contenido {
 	static final String MODO_ALTERNO = "alterno";
 	static public final int MODO_AUTOBOT = 0;
 	static public final int MODO_DECEPTICON = 1;
-	static final int TOTAL_ROBOTS_DISPONIBLES_POR_TIPO = 4;
 	static final int CANTIDAD_MINIMA_TURNOS_INMOVIL = 0;
 	
 	protected int vida;
 	protected Movimiento movimiento;
-	Posicion posicion;
+	protected Posicion posicion;
 	protected int distanciaDeAtaque;
 	protected int ataque;
 	protected int velocidad;
 	protected String modo;
 	protected int turnosInmovil = CANTIDAD_MINIMA_TURNOS_INMOVIL;
-	
-	Tablero tablero;
+	protected Tablero tablero;
+
 
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
@@ -42,10 +41,7 @@ public abstract class Algoformer extends Contenido {
 		return false;
 	};
 
-	public void agregarATablero(Tablero tablero) {
-		this.tablero = tablero;
-	} 
-	
+
 	public Posicion getPosicion(){  
 		return this.posicion;		
 	}
@@ -74,10 +70,8 @@ public abstract class Algoformer extends Contenido {
 		this.vida = vida;
 	}
 
-	public boolean fueraDelAlcanceDelAlgoformer(Posicion posicionFinal) { 
-		if ( (this.posicion.getDistancia(posicionFinal)) > this.velocidad )
-			return true;
-		return false;
+	public boolean estaAlAlcance(Posicion posicionFinal) {
+		return (this.velocidad >= this.posicion.getDistancia(posicionFinal));
 	}
 
 	public void recibirAtaque(Algoformer algoformerQueAtaca) {
@@ -97,11 +91,11 @@ public abstract class Algoformer extends Contenido {
 	}
 	
 	public boolean validarQuePuedeMoverse() {
-		return (turnosInmovil==CANTIDAD_MINIMA_TURNOS_INMOVIL)?true:false;
+		return (turnosInmovil == CANTIDAD_MINIMA_TURNOS_INMOVIL);
 	}
 	
 	public void moverAlgoformer(Posicion posicionDestino) {
-		if(!this.validarQuePuedeMoverse())
+		if (!this.validarQuePuedeMoverse())
 			throw new AlgoformerNoEstaHabilitadoParaMoverseExcepcion();
 		this.tablero.moverAlgoformer(this, posicionDestino);
 	}

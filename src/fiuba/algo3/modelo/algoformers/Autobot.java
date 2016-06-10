@@ -14,7 +14,4 @@ public abstract class Autobot extends Algoformer{
 		return false;
 	}
 
-	public void agregarATablero(){
-		//AL TABLERO LE TENGO QUE MANDAR UBICARAUTOBOT(THIS);
-	}
 }
