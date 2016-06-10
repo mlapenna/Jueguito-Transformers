@@ -1,12 +1,11 @@
 package fiuba.algo3.modelo.movimientos;
 
-import fiuba.algo3.modelo.Posicion;
+import fiuba.algo3.modelo.*;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import fiuba.algo3.modelo.algoformers.Algoformer;
-import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.Casillero;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroInvalidoExcepcion;
@@ -60,42 +59,106 @@ public class Movimiento {
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		}
 	}
-	
-	private void distanciaDeMovimientoValida(Algoformer algoformer,Posicion destino){
-		// TODO
-		// Acá tomo la velocidad que tenga el algoformer y me fijo hasta donde puede ir
-		
+
+
+	public boolean esHorizontalOVerticalPuro(Posicion posicionOrigen, Posicion posicionDestino) {
+		return (posicionOrigen.getX() == posicionDestino.getX() || posicionOrigen.getY() == posicionDestino.getY());
 	}
+
+
+	public boolean esDiagonalPuro(Posicion posicionOrigen, Posicion posicionDestino) {
+		int distanciaHorizontal = Math.abs(posicionOrigen.getX() - posicionDestino.getX());
+		int distanciaVertical = Math.abs(posicionOrigen.getY() - posicionDestino.getY());
+		return (distanciaHorizontal == distanciaVertical);
+	}
+
+
 	
-	public void validarPosibleMovimiento(Algoformer algoformer, Posicion posicionDestino) {
-		
-		// Acá validamos las distancias, velocidad, caminos rectos
-		
-		Posicion posicionOrigen = algoformer.getPosicion();
-		
-		if (posicionOrigen.getDistancia(posicionDestino) > algoformer.getVelocidad()) {
+	public void mover(Algoformer algoformer, Tablero tablero, Posicion posicionDestino) {
+
+		algoformer.validarQueNoEstaInmovilizado();
+
+		// Distancia válida (ni muy grande, ni nula)
+		int distancia = algoformer.getPosicion().getDistancia(posicionDestino);
+		if (algoformer.getVelocidad() < distancia || distancia == 0) {
 			throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
 		}
-		
-		if (posicionOrigen.mismaPosicion(posicionDestino)) {
+
+		// Dirección válida?
+		if (!this.esHorizontalOVerticalPuro(algoformer.getPosicion(), posicionDestino)
+			|| !this.esDiagonalPuro(algoformer.getPosicion(), posicionDestino)) {
 			throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 		}
-		
-		if (!movimientoRecto(posicionOrigen,posicionDestino) || !movimientoDiagonal(posicionOrigen,posicionDestino)) {
-			throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
-		}		
+
+		// Casillero vacío?
+		Contenido contenidoDestino = tablero.getContenido(posicionDestino);
+		if (contenidoDestino != Vacio.getInstancia()) {
+			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
+		}
+
+		// Establecer recorrido casilero por casillero
+		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
+
+		// Siguiente paso: MOVERLO y que sea afectdo por las superficies
+
 	}
-	
-	private boolean movimientoRecto(Posicion posicionOrigen,Posicion posicionDestino) {
-		return posicionOrigen.formaSegmento(posicionDestino);
+
+
+	// Arma un recorrido (armado por cada una de las posiciones intermedias más la final) de acuerdo a las posiciones de origen y destino recibidas
+	private ArrayList<Posicion> getRecorrido(Posicion posicionOrigen, Posicion posicionDestino) {
+		ArrayList<Posicion> recorrido = new ArrayList<Posicion>();
+
+		Posicion posicionSiguiente = new Posicion(posicionOrigen.getX(), posicionDestino.getY());
+
+		if (this.esHorizontalOVerticalPuro(posicionOrigen, posicionDestino)) {
+
+			if (posicionOrigen.getX() != posicionDestino.getX()) {
+				// Horizontal
+
+				int sentido = this.getSentidoMovimiento(posicionOrigen.getX(), posicionDestino.getX());
+				int coordenadaXsiguiente = posicionOrigen.getX();
+
+				while (posicionSiguiente != posicionDestino) {
+					coordenadaXsiguiente += sentido;
+					posicionSiguiente = new Posicion(coordenadaXsiguiente, posicionOrigen.getY());
+					recorrido.add(posicionSiguiente);
+				}
+			} else {
+				// Vertical
+				int sentido = this.getSentidoMovimiento(posicionOrigen.getY(), posicionDestino.getY());
+				int coordenadaYsiguiente = posicionOrigen.getY();
+
+				while (posicionSiguiente != posicionDestino) {
+					coordenadaYsiguiente += sentido;
+					posicionSiguiente = new Posicion(posicionOrigen.getX(), coordenadaYsiguiente);
+					recorrido.add(posicionSiguiente);
+				}
+			}
+
+		} else if (this.esDiagonalPuro(posicionOrigen, posicionDestino)) {
+			// Diagonal
+			int sentidoHorizontal = this.getSentidoMovimiento(posicionOrigen.getX(), posicionDestino.getX());
+			int sentidoVertical = this.getSentidoMovimiento(posicionOrigen.getY(), posicionDestino.getY());
+			int coordenadaXsiguiente = posicionOrigen.getX();
+			int coordenadaYsiguiente = posicionOrigen.getY();
+
+			while (posicionSiguiente != posicionDestino) {
+				coordenadaXsiguiente += sentidoHorizontal;
+				coordenadaYsiguiente += sentidoVertical;
+				posicionSiguiente = new Posicion(coordenadaXsiguiente, coordenadaYsiguiente);
+				recorrido.add(posicionSiguiente);
+			}
+		}
+
+		return recorrido;
 	}
-	
-	private boolean movimientoDiagonal(Posicion posicionOrigen,Posicion posicionDestino) {
-		return posicionOrigen.formaDiagonal(posicionDestino);
-	}
-	
-	public void realizarMovimiento(Algoformer algoformer,Posicion posicionDestino) {
-		
+
+
+	// Devuelve 1 si es hacia la derecha o hacia arriba, -1 en los demás casos
+	private int getSentidoMovimiento(int a, int b) {
+		return (b - a) / Math.abs(b - a);
 	}
 
 }
+
+

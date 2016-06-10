@@ -7,7 +7,7 @@ public class Ataque {
 
     public Ataque(Tablero tablero, Posicion posicionOrigen, Posicion posicionDestino) {
     	
-    	Casillero casilleroOrigen = tablero.getCasillero( posicionOrigen);
+    	/*Casillero casilleroOrigen = tablero.getCasillero( posicionOrigen);
     	Casillero casilleroDestino = tablero.getCasillero( posicionDestino);
     	
         if (casilleroOrigen.hayAlgoformer() && casilleroDestino.hayAlgoformer() ) {
@@ -20,6 +20,6 @@ public class Ataque {
             if (algoformer1.getDistanciaDeAtaque() >= distanciaEntrePosiciones && algoformer1.puedeAtacarA(algoformer2) ) {
                 algoformer2.recibirAtaque(algoformer1);
             }
-        }
+        }*/
     }
 }

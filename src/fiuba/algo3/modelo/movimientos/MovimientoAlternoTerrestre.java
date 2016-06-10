@@ -10,8 +10,8 @@ public class MovimientoAlternoTerrestre extends Movimiento{
 	public void moverPosicionAlgoformerHorizontalDerecha(Algoformer algoformer, Posicion nuevaPosicion) {
 		Posicion posicionInicial = algoformer.getPosicion();
 		Posicion posicionAuxiliar = new Posicion(0, 0);
-		int fila = posicionInicial.obtenerPosicionY();
-		for (int i=posicionInicial.obtenerPosicionX(); i<=nuevaPosicion.obtenerPosicionX(); i++)
+		int fila = posicionInicial.getY();
+		for (int i=posicionInicial.getX(); i<=nuevaPosicion.getX(); i++)
 		{
 			//try{
 				posicionAuxiliar.setCoordenadas(i, fila);
@@ -25,8 +25,8 @@ public class MovimientoAlternoTerrestre extends Movimiento{
 	public void moverPosicionAlgoformerHorizontalIzquierda(Algoformer algoformer, Posicion nuevaPosicion) {
 		Posicion posicionInicial = algoformer.getPosicion();
 		Posicion posicionAuxiliar = new Posicion(0, 0);
-		int columna = posicionInicial.obtenerPosicionY();
-		for (int i=posicionInicial.obtenerPosicionX(); i>=nuevaPosicion.obtenerPosicionX(); i--)
+		int columna = posicionInicial.getY();
+		for (int i=posicionInicial.getX(); i>=nuevaPosicion.getX(); i--)
 		{
 			//try{
 				posicionAuxiliar.setCoordenadas(i, columna);
@@ -40,8 +40,8 @@ public class MovimientoAlternoTerrestre extends Movimiento{
 	public void moverPosicionAlgoformerVerticalArriba(Algoformer algoformer, Posicion nuevaPosicion) {
 		Posicion posicionInicial = algoformer.getPosicion();
 		Posicion posicionAuxiliar = new Posicion(0, 0);
-		int fila = posicionInicial.obtenerPosicionX();
-		for (int i=posicionInicial.obtenerPosicionY(); i<=nuevaPosicion.obtenerPosicionY(); i++)
+		int fila = posicionInicial.getX();
+		for (int i=posicionInicial.getY(); i<=nuevaPosicion.getY(); i++)
 		{
 			//try{
 				posicionAuxiliar.setCoordenadas(fila, i);
@@ -55,8 +55,8 @@ public class MovimientoAlternoTerrestre extends Movimiento{
 	public void moverPosicionAlgoformerVerticalAbajo(Algoformer algoformer, Posicion nuevaPosicion) {
 		Posicion posicionInicial = algoformer.getPosicion();
 		Posicion posicionAuxiliar = new Posicion(0, 0);
-		int fila = posicionInicial.obtenerPosicionX();
-		for (int i=posicionInicial.obtenerPosicionY(); i>=nuevaPosicion.obtenerPosicionY(); i--)
+		int fila = posicionInicial.getX();
+		for (int i=posicionInicial.getY(); i>=nuevaPosicion.getY(); i--)
 		{
 			//try{
 				posicionAuxiliar.setCoordenadas(fila, i);

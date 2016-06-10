@@ -14,7 +14,7 @@ public class Casillero {
 	private Aire aire;
 
 	public Casillero() {
-		this.contenido = new Vacio();
+		this.contenido = Vacio.getInstancia();
 	}
 
 
@@ -47,6 +47,11 @@ public class Casillero {
 				this.aire = new TormentaPsionica();
 				break;
 		}
+	}
+
+
+	public Contenido getContenido() {
+		return this.contenido;
 	}
 
 

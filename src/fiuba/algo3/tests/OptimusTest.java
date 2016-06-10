@@ -11,13 +11,13 @@ public class OptimusTest {
 	
 	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
 	public void testOptimusTransformarHumanoide () {
-		
+		/*
 		Optimus prime = new Optimus();
 		
 		prime.transformarHumanoide();
 		
 		prime.transformarHumanoide();
-		
+		*/
 	}
 
 }

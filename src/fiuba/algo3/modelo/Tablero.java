@@ -83,9 +83,10 @@ public class Tablero {
 	}
 	*/
 
-	public Casillero getCasillero(Posicion posicion) {
-		ArrayList<Casillero> fila = this.casilleros.get( posicion.obtenerPosicionY() );
-		return fila.get( posicion.obtenerPosicionX() );
+	public Contenido getContenido(Posicion posicion) {
+		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
+		Casillero unCasillero = fila.get( posicion.getX() );
+		return unCasillero.getContenido();
 	}
 /*
 

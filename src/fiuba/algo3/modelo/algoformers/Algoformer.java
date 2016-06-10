@@ -90,24 +90,15 @@ public abstract class Algoformer extends Contenido {
 			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
 	}
 	
-	private void validarQueNoEstaInmovilizado() {
+	public void validarQueNoEstaInmovilizado() {
 		if (turnosInmovil > CANTIDAD_MINIMA_TURNOS_INMOVIL) {
 			throw new AlgoformerInmovilizadoExcepcion();
 		}
 	}
 
-	private void validarDistanciaDentroDelRango(Posicion posicionDestino) {
-		if (this.velocidad >= this.posicion.getDistancia(posicionDestino)) {
-			throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
-		}
-	}
-
 
 	public void mover(Posicion posicionDestino) {
-		this.validarQueNoEstaInmovilizado();
-		this.validarDistanciaDentroDelRango(posicionDestino);
-
-		//this.tablero.moverAlgoformer(this, posicionDestino);
+		this.movimiento.mover(this, this.tablero, posicionDestino);
 	}
 
 
