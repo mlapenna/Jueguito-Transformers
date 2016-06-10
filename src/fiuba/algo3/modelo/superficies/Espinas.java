@@ -4,7 +4,7 @@ import fiuba.algo3.modelo.algoformers.Algoformer;
 
 public class Espinas extends Tierra {
 	public static String SUPERFICIE = "espinas";
-	public static final string NOMBRE_JSON = "Espinas";
+	public static final String NOMBRE_JSON = "Espinas";
 	public static final int DANIO = 5;
 	
 	@Override

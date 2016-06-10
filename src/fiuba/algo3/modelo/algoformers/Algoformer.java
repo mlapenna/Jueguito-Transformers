@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo.algoformers;
 
-import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroLejano;
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 import fiuba.algo3.modelo.movimientos.Movimiento;
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
@@ -98,7 +98,7 @@ public abstract class Algoformer extends Contenido {
 
 	private void validarDistanciaDentroDelRango(Posicion posicionDestino) {
 		if (this.velocidad >= this.posicion.getDistancia(posicionDestino)) {
-			throw new MovimientoInvalidoCasilleroLejano();
+			throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
 		}
 	}
 
@@ -114,4 +114,5 @@ public abstract class Algoformer extends Contenido {
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
 		this.turnosInmovil = turnosAtrapado;
 	}
+
 }

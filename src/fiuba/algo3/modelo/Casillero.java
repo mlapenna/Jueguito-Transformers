@@ -22,14 +22,13 @@ public class Casillero {
 	public void setSuperficies(Tierra tierra, Aire aire) {
 		this.tierra = tierra;
 		this.aire = aire;
-	)
+	}
 
 
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer) {
 		if (this.estaVacio() == false)
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		this.algoformer=algoformer;
-		this.vacio=false;
 	}
 
 	public void agregarAlgoformerHumanoide(Algoformer algoformer) {
@@ -42,7 +41,6 @@ public class Casillero {
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		*/
 		this.algoformer = algoformer;
-		this.vacio = false;
 	}
 	
 	public void agregarAlgoformerAlternoTerrestre(Algoformer algoformer) {
@@ -53,7 +51,6 @@ public class Casillero {
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		*/
 		this.algoformer = algoformer;
-		this.vacio = false;
 	}
 
 	
@@ -66,17 +63,16 @@ public class Casillero {
 		if (this.estaVacio()==false)
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		
-		this.algoformer=algoformer;
-		this.vacio=false;		
+		this.algoformer=algoformer;		
 	}
 	
 	public void quitarAlgoformer(Algoformer algoformer){
 		this.algoformer=null;
-		this.vacio=true;
+		this.contenido = new Vacio();
 	}
 	
 	public boolean estaVacio(){
-		return this.vacio;
+		return this.contenido.hayAlgo();
 	}
 
 	public boolean hayAlgoformer(){

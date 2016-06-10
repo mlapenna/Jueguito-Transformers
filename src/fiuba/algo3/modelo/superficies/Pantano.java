@@ -4,7 +4,7 @@ import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
 
 public class Pantano extends Tierra {
-	public static final string NOMBRE_JSON = "Pantano";
+	public static final String NOMBRE_JSON = "Pantano";
 
 	public Pantano(){
 		this.superficie = pantano;

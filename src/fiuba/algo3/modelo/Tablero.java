@@ -51,8 +51,8 @@ public class Tablero {
 			String superficieTierraString = unCasillero.get(JSON_FIELD_KEY_TIERRA).toString();
 			String superficieAireString = unCasillero.get(JSON_FIELD_KEY_AIRE).toString();
 
-			Tierra superficieTierra;
-			Aire superficieAire;
+			Tierra superficieTierra=null; //PIDE INICIALIZAR
+			Aire superficieAire=null;
 
 			switch (superficieTierraString) {
 				case Rocas.NOMBRE_JSON:
@@ -99,19 +99,19 @@ public class Tablero {
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerHumanoide(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
-		algoformer.setPosicion(posicionFinal);
+		algoformer.mover(posicionFinal);
 	}
 
 	
 	public void moverAlgoformerHumanoidesinEfectoDeLaSuperficie(Algoformer algoformer, Posicion posicionFinal){
-		if(!algoformer.estaAlAlcance(posicionFinal))
-			throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
+//		if(!algoformer.estaAlAlcance(posicionFinal))
+//			throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
 		
 		this.getCasillero(algoformer.getPosicion()).quitarAlgoformer(algoformer);
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
-		algoformer.setPosicion(posicionFinal);
+		algoformer.mover(posicionFinal);
 	}
 	
 
@@ -126,7 +126,7 @@ public class Tablero {
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerAlternoTerrestre(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
-		algoformer.setPosicion(posicionFinal);
+		algoformer.mover(posicionFinal);
 	}
 
 
@@ -135,20 +135,20 @@ public class Tablero {
 		//try{
 			this.getCasillero(posicionFinal).agregarAlgoformerAlternoAereo(algoformer);
 		//}catch (Exception ) SI NO SE PUDO MOVER VOLVER A POSICION INICIAL
-		algoformer.setPosicion(posicionFinal);	
+		algoformer.mover(posicionFinal);	
 	}
 
 
 	public void agregarAlgoformerHumanoide(Algoformer algoformer, Posicion posicion) {
 		this.getCasillero(posicion).agregarAlgoformerHumanoide(algoformer);
-		algoformer.setPosicion(posicion);
+		algoformer.mover(posicion);
 	}
 
 	
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer, Posicion posicion) {
 		Casillero casillero = this.getCasillero(posicion);
 		casillero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer);
-		algoformer.setPosicion(posicion);
+		algoformer.mover(posicion);
 	}
 
 

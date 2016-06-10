@@ -3,7 +3,7 @@ package fiuba.algo3.modelo.superficies;
 import fiuba.algo3.modelo.algoformers.Algoformer;
 
 public class NebulosaDeAndromeda extends Aire {
-	public static final string NOMBRE_JSON = "NebulosaDeAndromeda";
+	public static final String NOMBRE_JSON = "NebulosaDeAndromeda";
 	public static final int TURNOS_ATRAPADO = 3;
 	
 	public NebulosaDeAndromeda(){
