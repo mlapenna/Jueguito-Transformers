@@ -106,12 +106,15 @@ public abstract class Movimiento {
 		for (int i=0; i<(recorrido.size()); i++)
 		{
 			tablero.quitarContenido(algoformer.getPosicion());
-			//try{
+			try{
 				this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));
-			//}catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion) HACER Q VUELVA AL PRINCIPIO
-			tablero.setContenido(recorrido.get(i), algoformer);
-			algoformer.mover(recorrido.get(i));
-		}
+				tablero.setContenido(recorrido.get(i), algoformer);
+				//algoformer.mover(recorrido.get(i));
+				algoformer.setNuevaPosicion(recorrido.get(i));
+			}catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
+				//TODO: regresar a condiciones iniciales
+			} 			
+		}		
 	}
 
 
@@ -154,7 +157,7 @@ public abstract class Movimiento {
 			int sentidoVertical = this.getSentidoMovimiento(posicionOrigen.getY(), posicionDestino.getY());
 			int coordenadaXsiguiente = posicionOrigen.getX();
 			int coordenadaYsiguiente = posicionOrigen.getY();
-			
+
 			while (!posicionSiguiente.iguales(posicionDestino)) {
 				coordenadaXsiguiente += sentidoHorizontal;
 				coordenadaYsiguiente += sentidoVertical;
