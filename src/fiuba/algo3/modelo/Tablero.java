@@ -19,7 +19,6 @@ public class Tablero {
 	private static final String JSON_FIELD_KEY_POSICION_Y = "posicionY";
 	private static final String JSON_FIELD_KEY_SUPERFICIES = "superficies";
 
-
 	public Tablero(JSONObject json) {
 
 		this.dimensionX = Integer.parseInt( json.get(JSON_FIELD_KEY_DIMENSION_X).toString() );
@@ -136,5 +135,17 @@ public class Tablero {
 
 	public int getDimensionY() {
 		return this.dimensionY;
+	}
+
+
+	public Casillero getCasillero(Posicion posicion) {
+		return new Casillero();//HACER METODO
+		
+	}
+
+
+	public void quitarContenido(Posicion posicion) {
+		// EN LA POSICION DECIRLE AL CASILLERO Q QUITE EL CONTENIDO
+		
 	}
 }

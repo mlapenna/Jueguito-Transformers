@@ -10,7 +10,7 @@ import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcio
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroInvalidoExcepcion;
 
-public class Movimiento {
+public abstract class Movimiento {
 	
 	protected Tablero tablero;
 	
@@ -41,7 +41,7 @@ public class Movimiento {
 		//}
 		
 	
-	private Casillero obtenerCasillero(Posicion nuevaPoscion){
+	protected Casillero getCasillero(Posicion nuevaPoscion){
 		// TODO: buscar el casillero en el tablero
 		return new Casillero();
 	}
@@ -78,13 +78,13 @@ public class Movimiento {
 
 		algoformer.validarQueNoEstaInmovilizado();
 
-		// Distancia válida (ni muy grande, ni nula)
+		// Distancia valida? (ni muy grande, ni nula)
 		int distancia = algoformer.getPosicion().getDistancia(posicionDestino);
 		if (algoformer.getVelocidad() < distancia || distancia == 0) {
 			throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
 		}
 
-		// Dirección válida?
+		// Direccion valida?
 		if (!this.esHorizontalOVerticalPuro(algoformer.getPosicion(), posicionDestino)
 			|| !this.esDiagonalPuro(algoformer.getPosicion(), posicionDestino)) {
 			throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
@@ -94,15 +94,21 @@ public class Movimiento {
 		Contenido contenidoDestino = tablero.getContenido(posicionDestino);
 		if (contenidoDestino != Vacio.getInstancia()) {
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
-		}
+		}//ME PARECE QUE SEGUN EL PRINCIPIO "TELL DONT ASK" HABRIA Q COMPROBAR ESTO MIENTRAS SE MUEVE
 
 		// Establecer recorrido casilero por casillero
 		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
-
-		// Siguiente paso: MOVERLO y que sea afectdo por las superficies
-
+		
+		for (int i=0; i<(recorrido.size()); i++)
+		{
+			tablero.quitarContenido(recorrido.get(i));
+			this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));//TIRAR EXCEPCION SI NO PUEDE PASAR 
+			tablero.setContenido(recorrido.get(i), algoformer);
+		}
 	}
 
+
+	public abstract void afectarAlgoformer(Algoformer algoformer, Tablero tablero,Posicion posicion);
 
 	// Arma un recorrido (compuesto por cada una de las posiciones intermedias más la final) de acuerdo a las posiciones de origen y destino recibidas
 	private ArrayList<Posicion> getRecorrido(Posicion posicionOrigen, Posicion posicionDestino) {
