@@ -114,6 +114,7 @@ public abstract class Algoformer extends Contenido {
 
 	public void mover(Posicion posicionDestino) {
 		this.movimiento.mover(this, this.tablero, posicionDestino);
+		this.posicion = posicionDestino;
 	}
 
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
