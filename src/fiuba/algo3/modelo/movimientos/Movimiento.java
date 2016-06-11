@@ -102,13 +102,15 @@ public abstract class Movimiento {
 		// Establecer recorrido casilero por casillero
 		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
 		
+		//movimiento
 		for (int i=0; i<(recorrido.size()); i++)
 		{
 			tablero.quitarContenido(algoformer.getPosicion());
 			//try{
 				this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));
 			//}catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion) HACER Q VUELVA AL PRINCIPIO
-				tablero.setContenido(recorrido.get(i), algoformer);
+			tablero.setContenido(recorrido.get(i), algoformer);
+			algoformer.mover(recorrido.get(i));
 		}
 	}
 
