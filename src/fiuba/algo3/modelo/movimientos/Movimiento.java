@@ -121,17 +121,17 @@ public abstract class Movimiento {
 	private ArrayList<Posicion> getRecorrido(Posicion posicionOrigen, Posicion posicionDestino) {
 		ArrayList<Posicion> recorrido = new ArrayList<Posicion>();
 
-		Posicion posicionSiguiente = new Posicion(posicionOrigen.getX(), posicionDestino.getY());
-
+		Posicion posicionSiguiente = new Posicion(posicionOrigen.getX(), posicionOrigen.getY());
+		
 		if (this.esHorizontalOVerticalPuro(posicionOrigen, posicionDestino)) {
 
 			if (posicionOrigen.getX() != posicionDestino.getX()) {
 				// Horizontal
-
+				
 				int sentido = this.getSentidoMovimiento(posicionOrigen.getX(), posicionDestino.getX());
 				int coordenadaXsiguiente = posicionOrigen.getX();
 
-				while (posicionSiguiente != posicionDestino) {
+				while (!posicionSiguiente.iguales(posicionDestino)) {
 					coordenadaXsiguiente += sentido;
 					posicionSiguiente = new Posicion(coordenadaXsiguiente, posicionOrigen.getY());
 					recorrido.add(posicionSiguiente);
@@ -140,8 +140,8 @@ public abstract class Movimiento {
 				// Vertical
 				int sentido = this.getSentidoMovimiento(posicionOrigen.getY(), posicionDestino.getY());
 				int coordenadaYsiguiente = posicionOrigen.getY();
-
-				while (posicionSiguiente != posicionDestino) {
+			
+				while (!posicionSiguiente.iguales(posicionDestino)) {
 					coordenadaYsiguiente += sentido;
 					posicionSiguiente = new Posicion(posicionOrigen.getX(), coordenadaYsiguiente);
 					recorrido.add(posicionSiguiente);
@@ -154,8 +154,8 @@ public abstract class Movimiento {
 			int sentidoVertical = this.getSentidoMovimiento(posicionOrigen.getY(), posicionDestino.getY());
 			int coordenadaXsiguiente = posicionOrigen.getX();
 			int coordenadaYsiguiente = posicionOrigen.getY();
-
-			while (posicionSiguiente != posicionDestino) {
+			
+			while (!posicionSiguiente.iguales(posicionDestino)) {
 				coordenadaXsiguiente += sentidoHorizontal;
 				coordenadaYsiguiente += sentidoVertical;
 				posicionSiguiente = new Posicion(coordenadaXsiguiente, coordenadaYsiguiente);
