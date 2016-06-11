@@ -2,7 +2,7 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitado;
+import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion;
 
 public abstract class Autobot extends Algoformer {
 
@@ -11,7 +11,7 @@ public abstract class Autobot extends Algoformer {
 	}
 
 	public void validarQueSePuedeAtacar(Algoformer otroAlgoformer) {
-		if(otroAlgoformer.esAutobot()) throw new AtaqueInvalidoFriendlyFireNoEstaHabilitado();
+		if(otroAlgoformer.esAutobot()) throw new AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion();
 	}
 
 	public boolean esAutobot() {

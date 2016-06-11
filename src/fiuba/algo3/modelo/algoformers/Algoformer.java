@@ -8,7 +8,7 @@ import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExce
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.Contenido;
-import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitado;
+import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion;
 import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
 //import javafx.geometry.Pos;
 
