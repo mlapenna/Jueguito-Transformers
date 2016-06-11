@@ -53,7 +53,6 @@ public class Casillero {
 		return this.contenido;
 	}
 
-
 	public void setContenido(Contenido contenido) {
 		this.contenido = contenido;
 	}
@@ -66,6 +65,15 @@ public class Casillero {
 	public Aire getSuperficieAire() {
 		return this.aire;
 	}
+	
+	public boolean estaVacio(){
+		return this.contenido.hayAlgo();
+	}
+	
+	public void quitarContenido(){
+		this.contenido = new Vacio();
+	}
+
 
 	/*
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer) {
@@ -110,10 +118,7 @@ public class Casillero {
 		this.algoformer=null;
 		this.contenido = new Vacio();
 	}
-	
-	public boolean estaVacio(){
-		return this.contenido.hayAlgo();
-	}
+
 
 	public Algoformer getAlgoformerContenido(){
 		return this.algoformer;
@@ -128,7 +133,6 @@ public class Casillero {
 	}
 
 	*/
-
 
 
 }

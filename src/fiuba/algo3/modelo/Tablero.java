@@ -49,20 +49,33 @@ public class Tablero {
 		}
 	}
 
-
-	public Contenido getContenido(Posicion posicion) {
+	public Casillero getCasillero(Posicion posicion) { //VER SI FUNCIONA
 		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
 		Casillero unCasillero = fila.get( posicion.getX() );
-		return unCasillero.getContenido();
+		return unCasillero;		
+	}
+
+
+	public void quitarContenido(Posicion posicion) {
+		this.getCasillero(posicion).quitarContenido();		
+	}
+
+	public Contenido getContenido(Posicion posicion) {
+		return this.getCasillero(posicion).getContenido();
 	}
 
 
 	public void setContenido(Posicion posicion, Contenido contenido) {
-		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
-		Casillero unCasillero = fila.get( posicion.getX() );
-		unCasillero.setContenido(contenido);
+		this.getCasillero(posicion).setContenido(contenido);
 	}
 
+	public int getDimensionX() {
+		return this.dimensionX;
+	}
+
+	public int getDimensionY() {
+		return this.dimensionY;
+	}
 
 /*
 
@@ -129,23 +142,6 @@ public class Tablero {
 	}
 */
 
-	public int getDimensionX() {
-		return this.dimensionX;
-	}
-
-	public int getDimensionY() {
-		return this.dimensionY;
-	}
 
 
-	public Casillero getCasillero(Posicion posicion) {
-		return new Casillero();//HACER METODO
-		
-	}
-
-
-	public void quitarContenido(Posicion posicion) {
-		// EN LA POSICION DECIRLE AL CASILLERO Q QUITE EL CONTENIDO
-		
-	}
 }

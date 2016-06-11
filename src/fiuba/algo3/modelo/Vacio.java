@@ -5,11 +5,12 @@ import fiuba.algo3.modelo.Contenido;
 public class Vacio extends Contenido {
 
 	private static Vacio vacio = new Vacio();
+	
+	public Vacio(){
+		this.hayAlgo=false;
+	}
 
-	/* Un constructor privado previene que otras clases lo instancien */
-	private Vacio() { }
-
-	public static Vacio getInstancia( ) {
+	public static Vacio getInstancia() {
 		return vacio;
 	}
 

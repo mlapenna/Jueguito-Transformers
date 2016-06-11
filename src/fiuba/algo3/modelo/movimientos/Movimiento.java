@@ -8,6 +8,7 @@ import java.util.Calendar;
 import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroInvalidoExcepcion;
 
 public abstract class Movimiento {
@@ -75,9 +76,11 @@ public abstract class Movimiento {
 
 	
 	public void mover(Algoformer algoformer, Tablero tablero, Posicion posicionDestino) {
-
+		
+		Posicion posicionInicial = algoformer.getPosicion();//POR SI NO PUEDE PASAR
+		
 		algoformer.validarQueNoEstaInmovilizado();
-
+		
 		// Distancia valida? (ni muy grande, ni nula)
 		int distancia = algoformer.getPosicion().getDistancia(posicionDestino);
 		if (algoformer.getVelocidad() < distancia || distancia == 0) {
@@ -102,8 +105,10 @@ public abstract class Movimiento {
 		for (int i=0; i<(recorrido.size()); i++)
 		{
 			tablero.quitarContenido(recorrido.get(i));
-			this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));//TIRAR EXCEPCION SI NO PUEDE PASAR 
-			tablero.setContenido(recorrido.get(i), algoformer);
+			//try{
+				this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));
+			//}catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion) HACER Q VUELVA AL PRINCIPIO
+				tablero.setContenido(recorrido.get(i), algoformer);
 		}
 	}
 
