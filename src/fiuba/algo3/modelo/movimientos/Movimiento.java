@@ -93,7 +93,7 @@ public abstract class Movimiento {
 			throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 		}
 
-		// Casillero vacío?
+		// Casillero vacio?
 		Contenido contenidoDestino = tablero.getContenido(posicionDestino);
 		if (contenidoDestino != Vacio.getInstancia()) {
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
@@ -104,7 +104,7 @@ public abstract class Movimiento {
 		
 		for (int i=0; i<(recorrido.size()); i++)
 		{
-			tablero.quitarContenido(recorrido.get(i));
+			tablero.quitarContenido(algoformer.getPosicion());
 			//try{
 				this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));
 			//}catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion) HACER Q VUELVA AL PRINCIPIO
