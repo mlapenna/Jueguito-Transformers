@@ -38,6 +38,9 @@ public class Posicion {
 		return resultado;
 	}
 	
-
+	
+	public boolean iguales(Posicion posicion) {
+		return ((this.getX()==posicion.getX()) && (this.getY()==posicion.getY()));
+	}
 
 }
