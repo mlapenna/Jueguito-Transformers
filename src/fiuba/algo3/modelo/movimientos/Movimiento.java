@@ -89,7 +89,7 @@ public abstract class Movimiento {
 
 		// Direccion valida?
 		if (!this.esHorizontalOVerticalPuro(algoformer.getPosicion(), posicionDestino)
-			|| !this.esDiagonalPuro(algoformer.getPosicion(), posicionDestino)) {
+			&& !this.esDiagonalPuro(algoformer.getPosicion(), posicionDestino)) {
 			throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 		}
 
