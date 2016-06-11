@@ -8,7 +8,9 @@ import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExce
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.Contenido;
-import javafx.geometry.Pos;
+import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitado;
+import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
+//import javafx.geometry.Pos;
 
 
 public abstract class Algoformer extends Contenido {
@@ -39,16 +41,15 @@ public abstract class Algoformer extends Contenido {
 	
 	public abstract void transformarAlterno(); //redefinida en cada Algoformer
 
-	public abstract boolean puedeAtacarA(Algoformer otroAlgoformer);
-
+	public abstract void validarQueSePuedeAtacar(Algoformer otroAlgoformer);
+	
 	public boolean esDecepticon() {
 		return false;
-	};
+	}
 
 	public boolean esAutobot() {
 		return false;
-	};
-
+	}
 
 	public Posicion getPosicion(){  
 		return this.posicion;		
@@ -74,11 +75,26 @@ public abstract class Algoformer extends Contenido {
 		this.vida = vida;
 	}
 
-	public void recibirAtaque(Algoformer algoformerQueAtaca) {
-		int vidaAux = this.getVida() - algoformerQueAtaca.getAtaque();
+	private void recibirAtaque(int ataque) {
+		int vidaAux = this.getVida() - ataque;
 		if (vidaAux < 0) vidaAux = 0;
 		this.setVida(vidaAux);
 	}
+	
+	public void atacar(Algoformer algoformerObjetivo) {
+		this.validarAtaque(algoformerObjetivo);
+		algoformerObjetivo.recibirAtaque(this.getAtaque());
+	}
+	
+	private void validarAtaque(Algoformer algoformerObjetivo) {
+		Posicion posicionOrigen = this.getPosicion();
+		Posicion posicionDestino = algoformerObjetivo.getPosicion();
+		
+		this.validarQueSePuedeAtacar(algoformerObjetivo);
+		if (this.getDistanciaDeAtaque() < posicionOrigen.getDistancia(posicionDestino)) {
+			throw new AtaqueInvalidoDistanciaInsuficienteExcepcion();
+        }
+	}	
 	
 	public void validarQueNoSoyHumanoide() {
 		if(this.modo == MODO_HUMANOIDE)
@@ -96,11 +112,9 @@ public abstract class Algoformer extends Contenido {
 		}
 	}
 
-
 	public void mover(Posicion posicionDestino) {
 		this.movimiento.mover(this, this.tablero, posicionDestino);
 	}
-
 
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
 		this.turnosInmovil = turnosAtrapado;

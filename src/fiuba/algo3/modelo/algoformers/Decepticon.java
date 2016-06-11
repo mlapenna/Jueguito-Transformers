@@ -3,6 +3,7 @@ package fiuba.algo3.modelo.algoformers;
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.algoformers.Algoformer;
+import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitado;
 
 public abstract class Decepticon extends Algoformer {
 
@@ -10,12 +11,15 @@ public abstract class Decepticon extends Algoformer {
 		super(posicion, tablero);
 	}
 
-	public boolean puedeAtacarA(Algoformer otroAlgoformer) {
-		return !otroAlgoformer.esDecepticon();
+	public void validarQueSePuedeAtacar(Algoformer otroAlgoformer) {
+		if(otroAlgoformer.esDecepticon()) throw new AtaqueInvalidoFriendlyFireNoEstaHabilitado();
 	}
 
 	public boolean esDecepticon() {
 		return true;
 	}
 
+	public boolean esAutobot() {
+		return false;
+	}
 }
