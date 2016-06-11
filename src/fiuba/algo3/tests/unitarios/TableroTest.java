@@ -1,4 +1,4 @@
-package fiuba.algo3.tests;
+package fiuba.algo3.tests.unitarios;
 
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.algoformers.Algoformer;

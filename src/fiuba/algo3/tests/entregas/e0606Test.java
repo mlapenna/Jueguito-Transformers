@@ -1,4 +1,4 @@
-package fiuba.algo3.tests;
+package fiuba.algo3.tests.entregas;
 
 import java.io.FileReader;
 
@@ -18,10 +18,12 @@ import java.io.FileNotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Entregables20160606Test {
+public class e0606Test {
 	
 	// Primera entrega Jueves 02/06/2016 - Lunes 06/06/2016
-	
+
+	/*
+
 	@Test
 	public void testAgregarAlgoformerHumanoideMoverYVerificarPosicion() throws FileNotFoundException, 
 	 IOException, ParseException {
@@ -29,7 +31,7 @@ public class Entregables20160606Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		/*
+
 		Algoformer prime = new Optimus();
 
 		Posicion nuevaPosicion = new Posicion(3, 1);
@@ -44,7 +46,7 @@ public class Entregables20160606Test {
 		Posicion auxPosicion = prime.getPosicion();
 		
 		Assert.assertEquals(auxPosicion, ultimaPosicion);
-		*/
+
 	}
 
 	
@@ -55,7 +57,6 @@ public class Entregables20160606Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		/*
 		Algoformer prime = new Optimus();
 		Posicion nuevaPosicion = new Posicion(3,1);
 		Posicion ultimaPosicion = new Posicion(5,1);
@@ -69,7 +70,7 @@ public class Entregables20160606Test {
 		Posicion auxPosicion = prime.getPosicion();
 		
 		Assert.assertEquals(auxPosicion, ultimaPosicion);
-		*/
+
 	}
 
 	
@@ -78,7 +79,7 @@ public class Entregables20160606Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		/*
+
 		Algoformer prime = new Optimus();
 		Posicion nuevaPosicion = new Posicion(0,1);
 		Posicion ultimaPosicionAlterno = new Posicion(4,1);
@@ -101,25 +102,21 @@ public class Entregables20160606Test {
 
 		Posicion posicionInvalidaHumanoide = new Posicion (9,1);
 		tablero.moverAlgoformerHumanoidesinEfectoDeLaSuperficie(prime, posicionInvalidaHumanoide);
-		*/
+
 	}
 
 
 	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
 	public void testCrearAlgoformerHumanoideYCambiarAlMismoModo(){
-		/*
 		Algoformer prime = new Optimus();
 		prime.transformarHumanoide();
-		*/
 	}
 
 	@Test(expected=TransformacionIncorresctaYaEsAlternoExcepcion.class)
 	public void testCrearAlgoformerTransformarAAlternoYCambiarAlMismoModo(){
-		/*
 		Algoformer prime = new Optimus();
 		prime.transformarAlterno();
 		prime.transformarAlterno();
-		*/
 	}
 
 	@Test
@@ -127,7 +124,7 @@ public class Entregables20160606Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		/*
+
 		Optimus optimus = new Optimus();
 		Frenzy frenzy = new Frenzy();
 
@@ -164,6 +161,6 @@ public class Entregables20160606Test {
 		ataque = new Ataque(tablero, posicion1, posicion2);
 
 		Assert.assertEquals(vidaFrenzyEsperadaLuegoDeAtaque, frenzy.getVida()); // Este esta dentro de la distancia y debe restarle
-		*/
 	}
+	*/
 }

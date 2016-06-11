@@ -18,13 +18,12 @@ public class Casillero {
 	}
 
 
-	public void setSuperficies(JSONArray superficiesArray) {
-		JSONObject superficiesObject = (JSONObject) superficiesArray.get(0);
+	public void setSuperficies(JSONObject superficies) {
 
-		String superficieTierraString = superficiesObject.get(JSON_FIELD_KEY_TIERRA).toString();
-		String superficieAireString = superficiesObject.get(JSON_FIELD_KEY_AIRE).toString();
+		String superficieTierra = superficies.get(JSON_FIELD_KEY_TIERRA).toString();
+		String superficieAire = superficies.get(JSON_FIELD_KEY_AIRE).toString();
 
-		switch (superficieTierraString) {
+		switch (superficieTierra) {
 			case Rocas.NOMBRE_JSON:
 				this.tierra = new Rocas();
 				break;
@@ -36,7 +35,7 @@ public class Casillero {
 				break;
 		}
 
-		switch (superficieAireString) {
+		switch (superficieAire) {
 			case Nube.NOMBRE_JSON:
 				this.aire = new Nube();
 				break;
@@ -54,6 +53,19 @@ public class Casillero {
 		return this.contenido;
 	}
 
+
+	public void setContenido(Contenido contenido) {
+		this.contenido = contenido;
+	}
+
+
+	public Tierra getSuperficieTierra() {
+		return this.tierra;
+	}
+
+	public Aire getSuperficieAire() {
+		return this.aire;
+	}
 
 	/*
 	public void agregarAlgoformerHumanoideSinEfectoDeSuperficie(Algoformer algoformer) {

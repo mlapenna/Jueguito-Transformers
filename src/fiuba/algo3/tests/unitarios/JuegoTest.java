@@ -1,4 +1,4 @@
-package fiuba.algo3.tests;
+package fiuba.algo3.tests.unitarios;
 
 import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.Jugador;
@@ -20,7 +20,7 @@ public class JuegoTest {
 	public void testJugar() {
 		try {
 			JSONParser parser = new JSONParser();
-			JSONObject jsonTablero = (JSONObject)parser.parse(new FileReader("mapas/1.json"));
+			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 			Tablero tablero = new Tablero(jsonTablero);
 			Jugador jugador1 = new Jugador("Pedro", Algoformer.MODO_AUTOBOT, tablero);
 			Jugador jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, tablero);

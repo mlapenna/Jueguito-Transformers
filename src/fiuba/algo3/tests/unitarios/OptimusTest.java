@@ -1,4 +1,4 @@
-package fiuba.algo3.tests;
+package fiuba.algo3.tests.unitarios;
 
 
 import org.junit.Assert;
@@ -8,16 +8,16 @@ import fiuba.algo3.modelo.algoformers.Optimus;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
 
 public class OptimusTest {
-	
+	/*
 	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
 	public void testOptimusTransformarHumanoide () {
-		/*
+
 		Optimus prime = new Optimus();
 		
 		prime.transformarHumanoide();
 		
 		prime.transformarHumanoide();
-		*/
 	}
+	*/
 
 }

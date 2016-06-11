@@ -1,4 +1,4 @@
-package fiuba.algo3.tests;
+package fiuba.algo3.tests.integracion;
 
 import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.Jugador;

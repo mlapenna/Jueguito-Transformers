@@ -1,4 +1,4 @@
-package fiuba.algo3.tests;
+package fiuba.algo3.tests.entregas;
 
 import java.io.FileReader;
 
@@ -20,9 +20,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class Entregables20160613Test {
+public class e0613Test {
 
-
+	/*
 	@Test
 	public void testLlenarZonaRocasYHacerPasarAOptimusHumanoidePorElla() throws FileNotFoundException,
 	 IOException, ParseException{
@@ -53,7 +53,7 @@ public class Entregables20160613Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		/*
+
 		Algoformer prime = new Optimus();
 		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
 
@@ -63,7 +63,7 @@ public class Entregables20160613Test {
 		prime.mover(posicionDestino);
 
 		Assert.assertEquals(prime.getPosicion(), posicionDestino);
-		*/
+
 	}
 
 	/*

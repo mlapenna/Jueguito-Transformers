@@ -43,11 +43,25 @@ public class Tablero {
 
 			int posicionX = Integer.parseInt( unCasillero.get(JSON_FIELD_KEY_POSICION_X).toString() );
 			int posicionY = Integer.parseInt( unCasillero.get(JSON_FIELD_KEY_POSICION_Y).toString() );
-			JSONArray superficies = (JSONArray) json.get(JSON_FIELD_KEY_SUPERFICIES);
+			JSONObject superficies = (JSONObject) unCasillero.get(JSON_FIELD_KEY_SUPERFICIES);
 
-			this.casilleros.get(posicionX).get(posicionY).setSuperficies(superficies);
+			this.casilleros.get(posicionY).get(posicionX).setSuperficies(superficies);
 
 		}
+	}
+
+
+	public Contenido getContenido(Posicion posicion) {
+		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
+		Casillero unCasillero = fila.get( posicion.getX() );
+		return unCasillero.getContenido();
+	}
+
+
+	public void setContenido(Posicion posicion, Contenido contenido) {
+		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
+		Casillero unCasillero = fila.get( posicion.getX() );
+		unCasillero.setContenido(contenido);
 	}
 
 
@@ -83,11 +97,6 @@ public class Tablero {
 	}
 	*/
 
-	public Contenido getContenido(Posicion posicion) {
-		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
-		Casillero unCasillero = fila.get( posicion.getX() );
-		return unCasillero.getContenido();
-	}
 /*
 
 	public void moverAlgoformerAlternoTerrestre(Algoformer algoformer, Posicion posicionFinal) {
