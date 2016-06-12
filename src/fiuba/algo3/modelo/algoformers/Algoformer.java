@@ -10,6 +10,7 @@ import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.Contenido;
 import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion;
 import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
+import fiuba.algo3.modelo.Ataque;
 //import javafx.geometry.Pos;
 
 
@@ -75,26 +76,16 @@ public abstract class Algoformer extends Contenido {
 		this.vida = vida;
 	}
 
-	private void recibirAtaque(int ataque) {
-		int vidaAux = this.getVida() - ataque;
+	public void recibirAtaque(Algoformer algoformerAtacante) {
+		int vidaAux = this.getVida() - algoformerAtacante.getAtaque();
 		if (vidaAux < 0) vidaAux = 0;
 		this.setVida(vidaAux);
 	}
 	
 	public void atacar(Algoformer algoformerObjetivo) {
-		this.validarAtaque(algoformerObjetivo);
-		algoformerObjetivo.recibirAtaque(this.getAtaque());
+		Ataque ataque = new Ataque();
+		ataque.Ataque(this,algoformerObjetivo);
 	}
-	
-	private void validarAtaque(Algoformer algoformerObjetivo) {
-		Posicion posicionOrigen = this.getPosicion();
-		Posicion posicionDestino = algoformerObjetivo.getPosicion();
-		
-		this.validarQueSePuedeAtacar(algoformerObjetivo);
-		if (this.getDistanciaDeAtaque() < posicionOrigen.getDistancia(posicionDestino)) {
-			throw new AtaqueInvalidoDistanciaInsuficienteExcepcion();
-        }
-	}	
 	
 	public void validarQueNoSoyHumanoide() {
 		if(this.modo == MODO_HUMANOIDE)

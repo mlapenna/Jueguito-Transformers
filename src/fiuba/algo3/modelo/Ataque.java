@@ -2,24 +2,24 @@ package fiuba.algo3.modelo;
 
 import fiuba.algo3.modelo.Casillero;
 import fiuba.algo3.modelo.algoformers.Algoformer;
+import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
 
 public class Ataque {
 
-    public Ataque(Tablero tablero, Posicion posicionOrigen, Posicion posicionDestino) {
+    public void Ataque(Algoformer algoformerAtacante, Algoformer algoformerObjetivo) {
     	
-    	/*Casillero casilleroOrigen = tablero.getCasillero( posicionOrigen);
-    	Casillero casilleroDestino = tablero.getCasillero( posicionDestino);
+    	this.validarAtaque(algoformerAtacante,algoformerObjetivo);
+    	algoformerObjetivo.recibirAtaque(algoformerAtacante);
     	
-        if (casilleroOrigen.hayAlgoformer() && casilleroDestino.hayAlgoformer() ) {
-
-            Algoformer algoformer1 = casilleroOrigen.getAlgoformer();
-            Algoformer algoformer2 = casilleroDestino.getAlgoformer();
-
-            int distanciaEntrePosiciones = posicionOrigen.getDistancia(posicionDestino);
-
-            if (algoformer1.getDistanciaDeAtaque() >= distanciaEntrePosiciones && algoformer1.puedeAtacarA(algoformer2) ) {
-                algoformer2.recibirAtaque(algoformer1);
-            }
-        }*/
     }
+    
+    private void validarAtaque(Algoformer algoformerAtacante, Algoformer algoformerObjetivo) {
+		Posicion posicionOrigen = algoformerAtacante.getPosicion();
+		Posicion posicionDestino = algoformerObjetivo.getPosicion();
+		
+		algoformerAtacante.validarQueSePuedeAtacar(algoformerObjetivo);
+		if (algoformerAtacante.getDistanciaDeAtaque() < posicionOrigen.getDistancia(posicionDestino)) {
+			throw new AtaqueInvalidoDistanciaInsuficienteExcepcion();
+        }
+	}
 }
