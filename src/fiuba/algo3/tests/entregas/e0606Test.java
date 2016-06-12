@@ -34,14 +34,8 @@ public class e0606Test {
 		
 		try {prime.transformarHumanoide();}
 		catch(Exception e){}
-		
-		System.out.println(prime.getPosicion().getX());
-		System.out.println(prime.getPosicion().getY());
 
 		prime.mover(posicionDestino);
-		
-		System.out.println(prime.getPosicion().getX());
-		System.out.println(prime.getPosicion().getY());
 
 		Assert.assertEquals(prime.getPosicion(), posicionDestino);
 
