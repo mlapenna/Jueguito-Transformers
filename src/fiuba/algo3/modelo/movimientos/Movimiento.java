@@ -102,16 +102,15 @@ public abstract class Movimiento {
 		// Establecer recorrido casilero por casillero
 		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
 		
-		//movimiento
-		for (int i=0; i<(recorrido.size()); i++)
-		{
+		// Movimiento
+		for (int i=0; i < recorrido.size(); i++) 		{
 			tablero.quitarContenido(algoformer.getPosicion());
-			try{
+			try {
 				this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));
 				tablero.setContenido(recorrido.get(i), algoformer);
 				//algoformer.mover(recorrido.get(i));
 				algoformer.setNuevaPosicion(recorrido.get(i));
-			}catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
+			} catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
 				//TODO: regresar a condiciones iniciales
 			} 			
 		}		
@@ -134,7 +133,7 @@ public abstract class Movimiento {
 				int sentido = this.getSentidoMovimiento(posicionOrigen.getX(), posicionDestino.getX());
 				int coordenadaXsiguiente = posicionOrigen.getX();
 
-				while (!posicionSiguiente.iguales(posicionDestino)) {
+				while (!posicionSiguiente.equals(posicionDestino)) {
 					coordenadaXsiguiente += sentido;
 					posicionSiguiente = new Posicion(coordenadaXsiguiente, posicionOrigen.getY());
 					recorrido.add(posicionSiguiente);
@@ -144,7 +143,7 @@ public abstract class Movimiento {
 				int sentido = this.getSentidoMovimiento(posicionOrigen.getY(), posicionDestino.getY());
 				int coordenadaYsiguiente = posicionOrigen.getY();
 			
-				while (!posicionSiguiente.iguales(posicionDestino)) {
+				while (!posicionSiguiente.equals(posicionDestino)) {
 					coordenadaYsiguiente += sentido;
 					posicionSiguiente = new Posicion(posicionOrigen.getX(), coordenadaYsiguiente);
 					recorrido.add(posicionSiguiente);
@@ -158,7 +157,7 @@ public abstract class Movimiento {
 			int coordenadaXsiguiente = posicionOrigen.getX();
 			int coordenadaYsiguiente = posicionOrigen.getY();
 
-			while (!posicionSiguiente.iguales(posicionDestino)) {
+			while (!posicionSiguiente.equals(posicionDestino)) {
 				coordenadaXsiguiente += sentidoHorizontal;
 				coordenadaYsiguiente += sentidoVertical;
 				posicionSiguiente = new Posicion(coordenadaXsiguiente, coordenadaYsiguiente);

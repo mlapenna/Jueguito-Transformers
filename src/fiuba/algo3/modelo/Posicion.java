@@ -37,10 +37,17 @@ public class Posicion {
 		}
 		return resultado;
 	}
-	
-	
-	public boolean iguales(Posicion posicion) {
-		return ((this.getX()==posicion.getX()) && (this.getY()==posicion.getY()));
+
+
+	public boolean equals(Object obj) {
+		boolean resultado = false;
+
+		if (obj instanceof Posicion) {
+			Posicion posicionAComparar = (Posicion) obj;
+			resultado = (this.getX() == posicionAComparar.getX() && this.getY() == posicionAComparar.getY());
+		}
+
+		return resultado;
 	}
 
 }

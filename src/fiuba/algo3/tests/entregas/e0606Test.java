@@ -14,7 +14,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.IOException;
-import java.io.FileNotFoundException;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,11 +22,8 @@ public class e0606Test {
 	
 	// Primera entrega Jueves 02/06/2016 - Lunes 06/06/2016
 
-	
-
 	@Test
-	public void testAgregarAlgoformerHumanoideMoverYVerificarPosicion() throws FileNotFoundException, 
-	 IOException, ParseException {
+	public void testAgregarAlgoformerHumanoideMoverYVerificarPosicion() throws IOException, ParseException {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
@@ -47,14 +43,13 @@ public class e0606Test {
 		System.out.println(prime.getPosicion().getX());
 		System.out.println(prime.getPosicion().getY());
 
-		Assert.assertTrue(prime.getPosicion().iguales(posicionDestino));
+		Assert.assertEquals(prime.getPosicion(), posicionDestino);
 
 	}
 
 	
 	@Test
-	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() throws FileNotFoundException, 
-	 IOException, ParseException {
+	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() throws IOException, ParseException {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
@@ -68,13 +63,13 @@ public class e0606Test {
 		
 		prime.mover(posicionDestino);
 
-		Assert.assertTrue(prime.getPosicion().iguales(posicionDestino));
+		Assert.assertEquals(prime.getPosicion(), posicionDestino);
 
 	}
 
 
 	@Test(expected=MovimientoInvalidoDistanciaNoValidaExcepcion.class)
-	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() throws FileNotFoundException, IOException, ParseException {
+	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() throws IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
@@ -88,7 +83,7 @@ public class e0606Test {
 		
 		prime.mover(posicionDestino);
 
-		Assert.assertTrue(prime.getPosicion().iguales(posicionDestino));
+		Assert.assertEquals(prime.getPosicion(), posicionDestino);
 		
 		try {prime.transformarHumanoide();}
 		catch(Exception e){}
@@ -96,7 +91,7 @@ public class e0606Test {
 		Posicion ultimaPosicionHumanoide = new Posicion (6,1);
 		prime.mover(ultimaPosicionHumanoide);
 
-		Assert.assertTrue(prime.getPosicion().iguales(ultimaPosicionHumanoide));
+		Assert.assertEquals(prime.getPosicion(), ultimaPosicionHumanoide);
 
 		Posicion posicionInvalidaHumanoide = new Posicion (9,1);
 		prime.mover(ultimaPosicionHumanoide);
@@ -105,7 +100,7 @@ public class e0606Test {
 
 
 	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
-	public void testCrearAlgoformerHumanoideYCambiarAlMismoModo() throws FileNotFoundException, IOException, ParseException{
+	public void testCrearAlgoformerHumanoideYCambiarAlMismoModo() throws IOException, ParseException{
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
@@ -115,7 +110,7 @@ public class e0606Test {
 	}
 
 	@Test(expected=TransformacionIncorresctaYaEsAlternoExcepcion.class)
-	public void testCrearAlgoformerTransformarAAlternoYCambiarAlMismoModo() throws FileNotFoundException, IOException, ParseException{
+	public void testCrearAlgoformerTransformarAAlternoYCambiarAlMismoModo() throws IOException, ParseException{
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
@@ -126,7 +121,7 @@ public class e0606Test {
 	}
 
 	@Test
-	public void testAutobotAtacaDecepticonConDanos() throws FileNotFoundException, IOException, ParseException {
+	public void testAutobotAtacaDecepticonConDanos() throws IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
@@ -145,7 +140,7 @@ public class e0606Test {
 	}
 	
 	@Test(expected = AtaqueInvalidoDistanciaInsuficienteExcepcion.class)
-	public void testAutobotAtacaDecepticonConDanosFueraDeRango() throws FileNotFoundException, IOException, ParseException {
+	public void testAutobotAtacaDecepticonConDanosFueraDeRango() throws IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);

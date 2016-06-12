@@ -14,7 +14,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.IOException;
-import java.io.FileNotFoundException;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,8 +23,7 @@ public class e0613Test {
 
 	/*
 	@Test
-	public void testLlenarZonaRocasYHacerPasarAOptimusHumanoidePorElla() throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarAOptimusHumanoidePorElla() throws IOException, ParseException{
 
 		// El tablero contiene 4 casilleros en distribucion horizontal, todos con superficie terrestre Rocas, el algoformer en el casillero de la izquierda.
 		JSONParser parser = new JSONParser();
@@ -47,8 +45,7 @@ public class e0613Test {
 	
 
 	@Test
-	public void testLlenarZonaRocasYHacerPasarAOptimusAlternoPorElla () throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarAOptimusAlternoPorElla () throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -68,8 +65,7 @@ public class e0613Test {
 
 	/*
 	@Test
-	public void testLlenarZonaRocasYHacerPasarARatchetHumanoidePorElla() throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarARatchetHumanoidePorElla() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -89,8 +85,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarARatchetAlternoPorElla () throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarARatchetAlternoPorElla () throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -107,8 +102,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarABumbleBeeHumanoidePorElla() throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarABumbleBeeHumanoidePorElla() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -128,8 +122,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarABumbleBeeAlternoPorElla () throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarABumbleBeeAlternoPorElla () throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -146,8 +139,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarASuperionPorElla() throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarASuperionPorElla() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -167,8 +159,7 @@ public class e0613Test {
 	}
 		
 	@Test
-	public void testLlenarZonaRocasYHacerPasarAMegatronHumanoidePorElla() throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarAMegatronHumanoidePorElla() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -188,8 +179,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarAMegatronAlternoPorElla () throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarAMegatronAlternoPorElla () throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -206,8 +196,7 @@ public class e0613Test {
 	}
 		
 	@Test
-	public void testLlenarZonaRocasYHacerPasarABonecrusherHumanoidePorElla() throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarABonecrusherHumanoidePorElla() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -227,8 +216,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarABonecrusherAlternoPorElla () throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarABonecrusherAlternoPorElla () throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -245,8 +233,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarAFrenzyHumanoidePorElla() throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarAFrenzyHumanoidePorElla() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -266,8 +253,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarAFrenzyAlternoPorElla () throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarAFrenzyAlternoPorElla () throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -285,8 +271,7 @@ public class e0613Test {
 	
 	
 	@Test
-	public void testLlenarZonaRocasYHacerPasarAMenasorAlternoPorElla () throws FileNotFoundException,
-	 IOException, ParseException{
+	public void testLlenarZonaRocasYHacerPasarAMenasorAlternoPorElla () throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocas.json"));
@@ -305,8 +290,7 @@ public class e0613Test {
 	
 	//     SEGUNDO TEST
 	@Test(expected=ZonaPantanoProhibidoPasarExcepcion.class)
-	public void testLlenarZonaPantanoYVerificarEnModoHumanoideNoSePuedeAtravasar() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaPantanoYVerificarEnModoHumanoideNoSePuedeAtravasar() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
@@ -325,8 +309,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaPantanoYVerificarEnModoAlternoSeTardaElDobleQueEnElRocoso() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaPantanoYVerificarEnModoAlternoSeTardaElDobleQueEnElRocoso() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
@@ -347,8 +330,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaPantanoYVerificarEnModoAlternoAereoSeAtraviesaSinProblemas() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaPantanoYVerificarEnModoAlternoAereoSeAtraviesaSinProblemas() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
@@ -365,8 +347,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaEspinasYVerificarQueLaVidaDeUnidadesTerrestresDiminuyeAlPasarUnCasillero() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaEspinasYVerificarQueLaVidaDeUnidadesTerrestresDiminuyeAlPasarUnCasillero() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaEspinas.json"));
@@ -386,8 +367,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaEspinasYVerificarQueLaVidaDeUnidadesTerrestresDiminuyeAlPasarMasDeUnCasillero() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaEspinasYVerificarQueLaVidaDeUnidadesTerrestresDiminuyeAlPasarMasDeUnCasillero() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaEspinas.json"));
@@ -407,8 +387,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaEspinasYVerificarQueUnidadesAereasNoSonAfectadas() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaEspinasYVerificarQueUnidadesAereasNoSonAfectadas() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaMuchasEspinas.json"));
@@ -428,8 +407,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaNubesYVerificarEnModoAlternoAereoSeAtraviesaSinProblemas() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaNubesYVerificarEnModoAlternoAereoSeAtraviesaSinProblemas() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaNubes.json"));
@@ -446,8 +424,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaNebulosaDeAndromedaYVerificarEnModoAlternoAereoUnaUnidadSeQuedaAtrapadaPorTresTurnosSinMoverse() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaNebulosaDeAndromedaYVerificarEnModoAlternoAereoUnaUnidadSeQuedaAtrapadaPorTresTurnosSinMoverse() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaNebulosaDeAndromeda.json"));
@@ -467,8 +444,7 @@ public class e0613Test {
 	}
 
 	@Test
-	public void testLlenarZonaTormentaPsionicaYVerificarQueUnidadesAereasDismunyenCapacidadDeAtaque() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaTormentaPsionicaYVerificarQueUnidadesAereasDismunyenCapacidadDeAtaque() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaTormentaPsionica.json"));
@@ -487,8 +463,7 @@ public class e0613Test {
 	}
 	
 	@Test
-	public void testLlenarZonaTormentaPsionicaYVerificarQueUnidadesAereasYPasarDosVecesYVerQueNoDismunyenMasSuCapacidadDeAtaque() throws FileNotFoundException, 
-	 IOException, ParseException{
+	public void testLlenarZonaTormentaPsionicaYVerificarQueUnidadesAereasYPasarDosVecesYVerQueNoDismunyenMasSuCapacidadDeAtaque() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaTormentaPsionica.json"));

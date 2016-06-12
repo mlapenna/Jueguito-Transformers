@@ -6,7 +6,7 @@ public class Vacio extends Contenido {
 
 	private static Vacio vacio = Vacio.getInstancia();
 	
-	public Vacio(){
+	public Vacio() {
 		this.hayAlgo=false;
 	}
 

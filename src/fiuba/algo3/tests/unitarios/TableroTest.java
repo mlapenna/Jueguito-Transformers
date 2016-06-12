@@ -14,14 +14,12 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.IOException;
-import java.io.FileNotFoundException;
 
 
 public class TableroTest {
 
 	@Test
-	public void testAgregarAlgoformerHumanoideSinEfectoDeSuperficie () throws FileNotFoundException, 
-	 IOException, ParseException {
+	public void testAgregarAlgoformerHumanoideSinEfectoDeSuperficie () throws IOException, ParseException {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
