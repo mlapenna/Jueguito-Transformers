@@ -50,8 +50,8 @@ public abstract class Movimiento {
 
 	
 	public void mover(Algoformer algoformer, Tablero tablero, Posicion posicionDestino) {
-		
-		Posicion posicionInicial = algoformer.getPosicion();//POR SI NO PUEDE PASAR
+	
+		Algoformer clon = algoformer.clonarAlgoformer();
 		
 		algoformer.validarQueNoEstaInmovilizado();
 		
@@ -86,7 +86,8 @@ public abstract class Movimiento {
 				//algoformer.mover(recorrido.get(i));
 				algoformer.setNuevaPosicion(recorrido.get(i));
 			} catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
-				//TODO: regresar a condiciones iniciales
+				algoformer.copiarAlgoformer(clon);
+				tablero.setContenido(clon.getPosicion(), algoformer);
 				throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion();
 			} catch(AlgoformerInmovilizadoExcepcion e) {
 				//throw new AlgoformerInmovilizadoExcepcion();
