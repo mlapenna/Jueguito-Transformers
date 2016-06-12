@@ -144,10 +144,7 @@ public class e0606Test {
 		Optimus optimus = new Optimus(posicionInicialAutobot,tablero);
 		Frenzy frenzy = new Frenzy(posicionInicialDecepticon,tablero);
 
-		int vidaFrenzyEsperadaLuegoDeAtaque = frenzy.getVida() - optimus.getAtaque();
-
 		optimus.atacar(frenzy);
-
 	}
 	
 }
