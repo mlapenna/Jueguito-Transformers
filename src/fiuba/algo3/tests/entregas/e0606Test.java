@@ -26,7 +26,7 @@ public class e0606Test {
 	public void testAgregarAlgoformerHumanoideMoverYVerificarPosicion() throws IOException, ParseException {
 
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Posicion posicionInicial = new Posicion(1,1);
 		Algoformer prime = new Optimus(posicionInicial,tablero);
@@ -46,7 +46,7 @@ public class e0606Test {
 	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() throws IOException, ParseException {
 
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Posicion posicionInicial = new Posicion(1,1);
 		Algoformer prime = new Optimus(posicionInicial,tablero);
@@ -65,7 +65,7 @@ public class e0606Test {
 	@Test(expected=MovimientoInvalidoDistanciaNoValidaExcepcion.class)
 	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() throws IOException, ParseException {
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 
 		Posicion posicionInicial = new Posicion(1,1);
@@ -96,7 +96,7 @@ public class e0606Test {
 	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
 	public void testCrearAlgoformerHumanoideYCambiarAlMismoModo() throws IOException, ParseException{
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Posicion posicionInicial = new Posicion(1,1);
 		Algoformer prime = new Optimus(posicionInicial,tablero);
@@ -106,7 +106,7 @@ public class e0606Test {
 	@Test(expected=TransformacionIncorresctaYaEsAlternoExcepcion.class)
 	public void testCrearAlgoformerTransformarAAlternoYCambiarAlMismoModo() throws IOException, ParseException{
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Posicion posicionInicial = new Posicion(1,1);
 		Algoformer prime = new Optimus(posicionInicial,tablero);
@@ -117,7 +117,7 @@ public class e0606Test {
 	@Test
 	public void testAutobotAtacaDecepticonConDanos() throws IOException, ParseException {
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Posicion posicionInicialAutobot = new Posicion(0,0);
 		Posicion posicionInicialDecepticon = new Posicion(2,2);
@@ -136,7 +136,7 @@ public class e0606Test {
 	@Test(expected = AtaqueInvalidoDistanciaInsuficienteExcepcion.class)
 	public void testAutobotAtacaDecepticonConDanosFueraDeRango() throws IOException, ParseException {
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Posicion posicionInicialAutobot = new Posicion(0,0);
 		Posicion posicionInicialDecepticon = new Posicion(2,3);
