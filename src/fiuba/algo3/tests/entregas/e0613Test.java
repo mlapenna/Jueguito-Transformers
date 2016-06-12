@@ -4,10 +4,11 @@ import java.io.FileReader;
 
 import fiuba.algo3.modelo.*;
 import fiuba.algo3.modelo.algoformers.*;
+import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
+import fiuba.algo3.modelo.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
 import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
-import fiuba.algo3.modelo.excepciones.ZonaPantanoProhibidoPasarExcepcion;
 import fiuba.algo3.modelo.Posicion;
 
 import org.json.simple.JSONObject;
@@ -291,56 +292,76 @@ public class e0613Test {
 		Assert.assertEquals(menasor.getPosicion(), posicionDestino);
 	}
 	
-/*
+
 	//     SEGUNDO TEST
-	@Test(expected=ZonaPantanoProhibidoPasarExcepcion.class)
+	@Test(expected=MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion.class)
 	public void testLlenarZonaPantanoYVerificarEnModoHumanoideNoSePuedeAtravasar() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer prime = new Optimus();
-		Posicion posicionDestino = new Posicion(1,3); // el destino es la fila 1 columna 3
+		
+		Posicion posicion = new Posicion(0, 0);	
+		Algoformer prime = new Optimus(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0);
 		
 		try {prime.transformarHumanoide();}
 		catch(Exception e){}
-		
-		// El mapa es conocido y simple: 3 casilleros en distribucion horizontal.
-		// El algoformer en el casillero de la izquierda, la zona Rocas en el medio.
-		
+
 		prime.mover(posicionDestino);
 		
 	}
 	
 	@Test
-	public void testLlenarZonaPantanoYVerificarEnModoAlternoSeTardaElDobleQueEnElRocoso() throws IOException, ParseException{
+	public void testLlenarZonaPantanoYVerificarEnModoAlternoSeTardaElDobleQueEnElRocosoSeRealizaUnMovimiento() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer prime = new Optimus();
-		Posicion posicionDestino = new Posicion(1,3); 
 		
-		// hay que ver el criterio para decir que tarda el doble: 
-		//     mitad de velocidad (temporalmente) o por cantidad de turnos inmovil (que sería 1)
-		// Se podria plantear dos test con este: uno que muestre que en un movimiento no atraviesa 
-		// y el otro que en dos movimientos lo atraviesa
+		Posicion posicion = new Posicion(0, 0);	
+		Algoformer prime = new Optimus(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0); 
+
 		try {prime.transformarAlterno();}
 		catch(Exception e){}		
 		
-		//prime.mover(posicionDestino);
+		prime.mover(posicionDestino);
 		
-		//Assert.assertEquals(prime.getPosicion(), posicionDestino);
+		Posicion posicionEsperda = new Posicion(1,0);
+		Assert.assertEquals(posicion,posicionEsperda);
 	}
 	
+	@Test
+	public void testLlenarZonaPantanoYVerificarEnModoAlternoSeTardaElDobleQueEnElRocosoSeRealizaDosMovimientos() throws IOException, ParseException{
+		
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
+		Tablero tablero = new Tablero(jsonTablero);
+		
+		Posicion posicion = new Posicion(0, 0);	
+		Algoformer prime = new Optimus(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0); 
+		
+		try {prime.transformarAlterno();}
+		catch(Exception e){}		
+		
+		prime.mover(posicionDestino);
+		prime.nuevoTurno();
+		prime.mover(posicionDestino);
+		Assert.assertEquals(prime.getPosicion(), posicionDestino);
+	}
+		
 	@Test
 	public void testLlenarZonaPantanoYVerificarEnModoAlternoAereoSeAtraviesaSinProblemas() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer megatron = new Megatron();
-		Posicion posicionDestino = new Posicion(1,3); 
+		
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer megatron = new Megatron(posicion,tablero);
+		Posicion posicionDestino = new Posicion(1,0); 
 
 		try {megatron.transformarAlterno();} // Megatron alterno es unidad aerea
 		catch(Exception e){}		
@@ -356,9 +377,12 @@ public class e0613Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaEspinas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer megatron = new Megatron();
-		Posicion posicionDestino = new Posicion(1,3); 
-		int cantidadDeCasillerosAtravesados = 1;
+		
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer megatron = new Megatron(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0); 
+		
+		int cantidadDeCasillerosAtravesados = posicion.getX()-posicionDestino.getX();
 		
 		double vidaInicial = megatron.getVida();
 		
@@ -367,9 +391,9 @@ public class e0613Test {
 		
 		megatron.mover(posicionDestino);
 		
-		Assert.assertTrue(megatron.getVida() == (vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05))));
+		Assert.assertTrue(megatron.getVida() == ((int)(vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05)))));
 	}
-	
+	/*
 	@Test
 	public void testLlenarZonaEspinasYVerificarQueLaVidaDeUnidadesTerrestresDiminuyeAlPasarMasDeUnCasillero() throws IOException, ParseException{
 		

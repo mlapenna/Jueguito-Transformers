@@ -9,7 +9,7 @@ public class MovimientoHumanoide extends Movimiento{
 
 	@Override
 	public void afectarAlgoformer(Algoformer algoformer, Tablero tablero, Posicion posicion) {
-		tablero.getCasillero(posicion).getSuperficieTierra().afectarAlgoformerHumanoide(algoformer);		
+		tablero.getCasillero(posicion).getSuperficieTierra().afectarAlgoformerHumanoide(algoformer);	
 	}
 
 }

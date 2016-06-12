@@ -28,7 +28,7 @@ public abstract class Algoformer extends Contenido {
 	protected int ataque;
 	protected int velocidad;
 	protected int modo;
-	protected int turnosInmovil = CANTIDAD_MINIMA_TURNOS_INMOVIL;
+	protected int turnosInmovil;
 	protected Tablero tablero;
 
 
@@ -75,6 +75,10 @@ public abstract class Algoformer extends Contenido {
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
+	
+	public void afectarVida(int nuevaVida) {
+		this.setVida(nuevaVida);
+	}
 
 	public void recibirAtaque(Algoformer algoformerAtacante) {
 		int vidaAux = this.getVida() - algoformerAtacante.getAtaque();
@@ -104,8 +108,8 @@ public abstract class Algoformer extends Contenido {
 	}
 
 	public void mover(Posicion posicionDestino) {
+		this.validarQueNoEstaInmovilizado();
 		this.movimiento.mover(this, this.tablero, posicionDestino);
-		
 	}
 
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
@@ -116,4 +120,7 @@ public abstract class Algoformer extends Contenido {
 		this.posicion.setCoordenadas(nuevaPosicion.getX(), nuevaPosicion.getY());
 	}
 	
+	public void nuevoTurno() {
+		if(turnosInmovil>0) turnosInmovil = turnosInmovil -1;
+	}
 }

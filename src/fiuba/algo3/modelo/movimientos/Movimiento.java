@@ -9,38 +9,12 @@ import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
+import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroInvalidoExcepcion;
 
 public abstract class Movimiento {
 	
 	protected Tablero tablero;
-	
-//	public abstract void moverPosicionAlgoformerVerticalAbajo(Algoformer algoformer, Posicion nuevaPosicion);
-//	public abstract void moverPosicionAlgoformerVerticalArriba(Algoformer algoformer, Posicion nuevaPosicion);
-//	public abstract void moverPosicionAlgoformerHorizontalIzquierda(Algoformer algoformer,Posicion nuevaPosicion);
-//	public abstract void moverPosicionAlgoformerHorizontalDerecha(Algoformer algoformer,Posicion nuevaPosicion); // VA A DEPENDER DEL MODO
-		// Acá tiene que preguntar al teclado:
-		// está ocupada la posicion final?
-		// es movimiento válido?
-			// qué efecto tiene la superficie donde está parado el algoformer?
-		
-		// Ver q la posición que se quiere poner el algoformer, no esté ocupada
-		//Casillero nuevoCasillero = this.obtenerCasillero(nuevaPosicion);
-		//movimientoACasilleroVacio(nuevoCasillero);
-		
-		// Hay que ver si le da la distancia/velocidad que quiere
-		// Esto se hace con una diferencia entre las posiciones (cantidad de casilleros) y la velocidad 
-		// del algoformer. 
-		// Si la Posicion que quiero que tenga es mayor a la velocidad (cantidad de casillas máximas de movimiento)
-		// entonces no se puede mover.
-		//try{
-		//	distanciaDeMovimientoValida(algoformer,nuevaPosicion);
-		//}
-		//catch(Exception e)
-		//{
-		//	throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
-		//}
-		
 	
 	protected Casillero getCasillero(Posicion nuevaPoscion){
 		// TODO: buscar el casillero en el tablero
@@ -106,13 +80,18 @@ public abstract class Movimiento {
 		for (int i=0; i < recorrido.size(); i++) 		{
 			tablero.quitarContenido(algoformer.getPosicion());
 			try {
+				algoformer.validarQueNoEstaInmovilizado();
 				this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));
 				tablero.setContenido(recorrido.get(i), algoformer);
 				//algoformer.mover(recorrido.get(i));
 				algoformer.setNuevaPosicion(recorrido.get(i));
 			} catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
 				//TODO: regresar a condiciones iniciales
-			} 			
+				throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion();
+			} catch(AlgoformerInmovilizadoExcepcion e) {
+				//throw new AlgoformerInmovilizadoExcepcion();
+			}
+			
 		}		
 	}
 
