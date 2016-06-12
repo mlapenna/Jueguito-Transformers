@@ -30,6 +30,7 @@ public abstract class Algoformer extends Contenido {
 	protected int modo;
 	protected int turnosInmovil;
 	protected Tablero tablero;
+	protected boolean afectadoPorTormentaPsionica = false;
 
 
 	public Algoformer(Posicion posicion, Tablero tablero) {
@@ -79,7 +80,11 @@ public abstract class Algoformer extends Contenido {
 	public void afectarVida(int nuevaVida) {
 		this.setVida(nuevaVida);
 	}
-
+	
+	public void afectarAtaque(int nuevoAtaque) {
+		this.ataque = nuevoAtaque;
+	}
+	
 	public void recibirAtaque(Algoformer algoformerAtacante) {
 		int vidaAux = this.getVida() - algoformerAtacante.getAtaque();
 		if (vidaAux < 0) vidaAux = 0;
@@ -122,5 +127,13 @@ public abstract class Algoformer extends Contenido {
 	
 	public void nuevoTurno() {
 		if(turnosInmovil>0) turnosInmovil = turnosInmovil -1;
+	}
+	
+	public boolean afectadoPorTormentaPsionica() {
+		return this.afectadoPorTormentaPsionica;
+	}
+	
+	public void afectarPorTormentaPsionica() {
+		this.afectadoPorTormentaPsionica = true;
 	}
 }

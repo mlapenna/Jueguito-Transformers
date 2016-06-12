@@ -393,36 +393,38 @@ public class e0613Test {
 		
 		Assert.assertTrue(megatron.getVida() == ((int)(vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05)))));
 	}
-	/*
+
 	@Test
 	public void testLlenarZonaEspinasYVerificarQueLaVidaDeUnidadesTerrestresDiminuyeAlPasarMasDeUnCasillero() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaEspinas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer megatron = new Megatron();
-		Posicion posicionDestino = new Posicion(1,3); 
-		int cantidadDeCasillerosAtravesados = 2;
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer bonecrusher = new Bonecrusher(posicion,tablero);
+		Posicion posicionDestino = new Posicion(1,0); 
+		int cantidadDeCasillerosAtravesados = posicion.getX()-posicionDestino.getX();
 		
-		double vidaInicial = megatron.getVida();
+		double vidaInicial = bonecrusher.getVida();
 		
-		try {megatron.transformarHumanoide();}
+		try {bonecrusher.transformarAlterno();}
 		catch(Exception e){}		
 		
-		megatron.mover(posicionDestino);
+		bonecrusher.mover(posicionDestino);
 		
-		Assert.assertTrue(megatron.getVida() == (vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05))));
+		Assert.assertTrue(bonecrusher.getVida() == (vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05))));
 	}
 	
 	@Test
 	public void testLlenarZonaEspinasYVerificarQueUnidadesAereasNoSonAfectadas() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaMuchasEspinas.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaEspinas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer megatron = new Megatron();
-		Posicion posicionDestino = new Posicion(1,3); 
-		int cantidadDeCasillerosAtravesados = 2;
+		
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer megatron = new Megatron(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0); 
 		
 		int  vidaInicial = megatron.getVida();
 		
@@ -440,8 +442,10 @@ public class e0613Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaNubes.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer megatron = new Megatron();
-		Posicion posicionDestino = new Posicion(1,3); 
+		
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer megatron = new Megatron(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0);
 
 		try {megatron.transformarAlterno();} // Megatron alterno es unidad aerea
 		catch(Exception e){}		
@@ -457,18 +461,24 @@ public class e0613Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaNebulosaDeAndromeda.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer megatron = new Megatron();
-		Posicion posicionDestino = new Posicion(1,3); 
+		
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer megatron = new Megatron(posicion,tablero);
+		Posicion posicionDestino = new Posicion(1,0);
 
 		try {megatron.transformarAlterno();} // Megatron alterno es unidad aerea
 		catch(Exception e){}		
+
+		megatron.nuevoTurno();
+		megatron.mover(posicionDestino);
+		megatron.nuevoTurno();
+		try{megatron.mover(posicionDestino);} catch(AlgoformerInmovilizadoExcepcion e) {};
+		megatron.nuevoTurno();
+		try{megatron.mover(posicionDestino);} catch(AlgoformerInmovilizadoExcepcion e) {};
+		megatron.nuevoTurno();
+		try{megatron.mover(posicionDestino);} catch(AlgoformerInmovilizadoExcepcion e) {};
 		
-		// Acá habrá que hacer 4 test : uno por cada turno inmovil, 
-		// en donde se verifica el lanzado de excepcion que impide mover el robot
-		
-		//megatron.mover(posicionDestino);
-		
-		//Assert.assertEquals(megatron.getPosicion(), posicionDestino);
+		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
 
 	@Test
@@ -477,43 +487,46 @@ public class e0613Test {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaTormentaPsionica.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer megatron = new Megatron();
-		Posicion posicionDestino = new Posicion(1,3); 
 		
-		int  ataqueInicial = megatron.getAtaque();
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer megatron = new Megatron(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0);
 		
 		try {megatron.transformarAlterno();}
-		catch(Exception e){}		
+		catch(Exception e){}
 		
+		double ataqueInicial = (double) megatron.getAtaque();
 		megatron.mover(posicionDestino);
 		
-		Assert.assertEquals(megatron.getAtaque(),ataqueInicial);
+		int ataqueEsperado = (int)(ataqueInicial*(0.4));
+		
+		Assert.assertEquals(megatron.getAtaque(),ataqueEsperado);
 	}
-	
+
 	@Test
 	public void testLlenarZonaTormentaPsionicaYVerificarQueUnidadesAereasYPasarDosVecesYVerQueNoDismunyenMasSuCapacidadDeAtaque() throws IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaTormentaPsionica.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		Algoformer megatron = new Megatron();
-		Posicion posicionDestino = new Posicion(1,3); 
 		
-		int  ataqueInicial = megatron.getAtaque();
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer megatron = new Megatron(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0);
 		
 		try {megatron.transformarAlterno();}
 		catch(Exception e){}		
 		
+		double ataqueInicial = (double) megatron.getAtaque();
 		megatron.mover(posicionDestino);
 		
-		int ataqueAfectado = megatron.getAtaque();
+		int ataqueEsperado = (int)(ataqueInicial*(0.4));
 		
-		Posicion posicionDestinoDeVuelta = new Posicion(1,1); 
+		Posicion posicionDestinoDeVuelta = new Posicion(1,0); 
 		
 		megatron.mover(posicionDestinoDeVuelta);
 		
-		Assert.assertEquals(megatron.getAtaque(),ataqueAfectado);
+		Assert.assertEquals(megatron.getAtaque(),ataqueEsperado);
 	}
-	*/
 	
 }

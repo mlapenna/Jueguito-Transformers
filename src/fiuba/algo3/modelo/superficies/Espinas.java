@@ -5,20 +5,21 @@ import fiuba.algo3.modelo.algoformers.Algoformer;
 public class Espinas extends Tierra {
 	public static String SUPERFICIE = "espinas";
 	public static final String NOMBRE_JSON = "Espinas";
-	public static final int DANIO = 5;
+	public static final double DANIO = 0.05;
 	
 	@Override
 	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
-		int vida = algoformer.getVida();
-		int vidaAux = ( vida - ( (DANIO / 100) * vida ) );
-		algoformer.setVida(vidaAux);
+		
+		double vida = (double) algoformer.getVida();
+		int vidaAux = (int) ( vida - ( DANIO * vida ) );
+		algoformer.afectarVida(vidaAux);
 	}
 
 	@Override
 	public void afectarAlgoformerAlterno(Algoformer algoformer) { //REPITO CODIGO!!! (no hago funcion xq hereda)
-		int vida = algoformer.getVida();
-		int vidaAux = ( vida - ( (DANIO / 100) * vida ) );
-		algoformer.setVida(vidaAux);
+		double vida = (double) algoformer.getVida();
+		int vidaAux = (int) ( vida - ( DANIO * vida ) );
+		algoformer.afectarVida(vidaAux);
 	}
 	
 }
