@@ -4,7 +4,7 @@ import fiuba.algo3.modelo.Contenido;
 
 public class Vacio extends Contenido {
 
-	private static Vacio vacio = new Vacio();
+	private static Vacio vacio = Vacio.getInstancia();
 	
 	public Vacio(){
 		this.hayAlgo=false;

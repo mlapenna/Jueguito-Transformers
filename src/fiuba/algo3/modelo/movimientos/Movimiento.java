@@ -49,7 +49,7 @@ public abstract class Movimiento {
 	
 	private void movimientoACasilleroVacio(Casillero casillero){
 		
-		//Vacio contenidoVacio = new Vacio();
+		//Vacio contenidoVacio = Vacio.getInstancia();
 		try{ //TODO
 			// comparacion del contenido del casillero con vacio.
 			//if(nuevoCasillero.obtenerContenido() == contenidoVacio) {

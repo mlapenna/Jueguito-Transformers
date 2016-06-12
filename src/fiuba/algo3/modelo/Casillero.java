@@ -71,7 +71,7 @@ public class Casillero {
 	}
 	
 	public void quitarContenido(){
-		this.contenido = new Vacio();
+		this.contenido = Vacio.getInstancia();
 	}
 
 
@@ -116,7 +116,7 @@ public class Casillero {
 	
 	public void quitarAlgoformer(Algoformer algoformer){
 		this.algoformer=null;
-		this.contenido = new Vacio();
+		this.contenido = Vacio.getInstancia();
 	}
 
 
