@@ -53,8 +53,6 @@ public abstract class Movimiento {
 	
 		Algoformer clon = algoformer.clonarAlgoformer();
 		
-		algoformer.validarQueNoEstaInmovilizado();
-		
 		// Distancia valida? (ni muy grande, ni nula)
 		int distancia = algoformer.getPosicion().getDistancia(posicionDestino);
 		if (algoformer.getVelocidad() < distancia || distancia == 0) {
