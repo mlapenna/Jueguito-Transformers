@@ -5,10 +5,7 @@ import java.io.FileReader;
 import fiuba.algo3.modelo.*;
 import fiuba.algo3.modelo.algoformers.*;
 import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
-import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
 import fiuba.algo3.modelo.Posicion;
 
 import org.json.simple.JSONObject;
@@ -22,7 +19,7 @@ import org.junit.Test;
 
 public class e0613Test {
 
-	
+	// ENTREGA PUNTO 1
 	@Test
 	public void testLlenarZonaRocasYHacerPasarAOptimusHumanoidePorElla() throws IOException, ParseException{
 
@@ -37,7 +34,7 @@ public class e0613Test {
 
 		int vidaOriginal = optimus.getVida();
 
-		Posicion posicionDestino = new Posicion(1, 0);
+		Posicion posicionDestino = new Posicion(2, 0);
 
 		optimus.mover(posicionDestino);
 		
@@ -55,7 +52,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(0, 0);
 		Optimus prime = new Optimus(posicion, tablero);
-		Posicion posicionDestino = new Posicion(1,0); 
+		int vidaOriginal = prime.getVida();
+		Posicion posicionDestino = new Posicion(3,0);
 
 		try {prime.transformarAlterno();}
 		catch(Exception e){}
@@ -63,7 +61,7 @@ public class e0613Test {
 		prime.mover(posicionDestino);
 
 		Assert.assertEquals(prime.getPosicion(), posicionDestino);
-
+		Assert.assertEquals(vidaOriginal, prime.getVida());
 	}
 
 	@Test
@@ -75,6 +73,7 @@ public class e0613Test {
 
 		Posicion posicion = new Posicion(0, 0);
 		Algoformer ratchet = new Ratchet(posicion, tablero);
+		int vidaOriginal = ratchet.getVida();
 		Posicion posicionDestino = new Posicion(1,0);
 		
 		try {ratchet.transformarHumanoide();}
@@ -83,6 +82,7 @@ public class e0613Test {
 		ratchet.mover(posicionDestino);
 		
 		Assert.assertEquals(ratchet.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, ratchet.getVida());
 	}
 	
 	@Test
@@ -94,7 +94,8 @@ public class e0613Test {
 
 		Posicion posicion = new Posicion(0, 0);
 		Algoformer ratchet = new Ratchet(posicion, tablero);
-		Posicion posicionDestino = new Posicion(1,0); 
+		int vidaOriginal = ratchet.getVida();
+		Posicion posicionDestino = new Posicion(3,0);
 
 		try {ratchet.transformarAlterno();}
 		catch(Exception e){}
@@ -102,6 +103,7 @@ public class e0613Test {
 		ratchet.mover(posicionDestino);
 
 		Assert.assertEquals(ratchet.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, ratchet.getVida());
 	}
 	
 	@Test
@@ -113,7 +115,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(0, 0);
 		Algoformer bumblebee = new BumbleBee(posicion, tablero);
-		Posicion posicionDestino = new Posicion(1,0); 
+		int vidaOriginal = bumblebee.getVida();
+		Posicion posicionDestino = new Posicion(2,0);
 		
 		try {bumblebee.transformarHumanoide();}
 		catch(Exception e){}
@@ -121,6 +124,7 @@ public class e0613Test {
 		bumblebee.mover(posicionDestino);
 		
 		Assert.assertEquals(bumblebee.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, bumblebee.getVida());
 	}
 	
 	@Test
@@ -132,7 +136,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(0, 0);
 		Algoformer bumblebee = new BumbleBee(posicion, tablero);
-		Posicion posicionDestino = new Posicion(1,0); 
+		int vidaOriginal = bumblebee.getVida();
+		Posicion posicionDestino = new Posicion(3,0);
 
 		try {bumblebee.transformarAlterno();}
 		catch(Exception e){}
@@ -140,6 +145,7 @@ public class e0613Test {
 		bumblebee.mover(posicionDestino);
 
 		Assert.assertEquals(bumblebee.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, bumblebee.getVida());
 	}
 	
 	@Test
@@ -150,12 +156,14 @@ public class e0613Test {
 		Tablero tablero = new Tablero(jsonTablero);
 		
 		Posicion posicion = new Posicion(0, 0);
-		Algoformer Superion = new Superion(posicion, tablero);
-		Posicion posicionDestino = new Posicion(1,0); 
+		Algoformer superion = new Superion(posicion, tablero);
+		int vidaOriginal = superion.getVida();
+		Posicion posicionDestino = new Posicion(3,0);
 
-		Superion.mover(posicionDestino);
+		superion.mover(posicionDestino);
 		
-		Assert.assertEquals(Superion.getPosicion(), posicionDestino);
+		Assert.assertEquals(superion.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, superion.getVida());
 	}
 		
 	@Test
@@ -167,7 +175,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(3, 0);
 		Algoformer megatron = new Megatron(posicion,tablero);
-		Posicion posicionDestino = new Posicion(2,0); 
+		int vidaOriginal = megatron.getVida();
+		Posicion posicionDestino = new Posicion(2,0);
 		
 		try {megatron.transformarHumanoide();}
 		catch(Exception e){}
@@ -175,6 +184,7 @@ public class e0613Test {
 		megatron.mover(posicionDestino);
 		
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, megatron.getVida());
 	}
 	
 	@Test
@@ -186,7 +196,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(3, 0);	
 		Algoformer megatron = new Megatron(posicion,tablero);
-		Posicion posicionDestino = new Posicion(2,0);
+		int vidaOriginal = megatron.getVida();
+		Posicion posicionDestino = new Posicion(0,0);
 
 		try {megatron.transformarAlterno();}
 		catch(Exception e){}
@@ -194,6 +205,7 @@ public class e0613Test {
 		megatron.mover(posicionDestino);
 
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, megatron.getVida());
 	}
 		
 	@Test
@@ -205,7 +217,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(3, 0);			
 		Algoformer bonecrusher = new Bonecrusher(posicion,tablero);
-		Posicion posicionDestino = new Posicion(2,0); 
+		int vidaOriginal = bonecrusher.getVida();
+		Posicion posicionDestino = new Posicion(2,0);
 		
 		try {bonecrusher.transformarHumanoide();}
 		catch(Exception e){}
@@ -213,6 +226,7 @@ public class e0613Test {
 		bonecrusher.mover(posicionDestino);
 		
 		Assert.assertEquals(bonecrusher.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, bonecrusher.getVida());
 	}
 	
 	@Test
@@ -224,7 +238,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(3, 0);	
 		Algoformer bonecrusher = new Bonecrusher(posicion,tablero);
-		Posicion posicionDestino = new Posicion(2,0); 
+		int vidaOriginal = bonecrusher.getVida();
+		Posicion posicionDestino = new Posicion(0,0);
 
 		try {bonecrusher.transformarAlterno();}
 		catch(Exception e){}
@@ -232,6 +247,7 @@ public class e0613Test {
 		bonecrusher.mover(posicionDestino);
 
 		Assert.assertEquals(bonecrusher.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, bonecrusher.getVida());
 	}
 	
 	@Test
@@ -243,7 +259,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(3, 0);	
 		Algoformer frenzy = new Frenzy(posicion,tablero);
-		Posicion posicionDestino = new Posicion(2,0); 
+		int vidaOriginal = frenzy.getVida();
+		Posicion posicionDestino = new Posicion(1,0);
 		
 		try {frenzy.transformarHumanoide();}
 		catch(Exception e){}
@@ -251,6 +268,7 @@ public class e0613Test {
 		frenzy.mover(posicionDestino);
 		
 		Assert.assertEquals(frenzy.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, frenzy.getVida());
 	}
 	
 	@Test
@@ -262,7 +280,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(3, 0);	
 		Algoformer frenzy = new Frenzy(posicion,tablero);
-		Posicion posicionDestino = new Posicion(2,0); 
+		int vidaOriginal = frenzy.getVida();
+		Posicion posicionDestino = new Posicion(0,0);
 
 		try {frenzy.transformarAlterno();}
 		catch(Exception e){}
@@ -270,6 +289,7 @@ public class e0613Test {
 		frenzy.mover(posicionDestino);
 
 		Assert.assertEquals(frenzy.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, frenzy.getVida());
 	}
 	
 	
@@ -282,7 +302,8 @@ public class e0613Test {
 		
 		Posicion posicion = new Posicion(3, 0);	
 		Algoformer menasor = new Menasor(posicion,tablero);
-		Posicion posicionDestino = new Posicion(2,0); // el destino es la fila 1 columna 3
+		int vidaOriginal = menasor.getVida();
+		Posicion posicionDestino = new Posicion(2,0);
 
 		try {menasor.transformarAlterno();}
 		catch(Exception e){}
@@ -290,10 +311,11 @@ public class e0613Test {
 		menasor.mover(posicionDestino);
 
 		Assert.assertEquals(menasor.getPosicion(), posicionDestino);
+		Assert.assertEquals(vidaOriginal, menasor.getVida());
 	}
-	
 
-	//     SEGUNDO TEST
+
+	// ENTREGA PUNTO 2
 	@Test(expected=MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion.class)
 	public void testLlenarZonaPantanoYVerificarEnModoHumanoideNoSePuedeAtravasar() throws IOException, ParseException{
 		
@@ -311,7 +333,8 @@ public class e0613Test {
 		prime.mover(posicionDestino);
 		
 	}
-	
+
+	// ENTREGA PUNTO 3
 	@Test
 	public void testLlenarZonaPantanoYVerificarEnModoAlternoSeTardaElDobleQueEnElRocosoSeRealizaUnMovimiento() throws IOException, ParseException{
 		
@@ -351,7 +374,8 @@ public class e0613Test {
 		prime.mover(posicionDestino);
 		Assert.assertEquals(prime.getPosicion(), posicionDestino);
 	}
-		
+
+	// ENTREGA PUNTO 4
 	@Test
 	public void testLlenarZonaPantanoYVerificarEnModoAlternoAereoSeAtraviesaSinProblemas() throws IOException, ParseException{
 		
@@ -370,7 +394,8 @@ public class e0613Test {
 		
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
-	
+
+	// ENTREGA PUNTO 5
 	@Test
 	public void testLlenarZonaEspinasYVerificarQueLaVidaDeUnidadesTerrestresDiminuyeAlPasarUnCasillero() throws IOException, ParseException{
 		
@@ -385,13 +410,15 @@ public class e0613Test {
 		int cantidadDeCasillerosAtravesados = posicion.getX()-posicionDestino.getX();
 		
 		double vidaInicial = megatron.getVida();
-		
+		int vidaEsperada = (int) (vidaInicial * (1 - (cantidadDeCasillerosAtravesados * 0.05)));
+
 		try {megatron.transformarHumanoide();}
-		catch(Exception e){}		
-		
+		catch(Exception e) {
+		}
+
 		megatron.mover(posicionDestino);
 		
-		Assert.assertTrue(megatron.getVida() == ((int)(vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05)))));
+		Assert.assertEquals(megatron.getVida(), vidaEsperada);
 	}
 
 	@Test
@@ -406,15 +433,17 @@ public class e0613Test {
 		int cantidadDeCasillerosAtravesados = posicion.getX()-posicionDestino.getX();
 		
 		double vidaInicial = bonecrusher.getVida();
-		
+		int vidaEsperada = (int) (vidaInicial * (1 - (cantidadDeCasillerosAtravesados * 0.05)));
+
 		try {bonecrusher.transformarAlterno();}
 		catch(Exception e){}		
 		
 		bonecrusher.mover(posicionDestino);
 		
-		Assert.assertTrue(bonecrusher.getVida() == (vidaInicial*(1-(cantidadDeCasillerosAtravesados*0.05))));
+		Assert.assertEquals(bonecrusher.getVida(), vidaEsperada);
 	}
-	
+
+	// ENTREGA PUNTO 6
 	@Test
 	public void testLlenarZonaEspinasYVerificarQueUnidadesAereasNoSonAfectadas() throws IOException, ParseException{
 		
@@ -433,9 +462,10 @@ public class e0613Test {
 		
 		megatron.mover(posicionDestino);
 		
-		Assert.assertEquals(megatron.getVida(),vidaInicial);
+		Assert.assertEquals(megatron.getVida(), vidaInicial);
 	}
-	
+
+	// ENTREGA PUNTO 7
 	@Test
 	public void testLlenarZonaNubesYVerificarEnModoAlternoAereoSeAtraviesaSinProblemas() throws IOException, ParseException{
 		
@@ -454,7 +484,8 @@ public class e0613Test {
 		
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
-	
+
+	// ENTREGA PUNTO 8
 	@Test
 	public void testLlenarZonaNebulosaDeAndromedaYVerificarEnModoAlternoAereoUnaUnidadSeQuedaAtrapadaPorTresTurnosSinMoverse() throws IOException, ParseException{
 		
@@ -481,6 +512,8 @@ public class e0613Test {
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
 	}
 
+
+	// ENTREGA PUNTO 9
 	@Test
 	public void testLlenarZonaTormentaPsionicaYVerificarQueUnidadesAereasDismunyenCapacidadDeAtaque() throws IOException, ParseException{
 		
@@ -498,11 +531,12 @@ public class e0613Test {
 		double ataqueInicial = (double) megatron.getAtaque();
 		megatron.mover(posicionDestino);
 		
-		int ataqueEsperado = (int)(ataqueInicial*(0.4));
+		int ataqueEsperado = (int) (ataqueInicial * 0.4);
 		
-		Assert.assertEquals(megatron.getAtaque(),ataqueEsperado);
+		Assert.assertEquals(megatron.getAtaque(), ataqueEsperado);
 	}
 
+	// ENTREGA PUNTO 10
 	@Test
 	public void testLlenarZonaTormentaPsionicaYVerificarQueUnidadesAereasYPasarDosVecesYVerQueNoDismunyenMasSuCapacidadDeAtaque() throws IOException, ParseException{
 		
@@ -522,11 +556,13 @@ public class e0613Test {
 		
 		int ataqueEsperado = (int)(ataqueInicial*(0.4));
 		
-		Posicion posicionDestinoDeVuelta = new Posicion(1,0); 
-		
+		Posicion posicionDestinoDeVuelta = new Posicion(1,0);
+
+		Assert.assertEquals(megatron.getAtaque(), ataqueEsperado);
+
 		megatron.mover(posicionDestinoDeVuelta);
 		
-		Assert.assertEquals(megatron.getAtaque(),ataqueEsperado);
+		Assert.assertEquals(megatron.getAtaque(), ataqueEsperado);
 	}
 	
 	
