@@ -57,7 +57,6 @@ public class Casillero {
 		this.contenido = contenido;
 	}
 
-
 	public Tierra getSuperficieTierra() {
 		return this.tierra;
 	}
@@ -66,8 +65,9 @@ public class Casillero {
 		return this.aire;
 	}
 	
-	public boolean estaVacio(){
-		return this.contenido.hayAlgo();
+	public boolean estaVacio(){  //LO CAMBIE PORQ TIRABA NULL POINTER
+		// return !this.contenido.hayAlgo();
+		return (this.contenido==Vacio.getInstancia());
 	}
 	
 	public void quitarContenido(){

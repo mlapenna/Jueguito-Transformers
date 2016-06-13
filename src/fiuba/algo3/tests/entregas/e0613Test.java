@@ -529,4 +529,24 @@ public class e0613Test {
 		Assert.assertEquals(megatron.getAtaque(),ataqueEsperado);
 	}
 	
+	
+	@Test
+	public void testLlenarZonaPantanoYVerificarEnModoHumanoideNoPasaYVolverACondicionesIniciales() throws IOException, ParseException{
+		
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
+		Tablero tablero = new Tablero(jsonTablero);
+
+		Posicion posicion = new Posicion(3, 0);	
+		Algoformer megatron = new Megatron(posicion,tablero);
+		Posicion posicionDestino = new Posicion(2,0); 
+				
+		try{
+			megatron.mover(posicionDestino);
+		}catch (Exception MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion){
+			Assert.assertEquals(megatron.getPosicion(), posicion);
+			Assert.assertEquals(tablero.getCasillero(posicion).getContenido(), megatron);
+			Assert.assertTrue(tablero.getCasillero(posicionDestino).estaVacio());
+		}		
+	}
 }

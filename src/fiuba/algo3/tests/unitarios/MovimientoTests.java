@@ -35,5 +35,4 @@ public class MovimientoTests {
 		Assert.assertFalse(movimiento.esHorizontalOVerticalPuro(posOrigen, posDestinoDiagonal));
 	}
 	
-
 }

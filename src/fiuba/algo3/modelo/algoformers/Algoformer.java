@@ -37,6 +37,7 @@ public abstract class Algoformer extends Contenido {
 		this.posicion = posicion;
 		this.tablero = tablero;
 		this.modo = MODO_HUMANOIDE;
+		this.hayAlgo = true;
 	}
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
