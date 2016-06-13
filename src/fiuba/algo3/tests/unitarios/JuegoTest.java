@@ -24,16 +24,13 @@ public class JuegoTest {
 			Tablero tablero = new Tablero(jsonTablero);
 			Jugador jugador1 = new Jugador("Pedro", Algoformer.MODO_AUTOBOT, tablero);
 			Jugador jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, tablero);
-			Juego juego = new Juego(jugador1, jugador2); // El juego crea al azar 3 robots diferentes para cada jugador y los posiciona
-
-
+			Juego juego = new Juego(jugador1, jugador2);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
 
 	}
 

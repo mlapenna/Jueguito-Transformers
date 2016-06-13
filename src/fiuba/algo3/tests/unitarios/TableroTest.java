@@ -24,15 +24,7 @@ public class TableroTest {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);
-		/*
-		Algoformer algoformer = new Optimus();
-		Posicion nuevaPosicion = new Posicion(3,1);
 
-		tablero.agregarAlgoformerHumanoideSinEfectoDeSuperficie(algoformer, nuevaPosicion);
-		Posicion algoformerPosicion = algoformer.getPosicion();
-
-		Assert.assertEquals(nuevaPosicion, algoformerPosicion);
-		*/
 	}
 	
 	
