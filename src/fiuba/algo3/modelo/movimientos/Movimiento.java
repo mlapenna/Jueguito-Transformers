@@ -36,12 +36,12 @@ public abstract class Movimiento {
 	}
 
 
-	public boolean esHorizontalOVerticalPuro(Posicion posicionOrigen, Posicion posicionDestino) {
+	private boolean esHorizontalOVerticalPuro(Posicion posicionOrigen, Posicion posicionDestino) {
 		return (posicionOrigen.getX() == posicionDestino.getX() || posicionOrigen.getY() == posicionDestino.getY());
 	}
 
 
-	public boolean esDiagonalPuro(Posicion posicionOrigen, Posicion posicionDestino) {
+	private boolean esDiagonalPuro(Posicion posicionOrigen, Posicion posicionDestino) {
 		int distanciaHorizontal = Math.abs(posicionOrigen.getX() - posicionDestino.getX());
 		int distanciaVertical = Math.abs(posicionOrigen.getY() - posicionDestino.getY());
 		return (distanciaHorizontal == distanciaVertical);
