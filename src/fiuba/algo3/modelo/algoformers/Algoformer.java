@@ -8,7 +8,10 @@ import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExce
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.Contenido;
-import javafx.geometry.Pos;
+import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion;
+import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
+import fiuba.algo3.modelo.Ataque;
+//import javafx.geometry.Pos;
 
 
 public abstract class Algoformer extends Contenido {
@@ -25,30 +28,31 @@ public abstract class Algoformer extends Contenido {
 	protected int ataque;
 	protected int velocidad;
 	protected int modo;
-	protected int turnosInmovil = CANTIDAD_MINIMA_TURNOS_INMOVIL;
+	protected int turnosInmovil;
 	protected Tablero tablero;
+	protected boolean afectadoPorTormentaPsionica = false;
 
 
 	public Algoformer(Posicion posicion, Tablero tablero) {
 		this.posicion = posicion;
 		this.tablero = tablero;
 		this.modo = MODO_HUMANOIDE;
+		this.hayAlgo = true;
 	}
 	
 	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
 	
 	public abstract void transformarAlterno(); //redefinida en cada Algoformer
 
-	public abstract boolean puedeAtacarA(Algoformer otroAlgoformer);
-
+	public abstract void validarQueSePuedeAtacar(Algoformer otroAlgoformer);
+	
 	public boolean esDecepticon() {
 		return false;
-	};
+	}
 
 	public boolean esAutobot() {
 		return false;
-	};
-
+	}
 
 	public Posicion getPosicion(){  
 		return this.posicion;		
@@ -73,11 +77,24 @@ public abstract class Algoformer extends Contenido {
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
-
-	public void recibirAtaque(Algoformer algoformerQueAtaca) {
-		int vidaAux = this.getVida() - algoformerQueAtaca.getAtaque();
+	
+	public void afectarVida(int nuevaVida) {
+		this.setVida(nuevaVida);
+	}
+	
+	public void afectarAtaque(int nuevoAtaque) {
+		this.ataque = nuevoAtaque;
+	}
+	
+	public void recibirAtaque(Algoformer algoformerAtacante) {
+		int vidaAux = this.getVida() - algoformerAtacante.getAtaque();
 		if (vidaAux < 0) vidaAux = 0;
 		this.setVida(vidaAux);
+	}
+	
+	public void atacar(Algoformer algoformerObjetivo) {
+		Ataque ataque = new Ataque();
+		ataque.Ataque(this,algoformerObjetivo);
 	}
 	
 	public void validarQueNoSoyHumanoide() {
@@ -90,29 +107,55 @@ public abstract class Algoformer extends Contenido {
 			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
 	}
 	
-	private void validarQueNoEstaInmovilizado() {
+	public void validarQueNoEstaInmovilizado() {
 		if (turnosInmovil > CANTIDAD_MINIMA_TURNOS_INMOVIL) {
 			throw new AlgoformerInmovilizadoExcepcion();
 		}
 	}
 
-	private void validarDistanciaDentroDelRango(Posicion posicionDestino) {
-		if (this.velocidad >= this.posicion.getDistancia(posicionDestino)) {
-			throw new MovimientoInvalidoDistanciaNoValidaExcepcion();
-		}
-	}
-
-
 	public void mover(Posicion posicionDestino) {
 		this.validarQueNoEstaInmovilizado();
-		this.validarDistanciaDentroDelRango(posicionDestino);
-
-		//this.tablero.moverAlgoformer(this, posicionDestino);
+		this.movimiento.mover(this, this.tablero, posicionDestino);
 	}
-
 
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
 		this.turnosInmovil = turnosAtrapado;
 	}
 
+	public void setNuevaPosicion(Posicion nuevaPosicion) {
+		this.posicion.setCoordenadas(nuevaPosicion.getX(), nuevaPosicion.getY());
+	}
+	
+	public void nuevoTurno() {
+		if(turnosInmovil>0) turnosInmovil = turnosInmovil -1;
+	}
+	
+	public boolean afectadoPorTormentaPsionica() {
+		return this.afectadoPorTormentaPsionica;
+	}
+	
+	public void afectarPorTormentaPsionica() {
+		this.afectadoPorTormentaPsionica = true;
+	}
+
+	public abstract Algoformer clonarAlgoformer();
+
+	protected int getTurnosInmovil() {
+		return this.turnosInmovil;
+	}
+
+	protected int getModo() {
+		return this.modo;
+	}
+	
+	public void copiarA(Algoformer clon){
+		clon.afectadoPorTormentaPsionica = this.afectadoPorTormentaPsionica();
+		clon.modo = this.getModo();
+		clon.movimiento = this.movimiento;  //SMELL!! VER ESTO;
+		clon.ataque = this.getAtaque();
+		clon.distanciaDeAtaque = this.getDistanciaDeAtaque();
+		clon.velocidad = this.getVelocidad();
+		clon.turnosInmovil = this.getTurnosInmovil();
+		clon.vida = this.getVida();
+	}
 }

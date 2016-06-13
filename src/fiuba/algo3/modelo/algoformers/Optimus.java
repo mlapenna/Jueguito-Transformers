@@ -48,4 +48,11 @@ public class Optimus extends Autobot {
 		this.modo = 1;
 	}
 
+	@Override
+	public Algoformer clonarAlgoformer() {
+		Algoformer clon = new Optimus(this.getPosicion(),this.tablero);
+		this.copiarA(clon);
+		return clon;	
+	}
+
 }

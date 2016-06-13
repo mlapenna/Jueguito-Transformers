@@ -28,4 +28,12 @@ public class Menasor extends Decepticon {
 	public void transformarAlterno(){
 		throw new MenasorNoPuedeTransformarseExcepcion();
 	}
+
+	@Override
+	public Algoformer clonarAlgoformer() {
+		Algoformer clon = new Menasor(this.getPosicion(),this.tablero);
+		this.copiarA(clon);
+		return clon;	
+	}
+
 }

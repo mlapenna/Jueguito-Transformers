@@ -43,4 +43,12 @@ public class Megatron extends Decepticon {
 		this.velocidad = VELOCIDAD_ALTERNO;
 		this.modo = 1;
 	}
+	
+	@Override
+	public Algoformer clonarAlgoformer() {
+		Algoformer clon = new Megatron(this.getPosicion(),this.tablero);
+		this.copiarA(clon);
+		return clon;	
+	}
+
 }

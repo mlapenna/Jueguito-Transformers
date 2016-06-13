@@ -19,7 +19,6 @@ public class Tablero {
 	private static final String JSON_FIELD_KEY_POSICION_Y = "posicionY";
 	private static final String JSON_FIELD_KEY_SUPERFICIES = "superficies";
 
-
 	public Tablero(JSONObject json) {
 
 		this.dimensionX = Integer.parseInt( json.get(JSON_FIELD_KEY_DIMENSION_X).toString() );
@@ -43,13 +42,40 @@ public class Tablero {
 
 			int posicionX = Integer.parseInt( unCasillero.get(JSON_FIELD_KEY_POSICION_X).toString() );
 			int posicionY = Integer.parseInt( unCasillero.get(JSON_FIELD_KEY_POSICION_Y).toString() );
-			JSONArray superficies = (JSONArray) json.get(JSON_FIELD_KEY_SUPERFICIES);
+			JSONObject superficies = (JSONObject) unCasillero.get(JSON_FIELD_KEY_SUPERFICIES);
 
-			this.casilleros.get(posicionX).get(posicionY).setSuperficies(superficies);
+			this.casilleros.get(posicionY).get(posicionX).setSuperficies(superficies);
 
 		}
 	}
 
+	public Casillero getCasillero(Posicion posicion) { //VER SI FUNCIONA
+		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
+		Casillero unCasillero = fila.get( posicion.getX() );
+		return unCasillero;		
+	}
+
+
+	public void quitarContenido(Posicion posicion) {
+		this.getCasillero(posicion).quitarContenido();		
+	}
+
+	public Contenido getContenido(Posicion posicion) {
+		return this.getCasillero(posicion).getContenido();
+	}
+
+
+	public void setContenido(Posicion posicion, Contenido contenido) {
+		this.getCasillero(posicion).setContenido(contenido);
+	}
+
+	public int getDimensionX() {
+		return this.dimensionX;
+	}
+
+	public int getDimensionY() {
+		return this.dimensionY;
+	}
 
 /*
 
@@ -83,10 +109,6 @@ public class Tablero {
 	}
 	*/
 
-	public Casillero getCasillero(Posicion posicion) {
-		ArrayList<Casillero> fila = this.casilleros.get( posicion.obtenerPosicionY() );
-		return fila.get( posicion.obtenerPosicionX() );
-	}
 /*
 
 	public void moverAlgoformerAlternoTerrestre(Algoformer algoformer, Posicion posicionFinal) {
@@ -120,11 +142,6 @@ public class Tablero {
 	}
 */
 
-	public int getDimensionX() {
-		return this.dimensionX;
-	}
 
-	public int getDimensionY() {
-		return this.dimensionY;
-	}
+
 }

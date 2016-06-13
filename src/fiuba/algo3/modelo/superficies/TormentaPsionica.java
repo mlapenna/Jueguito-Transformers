@@ -4,17 +4,20 @@ import fiuba.algo3.modelo.algoformers.Algoformer;
 
 public class TormentaPsionica extends Aire {
 	public static final String NOMBRE_JSON = "TormentaPsionica";
-	public static final int DANIO = 40;
+	public static final double DANIO = 0.40;
 	
 	public TormentaPsionica(){
 		this.superficie = TORMENTA_PSIONICA;
 	}
 
 	@Override
-	public void afectarAlgoformerAlterno(Algoformer algoformer) {
-		int vida = algoformer.getVida();
-		int vidaAux = ( vida - ( DANIO / 100) * vida );
-		algoformer.setVida(vidaAux);
+	public void afectarAlgoformerAlterno(Algoformer algoformer) {		
+		if(!algoformer.afectadoPorTormentaPsionica()) {
+			double ataque = (double) algoformer.getAtaque();
+			int ataqueAux = (int) (  DANIO * ataque  );
+			algoformer.afectarAtaque(ataqueAux);
+			algoformer.afectarPorTormentaPsionica();
+		}
 	}
 
 	@Override

@@ -47,5 +47,12 @@ public class Frenzy extends Decepticon {
 		this.modo = 1;
 	}
 
+	@Override
+	public Algoformer clonarAlgoformer() {
+		Algoformer clon = new Frenzy(this.getPosicion(),this.tablero);
+		this.copiarA(clon);
+		return clon;	
+	}
+
 
 }

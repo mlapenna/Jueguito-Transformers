@@ -16,33 +16,18 @@ public class Posicion {
 		this.y = posY;
 	}
 
-	public Posicion getPosicion() {
-		return this;
-	}
-	
-	public void mayorA(Posicion posicion)
-	{
-		// TODO
-		// hacer bien: un metod para X otro Y 
-	//	if(((Math.abs(this.x) - posicion.obtenerPosicionX())>0) || ((Math.abs(this.y) - posicion.obtenerPosicionY())>0))
-	//	{
-	//		throw new DistanciasMuyGrandesExcepcion();
-	//	}
-	}
-	
-	public int obtenerPosicionX()
-	{
+
+	public int getX() {
 		return this.x;
 	}
 	
-	public int obtenerPosicionY()
-	{
+	public int getY() {
 		return this.y;
 	}
 
 	public int getDistancia(Posicion posicionDestino) {
-		int distanciaX = Math.abs( this.obtenerPosicionX() - posicionDestino.obtenerPosicionX() );
-		int distanciaY = Math.abs( this.obtenerPosicionY() - posicionDestino.obtenerPosicionY() );
+		int distanciaX = Math.abs( this.getX() - posicionDestino.getX() );
+		int distanciaY = Math.abs( this.getY() - posicionDestino.getY() );
 		int resultado;
 
 		if (distanciaX >= distanciaY) {
@@ -52,27 +37,17 @@ public class Posicion {
 		}
 		return resultado;
 	}
-	
-	public boolean mismaPosicion(Posicion posicionDestino) {
-		if((this.obtenerPosicionX()==posicionDestino.obtenerPosicionX()) && 
-				 (this.obtenerPosicionY()==posicionDestino.obtenerPosicionY()))
-			return true;
-		return false;
+
+
+	public boolean equals(Object obj) {
+		boolean resultado = false;
+
+		if (obj instanceof Posicion) {
+			Posicion posicionAComparar = (Posicion) obj;
+			resultado = (this.getX() == posicionAComparar.getX() && this.getY() == posicionAComparar.getY());
+		}
+
+		return resultado;
 	}
-	
-	public boolean formaSegmento(Posicion posicionDestino) {
-		if( (this.obtenerPosicionX() != posicionDestino.obtenerPosicionX()) 
-				|| ( this.obtenerPosicionY() != posicionDestino.obtenerPosicionY() ))
-			return false;
-		return true;
-	}
-	
-	public boolean formaDiagonal(Posicion posicionDestino){
-		int diffX = this.obtenerPosicionX() - posicionDestino.obtenerPosicionX();
-		int diffY = this.obtenerPosicionY() - posicionDestino.obtenerPosicionY();
-		
-		if(diffX != diffY)
-			return false;
-		return true;
-	}
+
 }
