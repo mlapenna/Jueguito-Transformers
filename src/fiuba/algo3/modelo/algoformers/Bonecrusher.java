@@ -46,4 +46,12 @@ public class Bonecrusher extends Decepticon {
 		this.velocidad=VELOCIDAD_ALTERNO;
 		this.modo = 1;
 	}
+	
+	@Override
+	public Algoformer clonarAlgoformer() {
+		Algoformer clon = new Bonecrusher(this.getPosicion(),this.tablero);
+		this.copiarA(clon);
+		return clon;	
+	}
+
 }

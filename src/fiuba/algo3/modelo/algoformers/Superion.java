@@ -30,4 +30,11 @@ public class Superion extends Autobot {
 		throw new SuperionNoPuedeTransformarseExcepcion();
 	}
 
+	@Override
+	public Algoformer clonarAlgoformer() {
+		Algoformer clon = new Superion(this.getPosicion(),this.tablero);
+		this.copiarA(clon);
+		return clon;	
+	}
+
 }

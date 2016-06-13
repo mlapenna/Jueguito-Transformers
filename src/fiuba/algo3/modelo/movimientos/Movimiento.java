@@ -84,7 +84,7 @@ public abstract class Movimiento {
 				//algoformer.mover(recorrido.get(i));
 				algoformer.setNuevaPosicion(recorrido.get(i));
 			} catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
-				algoformer = clon;
+				clon.copiarA(algoformer);
 				tablero.setContenido(algoformer.getPosicion(), algoformer);
 				throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion();
 			} catch(AlgoformerInmovilizadoExcepcion e) {

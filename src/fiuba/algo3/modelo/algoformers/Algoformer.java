@@ -138,17 +138,24 @@ public abstract class Algoformer extends Contenido {
 		this.afectadoPorTormentaPsionica = true;
 	}
 
-	public Algoformer clonarAlgoformer(){
-		Algoformer clon = this; //SMELL, lo hago asi provisoriamente, x lo de autobot o decepticon
-		return clon;
-	}
+	public abstract Algoformer clonarAlgoformer();
 
-
-	private int getTurnosInmovil() {
+	protected int getTurnosInmovil() {
 		return this.turnosInmovil;
 	}
 
-	private int getModo() {
+	protected int getModo() {
 		return this.modo;
+	}
+	
+	public void copiarA(Algoformer clon){
+		clon.afectadoPorTormentaPsionica = this.afectadoPorTormentaPsionica();
+		clon.modo = this.getModo();
+		clon.movimiento = this.movimiento;  //SMELL!! VER ESTO;
+		clon.ataque = this.getAtaque();
+		clon.distanciaDeAtaque = this.getDistanciaDeAtaque();
+		clon.velocidad = this.getVelocidad();
+		clon.turnosInmovil = this.getTurnosInmovil();
+		clon.vida = this.getVida();
 	}
 }

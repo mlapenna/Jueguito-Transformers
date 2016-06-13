@@ -44,5 +44,13 @@ public class Ratchet extends Autobot {
 		this.velocidad=VELOCIDAD_ALTERNO;
 		this.modo = 1;
 	}
+	
+	@Override
+	public Algoformer clonarAlgoformer() {
+		Algoformer clon = new Ratchet(this.getPosicion(),this.tablero);
+		this.copiarA(clon);
+		return clon;	
+	}
+
 
 }
