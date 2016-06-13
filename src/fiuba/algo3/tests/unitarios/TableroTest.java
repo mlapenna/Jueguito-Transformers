@@ -19,7 +19,7 @@ import java.io.IOException;
 public class TableroTest {
 
 	@Test
-	public void testAgregarAlgoformerHumanoideSinEfectoDeSuperficie () throws IOException, ParseException {
+	public void testAgregarAlgoformerHumanoide () throws IOException, ParseException {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));

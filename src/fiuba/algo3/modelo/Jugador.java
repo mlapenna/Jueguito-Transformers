@@ -40,10 +40,6 @@ public class Jugador {
                 BumbleBee bumbleBee = new BumbleBee(posicion2,tablero);
                 Ratchet ratchet = new Ratchet(posicion3,tablero);
 
-                //this.tablero.agregarAlgoformerHumanoide(optimus, posicion1); AGREGAR_CONTENIDO VA ACA
-                //this.tablero.agregarAlgoformerHumanoide(bumbleBee, posicion2);
-                //this.tablero.agregarAlgoformerHumanoide(ratchet, posicion3);
-
                 this.misRobots.add(optimus);
                 this.misRobots.add(bumbleBee);
                 this.misRobots.add(ratchet);
@@ -58,10 +54,6 @@ public class Jugador {
                 Megatron megatron = new Megatron(posicion1,tablero);
                 Bonecrusher bonecrusher = new Bonecrusher(posicion2,tablero);
                 Frenzy frenzy = new Frenzy(posicion3,tablero);
-
-                //this.tablero.agregarAlgoformerHumanoide(megatron, posicion1);  AGREGAR_CONTENIDO VA ACA
-                //this.tablero.agregarAlgoformerHumanoide(bonecrusher, posicion2);
-                //this.tablero.agregarAlgoformerHumanoide(frenzy, posicion3);
 
                 this.misRobots.add(megatron);
                 this.misRobots.add(bonecrusher);
