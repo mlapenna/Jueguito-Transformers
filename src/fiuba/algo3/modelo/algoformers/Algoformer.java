@@ -143,16 +143,6 @@ public abstract class Algoformer extends Contenido {
 		return clon;
 	}
 
-	public void copiarAlgoformer(Algoformer clon) {
-		this.ataque=clon.getAtaque();
-		this.distanciaDeAtaque=clon.getDistanciaDeAtaque();
-		this.velocidad=clon.getVelocidad();
-		this.vida=clon.getVida();
-		this.posicion=clon.getPosicion();
-		this.modo=clon.getModo();
-		this.afectadoPorTormentaPsionica=clon.afectadoPorTormentaPsionica();
-		this.turnosInmovil=clon.getTurnosInmovil();
-	}
 
 	private int getTurnosInmovil() {
 		return this.turnosInmovil;
