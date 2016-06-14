@@ -32,9 +32,6 @@ public class e0606Test {
 		Algoformer prime = new Optimus(posicionInicial,tablero);
 		Posicion posicionDestino = new Posicion(3,3);
 		
-		try {prime.transformarHumanoide();}
-		catch(Exception e){}
-
 		prime.mover(posicionDestino);
 
 		Assert.assertEquals(prime.getPosicion(), posicionDestino);
@@ -52,8 +49,7 @@ public class e0606Test {
 		Algoformer prime = new Optimus(posicionInicial,tablero);
 		Posicion posicionDestino = new Posicion(3,3);
 
-		try {prime.transformarAlterno();}
-		catch(Exception e){}
+		prime.transformarAlterno();
 		
 		prime.mover(posicionDestino);
 
@@ -72,15 +68,13 @@ public class e0606Test {
 		Algoformer prime = new Optimus(posicionInicial,tablero);
 		Posicion posicionDestino = new Posicion(3,3);
 		
-		try {prime.transformarAlterno();} //Optimus alterno tiene velocidad 5
-		catch(Exception e){}
+		prime.transformarAlterno();
 		
 		prime.mover(posicionDestino);
 
 		Assert.assertEquals(prime.getPosicion(), posicionDestino);
 		
-		try {prime.transformarHumanoide();}
-		catch(Exception e){}
+		prime.transformarHumanoide();
 		
 		Posicion ultimaPosicionHumanoide = new Posicion (6,1);
 		prime.mover(ultimaPosicionHumanoide);
