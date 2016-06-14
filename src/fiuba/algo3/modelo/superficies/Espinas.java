@@ -16,7 +16,7 @@ public class Espinas extends Tierra {
 	}
 
 	@Override
-	public void afectarAlgoformerAlterno(Algoformer algoformer) { //REPITO CODIGO!!! (no hago funcion xq hereda)
+	public void afectarAlgoformerAlterno(Algoformer algoformer) { //FUNCIION PRIVADA!!!
 		double vida = (double) algoformer.getVida();
 		int vidaAux = (int) ( vida - ( DANIO * vida ) );
 		algoformer.afectarVida(vidaAux);
