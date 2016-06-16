@@ -2,6 +2,9 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
+import fiuba.algo3.modelo.movimientos.Movimiento;
+import fiuba.algo3.modelo.movimientos.MovimientoAlternoTerrestre;
+
 
 public class Optimus extends Autobot {
 	private static final int ATAQUE_HUMANOIDE = 50;
@@ -18,7 +21,7 @@ public class Optimus extends Autobot {
 		this.vida = VIDA;
 	}
 
-	public int getAtaqueHumanoide() {
+	public int getAtaqueInicialHumanoide() {
 		return ATAQUE_HUMANOIDE;
 	}
 	public int getDistanciaAtaqueHumanoide() {
@@ -27,7 +30,7 @@ public class Optimus extends Autobot {
 	public int getVelocidadHumanoide() {
 		return VELOCIDAD_HUMANOIDE;
 	}
-	public int getAtaqueAlterno() {
+	public int getAtaqueInicialAlterno() {
 		return ATAQUE_ALTERNO;
 	}
 	public int getDistanciaAtaqueAlterno() {
@@ -43,5 +46,11 @@ public class Optimus extends Autobot {
 		this.copiarA(clon);
 		return clon;	
 	}
+
+	@Override
+	public Movimiento getMovimientoAlterno() {
+		return new MovimientoAlternoTerrestre(this.tablero);
+	}
+
 
 }

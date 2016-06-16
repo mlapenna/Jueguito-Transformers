@@ -1,14 +1,16 @@
 package fiuba.algo3.modelo.algoformers;
 
 
+import fiuba.algo3.modelo.Tablero;
+
 public class ModoCombinado extends Modo {
 
-    public ModoCombinado(Algoformer algoformer) {
-        super(algoformer);
+    public ModoCombinado(Algoformer algoformer, Tablero tablero) {
+        super(algoformer, tablero);
     }
 
-    public int getAtaque() {
-        return this.algoformer.getAtaque();
+    public int getAtaqueInicial() {
+        return this.algoformer.getAtaqueInicial();
     }
 
     public int getDistanciaAtaque() {

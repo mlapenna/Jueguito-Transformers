@@ -2,7 +2,7 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
+import fiuba.algo3.modelo.movimientos.Movimiento;
 import fiuba.algo3.modelo.movimientos.MovimientoAlternoTerrestre;
 
 public class Bonecrusher extends Decepticon {
@@ -19,16 +19,17 @@ public class Bonecrusher extends Decepticon {
 		this.vida = VIDA;
 	}
 
-	public int getAtaqueHumanoide() {
+	public int getAtaqueInicialHumanoide() {
 		return ATAQUE_HUMANOIDE;
 	}
+
 	public int getDistanciaAtaqueHumanoide() {
 		return DISTANCIA_ATAQUE_HUMANOIDE;
 	}
 	public int getVelocidadHumanoide() {
 		return VELOCIDAD_HUMANOIDE;
 	}
-	public int getAtaqueAlterno() {
+	public int getAtaqueInicialAlterno() {
 		return ATAQUE_ALTERNO;
 	}
 	public int getDistanciaAtaqueAlterno() {
@@ -43,6 +44,11 @@ public class Bonecrusher extends Decepticon {
 		Algoformer clon = new Bonecrusher(this.getPosicion(),this.tablero);
 		this.copiarA(clon);
 		return clon;	
+	}
+
+	@Override
+	public Movimiento getMovimientoAlterno() {
+		return new MovimientoAlternoTerrestre(this.tablero);
 	}
 
 }

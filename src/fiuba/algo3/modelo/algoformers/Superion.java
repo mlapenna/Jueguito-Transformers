@@ -2,9 +2,8 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.algoformers.Autobot;
-import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
-import fiuba.algo3.modelo.excepciones.SuperionNoPuedeTransformarseExcepcion;
+import fiuba.algo3.modelo.movimientos.Movimiento;
+import fiuba.algo3.modelo.movimientos.MovimientoAlternoTerrestre;
 
 public class Superion extends Autobot {
 	private static final int DISTANCIA_ATAQUE = 2;
@@ -14,15 +13,11 @@ public class Superion extends Autobot {
 	
 	public Superion(Posicion posicion, Tablero tablero) {
 		super(posicion, tablero);
-
 		this.vida = VIDA;
-		this.ataque = ATAQUE;
-		this.distanciaAtaque = DISTANCIA_ATAQUE;
-		this.velocidad = VELOCIDAD;
 	}
 
 
-	public int getAtaqueHumanoide() {
+	public int getAtaqueInicialHumanoide() {
 		return ATAQUE;
 	}
 	public int getDistanciaAtaqueHumanoide() {
@@ -31,7 +26,7 @@ public class Superion extends Autobot {
 	public int getVelocidadHumanoide() {
 		return VELOCIDAD;
 	}
-	public int getAtaqueAlterno() {
+	public int getAtaqueInicialAlterno() {
 		return ATAQUE;
 	}
 	public int getDistanciaAtaqueAlterno() {
@@ -48,4 +43,8 @@ public class Superion extends Autobot {
 		return clon;	
 	}
 
+	@Override
+	public Movimiento getMovimientoAlterno() {
+		return new MovimientoAlternoTerrestre(this.tablero);
+	}
 }

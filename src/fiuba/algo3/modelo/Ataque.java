@@ -1,6 +1,5 @@
 package fiuba.algo3.modelo;
 
-import fiuba.algo3.modelo.Casillero;
 import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
 

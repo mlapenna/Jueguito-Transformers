@@ -2,6 +2,8 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
+import fiuba.algo3.modelo.movimientos.Movimiento;
+import fiuba.algo3.modelo.movimientos.MovimientoAlternoTerrestre;
 
 public class Frenzy extends Decepticon {
 	private static final int ATAQUE_HUMANOIDE = 10;
@@ -18,7 +20,7 @@ public class Frenzy extends Decepticon {
 		this.vida = VIDA;
 	}
 
-	public int getAtaqueHumanoide() {
+	public int getAtaqueInicialHumanoide() {
 		return ATAQUE_HUMANOIDE;
 	}
 	public int getDistanciaAtaqueHumanoide() {
@@ -27,7 +29,7 @@ public class Frenzy extends Decepticon {
 	public int getVelocidadHumanoide() {
 		return VELOCIDAD_HUMANOIDE;
 	}
-	public int getAtaqueAlterno() {
+	public int getAtaqueInicialAlterno() {
 		return ATAQUE_ALTERNO;
 	}
 	public int getDistanciaAtaqueAlterno() {
@@ -42,6 +44,11 @@ public class Frenzy extends Decepticon {
 		Algoformer clon = new Frenzy(this.getPosicion(),this.tablero);
 		this.copiarA(clon);
 		return clon;	
+	}
+
+	@Override
+	public Movimiento getMovimientoAlterno() {
+		return new MovimientoAlternoTerrestre(this.tablero);
 	}
 
 

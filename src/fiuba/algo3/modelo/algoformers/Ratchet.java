@@ -2,6 +2,8 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
+import fiuba.algo3.modelo.movimientos.Movimiento;
+import fiuba.algo3.modelo.movimientos.MovimientoAlternoAereo;
 
 public class Ratchet extends Autobot {
 	private static final int ATAQUE_HUMANOIDE = 5;
@@ -17,7 +19,7 @@ public class Ratchet extends Autobot {
 		this.vida = VIDA;
 	}
 
-	public int getAtaqueHumanoide() {
+	public int getAtaqueInicialHumanoide() {
 		return ATAQUE_HUMANOIDE;
 	}
 	public int getDistanciaAtaqueHumanoide() {
@@ -26,7 +28,7 @@ public class Ratchet extends Autobot {
 	public int getVelocidadHumanoide() {
 		return VELOCIDAD_HUMANOIDE;
 	}
-	public int getAtaqueAlterno() {
+	public int getAtaqueInicialAlterno() {
 		return ATAQUE_ALTERNO;
 	}
 	public int getDistanciaAtaqueAlterno() {
@@ -43,5 +45,8 @@ public class Ratchet extends Autobot {
 		return clon;
 	}
 
+	public Movimiento getMovimientoAlterno() {
+		return new MovimientoAlternoAereo(this.tablero);
+	}
 
 }

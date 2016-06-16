@@ -1,15 +1,16 @@
 package fiuba.algo3.modelo.algoformers;
 
-import fiuba.algo3.modelo.algoformers.Modo;
+import fiuba.algo3.modelo.Tablero;
 
 public class ModoHumanoide extends Modo {
 
-    public ModoHumanoide(Algoformer algoformer) {
-        super(algoformer);
+    public ModoHumanoide(Algoformer algoformer, Tablero tablero) {
+        super(algoformer, tablero);
+        this.movimiento = algoformer.getMovimientoHumanoide();
     }
 
-    public int getAtaque() {
-        return this.algoformer.getAtaqueHumanoide();
+    public int getAtaqueInicial() {
+        return this.algoformer.getAtaqueInicialHumanoide();
     }
 
     public int getDistanciaAtaque() {

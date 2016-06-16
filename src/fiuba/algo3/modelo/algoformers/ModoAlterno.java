@@ -1,13 +1,16 @@
 package fiuba.algo3.modelo.algoformers;
 
+import fiuba.algo3.modelo.Tablero;
+
 public class ModoAlterno extends Modo {
 
-    public ModoAlterno(Algoformer algoformer) {
-        super(algoformer);
+    public ModoAlterno(Algoformer algoformer, Tablero tablero) {
+        super(algoformer, tablero);
+        this.movimiento = algoformer.getMovimientoAlterno();
     }
 
-    public int getAtaque() {
-        return this.algoformer.getAtaqueAlterno();
+    public int getAtaqueInicial() {
+        return this.algoformer.getAtaqueInicialAlterno();
     }
 
     public int getDistanciaAtaque() {

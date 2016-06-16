@@ -18,9 +18,7 @@ public abstract class Algoformer extends Contenido {
 	protected int vida;
 	protected Movimiento movimiento;
 	protected Posicion posicion;
-	protected int distanciaAtaque;
 	protected int ataque;
-	protected int velocidad;
 	protected int turnosInmovil;
 	protected Tablero tablero;
 	protected boolean afectadoPorTormentaPsionica = false;
@@ -30,9 +28,10 @@ public abstract class Algoformer extends Contenido {
 	public Algoformer(Posicion posicion, Tablero tablero) {
 		this.posicion = posicion;
 		this.tablero = tablero;
-		this.modo = new ModoHumanoide(this);
+		this.modo = new ModoHumanoide(this, tablero);
 		this.hayAlgo = true;
-		this.movimiento = new MovimientoHumanoide();
+		this.movimiento = new MovimientoHumanoide(this.tablero);
+		this.ataque = this.modo.getAtaqueInicial();
 	}
 
 
@@ -54,8 +53,12 @@ public abstract class Algoformer extends Contenido {
 		return this.vida;
 	}
 	
+	public int getAtaqueInicial() {
+		return this.modo.getAtaqueInicial();
+	}
+
 	public int getAtaque() {
-		return this.modo.getAtaque();
+		return this.ataque;
 	}
 	
 	public int getDistanciaAtaque() {
@@ -98,7 +101,7 @@ public abstract class Algoformer extends Contenido {
 
 	public void mover(Posicion posicionDestino) {
 		this.validarQueNoEstaInmovilizado();
-		this.movimiento.mover(this, this.tablero, posicionDestino);
+		this.modo.mover(posicionDestino);
 	}
 
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
@@ -136,8 +139,6 @@ public abstract class Algoformer extends Contenido {
 		clon.modo = this.getModo();
 		clon.movimiento = this.movimiento;  //SMELL!! VER ESTO;
 		clon.ataque = this.getAtaque();
-		clon.distanciaAtaque = this.getDistanciaAtaque();
-		clon.velocidad = this.getVelocidad();
 		clon.turnosInmovil = this.getTurnosInmovil();
 		clon.vida = this.getVida();
 	}
@@ -145,16 +146,22 @@ public abstract class Algoformer extends Contenido {
 
 	public void cambiarModo() {
 		if (this.modo.esHumanoide()) {
-			this.modo = new ModoAlterno(this);
+			this.modo = new ModoAlterno(this, this.tablero);
 		} else {
-			this.modo = new ModoHumanoide(this);
+			this.modo = new ModoHumanoide(this, this.tablero);
 		}
 	}
 
-	public abstract int getAtaqueHumanoide();
+	public Movimiento getMovimientoHumanoide() {
+		return new MovimientoHumanoide(this.tablero);
+	}
+
+	public abstract Movimiento getMovimientoAlterno();
+
+	public abstract int getAtaqueInicialHumanoide();
 	public abstract int getDistanciaAtaqueHumanoide();
 	public abstract int getVelocidadHumanoide();
-	public abstract int getAtaqueAlterno();
+	public abstract int getAtaqueInicialAlterno();
 	public abstract int getDistanciaAtaqueAlterno();
 	public abstract int getVelocidadAlterno();
 }

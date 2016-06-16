@@ -6,8 +6,12 @@ import fiuba.algo3.modelo.Tablero;
 
 public class MovimientoAlternoAereo extends Movimiento{
 
+	public MovimientoAlternoAereo(Tablero tablero) {
+		super(tablero);
+	}
+
 	@Override
-	public void afectarAlgoformer(Algoformer algoformer, Tablero tablero, Posicion posicion) {
+	public void afectarAlgoformer(Algoformer algoformer, Posicion posicion) {
 		tablero.getCasillero(posicion).getSuperficieAire().afectarAlgoformerAlterno(algoformer);		
 	}
 	

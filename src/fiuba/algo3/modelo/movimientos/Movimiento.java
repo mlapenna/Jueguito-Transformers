@@ -3,7 +3,6 @@ package fiuba.algo3.modelo.movimientos;
 import fiuba.algo3.modelo.*;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import fiuba.algo3.modelo.algoformers.Algoformer;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroOcupadoExcepcion;
@@ -15,7 +14,11 @@ import fiuba.algo3.modelo.excepciones.MovimientoInvalidoCasilleroInvalidoExcepci
 public abstract class Movimiento {
 	
 	protected Tablero tablero;
-	
+
+	public Movimiento(Tablero tablero) {
+		this.tablero = tablero;
+	}
+
 	protected Casillero getCasillero(Posicion nuevaPoscion){
 		// TODO: buscar el casillero en el tablero
 		return new Casillero();
@@ -49,7 +52,7 @@ public abstract class Movimiento {
 
 
 	
-	public void mover(Algoformer algoformer, Tablero tablero, Posicion posicionDestino) {
+	public void mover(Algoformer algoformer, Posicion posicionDestino) {
 	
 		Algoformer clon = algoformer.clonarAlgoformer();
 		
@@ -66,7 +69,7 @@ public abstract class Movimiento {
 		}
 
 		// Casillero vacio?
-		Contenido contenidoDestino = tablero.getContenido(posicionDestino);
+		Contenido contenidoDestino = this.tablero.getContenido(posicionDestino);
 		if (contenidoDestino != Vacio.getInstancia()) {
 			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		}//ME PARECE QUE SEGUN EL PRINCIPIO "TELL DONT ASK" HABRIA Q COMPROBAR ESTO MIENTRAS SE MUEVE
@@ -76,16 +79,16 @@ public abstract class Movimiento {
 		
 		// Movimiento
 		for (int i=0; i < recorrido.size(); i++) 		{
-			tablero.quitarContenido(algoformer.getPosicion());
+			this.tablero.quitarContenido(algoformer.getPosicion());
 			try {
 				algoformer.validarQueNoEstaInmovilizado();
-				this.afectarAlgoformer(algoformer,tablero,recorrido.get(i));
-				tablero.setContenido(recorrido.get(i), algoformer);
+				this.afectarAlgoformer(algoformer, recorrido.get(i));
+				this.tablero.setContenido(recorrido.get(i), algoformer);
 				//algoformer.mover(recorrido.get(i));
 				algoformer.setNuevaPosicion(recorrido.get(i));
 			} catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
 				clon.copiarA(algoformer);
-				tablero.setContenido(algoformer.getPosicion(), algoformer);
+				this.tablero.setContenido(algoformer.getPosicion(), algoformer);
 				throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion();
 			} catch(AlgoformerInmovilizadoExcepcion e) {
 				//throw new AlgoformerInmovilizadoExcepcion();
@@ -98,7 +101,7 @@ public abstract class Movimiento {
 
 
 
-	public abstract void afectarAlgoformer(Algoformer algoformer, Tablero tablero,Posicion posicion);
+	public abstract void afectarAlgoformer(Algoformer algoformer, Posicion posicion);
 
 	// Arma un recorrido (compuesto por cada una de las posiciones intermedias más la final) de acuerdo a las posiciones de origen y destino recibidas
 	private ArrayList<Posicion> getRecorrido(Posicion posicionOrigen, Posicion posicionDestino) {

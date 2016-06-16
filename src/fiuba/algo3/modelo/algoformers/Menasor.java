@@ -2,9 +2,8 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.algoformers.Decepticon;
-import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
-import fiuba.algo3.modelo.excepciones.MenasorNoPuedeTransformarseExcepcion;
+import fiuba.algo3.modelo.movimientos.Movimiento;
+import fiuba.algo3.modelo.movimientos.MovimientoAlternoTerrestre;
 
 public class Menasor extends Decepticon {
 	private static final int DISTANCIA_ATAQUE = 2;
@@ -15,13 +14,10 @@ public class Menasor extends Decepticon {
 	public Menasor(Posicion posicion, Tablero tablero) {
 		super(posicion, tablero);
 		this.vida = VIDA;
-		this.ataque = ATAQUE;
-		this.distanciaAtaque = DISTANCIA_ATAQUE;
-		this.velocidad = VELOCIDAD;
 	}
 
 
-	public int getAtaqueHumanoide() {
+	public int getAtaqueInicialHumanoide() {
 		return ATAQUE;
 	}
 	public int getDistanciaAtaqueHumanoide() {
@@ -30,7 +26,7 @@ public class Menasor extends Decepticon {
 	public int getVelocidadHumanoide() {
 		return VELOCIDAD;
 	}
-	public int getAtaqueAlterno() {
+	public int getAtaqueInicialAlterno() {
 		return ATAQUE;
 	}
 	public int getDistanciaAtaqueAlterno() {
@@ -45,6 +41,11 @@ public class Menasor extends Decepticon {
 		Algoformer clon = new Menasor(this.getPosicion(),this.tablero);
 		this.copiarA(clon);
 		return clon;	
+	}
+
+	@Override
+	public Movimiento getMovimientoAlterno() {
+		return new MovimientoAlternoTerrestre(this.tablero);
 	}
 
 }

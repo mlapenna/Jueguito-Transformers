@@ -1,10 +1,7 @@
 package fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
 
-import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.algoformers.*;
 
 
