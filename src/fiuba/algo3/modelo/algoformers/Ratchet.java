@@ -2,11 +2,6 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.algoformers.Autobot;
-import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
-import fiuba.algo3.modelo.movimientos.MovimientoAlternoTerrestre;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
 
 public class Ratchet extends Autobot {
 	private static final int ATAQUE_HUMANOIDE = 5;
@@ -19,37 +14,33 @@ public class Ratchet extends Autobot {
 	
 	public Ratchet(Posicion posicion, Tablero tablero) {
 		super(posicion, tablero);
-
 		this.vida = VIDA;
-		this.ataque = ATAQUE_HUMANOIDE;
-		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
-		this.velocidad = VELOCIDAD_HUMANOIDE;
-		this.movimiento = new MovimientoHumanoide();
 	}
-	
-	public void transformarHumanoide() {
-		this.validarQueNoSoyHumanoide();
-		this.movimiento = new MovimientoHumanoide();
-		this.ataque=ATAQUE_HUMANOIDE;
-		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
-		this.velocidad=VELOCIDAD_HUMANOIDE;
-		this.modo = MODO_HUMANOIDE;
+
+	public int getAtaqueHumanoide() {
+		return ATAQUE_HUMANOIDE;
 	}
-	
-	public void transformarAlterno(){
-		this.validarQueNoSoyAlterno();
-		this.movimiento = new MovimientoAlternoTerrestre();
-		this.ataque=ATAQUE_ALTERNO;
-		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;
-		this.velocidad=VELOCIDAD_ALTERNO;
-		this.modo = 1;
+	public int getDistanciaAtaqueHumanoide() {
+		return DISTANCIA_ATAQUE_HUMANOIDE;
 	}
-	
+	public int getVelocidadHumanoide() {
+		return VELOCIDAD_HUMANOIDE;
+	}
+	public int getAtaqueAlterno() {
+		return ATAQUE_ALTERNO;
+	}
+	public int getDistanciaAtaqueAlterno() {
+		return DISTANCIA_ATAQUE_ALTERNO;
+	}
+	public int getVelocidadAlterno() {
+		return VELOCIDAD_ALTERNO;
+	}
+
 	@Override
 	public Algoformer clonarAlgoformer() {
 		Algoformer clon = new Ratchet(this.getPosicion(),this.tablero);
 		this.copiarA(clon);
-		return clon;	
+		return clon;
 	}
 
 

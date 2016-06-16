@@ -8,8 +8,6 @@ import fiuba.algo3.modelo.algoformers.Frenzy;
 import fiuba.algo3.modelo.algoformers.Optimus;
 import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
 import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -49,7 +47,7 @@ public class e0606Test {
 		Algoformer prime = new Optimus(posicionInicial,tablero);
 		Posicion posicionDestino = new Posicion(3,3);
 
-		prime.transformarAlterno();
+		prime.cambiarModo();
 		
 		prime.mover(posicionDestino);
 
@@ -68,13 +66,13 @@ public class e0606Test {
 		Algoformer prime = new Optimus(posicionInicial,tablero);
 		Posicion posicionDestino = new Posicion(3,3);
 		
-		prime.transformarAlterno();
+		prime.cambiarModo();
 		
 		prime.mover(posicionDestino);
 
 		Assert.assertEquals(prime.getPosicion(), posicionDestino);
 		
-		prime.transformarHumanoide();
+		prime.cambiarModo();
 		
 		Posicion ultimaPosicionHumanoide = new Posicion (6,1);
 		prime.mover(ultimaPosicionHumanoide);
@@ -86,27 +84,6 @@ public class e0606Test {
 
 	}
 
-
-	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
-	public void testCrearAlgoformerHumanoideYCambiarAlMismoModo() throws IOException, ParseException{
-		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
-		Tablero tablero = new Tablero(jsonTablero);
-		Posicion posicionInicial = new Posicion(1,1);
-		Algoformer prime = new Optimus(posicionInicial,tablero);
-		prime.transformarHumanoide();
-	}
-
-	@Test(expected=TransformacionIncorresctaYaEsAlternoExcepcion.class)
-	public void testCrearAlgoformerTransformarAAlternoYCambiarAlMismoModo() throws IOException, ParseException{
-		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
-		Tablero tablero = new Tablero(jsonTablero);
-		Posicion posicionInicial = new Posicion(1,1);
-		Algoformer prime = new Optimus(posicionInicial,tablero);
-		prime.transformarAlterno();
-		prime.transformarAlterno();
-	}
 
 	@Test
 	public void testAutobotAtacaDecepticonConDanos() throws IOException, ParseException {

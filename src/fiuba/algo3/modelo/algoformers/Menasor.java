@@ -16,17 +16,28 @@ public class Menasor extends Decepticon {
 		super(posicion, tablero);
 		this.vida = VIDA;
 		this.ataque = ATAQUE;
-		this.distanciaDeAtaque = DISTANCIA_ATAQUE;
+		this.distanciaAtaque = DISTANCIA_ATAQUE;
 		this.velocidad = VELOCIDAD;
-		this.movimiento = new MovimientoHumanoide();
 	}
 
-	public void transformarHumanoide() {
-		throw new MenasorNoPuedeTransformarseExcepcion();
+
+	public int getAtaqueHumanoide() {
+		return ATAQUE;
 	}
-	
-	public void transformarAlterno(){
-		throw new MenasorNoPuedeTransformarseExcepcion();
+	public int getDistanciaAtaqueHumanoide() {
+		return DISTANCIA_ATAQUE;
+	}
+	public int getVelocidadHumanoide() {
+		return VELOCIDAD;
+	}
+	public int getAtaqueAlterno() {
+		return ATAQUE;
+	}
+	public int getDistanciaAtaqueAlterno() {
+		return DISTANCIA_ATAQUE;
+	}
+	public int getVelocidadAlterno() {
+		return VELOCIDAD;
 	}
 
 	@Override

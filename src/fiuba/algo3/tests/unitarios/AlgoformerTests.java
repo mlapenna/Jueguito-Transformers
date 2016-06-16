@@ -9,7 +9,6 @@ import java.io.IOException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.junit.Test;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
@@ -19,8 +18,8 @@ import fiuba.algo3.modelo.algoformers.Megatron;
 import fiuba.algo3.modelo.algoformers.Optimus;
 import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
-import junit.framework.Assert;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class AlgoformerTests {
 
@@ -56,19 +55,7 @@ public class AlgoformerTests {
 		optimus.mover(posDestino);
 	}
 	
-	@Test(expected=TransformacionIncorresctaYaEsHumanoideExcepcion.class)
-	public void testValidarQueNoSePuedeTransformarEnModoActual() throws FileNotFoundException, IOException, ParseException {
-		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
-		Tablero tablero = new Tablero(jsonTablero);
-		
-		Posicion posDestino = new Posicion(2,1);
-		Posicion posOptimus = new Posicion(1,1);
-		Algoformer optimus = new Optimus(posOptimus,tablero);
-		
-		optimus.transformarHumanoide();
-	}
-	
+
 	@Test
 	public void testMoverAlgoformer() throws FileNotFoundException, IOException, ParseException {
 		JSONParser parser = new JSONParser();

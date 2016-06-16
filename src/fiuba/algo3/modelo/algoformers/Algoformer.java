@@ -1,48 +1,40 @@
 package fiuba.algo3.modelo.algoformers;
 
-import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 import fiuba.algo3.modelo.movimientos.Movimiento;
 import fiuba.algo3.modelo.Posicion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
 import fiuba.algo3.modelo.Tablero;
 import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelo.Contenido;
-import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion;
-import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
 import fiuba.algo3.modelo.Ataque;
+import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
 //import javafx.geometry.Pos;
 
 
 public abstract class Algoformer extends Contenido {
-	static final int MODO_HUMANOIDE = 0;
-	static final int MODO_ALTERNO = 1;
 	static public final int MODO_AUTOBOT = 0;
 	static public final int MODO_DECEPTICON = 1;
 	static final int CANTIDAD_MINIMA_TURNOS_INMOVIL = 0;
-	
+
 	protected int vida;
 	protected Movimiento movimiento;
 	protected Posicion posicion;
-	protected int distanciaDeAtaque;
+	protected int distanciaAtaque;
 	protected int ataque;
 	protected int velocidad;
-	protected int modo;
 	protected int turnosInmovil;
 	protected Tablero tablero;
 	protected boolean afectadoPorTormentaPsionica = false;
+	protected Modo modo;
 
 
 	public Algoformer(Posicion posicion, Tablero tablero) {
 		this.posicion = posicion;
 		this.tablero = tablero;
-		this.modo = MODO_HUMANOIDE;
+		this.modo = new ModoHumanoide(this);
 		this.hayAlgo = true;
+		this.movimiento = new MovimientoHumanoide();
 	}
-	
-	public abstract void transformarHumanoide(); //redefinida en cada Algoformer
-	
-	public abstract void transformarAlterno(); //redefinida en cada Algoformer
+
 
 	public abstract void validarQueSePuedeAtacar(Algoformer otroAlgoformer);
 	
@@ -63,15 +55,15 @@ public abstract class Algoformer extends Contenido {
 	}
 	
 	public int getAtaque() {
-		return this.ataque;
+		return this.modo.getAtaque();
 	}
 	
-	public int getDistanciaDeAtaque() {
-		return this.distanciaDeAtaque;
+	public int getDistanciaAtaque() {
+		return this.modo.getDistanciaAtaque();
 	}
 	
 	public int getVelocidad() {
-		return this.velocidad;
+		return this.modo.getVelocidad();
 	}
 
 	public void setVida(int vida) {
@@ -94,19 +86,10 @@ public abstract class Algoformer extends Contenido {
 	
 	public void atacar(Algoformer algoformerObjetivo) {
 		Ataque ataque = new Ataque();
-		ataque.Ataque(this,algoformerObjetivo);
+		ataque.Ataque(this, algoformerObjetivo);
 	}
 	
-	public void validarQueNoSoyHumanoide() {
-		if(this.modo == MODO_HUMANOIDE)
-			throw new TransformacionIncorresctaYaEsHumanoideExcepcion();
-	}
-	
-	public void validarQueNoSoyAlterno() {
-		if(this.modo == MODO_ALTERNO)
-			throw new TransformacionIncorresctaYaEsAlternoExcepcion();
-	}
-	
+
 	public void validarQueNoEstaInmovilizado() {
 		if (turnosInmovil > CANTIDAD_MINIMA_TURNOS_INMOVIL) {
 			throw new AlgoformerInmovilizadoExcepcion();
@@ -144,7 +127,7 @@ public abstract class Algoformer extends Contenido {
 		return this.turnosInmovil;
 	}
 
-	protected int getModo() {
+	protected Modo getModo() {
 		return this.modo;
 	}
 	
@@ -153,9 +136,25 @@ public abstract class Algoformer extends Contenido {
 		clon.modo = this.getModo();
 		clon.movimiento = this.movimiento;  //SMELL!! VER ESTO;
 		clon.ataque = this.getAtaque();
-		clon.distanciaDeAtaque = this.getDistanciaDeAtaque();
+		clon.distanciaAtaque = this.getDistanciaAtaque();
 		clon.velocidad = this.getVelocidad();
 		clon.turnosInmovil = this.getTurnosInmovil();
 		clon.vida = this.getVida();
 	}
+
+
+	public void cambiarModo() {
+		if (this.modo.esHumanoide()) {
+			this.modo = new ModoAlterno(this);
+		} else {
+			this.modo = new ModoHumanoide(this);
+		}
+	}
+
+	public abstract int getAtaqueHumanoide();
+	public abstract int getDistanciaAtaqueHumanoide();
+	public abstract int getVelocidadHumanoide();
+	public abstract int getAtaqueAlterno();
+	public abstract int getDistanciaAtaqueAlterno();
+	public abstract int getVelocidadAlterno();
 }

@@ -18,7 +18,7 @@ public class Ataque {
 		Posicion posicionDestino = algoformerObjetivo.getPosicion();
 		
 		algoformerAtacante.validarQueSePuedeAtacar(algoformerObjetivo);
-		if (algoformerAtacante.getDistanciaDeAtaque() < posicionOrigen.getDistancia(posicionDestino)) {
+		if (algoformerAtacante.getDistanciaAtaque() < posicionOrigen.getDistancia(posicionDestino)) {
 			throw new AtaqueInvalidoDistanciaInsuficienteExcepcion();
         }
 	}

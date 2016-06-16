@@ -54,7 +54,7 @@ public class e0613Test {
 		int vidaOriginal = prime.getVida();
 		Posicion posicionDestino = new Posicion(3, 0);
 
-		prime.transformarAlterno();
+		prime.cambiarModo();
 
 		prime.mover(posicionDestino);
 
@@ -92,7 +92,7 @@ public class e0613Test {
 		int vidaOriginal = ratchet.getVida();
 		Posicion posicionDestino = new Posicion(3, 0);
 
-		ratchet.transformarAlterno();
+		ratchet.cambiarModo();
 
 		ratchet.mover(posicionDestino);
 
@@ -130,7 +130,7 @@ public class e0613Test {
 		int vidaOriginal = bumblebee.getVida();
 		Posicion posicionDestino = new Posicion(3, 0);
 
-		bumblebee.transformarAlterno();
+		bumblebee.cambiarModo();
 
 		bumblebee.mover(posicionDestino);
 
@@ -186,7 +186,7 @@ public class e0613Test {
 		int vidaOriginal = megatron.getVida();
 		Posicion posicionDestino = new Posicion(0, 0);
 
-		megatron.transformarAlterno();
+		megatron.cambiarModo();
 
 		megatron.mover(posicionDestino);
 
@@ -224,7 +224,7 @@ public class e0613Test {
 		int vidaOriginal = bonecrusher.getVida();
 		Posicion posicionDestino = new Posicion(0, 0);
 
-		bonecrusher.transformarAlterno();
+		bonecrusher.cambiarModo();
 
 		bonecrusher.mover(posicionDestino);
 
@@ -262,7 +262,7 @@ public class e0613Test {
 		int vidaOriginal = frenzy.getVida();
 		Posicion posicionDestino = new Posicion(0, 0);
 
-		frenzy.transformarAlterno();
+		frenzy.cambiarModo();
 
 		frenzy.mover(posicionDestino);
 
@@ -316,7 +316,7 @@ public class e0613Test {
 		Algoformer prime = new Optimus(posicion,tablero);
 		Posicion posicionDestino = new Posicion(2,0);
 
-		prime.transformarAlterno();
+		prime.cambiarModo();
 
 		prime.mover(posicionDestino);
 
@@ -336,7 +336,7 @@ public class e0613Test {
 		Algoformer prime = new Optimus(posicion, tablero);
 		Posicion posicionDestino = new Posicion(2, 0);
 
-		prime.transformarAlterno();
+		prime.cambiarModo();
 
 		prime.mover(posicionDestino);
 		prime.nuevoTurno();
@@ -358,7 +358,7 @@ public class e0613Test {
 		Posicion posicionDestino = new Posicion(1, 0);
 
 		// Megatron alterno es unidad aerea
-		megatron.transformarAlterno();
+		megatron.cambiarModo();
 
 		megatron.mover(posicionDestino);
 
@@ -422,7 +422,7 @@ public class e0613Test {
 
 		int vidaInicial = megatron.getVida();
 
-		megatron.transformarAlterno();
+		megatron.cambiarModo();
 
 		megatron.mover(posicionDestino);
 
@@ -443,7 +443,7 @@ public class e0613Test {
 		Posicion posicionDestino = new Posicion(2, 0);
 
 		// Megatron alterno es unidad aerea
-		megatron.transformarAlterno();
+		megatron.cambiarModo();
 
 		megatron.mover(posicionDestino);
 
@@ -463,7 +463,7 @@ public class e0613Test {
 		Posicion posicionDestino = new Posicion(1,0);
 
 		// Megatron alterno es unidad aerea
-		megatron.transformarAlterno();
+		megatron.cambiarModo();
 
 
 		megatron.nuevoTurno();
@@ -492,7 +492,7 @@ public class e0613Test {
 		Algoformer megatron = new Megatron(posicion, tablero);
 		Posicion posicionDestino = new Posicion(2, 0);
 
-		megatron.transformarAlterno();
+		megatron.cambiarModo();
 
 		double ataqueInicial = (double) megatron.getAtaque();
 		megatron.mover(posicionDestino);
@@ -515,7 +515,7 @@ public class e0613Test {
 		Algoformer megatron = new Megatron(posicion, tablero);
 		Posicion posicionDestino = new Posicion(2, 0);
 
-		megatron.transformarAlterno();
+		megatron.cambiarModo();
 
 		double ataqueInicial = (double) megatron.getAtaque();
 		megatron.mover(posicionDestino);

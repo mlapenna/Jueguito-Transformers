@@ -2,11 +2,6 @@ package fiuba.algo3.modelo.algoformers;
 
 import fiuba.algo3.modelo.Posicion;
 import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.algoformers.Autobot;
-import fiuba.algo3.modelo.movimientos.MovimientoHumanoide;
-import fiuba.algo3.modelo.movimientos.MovimientoAlternoTerrestre;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsHumanoideExcepcion;
-import fiuba.algo3.modelo.excepciones.TransformacionIncorresctaYaEsAlternoExcepcion;
 
 public class BumbleBee extends Autobot {
 	private static final int ATAQUE_HUMANOIDE = 40;
@@ -20,30 +15,25 @@ public class BumbleBee extends Autobot {
 	public BumbleBee(Posicion posicion, Tablero tablero) {
 		super(posicion, tablero);
 		this.vida = VIDA;
-		this.ataque = ATAQUE_HUMANOIDE;
-		this.distanciaDeAtaque = DISTANCIA_ATAQUE_HUMANOIDE;
-		this.velocidad = VELOCIDAD_HUMANOIDE;
-		this.movimiento = new MovimientoHumanoide();
-	}
-	
-  	@Override
-	public void transformarHumanoide() {
-  		this.validarQueNoSoyHumanoide();
-		this.movimiento = new MovimientoHumanoide();
-		this.ataque=ATAQUE_HUMANOIDE;
-		this.distanciaDeAtaque=DISTANCIA_ATAQUE_HUMANOIDE;
-		this.velocidad=VELOCIDAD_HUMANOIDE;
-		this.modo = MODO_HUMANOIDE;
 	}
 
-	@Override
-	public void transformarAlterno() {
-		this.validarQueNoSoyAlterno();
-		this.movimiento = new MovimientoAlternoTerrestre();
-		this.ataque=ATAQUE_ALTERNO;
-		this.distanciaDeAtaque=DISTANCIA_ATAQUE_ALTERNO;
-		this.velocidad=VELOCIDAD_ALTERNO;
-		this.modo = 1;
+	public int getAtaqueHumanoide() {
+		return ATAQUE_HUMANOIDE;
+	}
+	public int getDistanciaAtaqueHumanoide() {
+		return DISTANCIA_ATAQUE_HUMANOIDE;
+	}
+	public int getVelocidadHumanoide() {
+		return VELOCIDAD_HUMANOIDE;
+	}
+	public int getAtaqueAlterno() {
+		return ATAQUE_ALTERNO;
+	}
+	public int getDistanciaAtaqueAlterno() {
+		return DISTANCIA_ATAQUE_ALTERNO;
+	}
+	public int getVelocidadAlterno() {
+		return VELOCIDAD_ALTERNO;
 	}
 	
 	@Override
