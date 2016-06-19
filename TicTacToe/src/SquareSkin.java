@@ -7,12 +7,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 class SquareSkin extends StackPane {
-  static final Image noughtImage = new Image(
-	  "file:/home/nachox/workspace/TicTacToe/src/Megatron_Humanoide.png"  
-);
-  static final Image crossImage = new Image(
-	  "file:/home/nachox/workspace/TicTacToe/src/Optimus-Prime-Humanoide.png"
-  );
+	
+  static final Image noughtImage = new Image("file:/home/nachox/workspace/TicTacToe/src/Megatron_Humanoide.png");
+  static final Image crossImage = new Image("file:/home/nachox/workspace/TicTacToe/src/Optimus-Prime-Humanoide.png");
 
   private final ImageView imageView = new ImageView();
 
@@ -22,14 +19,13 @@ class SquareSkin extends StackPane {
     imageView.setMouseTransparent(true);
 
     getChildren().setAll(imageView);
-    System.out.println(crossImage.getHeight());
     setPrefSize(crossImage.getHeight() + 20, crossImage.getHeight() + 20);
-
-    setOnMousePressed(new EventHandler<MouseEvent>() {
+    imageView.setImage(crossImage);
+ /*   setOnMousePressed(new EventHandler<MouseEvent>() {
       @Override public void handle(MouseEvent mouseEvent) {
         square.pressed();
       }
-    });
+    });*/
 
     square.stateProperty().addListener(new ChangeListener<Square.State>() {
       @Override public void changed(ObservableValue<? extends Square.State> observableValue, Square.State oldState, Square.State state) {
@@ -41,4 +37,5 @@ class SquareSkin extends StackPane {
       }
     });
   }
+  
 }
