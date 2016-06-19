@@ -45,11 +45,7 @@ public class TicTacToe extends Application {
     GameManager gameManager = new GameManager();
 
     Scene scene = gameManager.getGameScene();
-    scene.getStylesheets().add(
-      getResource(
-        "tictactoe-blueskin.css"
-      )
-    );
+    scene.getStylesheets().add("file:/home/nachox/Algoritmos3-Repositorio/TicTacToe/src/tictactoe-blueskin.css");
 
     stage.setTitle("Tic-Tac-Toe");
     stage.getIcons().add(SquareSkin.crossImage);

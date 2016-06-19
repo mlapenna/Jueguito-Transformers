@@ -19,9 +19,9 @@ class WinningStrategy {
   }
 
   public Square.State getWinner() {
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 8; i++) {
       int score = 0;
-      for (int j = 0; j < 5; j++) {
+      for (int j = 0; j < 10; j++) {
         score += valueOf(i, j);
       }
       if (isWinning(score)) {
@@ -29,18 +29,18 @@ class WinningStrategy {
       }
     }
 
-    for (int i = 0; i < 5; i++) {
-      int score = 0;
-      for (int j = 0; j < 5; j++) {
-        score += valueOf(j, i);
-      }
-      if (isWinning(score)) {
-        return winner(score);
-      }
-    }
+//    for (int i = 0; i < 8; i++) {
+//      int score = 0;
+//      for (int j = 0; j < 10; j++) {
+//        score += valueOf(j, i);
+//      }
+//      if (isWinning(score)) {
+//        return winner(score);
+//      }
+//    }
 
    
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 8; i++) {
         int score = 0;
           score += valueOf(i, i);
         if (isWinning(score)) {
@@ -48,11 +48,9 @@ class WinningStrategy {
         }
     }
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 8; i++) {
         int score = 0;
-          score += valueOf(i, 5-i-1);
-          System.out.println(i);
-          System.out.println(5-i);
+          score += valueOf(i, 10-i-1);
         if (isWinning(score)) {
           return winner(score);
         }
@@ -62,8 +60,8 @@ class WinningStrategy {
   }
 
   public boolean isDrawn() {
-    for (int i = 0; i < 5; i++) {
-      for (int j = 0; j < 5; j++) {
+    for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 10; j++) {
         if (board.getSquare(i, j).getState() == Square.State.EMPTY) {
           return false;
         }
