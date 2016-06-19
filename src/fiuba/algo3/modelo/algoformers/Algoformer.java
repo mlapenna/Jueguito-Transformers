@@ -21,6 +21,7 @@ public abstract class Algoformer extends Contenido {
 	protected Tablero tablero;
 	protected boolean afectadoPorTormentaPsionica = false;
 	protected Modo modo;
+	protected int ataqueAfectado;
 
 
 	public Algoformer(Posicion posicion, Tablero tablero) {
@@ -28,6 +29,7 @@ public abstract class Algoformer extends Contenido {
 		this.tablero = tablero;
 		this.modo = new ModoHumanoide(this, tablero);
 		this.hayAlgo = true;
+		this.ataqueAfectado = this.modo.getAtaqueInicial();
 	}
 
 
@@ -75,6 +77,7 @@ public abstract class Algoformer extends Contenido {
 	
 	public void afectarAtaque(int nuevoAtaque) {
 		this.modo.afectarAtaque(nuevoAtaque);
+		this.ataqueAfectado = nuevoAtaque;
 	}
 	
 	public void recibirAtaque(Algoformer algoformerAtacante) {
@@ -139,12 +142,19 @@ public abstract class Algoformer extends Contenido {
 
 
 	public void cambiarModo() {
+		
 		if (this.modo.esHumanoide()) {
 			this.modo = new ModoAlterno(this, this.tablero);
+			this.afectarAtaque(this.ataqueAfectado());
 		} else {
 			this.modo = new ModoHumanoide(this, this.tablero);
 		}
 	}
+
+	private int ataqueAfectado() {
+		return this.ataqueAfectado;
+	}
+
 
 	public Movimiento getMovimientoHumanoide() {
 		return new MovimientoHumanoide(this.tablero);
