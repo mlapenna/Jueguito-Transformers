@@ -16,9 +16,7 @@ public abstract class Algoformer extends Contenido {
 	static final int CANTIDAD_MINIMA_TURNOS_INMOVIL = 0;
 
 	protected int vida;
-	protected Movimiento movimiento;
 	protected Posicion posicion;
-	protected int ataque;
 	protected int turnosInmovil;
 	protected Tablero tablero;
 	protected boolean afectadoPorTormentaPsionica = false;
@@ -30,8 +28,6 @@ public abstract class Algoformer extends Contenido {
 		this.tablero = tablero;
 		this.modo = new ModoHumanoide(this, tablero);
 		this.hayAlgo = true;
-		this.movimiento = new MovimientoHumanoide(this.tablero);
-		this.ataque = this.modo.getAtaqueInicial();
 	}
 
 
@@ -58,7 +54,7 @@ public abstract class Algoformer extends Contenido {
 	}
 
 	public int getAtaque() {
-		return this.ataque;
+		return this.modo.getAtaque();
 	}
 	
 	public int getDistanciaAtaque() {
@@ -78,7 +74,7 @@ public abstract class Algoformer extends Contenido {
 	}
 	
 	public void afectarAtaque(int nuevoAtaque) {
-		this.ataque = nuevoAtaque;
+		this.modo.afectarAtaque(nuevoAtaque);
 	}
 	
 	public void recibirAtaque(Algoformer algoformerAtacante) {
@@ -137,8 +133,6 @@ public abstract class Algoformer extends Contenido {
 	public void copiarA(Algoformer clon){
 		clon.afectadoPorTormentaPsionica = this.afectadoPorTormentaPsionica();
 		clon.modo = this.getModo();
-		clon.movimiento = this.movimiento;  //SMELL!! VER ESTO;
-		clon.ataque = this.getAtaque();
 		clon.turnosInmovil = this.getTurnosInmovil();
 		clon.vida = this.getVida();
 	}
