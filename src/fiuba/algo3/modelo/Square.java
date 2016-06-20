@@ -1,3 +1,5 @@
+package fiuba.algo3.modelo;
+
 
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -16,7 +18,7 @@ class Square {
     return state.get();
   }
 
-  private final Game game;
+  private final Juego game;
 
 /*  public Square(Game game) {
     this.game = game;
@@ -24,7 +26,7 @@ class Square {
     skin = new SquareSkin(this);
   }*/
   
-  public Square(Game game,String superficie) {
+  public Square(Juego game,String superficie) {
     this.game = game;
 
     skin = new SquareSkin(this,superficie);

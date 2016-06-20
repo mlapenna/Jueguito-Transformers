@@ -1,3 +1,5 @@
+package fiuba.algo3.modelo;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
