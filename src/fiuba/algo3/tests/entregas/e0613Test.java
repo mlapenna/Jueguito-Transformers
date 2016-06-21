@@ -2,11 +2,11 @@ package fiuba.algo3.tests.entregas;
 
 import java.io.FileReader;
 
-import fiuba.algo3.modelo.*;
-import fiuba.algo3.modelo.algoformers.*;
-import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
-import fiuba.algo3.modelo.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
-import fiuba.algo3.modelo.Posicion;
+import fiuba.algo3.modelos.*;
+import fiuba.algo3.modelos.algoformers.*;
+import fiuba.algo3.modelos.excepciones.AlgoformerInmovilizadoExcepcion;
+import fiuba.algo3.modelos.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
+import fiuba.algo3.modelos.Posicion;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

@@ -1,11 +1,7 @@
 package fiuba.algo3.tests.unitarios;
 
-import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.algoformers.Algoformer;
-import fiuba.algo3.modelo.algoformers.Optimus;
-import fiuba.algo3.modelo.Posicion;
+import fiuba.algo3.modelos.Tablero;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.FileReader;

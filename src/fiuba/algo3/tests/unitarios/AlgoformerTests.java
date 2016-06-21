@@ -1,7 +1,5 @@
 package fiuba.algo3.tests.unitarios;
 
-import static org.junit.Assert.*;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,14 +8,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import fiuba.algo3.modelo.Posicion;
-import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.algoformers.Algoformer;
-import fiuba.algo3.modelo.algoformers.BumbleBee;
-import fiuba.algo3.modelo.algoformers.Megatron;
-import fiuba.algo3.modelo.algoformers.Optimus;
-import fiuba.algo3.modelo.excepciones.AlgoformerInmovilizadoExcepcion;
-import fiuba.algo3.modelo.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion;
+import fiuba.algo3.modelos.Posicion;
+import fiuba.algo3.modelos.Tablero;
+import fiuba.algo3.modelos.algoformers.Algoformer;
+import fiuba.algo3.modelos.algoformers.BumbleBee;
+import fiuba.algo3.modelos.algoformers.Megatron;
+import fiuba.algo3.modelos.algoformers.Optimus;
+import fiuba.algo3.modelos.excepciones.AlgoformerInmovilizadoExcepcion;
+import fiuba.algo3.modelos.excepciones.AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion;
 import org.junit.Assert;
 import org.junit.Test;
 

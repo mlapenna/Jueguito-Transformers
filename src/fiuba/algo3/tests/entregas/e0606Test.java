@@ -2,12 +2,12 @@ package fiuba.algo3.tests.entregas;
 
 import java.io.FileReader;
 
-import fiuba.algo3.modelo.*;
-import fiuba.algo3.modelo.algoformers.Algoformer;
-import fiuba.algo3.modelo.algoformers.Frenzy;
-import fiuba.algo3.modelo.algoformers.Optimus;
-import fiuba.algo3.modelo.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
-import fiuba.algo3.modelo.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
+import fiuba.algo3.modelos.*;
+import fiuba.algo3.modelos.algoformers.Algoformer;
+import fiuba.algo3.modelos.algoformers.Frenzy;
+import fiuba.algo3.modelos.algoformers.Optimus;
+import fiuba.algo3.modelos.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepcion;
+import fiuba.algo3.modelos.excepciones.MovimientoInvalidoDistanciaNoValidaExcepcion;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

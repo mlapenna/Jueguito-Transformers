@@ -1,10 +1,10 @@
 package fiuba.algo3.tests.unitarios;
 
-import fiuba.algo3.modelo.Posicion;
-import fiuba.algo3.modelo.Tablero;
-import fiuba.algo3.modelo.Vacio;
-import fiuba.algo3.modelo.algoformers.Optimus;
-import fiuba.algo3.modelo.superficies.*;
+import fiuba.algo3.modelos.Posicion;
+import fiuba.algo3.modelos.Tablero;
+import fiuba.algo3.modelos.Vacio;
+import fiuba.algo3.modelos.algoformers.Optimus;
+import fiuba.algo3.modelos.superficies.*;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,7 +12,7 @@ import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.modelo.Casillero;
+import fiuba.algo3.modelos.Casillero;
 
 import java.io.FileReader;
 import java.io.IOException;
