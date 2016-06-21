@@ -6,7 +6,7 @@ public class Nube extends Aire {
 	public static final String NOMBRE_JSON = "Nube";
 
 	public Nube(){
-		this.superficie = NUBE;
+		this.superficie = NOMBRE_JSON;
 	}
 
 	@Override

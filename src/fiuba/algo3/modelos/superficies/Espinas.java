@@ -6,6 +6,10 @@ public class Espinas extends Tierra {
 	public static String SUPERFICIE = "espinas";
 	public static final String NOMBRE_JSON = "Espinas";
 	public static final double DANIO = 0.05;
+	
+	public Espinas(){
+		this.superficie = NOMBRE_JSON;
+	}
 
 	private void afectarAlgoformerAmbosModos(Algoformer algoformer) {
 		double vida = (double) algoformer.getVida();

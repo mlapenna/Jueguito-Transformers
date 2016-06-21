@@ -10,8 +10,9 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
 
-public class Jugar {
-
+public class Jugar {  //Segun dijeron en clase el main estaba en una clase q herede de application...
+					  //ya se que hacen el launch en juegoVista y es parecido, pero habria q verlo
+	
     public static void main (String[] args) throws Exception {
 
         JSONParser parser = new JSONParser();

@@ -7,7 +7,7 @@ public class NebulosaDeAndromeda extends Aire {
 	public static final int TURNOS_ATRAPADO = 3;
 	
 	public NebulosaDeAndromeda(){
-		this.superficie = NEBULOSA_DE_ANDROMEDA;
+		this.superficie = NOMBRE_JSON;
 	}
 
 	@Override

@@ -6,7 +6,7 @@ public class Rocas extends Tierra {
 	public static final String NOMBRE_JSON = "Rocas";
 
 	public Rocas(){
-		this.superficie = rocas;
+		this.superficie = NOMBRE_JSON;
 	}
 
 	@Override

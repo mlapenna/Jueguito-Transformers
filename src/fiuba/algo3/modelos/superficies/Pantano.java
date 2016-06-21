@@ -8,7 +8,7 @@ public class Pantano extends Tierra {
 	static final int TURNOS_ATRAPADO = 1;
 
 	public Pantano(){
-		this.superficie = pantano;
+		this.superficie = NOMBRE_JSON;
 	}
 
 	@Override
