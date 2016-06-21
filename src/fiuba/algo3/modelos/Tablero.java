@@ -49,7 +49,7 @@ public class Tablero {
 		}
 	}
 
-	public Casillero getCasillero(Posicion posicion) { //VER SI FUNCIONA
+	public Casillero getCasillero(Posicion posicion) {
 		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
 		Casillero unCasillero = fila.get( posicion.getX() );
 		return unCasillero;		
