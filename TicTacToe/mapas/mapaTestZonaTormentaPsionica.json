@@ -1,9 +1,0 @@
-{"dimensionX": 4,
- "dimensionY": 1,
- "casilleros": [
-   {"posicionX": 0, "posicionY": 0, "superficies": { "tierra": "Rocas", "aire": "TormentaPsionica" } },
-   {"posicionX": 1, "posicionY": 0, "superficies": { "tierra": "Rocas", "aire": "TormentaPsionica" } },
-   {"posicionX": 2, "posicionY": 0, "superficies": { "tierra": "Rocas", "aire": "TormentaPsionica" } },
-   {"posicionX": 3, "posicionY": 0, "superficies": { "tierra": "Rocas", "aire": "TormentaPsionica" } }
- ]
-}
