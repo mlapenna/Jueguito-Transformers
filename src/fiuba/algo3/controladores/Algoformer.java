@@ -1,5 +1,5 @@
 package fiuba.algo3.controladores;
 
-public class controladores {
+public class Algoformer {
 
 }
