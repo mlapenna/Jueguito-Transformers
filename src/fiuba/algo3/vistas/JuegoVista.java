@@ -15,7 +15,7 @@ public class JuegoVista extends Application {
 	private Tablero tablero;
 
 
-	public void iniciar(Tablero tablero) {
+	public void mostrar(Tablero tablero) {
 		this.tablero = tablero;
 
 		// En algún lugar se deberá usar el contenido de la variable:

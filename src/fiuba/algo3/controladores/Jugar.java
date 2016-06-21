@@ -22,7 +22,7 @@ public class Jugar {
         Juego juego = new Juego(jugador1, jugador2);
 
         JuegoVista juegoVista = new JuegoVista();
-        juegoVista.iniciar(tablero);
+        juegoVista.mostrar(tablero);
 
     }
 
