@@ -29,7 +29,6 @@ public abstract class Algoformer extends Contenido {
 		this.tablero = tablero;
 		this.modo = new ModoHumanoide(this, tablero);
 		this.hayAlgo = true;
-		this.ataqueAfectado = this.modo.getAtaqueInicial();
 	}
 
 
@@ -145,7 +144,8 @@ public abstract class Algoformer extends Contenido {
 		
 		if (this.modo.esHumanoide()) {
 			this.modo = new ModoAlterno(this, this.tablero);
-			this.afectarAtaque(this.ataqueAfectado());
+			if (this.afectadoPorTormentaPsionica())
+				this.afectarAtaque(this.ataqueAfectado());
 		} else {
 			this.modo = new ModoHumanoide(this, this.tablero);
 		}
