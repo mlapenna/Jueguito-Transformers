@@ -21,9 +21,11 @@ public class Jugar {  //Segun dijeron en clase el main estaba en una clase q her
         Jugador jugador1 = new Jugador("Pedro", Algoformer.MODO_AUTOBOT, tablero);
         Jugador jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, tablero);
         Juego juego = new Juego(jugador1, jugador2);
-
+        
+        
+    	TableroControlador tableroControlador = new TableroControlador(juego);
         JuegoVista juegoVista = new JuegoVista();
-        juegoVista.mostrar(tablero);
+        juegoVista.mostrar(tableroControlador);
 
     }
 

@@ -1,5 +1,6 @@
 package fiuba.algo3.vistas;
 
+import fiuba.algo3.controladores.CasilleroControlador;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -10,19 +11,19 @@ import javafx.scene.layout.StackPane;
 
 public class CasilleroVista extends StackPane { //DEJO LAS RUTAS DE NACHO, hagamos un directorio igual o algo asi
     	
-	  static final Image noughtImage = new Image("file:/home/nachox/workspace/TicTacToe/src/Megatron_Humanoide.png");
-	  static final Image crossImage = new Image("file:/home/nachox/workspace/TicTacToe/src/Optimus-Prime-Humanoide.png");
+	  static final Image noughtImage = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR//TicTacToe/src/Megatron_Humanoide.png");
+	  static final Image crossImage = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR//TicTacToe/src/Optimus-Prime-Humanoide.png");
 	
-	  static final Image imagenRocas = new Image("file:/home/nachox/workspace/TicTacToe/src/superficie_roca.png");
-	  static final Image imagenPantano = new Image("file:/home/nachox/workspace/TicTacToe/src/superficie_pantano.png");
-	  static final Image imagenEspinas = new Image("file:/home/nachox/workspace/TicTacToe/src/superficie_espina.png");
-	  static final Image imagenNube = new Image("file:/home/nachox/workspace/TicTacToe/src/superficie_nube.png");
-	  static final Image imagenNebulosa = new Image("file:/home/nachox/workspace/TicTacToe/src/superficie_nebulosa.png");
-	  static final Image imagenTormenta = new Image("file:/home/nachox/workspace/TicTacToe/src/superficie_tormenta_psionica.png");
+	  static final Image imagenRocas = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_roca.png");
+	  static final Image imagenPantano = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_pantano.png");
+	  static final Image imagenEspinas = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/src/superficie_espina.png");
+	  static final Image imagenNube = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_nube.png");
+	  static final Image imagenNebulosa = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_nebulosa.png");
+	  static final Image imagenTormenta = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_tormenta_psionica.png");
 	  
 	  private final ImageView imageView = new ImageView();
 	
-	  public CasilleroVista(String superficie) {
+	  public CasilleroVista(CasilleroControlador casillero, String superficie) {
 		  
 		  getStyleClass().add("square");
 
@@ -39,5 +40,5 @@ public class CasilleroVista extends StackPane { //DEJO LAS RUTAS DE NACHO, hagam
 	        	case "TormentaPsionica":  imageView.setImage(imagenTormenta);   break;
 		    }
       }
-
+	  
 }

@@ -77,6 +77,4 @@ public class Tablero {
 		return this.dimensionY;
 	}
 
-
-
 }

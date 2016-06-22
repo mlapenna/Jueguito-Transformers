@@ -1,5 +1,6 @@
 package fiuba.algo3.vistas;
 
+import fiuba.algo3.controladores.TableroControlador;
 import fiuba.algo3.modelos.Tablero;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -12,14 +13,14 @@ import javafx.stage.Stage;
 
 public class JuegoVista extends Application {
 
-	private Tablero tablero;
+	private TableroControlador tablero;
 
 
-	public void mostrar(Tablero tablero) {
+	public void mostrar(TableroControlador tablero) {
 		this.tablero = tablero;
 
 		// En algún lugar se deberá usar el contenido de la variable:
-		TableroVista tableroVista = new TableroVista(this.tablero);
+		//TableroVista tableroVista = new TableroVista(this.tablero); ESTO LO HACE TABLERO CONTROLADOR
 
 		String[] argumentos = new String[0];
 		try {
