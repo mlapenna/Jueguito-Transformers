@@ -9,7 +9,8 @@ public class Pantano extends Tierra {
 
 	@Override
 	public void afectarAlgoformerAlterno(Algoformer algoformer) {
-		algoformer.establecerTurnosAtrapado(TURNOS_ATRAPADO);
+		//if(!algoformer.movimientoDisminuido())
+			algoformer.disminuirMovimientoEsteTurno();
 	}
 
 	@Override

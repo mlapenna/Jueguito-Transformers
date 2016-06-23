@@ -20,6 +20,7 @@ public abstract class Algoformer extends Contenido {
 	protected Modo modo;
 	protected int ataqueAfectado;
 	protected Turno turno;
+	protected boolean movimientoDisminuido;
 
 
 	public Algoformer(Posicion posicion, Tablero tablero, Turno turno) {
@@ -28,6 +29,7 @@ public abstract class Algoformer extends Contenido {
 		this.modo = new ModoHumanoide(this, tablero);
 		this.hayAlgo = true;
 		this.turno = turno;
+		this.movimientoDisminuido = false;
 	}
 
 
@@ -179,4 +181,19 @@ public abstract class Algoformer extends Contenido {
 	public abstract int getAtaqueInicialAlterno();
 	public abstract int getDistanciaAtaqueAlterno();
 	public abstract int getVelocidadAlterno();
+
+
+	public void disminuirMovimientoEsteTurno() {
+		this.movimientoDisminuido = true;  //LO MEJOR SERIA HACER Q ESTO DURE UN TURNO Y BORRAR EL METODO NORMALIZAR
+	}
+
+
+	public boolean movimientoDisminuido() {
+		return this.movimientoDisminuido;
+	}
+
+
+	public void normalizarMovimiento() {
+		this.movimientoDisminuido = false;
+	}
 }

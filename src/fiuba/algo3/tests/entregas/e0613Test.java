@@ -310,18 +310,18 @@ public class e0613Test {
 	public void testLlenarZonaPantanoYVerificarEnModoAlternoSeTardaElDobleQueEnElRocosoSeRealizaUnMovimiento() throws IOException, ParseException{
 
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 
 		Posicion posicion = new Posicion(0, 0);
 		Algoformer prime = new Optimus(posicion, tablero, new Turno() );
-		Posicion posicionDestino = new Posicion(2,0);
+		Posicion posicionDestino = new Posicion(4,0);
 
 		prime.cambiarModo();
 
 		prime.mover(posicionDestino);
 
-		Posicion posicionEsperada = new Posicion(1,0);
+		Posicion posicionEsperada = new Posicion(2,0);
 		Assert.assertEquals(posicion,posicionEsperada);
 	}
 
@@ -329,10 +329,6 @@ public class e0613Test {
 	public void testLlenarZonaPantanoYVerificarEnModoAlternoSeTardaElDobleQueEnElRocosoSeRealizaDosMovimientos()
 			throws IOException, ParseException {
 
-		// ESTE TEST FALLA PORQUE EL PANTANO NO DEMORABA AL ALTERNO SINO
-		// QUE LO INMOVILIZABA, HAY Q ARREGLAR Pantano.afectarAlgoformerAlterno();
-
-		/*
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
 		Juego juego = new Juego(jsonTablero);
@@ -355,7 +351,7 @@ public class e0613Test {
 		unRobotJugador1.mover(posicionDestino);
 
 		Assert.assertEquals(unRobotJugador1.getPosicion(), posicionDestino);
-		*/
+
 	}
 
 	// ENTREGA PUNTO 4

@@ -53,7 +53,7 @@ public abstract class Movimiento {
 
 	
 	public void mover(Algoformer algoformer, Posicion posicionDestino) {
-	
+		boolean caminoDividido = false;
 		Algoformer clon = algoformer.clonarAlgoformer();
 		
 		// Distancia valida? (ni muy grande, ni nula)
@@ -78,13 +78,20 @@ public abstract class Movimiento {
 		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
 		
 		// Movimiento
-		for (int i=0; i < recorrido.size(); i++) 		{
-			this.tablero.quitarContenido(algoformer.getPosicion());
+		int cantidadPasos = recorrido.size();
+		int i = 0;
+		
+		while(i < cantidadPasos)
+		{
+			this.tablero.quitarContenido(algoformer.getPosicion());			
 			try {
 				algoformer.validarQueNoEstaInmovilizado();
 				this.afectarAlgoformer(algoformer, recorrido.get(i));
+				if(algoformer.movimientoDisminuido() && !caminoDividido){
+					cantidadPasos = this.dividirRecorrido(i,cantidadPasos);	
+					caminoDividido = true;
+				}
 				this.tablero.setContenido(recorrido.get(i), algoformer);
-				//algoformer.mover(recorrido.get(i));
 				algoformer.setNuevaPosicion(recorrido.get(i));
 			} catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
 				clon.copiarA(algoformer);
@@ -93,13 +100,18 @@ public abstract class Movimiento {
 			} catch(AlgoformerInmovilizadoExcepcion e) {
 				//throw new AlgoformerInmovilizadoExcepcion();
 			}
-			
-		}		
+			i++;			
+		}
+		if(algoformer.movimientoDisminuido())
+			algoformer.normalizarMovimiento();
 	}
 
-
-
-
+	private int dividirRecorrido(int i, int distancia) {
+		float mitadRecorrido = ( (i + distancia) /2 );
+		if ( mitadRecorrido % 1 != 0 )
+			mitadRecorrido = (((i+1) + distancia) /2 );
+		return (int)mitadRecorrido;
+	}
 
 	public abstract void afectarAlgoformer(Algoformer algoformer, Posicion posicion);
 
