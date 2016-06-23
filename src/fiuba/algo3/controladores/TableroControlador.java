@@ -57,7 +57,10 @@ public class TableroControlador {
 	  JSONObject superficies;
 	  String superficieTierra;
 	  String superficieAire;
-	  
+
+	  /*
+	   LO COMENTO PARA QUE ME COMPILE, YA QUE NO SE SI ESTO SE VA A USAR O QUITAR :
+
 	  JSONArray jsonCasilleros = (JSONArray) jsonTablero.get(JSON_FIELD_KEY_CASILLEROS);
 	  for (int i = 0; i < jsonCasilleros.size(); i++) {
 		  JSONObject unCasillero = (JSONObject) jsonCasilleros.get(i);
@@ -69,6 +72,7 @@ public class TableroControlador {
 		  this.tableroTierra[posicionX][posicionY] = new CasilleroControlador(juego,superficieTierra);
 		  this.tableroAire[posicionX][posicionY] = new CasilleroControlador(juego,superficieAire);
 	  }
+	  /*
 	  /*for (int i = 0; i < this.dimensionY; i++) {
 		  for (int j = 0; j < this.dimensionX; j++) {
 			  this.squaresTierra[i][j] = new Square(game,"Rocas");

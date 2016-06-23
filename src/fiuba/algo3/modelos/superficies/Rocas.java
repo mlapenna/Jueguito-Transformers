@@ -5,10 +5,6 @@ import fiuba.algo3.modelos.algoformers.Algoformer;
 public class Rocas extends Tierra {
 	public static final String NOMBRE_JSON = "Rocas";
 
-	public Rocas(){
-		this.superficie = NOMBRE_JSON;
-	}
-
 	@Override
 	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
 		//NO AFECTA

@@ -24,10 +24,10 @@ public class CasilleroControlador {
 	  private final Juego juego;
 
 	  
-	  public CasilleroControlador(Juego juego,String superficie) {
+	  public CasilleroControlador(Juego juego, Superficie superficie) {
 	    this.juego = juego;
 
-	    vista = new CasilleroVista(this,superficie);
+	    vista = new CasilleroVista(this, superficie);
 	  }
 
 	  public void pressed() {/*  FALTA LA LOGICA 

@@ -1,6 +1,7 @@
 package fiuba.algo3.vistas;
 
 import fiuba.algo3.controladores.CasilleroControlador;
+import fiuba.algo3.modelos.superficies.Superficie;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -23,7 +24,7 @@ public class CasilleroVista extends StackPane { //DEJO LAS RUTAS DE NACHO, hagam
 	  
 	  private final ImageView imageView = new ImageView();
 	
-	  public CasilleroVista(CasilleroControlador casillero, String superficie) {
+	  public CasilleroVista(CasilleroControlador casillero, Superficie superficie) {
 		  
 		  getStyleClass().add("square");
 
@@ -31,7 +32,9 @@ public class CasilleroVista extends StackPane { //DEJO LAS RUTAS DE NACHO, hagam
 
 		    getChildren().setAll(imageView);
 		    setPrefSize(crossImage.getHeight(), crossImage.getHeight());
-		    switch (superficie) {
+
+		  /* SI ESTO SE LLEGA A USAR FINALMENTE, DEBE EL MODELO PROVEER SU IMAGEN.... PORQUE PONER ACA EL LISTADO DE TODAS LAS SUPERFICIES NO LO VEO BIEN
+		  switch (superficie) {
 	        	case "Rocas":  imageView.setImage(imagenRocas);       	 	    break;
 	        	case "Pantano": imageView.setImage(imagenPantano);			    break;
 	        	case "Espinas":  imageView.setImage(imagenEspinas); 		    break;
@@ -39,6 +42,7 @@ public class CasilleroVista extends StackPane { //DEJO LAS RUTAS DE NACHO, hagam
 	        	case "NebulosaDeAndromeda": imageView.setImage(imagenNebulosa); break;
 	        	case "TormentaPsionica":  imageView.setImage(imagenTormenta);   break;
 		    }
+		   */
       }
 	  
 }

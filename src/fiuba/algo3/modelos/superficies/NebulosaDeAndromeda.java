@@ -6,10 +6,6 @@ public class NebulosaDeAndromeda extends Aire {
 	public static final String NOMBRE_JSON = "NebulosaDeAndromeda";
 	public static final int TURNOS_ATRAPADO = 3;
 	
-	public NebulosaDeAndromeda(){
-		this.superficie = NOMBRE_JSON;
-	}
-
 	@Override
 	public void afectarAlgoformerAlterno(Algoformer algoformer) {
 		algoformer.establecerTurnosAtrapado(TURNOS_ATRAPADO);
