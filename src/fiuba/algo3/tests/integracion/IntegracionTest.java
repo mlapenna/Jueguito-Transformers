@@ -6,6 +6,7 @@ import fiuba.algo3.modelos.Turno;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.algoformers.Megatron;
+import fiuba.algo3.modelos.algoformers.Superion;
 import fiuba.algo3.modelos.excepciones.AlgoformersNoAlineadosException;
 import fiuba.algo3.modelos.excepciones.CantidadDeAlgoformersInsuficienteException;
 
@@ -15,9 +16,9 @@ import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class IntegracionTest {
@@ -50,8 +51,7 @@ public class IntegracionTest {
         Tablero tablero = new Tablero(jsonTablero);
 		Turno turno = new Turno();
 		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, tablero, turno); //ALGOFORMERS EN Y=0 Y=2 Y=4
-		Iterator<Algoformer> misAlgoformers = jugador1.getAlgoformersIterator();
-		
+
 		jugador1.combinarAlgoformers(turno);
     }
     
@@ -63,17 +63,22 @@ public class IntegracionTest {
         Tablero tablero = new Tablero(jsonTablero);
 		Turno turno = new Turno();
 		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, tablero, turno); //ALGOFORMERS EN Y=0 Y=2 Y=4
-		Iterator<Algoformer> misAlgoformers = jugador1.getAlgoformersIterator();
-		
+
 		Posicion posicion1 = new Posicion(0,1);
 		Posicion posicion2 = new Posicion(0,3);
-		
-		jugador1.getAlgoformers().get(0).mover(posicion1);
-		jugador1.getAlgoformers().get(2).mover(posicion2);
+
+        ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
+        algoformers.get(0).mover(posicion1);
+        algoformers.get(2).mover(posicion2);
 		
 		jugador1.combinarAlgoformers(turno);
-		
-		Assert.assertEquals(jugador1.getAlgoformers().size(),1);
+
+        ArrayList<Algoformer> algoformersCombinados = jugador1.getAlgoformers();
+        Algoformer elAlgoformerCombinado = algoformersCombinados.get(0);
+
+		Assert.assertEquals(algoformersCombinados.size(), 1);
+        Assert.assertTrue(elAlgoformerCombinado instanceof Superion);
+        Assert.assertEquals(elAlgoformerCombinado.getPosicion(), new Posicion(0, 2) );
     }
 
 }
