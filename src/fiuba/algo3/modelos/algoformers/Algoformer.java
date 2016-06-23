@@ -125,6 +125,7 @@ public abstract class Algoformer extends Contenido {
 		if (turnosInmovil > 0){
 			turnosInmovil--;
 		}
+		//this.normalizarMovimiento(); SI ESTO ESTA BIEN ACA, HAY QUE SACARLO DE MOVER
 	}
 	
 	public boolean afectadoPorTormentaPsionica() {
@@ -195,5 +196,11 @@ public abstract class Algoformer extends Contenido {
 
 	public void normalizarMovimiento() {
 		this.movimientoDisminuido = false;
+	}
+
+
+	public void eliminar() {
+		this.modo.eliminar(this);
+		this.modo = null;
 	}
 }

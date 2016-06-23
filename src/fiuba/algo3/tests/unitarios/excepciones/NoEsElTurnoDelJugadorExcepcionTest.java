@@ -26,7 +26,7 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 			Juego juego = new Juego(jsonTablero);
 			Jugador jugador1 = juego.getJugador1();
-			Iterator<Algoformer> robots = jugador1.getAlgoformers();
+			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
 
 			Algoformer unRobotJugador1 = robots.next();
 			unRobotJugador1.mover( new Posicion(2,0) );
@@ -49,12 +49,12 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 			Juego juego = new Juego(jsonTablero);
 
 			Jugador jugador1 = juego.getJugador1();
-			Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformers();
+			Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
 			Algoformer unRobotJugador1 = robotsJugador1.next();
 			unRobotJugador1.mover( new Posicion(2,0) );
 
 			Jugador jugador2 = juego.getJugador2();
-			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformers();
+			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
 			Algoformer unRobotJugador2 = robotsJugador2.next();
 
 			try {
@@ -79,11 +79,11 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 			Juego juego = new Juego(jsonTablero);
 
 			Jugador jugador1 = juego.getJugador1();
-			Iterator<Algoformer> robots = jugador1.getAlgoformers();
+			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
 			Optimus optimusJugador1 = (Optimus) robots.next();
 
 			Jugador jugador2 = juego.getJugador2();
-			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformers();
+			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
 			Algoformer unRobotJugador2 = robotsJugador2.next();
 
 			optimusJugador1.atacar(unRobotJugador2);
@@ -106,11 +106,11 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 			Juego juego = new Juego(jsonTablero);
 
 			Jugador jugador1 = juego.getJugador1();
-			Iterator<Algoformer> robots = jugador1.getAlgoformers();
+			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
 			Optimus optimusJugador1 = (Optimus) robots.next();
 
 			Jugador jugador2 = juego.getJugador2();
-			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformers();
+			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
 			Algoformer unRobotJugador2 = robotsJugador2.next();
 
 			optimusJugador1.atacar(unRobotJugador2);

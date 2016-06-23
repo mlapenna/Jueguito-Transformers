@@ -50,4 +50,28 @@ public class Posicion {
 		return resultado;
 	}
 
+	public boolean sePuedenCombinar(Posicion posicion2, Posicion posicion3) {
+		if(this.getX()==posicion2.getX() && this.getX()==posicion3.getX())
+			if(this.estanJuntos(posicion2, posicion3))
+				return true;
+		return false;
+	}
+
+	private boolean estanJuntos(Posicion posicion2, Posicion posicion3){
+		if((this.getDistancia(posicion2)==1 && posicion2.getDistancia(posicion3)==1) ||
+			(this.getDistancia(posicion3)==1 && posicion3.getDistancia(posicion2)==1) ||
+			(this.getDistancia(posicion2)==1 && this.getDistancia(posicion3)==1) )
+			return true;
+		return false;
+	}
+
+	public Posicion posicionDelMedioVertical(Posicion posicion2, Posicion posicion3) {
+		if((this.getX()<posicion2.getX() && this.getX()>posicion3.getX()) || (this.getX()>posicion2.getX() && this.getX()<posicion3.getX())) 
+			return this;
+		else
+			if((posicion3.getX()<posicion2.getX() && posicion3.getX()>this.getX()) || (posicion3.getX()>posicion2.getX() && posicion3.getX()<this.getX()))
+				return posicion3;
+			else
+				return posicion2;
+	}
 }

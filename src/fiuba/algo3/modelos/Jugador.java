@@ -1,6 +1,8 @@
 package fiuba.algo3.modelos;
 
 import fiuba.algo3.modelos.algoformers.*;
+import fiuba.algo3.modelos.excepciones.ErrorAlgoformersNoAlineadosException;
+import fiuba.algo3.modelos.excepciones.ErrorCantidadDeAlgoformersInsuficienteException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,11 +13,13 @@ public class Jugador {
     private String nombre;
     private ArrayList<Algoformer> misAlgoformers;
     private Tablero tablero;
+    private int modo;
 
     public Jugador(String nombre, int modo, Tablero tablero, Turno turno) {
         this.nombre = nombre;
         this.tablero = tablero;
         this.misAlgoformers = new ArrayList<Algoformer>();
+        this.modo = modo;
         this.agregarAlgoformersAlTablero(modo, turno);
     }
 
@@ -61,8 +65,12 @@ public class Jugador {
     }
 
 
-    public Iterator<Algoformer> getAlgoformers() {
+    public Iterator<Algoformer> getAlgoformersIterator() {
         return this.misAlgoformers.iterator();
+    }
+    
+    public ArrayList<Algoformer> getAlgoformers(){
+    	return this.misAlgoformers;
     }
 
 
@@ -76,5 +84,36 @@ public class Jugador {
         }
 
         return esMio;
+    }
+    
+    public void combinarAlgoformers(Turno turno) throws ErrorAlgoformersNoAlineadosException, ErrorCantidadDeAlgoformersInsuficienteException{
+    	
+    	if(misAlgoformers.size()<3)
+    		throw new ErrorCantidadDeAlgoformersInsuficienteException();
+    	
+    	Posicion posicion1 = this.misAlgoformers.get(0).getPosicion();  //HARDCODE
+    	Posicion posicion2 = this.misAlgoformers.get(1).getPosicion();
+    	Posicion posicion3 = this.misAlgoformers.get(2).getPosicion();
+    	if(!posicion1.sePuedenCombinar(posicion2,posicion3))
+    		throw new ErrorAlgoformersNoAlineadosException();
+
+    	Posicion posicionDelMedio = posicion1.posicionDelMedioVertical(posicion2,posicion3);
+    	int contadorDeVida = 0;
+    	
+    	Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
+    	while(algoformers.hasNext()){
+    		Algoformer actual = algoformers.next();
+    		contadorDeVida = contadorDeVida + actual.getVida();
+    		actual.eliminar();
+    	}
+    	this.misAlgoformers.clear();
+    	
+    	switch(this.modo){
+    		case(Algoformer.MODO_AUTOBOT):
+    			this.misAlgoformers.add(new Superion(posicionDelMedio,this.tablero,turno));break;
+    		case(Algoformer.MODO_DECEPTICON):
+    			this.misAlgoformers.add(new Menasor(posicionDelMedio,this.tablero,turno));break;
+    	}
+    	this.misAlgoformers.get(0).afectarVida(contadorDeVida); //HARDCODE
     }
 }

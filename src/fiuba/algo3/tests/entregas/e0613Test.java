@@ -334,11 +334,11 @@ public class e0613Test {
 		Juego juego = new Juego(jsonTablero);
 
 		Jugador jugador1 = juego.getJugador1();
-		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformers();
+		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
 		Algoformer unRobotJugador1 = robotsJugador1.next();
 
 		Jugador jugador2 = juego.getJugador2();
-		Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformers();
+		Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
 		Algoformer unRobotJugador2 = robotsJugador2.next();
 
 		Posicion posicionDestino = new Posicion(2, 0);
@@ -469,11 +469,11 @@ public class e0613Test {
 		Juego juego = new Juego(jsonTablero);
 
 		Jugador jugador1 = juego.getJugador1();
-		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformers();
+		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
 		Algoformer unRobotJugador1 = robotsJugador1.next();
 
 		Jugador jugador2 = juego.getJugador2();
-		Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformers();
+		Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
 		Megatron megatronJugador2 = (Megatron) robotsJugador2.next();
 		Bonecrusher bonecrusherJugador2 = (Bonecrusher) robotsJugador2.next();
 

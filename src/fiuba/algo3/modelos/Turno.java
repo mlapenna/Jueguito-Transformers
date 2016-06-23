@@ -20,7 +20,7 @@ public class Turno {
 
         if (this.jugadorDelQueEsElTurno == null) return; // Esto es desprolijol pero sino los tests entregables hay que refactorizarlos y no se si importan
 
-        Iterator<Algoformer> algoformers = this.jugadorDelQueEsElTurno.getAlgoformers();
+        Iterator<Algoformer> algoformers = this.jugadorDelQueEsElTurno.getAlgoformersIterator();
 
         while (algoformers.hasNext() ) {
             algoformers.next().nuevoTurno();

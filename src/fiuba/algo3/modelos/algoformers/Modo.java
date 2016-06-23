@@ -43,4 +43,9 @@ public abstract class Modo {
 	public void afectarAtaque(int nuevoAtaque) {
 		this.ataque = nuevoAtaque;
 	}
+
+	public void eliminar(Algoformer algoformer) {
+		this.tablero.quitarContenido(algoformer.getPosicion());
+		this.movimiento = null;
+	}
 }
