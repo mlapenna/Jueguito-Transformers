@@ -1,14 +1,13 @@
 package fiuba.algo3.tests.integracion;
 
-import fiuba.algo3.modelos.Juego;
 import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.Turno;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.algoformers.Megatron;
-import fiuba.algo3.modelos.excepciones.ErrorAlgoformersNoAlineadosException;
-import fiuba.algo3.modelos.excepciones.ErrorCantidadDeAlgoformersInsuficienteException;
+import fiuba.algo3.modelos.excepciones.AlgoformersNoAlineadosException;
+import fiuba.algo3.modelos.excepciones.CantidadDeAlgoformersInsuficienteException;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -43,8 +42,9 @@ public class IntegracionTest {
         }
     }
     
-    @Test(expected=ErrorAlgoformersNoAlineadosException.class)
-    public void testIntentarCombinarTresAlgoformersNoAlineadosYQueSalteExcepcion() throws FileNotFoundException, IOException, ParseException, ErrorAlgoformersNoAlineadosException, ErrorCantidadDeAlgoformersInsuficienteException{
+    @Test(expected=AlgoformersNoAlineadosException.class)
+    public void testIntentarCombinarTresAlgoformersNoAlineadosYQueSalteExcepcion() throws IOException, ParseException, AlgoformersNoAlineadosException,
+                                                                                            CantidadDeAlgoformersInsuficienteException {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
         Tablero tablero = new Tablero(jsonTablero);
@@ -56,7 +56,8 @@ public class IntegracionTest {
     }
     
     @Test
-    public void testCombinarTresAlgoformersAlineados() throws FileNotFoundException, IOException, ParseException, ErrorAlgoformersNoAlineadosException, ErrorCantidadDeAlgoformersInsuficienteException {
+    public void testCombinarTresAlgoformersAlineados() throws IOException, ParseException, AlgoformersNoAlineadosException,
+                                                                            CantidadDeAlgoformersInsuficienteException {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
         Tablero tablero = new Tablero(jsonTablero);

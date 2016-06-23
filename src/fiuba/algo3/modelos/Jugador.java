@@ -1,8 +1,8 @@
 package fiuba.algo3.modelos;
 
 import fiuba.algo3.modelos.algoformers.*;
-import fiuba.algo3.modelos.excepciones.ErrorAlgoformersNoAlineadosException;
-import fiuba.algo3.modelos.excepciones.ErrorCantidadDeAlgoformersInsuficienteException;
+import fiuba.algo3.modelos.excepciones.AlgoformersNoAlineadosException;
+import fiuba.algo3.modelos.excepciones.CantidadDeAlgoformersInsuficienteException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -86,16 +86,16 @@ public class Jugador {
         return esMio;
     }
     
-    public void combinarAlgoformers(Turno turno) throws ErrorAlgoformersNoAlineadosException, ErrorCantidadDeAlgoformersInsuficienteException{
+    public void combinarAlgoformers(Turno turno) throws AlgoformersNoAlineadosException, CantidadDeAlgoformersInsuficienteException {
     	
     	if(misAlgoformers.size()<3)
-    		throw new ErrorCantidadDeAlgoformersInsuficienteException();
+    		throw new CantidadDeAlgoformersInsuficienteException();
     	
     	Posicion posicion1 = this.misAlgoformers.get(0).getPosicion();  //HARDCODE
     	Posicion posicion2 = this.misAlgoformers.get(1).getPosicion();
     	Posicion posicion3 = this.misAlgoformers.get(2).getPosicion();
     	if(!posicion1.sePuedenCombinar(posicion2,posicion3))
-    		throw new ErrorAlgoformersNoAlineadosException();
+    		throw new AlgoformersNoAlineadosException();
 
     	Posicion posicionDelMedio = posicion1.posicionDelMedioVertical(posicion2,posicion3);
     	int contadorDeVida = 0;
