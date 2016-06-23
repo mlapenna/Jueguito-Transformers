@@ -1,11 +1,8 @@
 package fiuba.algo3.tests.unitarios;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 import fiuba.algo3.modelos.Posicion;
-import junit.framework.Assert;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class PosicionTests {
 
