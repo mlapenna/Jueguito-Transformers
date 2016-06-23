@@ -5,7 +5,7 @@ import fiuba.algo3.modelos.excepciones.AtaqueInvalidoDistanciaInsuficienteExcepc
 
 public class Ataque {
 
-    public void Ataque(Algoformer algoformerAtacante, Algoformer algoformerObjetivo) {
+    public void atacar(Algoformer algoformerAtacante, Algoformer algoformerObjetivo) {
     	
     	this.validarAtaque(algoformerAtacante,algoformerObjetivo);
     	algoformerObjetivo.recibirAtaque(algoformerAtacante);

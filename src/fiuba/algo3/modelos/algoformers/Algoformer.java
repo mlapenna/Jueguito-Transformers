@@ -85,8 +85,10 @@ public abstract class Algoformer extends Contenido {
 	}
 	
 	public void atacar(Algoformer algoformerObjetivo) {
+		this.validarQueEsMiTurno();
 		Ataque ataque = new Ataque();
-		ataque.Ataque(this, algoformerObjetivo);
+		ataque.atacar(this, algoformerObjetivo);
+		this.turno.siguiente();
 	}
 	
 
@@ -97,13 +99,16 @@ public abstract class Algoformer extends Contenido {
 	}
 
 	public void mover(Posicion posicionDestino) {
-		if (!this.turno.puedeJugar(this)) {
-			throw new NoEsElTurnoDelJugadorExcepcion();
-		}
-
+		this.validarQueEsMiTurno();
 		this.validarQueNoEstaInmovilizado();
 		this.modo.mover(posicionDestino);
 		this.turno.siguiente();
+	}
+
+	private void validarQueEsMiTurno() {
+		if (!this.turno.puedeJugar(this)) {
+			throw new NoEsElTurnoDelJugadorExcepcion();
+		}
 	}
 
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
