@@ -1,11 +1,9 @@
 package fiuba.algo3.modelos.algoformers;
 
+import fiuba.algo3.modelos.*;
+import fiuba.algo3.modelos.excepciones.NoEsElTurnoDelJugadorExcepcion;
 import fiuba.algo3.modelos.movimientos.Movimiento;
-import fiuba.algo3.modelos.Posicion;
-import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.excepciones.AlgoformerInmovilizadoExcepcion;
-import fiuba.algo3.modelos.Contenido;
-import fiuba.algo3.modelos.Ataque;
 import fiuba.algo3.modelos.movimientos.MovimientoHumanoide;
 //import javafx.geometry.Pos;
 
@@ -13,7 +11,6 @@ import fiuba.algo3.modelos.movimientos.MovimientoHumanoide;
 public abstract class Algoformer extends Contenido {
 	static public final int MODO_AUTOBOT = 0;
 	static public final int MODO_DECEPTICON = 1;
-	static final int CANTIDAD_MINIMA_TURNOS_INMOVIL = 0;
 
 	protected int vida;
 	protected Posicion posicion;
@@ -22,13 +19,15 @@ public abstract class Algoformer extends Contenido {
 	protected boolean afectadoPorTormentaPsionica = false;
 	protected Modo modo;
 	protected int ataqueAfectado;
+	protected Turno turno;
 
 
-	public Algoformer(Posicion posicion, Tablero tablero) {
+	public Algoformer(Posicion posicion, Tablero tablero, Turno turno) {
 		this.posicion = posicion;
 		this.tablero = tablero;
 		this.modo = new ModoHumanoide(this, tablero);
 		this.hayAlgo = true;
+		this.turno = turno;
 	}
 
 
@@ -92,18 +91,23 @@ public abstract class Algoformer extends Contenido {
 	
 
 	public void validarQueNoEstaInmovilizado() {
-		if (turnosInmovil > CANTIDAD_MINIMA_TURNOS_INMOVIL) {
+		if (turnosInmovil > 0) {
 			throw new AlgoformerInmovilizadoExcepcion();
 		}
 	}
 
 	public void mover(Posicion posicionDestino) {
+		if (!this.turno.puedeJugar(this)) {
+			throw new NoEsElTurnoDelJugadorExcepcion();
+		}
+
 		this.validarQueNoEstaInmovilizado();
 		this.modo.mover(posicionDestino);
+		this.turno.siguiente();
 	}
 
 	public void establecerTurnosAtrapado(int turnosAtrapado) {
-		this.turnosInmovil = turnosAtrapado;
+		this.turnosInmovil = turnosAtrapado + 1;
 	}
 
 	public void setNuevaPosicion(Posicion nuevaPosicion) {
@@ -111,7 +115,9 @@ public abstract class Algoformer extends Contenido {
 	}
 	
 	public void nuevoTurno() {
-		if(turnosInmovil>0) turnosInmovil = turnosInmovil -1;
+		if (turnosInmovil > 0){
+			turnosInmovil--;
+		}
 	}
 	
 	public boolean afectadoPorTormentaPsionica() {

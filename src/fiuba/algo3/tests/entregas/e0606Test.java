@@ -27,7 +27,7 @@ public class e0606Test {
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Posicion posicionInicial = new Posicion(1,1);
-		Algoformer prime = new Optimus(posicionInicial,tablero);
+		Algoformer prime = new Optimus(posicionInicial, tablero, new Turno() );
 		Posicion posicionDestino = new Posicion(3,3);
 		
 		prime.mover(posicionDestino);
@@ -44,7 +44,7 @@ public class e0606Test {
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		Posicion posicionInicial = new Posicion(1,1);
-		Algoformer prime = new Optimus(posicionInicial,tablero);
+		Algoformer prime = new Optimus(posicionInicial, tablero, new Turno() );
 		Posicion posicionDestino = new Posicion(3,3);
 
 		prime.cambiarModo();
@@ -63,7 +63,7 @@ public class e0606Test {
 		Tablero tablero = new Tablero(jsonTablero);
 
 		Posicion posicionInicial = new Posicion(1,1);
-		Algoformer prime = new Optimus(posicionInicial,tablero);
+		Algoformer prime = new Optimus(posicionInicial, tablero, new Turno() );
 		Posicion posicionDestino = new Posicion(3,3);
 		
 		prime.cambiarModo();
@@ -93,8 +93,8 @@ public class e0606Test {
 		Posicion posicionInicialAutobot = new Posicion(0,0);
 		Posicion posicionInicialDecepticon = new Posicion(2,2);
 
-		Optimus optimus = new Optimus(posicionInicialAutobot,tablero);
-		Frenzy frenzy = new Frenzy(posicionInicialDecepticon,tablero);
+		Optimus optimus = new Optimus(posicionInicialAutobot, tablero, new Turno() );
+		Frenzy frenzy = new Frenzy(posicionInicialDecepticon, tablero, new Turno() );
 
 		int vidaFrenzyEsperadaLuegoDeAtaque = frenzy.getVida() - optimus.getAtaque();
 
@@ -112,8 +112,8 @@ public class e0606Test {
 		Posicion posicionInicialAutobot = new Posicion(0,0);
 		Posicion posicionInicialDecepticon = new Posicion(2,3);
 
-		Optimus optimus = new Optimus(posicionInicialAutobot,tablero);
-		Frenzy frenzy = new Frenzy(posicionInicialDecepticon,tablero);
+		Optimus optimus = new Optimus(posicionInicialAutobot, tablero, new Turno() );
+		Frenzy frenzy = new Frenzy(posicionInicialDecepticon, tablero, new Turno() );
 
 		optimus.atacar(frenzy);
 	}

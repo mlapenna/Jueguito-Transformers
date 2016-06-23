@@ -1,6 +1,7 @@
 package fiuba.algo3.tests.integracion;
 
 import fiuba.algo3.modelos.Posicion;
+import fiuba.algo3.modelos.Turno;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.algoformers.Megatron;
@@ -23,7 +24,7 @@ public class IntegracionTest {
         Tablero tablero = new Tablero(jsonTablero);
 
         Posicion posicion = new Posicion(3, 0);
-        Algoformer megatron = new Megatron(posicion,tablero);
+        Algoformer megatron = new Megatron(posicion, tablero, new Turno());
         Posicion posicionDestino = new Posicion(2,0);
 
         try{

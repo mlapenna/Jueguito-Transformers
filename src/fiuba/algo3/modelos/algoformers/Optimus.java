@@ -2,6 +2,7 @@ package fiuba.algo3.modelos.algoformers;
 
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.Tablero;
+import fiuba.algo3.modelos.Turno;
 import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
@@ -16,8 +17,8 @@ public class Optimus extends Autobot {
 	private static final int VIDA = 500;
 
 
-	public Optimus(Posicion posicion, Tablero tablero) {
-		super(posicion, tablero);
+	public Optimus(Posicion posicion, Tablero tablero, Turno turno) {
+		super(posicion, tablero, turno);
 		this.vida = VIDA;
 	}
 
@@ -42,7 +43,7 @@ public class Optimus extends Autobot {
 
 	@Override
 	public Algoformer clonarAlgoformer() {
-		Algoformer clon = new Optimus(this.getPosicion(),this.tablero);
+		Algoformer clon = new Optimus(this.getPosicion(), this.tablero, this.turno);
 		this.copiarA(clon);
 		return clon;	
 	}

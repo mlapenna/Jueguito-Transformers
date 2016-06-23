@@ -2,6 +2,7 @@ package fiuba.algo3.modelos.algoformers;
 
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.Tablero;
+import fiuba.algo3.modelos.Turno;
 import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
@@ -11,8 +12,8 @@ public class Superion extends Autobot {
 	private static final int VELOCIDAD = 3;
 	private static final int VIDA = 3; // hay que ver el proceso de fusion
 	
-	public Superion(Posicion posicion, Tablero tablero) {
-		super(posicion, tablero);
+	public Superion(Posicion posicion, Tablero tablero, Turno turno) {
+		super(posicion, tablero, turno);
 		this.vida = VIDA;
 	}
 
@@ -38,7 +39,7 @@ public class Superion extends Autobot {
 
 	@Override
 	public Algoformer clonarAlgoformer() {
-		Algoformer clon = new Superion(this.getPosicion(),this.tablero);
+		Algoformer clon = new Superion(this.getPosicion(), this.tablero, this.turno);
 		this.copiarA(clon);
 		return clon;	
 	}

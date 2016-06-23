@@ -2,6 +2,7 @@ package fiuba.algo3.modelos.algoformers;
 
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.Tablero;
+import fiuba.algo3.modelos.Turno;
 import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
@@ -15,8 +16,8 @@ public class Frenzy extends Decepticon {
 	private static final int VIDA = 400;
 
 
-	public Frenzy(Posicion posicion, Tablero tablero) {
-		super(posicion, tablero);
+	public Frenzy(Posicion posicion, Tablero tablero, Turno turno) {
+		super(posicion, tablero, turno);
 		this.vida = VIDA;
 	}
 
@@ -41,7 +42,7 @@ public class Frenzy extends Decepticon {
 
 	@Override
 	public Algoformer clonarAlgoformer() {
-		Algoformer clon = new Frenzy(this.getPosicion(),this.tablero);
+		Algoformer clon = new Frenzy(this.getPosicion(), this.tablero, this.turno);
 		this.copiarA(clon);
 		return clon;	
 	}

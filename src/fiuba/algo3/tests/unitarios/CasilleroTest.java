@@ -1,8 +1,6 @@
 package fiuba.algo3.tests.unitarios;
 
-import fiuba.algo3.modelos.Posicion;
-import fiuba.algo3.modelos.Tablero;
-import fiuba.algo3.modelos.Vacio;
+import fiuba.algo3.modelos.*;
 import fiuba.algo3.modelos.algoformers.Optimus;
 import fiuba.algo3.modelos.superficies.*;
 
@@ -11,8 +9,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.junit.Test;
-
-import fiuba.algo3.modelos.Casillero;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -82,7 +78,7 @@ public class CasilleroTest {
 
 		Assert.assertEquals(casillero.getContenido(), Vacio.getInstancia());
 
-		Optimus optimus = new Optimus(posicion, tablero);
+		Optimus optimus = new Optimus(posicion, tablero, new Turno());
 
 		casillero.setContenido(optimus);
 

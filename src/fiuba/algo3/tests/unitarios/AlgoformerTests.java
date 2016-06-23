@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import fiuba.algo3.modelos.Turno;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -31,9 +32,9 @@ public class AlgoformerTests {
 		Posicion posMegatron = new Posicion (2,1);
 		Posicion posBumbleBee = new Posicion (1,2);
 		
-		Algoformer optimus = new Optimus(posOptimus,tablero);
-		Algoformer megatron = new Megatron(posMegatron,tablero);
-		Algoformer bumbleBee = new BumbleBee(posBumbleBee,tablero);
+		Algoformer optimus = new Optimus(posOptimus, tablero, new Turno() );
+		Algoformer megatron = new Megatron(posMegatron, tablero, new Turno() );
+		Algoformer bumbleBee = new BumbleBee(posBumbleBee, tablero, new Turno() );
 		
 		optimus.validarQueSePuedeAtacar(megatron);
 		optimus.validarQueSePuedeAtacar(bumbleBee);	
@@ -47,7 +48,7 @@ public class AlgoformerTests {
 		
 		Posicion posDestino = new Posicion(2,1);
 		Posicion posOptimus = new Posicion(1,1);
-		Algoformer optimus = new Optimus(posOptimus,tablero);
+		Algoformer optimus = new Optimus(posOptimus, tablero, new Turno() );
 		
 		optimus.establecerTurnosAtrapado(3);
 		optimus.mover(posDestino);
@@ -62,7 +63,7 @@ public class AlgoformerTests {
 		
 		Posicion posDestino = new Posicion(2,1);
 		Posicion posOptimus = new Posicion(1,1);
-		Algoformer optimus = new Optimus(posOptimus,tablero);
+		Algoformer optimus = new Optimus(posOptimus, tablero, new Turno() );
 		
 		optimus.mover(posDestino);
 		Assert.assertEquals(optimus.getPosicion(),posDestino);		

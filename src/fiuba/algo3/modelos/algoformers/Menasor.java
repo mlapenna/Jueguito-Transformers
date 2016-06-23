@@ -2,6 +2,7 @@ package fiuba.algo3.modelos.algoformers;
 
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.Tablero;
+import fiuba.algo3.modelos.Turno;
 import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
@@ -11,8 +12,8 @@ public class Menasor extends Decepticon {
 	private static final int VELOCIDAD = 2;
 	private static final int VIDA = 2;
 	
-	public Menasor(Posicion posicion, Tablero tablero) {
-		super(posicion, tablero);
+	public Menasor(Posicion posicion, Tablero tablero, Turno turno) {
+		super(posicion, tablero, turno);
 		this.vida = VIDA;
 	}
 
@@ -38,7 +39,7 @@ public class Menasor extends Decepticon {
 
 	@Override
 	public Algoformer clonarAlgoformer() {
-		Algoformer clon = new Menasor(this.getPosicion(),this.tablero);
+		Algoformer clon = new Menasor(this.getPosicion(), this.tablero, this.turno);
 		this.copiarA(clon);
 		return clon;	
 	}
