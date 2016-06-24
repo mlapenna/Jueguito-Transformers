@@ -7,4 +7,7 @@ public class Contenido {
 		return this.hayAlgo;
 	}
 
+	public boolean esChispa(){
+		return false;
+	}
 }

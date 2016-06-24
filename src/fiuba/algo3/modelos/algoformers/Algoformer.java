@@ -203,4 +203,10 @@ public abstract class Algoformer extends Contenido {
 		this.modo.eliminar(this);
 		this.modo = null;
 	}
+
+
+	public void tieneLaChispa() {
+		//la solucion basica seria ganar, si no podriamos hacer un atributo que sea tieneLaChispa
+		//y hacerlo volver a su columna inicial
+	}
 }

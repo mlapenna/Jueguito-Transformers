@@ -19,25 +19,6 @@ public abstract class Movimiento {
 		this.tablero = tablero;
 	}
 
-	protected Casillero getCasillero(Posicion nuevaPoscion){
-		// TODO: buscar el casillero en el tablero
-		return new Casillero();
-	}
-	
-	private void movimientoACasilleroVacio(Casillero casillero){
-		
-		//Vacio contenidoVacio = Vacio.getInstancia();
-		try{ //TODO
-			// comparacion del contenido del casillero con vacio.
-			//if(nuevoCasillero.obtenerContenido() == contenidoVacio) {
-			//}
-		}
-		catch(Exception e)
-		{
-			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
-		}
-	}
-
 
 	private boolean esHorizontalOVerticalPuro(Posicion posicionOrigen, Posicion posicionDestino) {
 		return (posicionOrigen.getX() == posicionDestino.getX() || posicionOrigen.getY() == posicionDestino.getY());
@@ -67,23 +48,20 @@ public abstract class Movimiento {
 			&& !this.esDiagonalPuro(algoformer.getPosicion(), posicionDestino)) {
 			throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 		}
-
-		// Casillero vacio?
-		Contenido contenidoDestino = this.tablero.getContenido(posicionDestino);
-		if (contenidoDestino != Vacio.getInstancia()) {
-			throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
-		}//ME PARECE QUE SEGUN EL PRINCIPIO "TELL DONT ASK" HABRIA Q COMPROBAR ESTO MIENTRAS SE MUEVE
-
+		
 		// Establecer recorrido casilero por casillero
 		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
+		int cantidadPasos = recorrido.size();
+		
+		for (int j=0; j>cantidadPasos; j++)
+			if (!casilleroVacio(recorrido.get(j)))
+				throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		
 		// Movimiento
-		int cantidadPasos = recorrido.size();
 		int i = 0;
-		
-		while(i < cantidadPasos)
+				while(i < cantidadPasos)
 		{
-			this.tablero.quitarContenido(algoformer.getPosicion());			
+			this.tablero.quitarContenido(algoformer.getPosicion());		
 			try {
 				algoformer.validarQueNoEstaInmovilizado();
 				this.afectarAlgoformer(algoformer, recorrido.get(i));
@@ -91,6 +69,10 @@ public abstract class Movimiento {
 					cantidadPasos = this.dividirRecorrido(i,cantidadPasos);	
 					caminoDividido = true;
 				}
+				/*if(this.tablero.getContenido(recorrido.get(i)).esChispa()){ FALLA CUANDO LA CHISPA LLAMA A ESCHISPA
+					algoformer.tieneLaChispa();
+					tablero.quitarContenido(recorrido.get(i));
+				}*/
 				this.tablero.setContenido(recorrido.get(i), algoformer);
 				algoformer.setNuevaPosicion(recorrido.get(i));
 			} catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
@@ -111,6 +93,13 @@ public abstract class Movimiento {
 		if ( mitadRecorrido % 1 != 0 )
 			mitadRecorrido = (((i+1) + distancia) /2 );
 		return (int)mitadRecorrido;
+	}
+	
+	private boolean casilleroVacio(Posicion posicion){
+		Contenido contenidoDestino = this.tablero.getContenido(posicion);
+		if (contenidoDestino != Vacio.getInstancia() && !contenidoDestino.esChispa())
+			return false;
+		return true;
 	}
 
 	public abstract void afectarAlgoformer(Algoformer algoformer, Posicion posicion);
@@ -165,7 +154,7 @@ public abstract class Movimiento {
 	}
 
 
-	// Devuelve 1 si es hacia la derecha o hacia arriba, -1 en los demás casos
+	// Devuelve 1 si es hacia la derecha o hacia arriba, -1 en los demas casos
 	private int getSentidoMovimiento(int a, int b) {
 		return (b - a) / Math.abs(b - a);
 	}

@@ -1,5 +1,6 @@
 package fiuba.algo3.tests.integracion;
 
+import fiuba.algo3.modelos.Juego;
 import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.Turno;
@@ -80,5 +81,18 @@ public class IntegracionTest {
         Assert.assertTrue(elAlgoformerCombinado instanceof Superion);
         Assert.assertEquals(elAlgoformerCombinado.getPosicion(), new Posicion(0, 2) );
     }
+    
+	@Test
+	public void testVerQueLaChispaSeAgregaEnElMedio()
+			throws IOException, ParseException {
+
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
+		Juego juego = new Juego(jsonTablero);
+
+		Jugador jugador1 = juego.getJugador1();
+		Assert.assertTrue(jugador1.tablero().getContenido(jugador1.tablero().posicionCentro()).esChispa());
+		
+	}
 
 }

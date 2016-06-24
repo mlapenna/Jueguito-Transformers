@@ -116,4 +116,8 @@ public class Jugador {
     	}
     	this.misAlgoformers.get(0).afectarVida(contadorDeVida); //HARDCODE
     }
+    
+    public Tablero tablero(){ //es para un test en integracion, se puede eliminar y cambiar el test
+    	return this.tablero;
+    }
 }

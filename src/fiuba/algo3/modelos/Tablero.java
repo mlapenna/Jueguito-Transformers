@@ -77,4 +77,19 @@ public class Tablero {
 		return this.dimensionY;
 	}
 
+	public Posicion posicionCentro() {
+		int medioX, medioY;
+		if ((this.getDimensionX()/2)%1 != 0)
+			medioX = (this.getDimensionX()+1) / 2;
+		else 
+			medioX = this.getDimensionX()/2;
+		if ((this.getDimensionY()/2)%1 != 0)
+			medioY = (this.getDimensionY()+1) / 2;
+		else
+			medioY = this.getDimensionY()/2;
+			
+		Posicion posicionMedia = new Posicion(medioX,medioY);
+		return posicionMedia;
+	}
+
 }

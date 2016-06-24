@@ -11,11 +11,11 @@ public class Juego {
     public Juego(JSONObject jsonTablero) {
 
         Tablero tablero = new Tablero(jsonTablero);
+        tablero.setContenido(tablero.posicionCentro(), new Chispa());
         Turno turno = new Turno();
         this.jugador1 = new Jugador("Pedro", Algoformer.MODO_AUTOBOT, tablero, turno);
         this.jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, tablero, turno);
         turno.setJugadores(jugador1, jugador2);
-
     }
 
 
