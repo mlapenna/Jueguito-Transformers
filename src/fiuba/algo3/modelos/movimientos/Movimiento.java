@@ -60,7 +60,7 @@ public abstract class Movimiento {
 		// Movimiento
 		int i = 0;
 		Posicion siguientePosicion;
-		
+
 		while (i < cantidadPasos) {
 			this.tablero.quitarContenido(algoformer.getPosicion());
 

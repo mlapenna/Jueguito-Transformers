@@ -155,7 +155,8 @@ public abstract class Algoformer extends Contenido {
 
 
 	public void cambiarModo() {
-		
+		this.validarQueEsMiTurno();
+
 		if (this.modo.esHumanoide()) {
 			this.modo = new ModoAlterno(this, this.tablero);
 			if (this.afectadoPorTormentaPsionica())
@@ -163,6 +164,8 @@ public abstract class Algoformer extends Contenido {
 		} else {
 			this.modo = new ModoHumanoide(this, this.tablero);
 		}
+
+		this.turno.siguiente();
 	}
 
 	private int ataqueAfectado() {

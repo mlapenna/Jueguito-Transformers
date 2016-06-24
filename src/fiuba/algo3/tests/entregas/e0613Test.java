@@ -344,9 +344,12 @@ public class e0613Test {
 		Posicion posicionDestino = new Posicion(2, 0);
 
 		unRobotJugador1.cambiarModo();
+
+		unRobotJugador2.mover(new Posicion(8, 3));
+
 		unRobotJugador1.mover(posicionDestino);
 
-		unRobotJugador2.mover( new Posicion(8,3) );
+		unRobotJugador2.mover( new Posicion(9,3) );
 
 		unRobotJugador1.mover(posicionDestino);
 
@@ -481,9 +484,13 @@ public class e0613Test {
 		unRobotJugador1.mover( new Posicion(2, 0) );
 
 		megatronJugador2.cambiarModo();
-		megatronJugador2.mover(new Posicion(7, 3)); // ATRAVIESA LA NEBULOSA Y QUEDA ATRAPADO 3 TURNOS
 
 		// TURNO 2
+		unRobotJugador1.mover(new Posicion(1, 0));
+
+		megatronJugador2.mover(new Posicion(7, 3)); // ATRAVIESA LA NEBULOSA Y QUEDA ATRAPADO 3 TURNOS
+
+		// TURNO 3
 		unRobotJugador1.mover( new Posicion(0, 0) );
 		try {
 			megatronJugador2.mover(new Posicion(6, 3));
@@ -492,7 +499,7 @@ public class e0613Test {
 		};
 		bonecrusherJugador2.mover( new Posicion(9, 6) ); // Se mueve otro robot del mismo jugador nada más para que pase el turno
 
-		// TURNO 3
+		// TURNO 4
 		unRobotJugador1.mover( new Posicion(2, 0) );
 		try {
 			megatronJugador2.mover(new Posicion(6, 3));
@@ -501,7 +508,7 @@ public class e0613Test {
 		};
 		bonecrusherJugador2.mover( new Posicion(9, 5) ); // Se mueve otro robot del mismo jugador nada más para que pase el turno
 
-		// TURNO 4
+		// TURNO 5
 		unRobotJugador1.mover( new Posicion(0, 0) );
 		try {
 			megatronJugador2.mover(new Posicion(6, 3));
@@ -510,7 +517,7 @@ public class e0613Test {
 		};
 		bonecrusherJugador2.mover( new Posicion(9, 6) ); // Se mueve otro robot del mismo jugador nada más para que pase el turno
 
-		// TURNO 5 - MEGATRON LIBRE
+		// TURNO 6 - MEGATRON LIBRE
 		unRobotJugador1.mover( new Posicion(2, 0) );
 		try {
 			megatronJugador2.mover(new Posicion(6, 3));  // Ahora se vuelve a mover sin problemas
