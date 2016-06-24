@@ -59,33 +59,45 @@ public abstract class Movimiento {
 		
 		// Movimiento
 		int i = 0;
-				while(i < cantidadPasos)
-		{
-			this.tablero.quitarContenido(algoformer.getPosicion());		
+		Posicion siguientePosicion;
+		
+		while (i < cantidadPasos) {
+			this.tablero.quitarContenido(algoformer.getPosicion());
+
 			try {
+
 				algoformer.validarQueNoEstaInmovilizado();
-				this.afectarAlgoformer(algoformer, recorrido.get(i));
+
+				siguientePosicion = recorrido.get(i);
+				this.afectarAlgoformer(algoformer, siguientePosicion);
+
 				if(algoformer.movimientoDisminuido() && !caminoDividido){
-					cantidadPasos = this.dividirRecorrido(i,cantidadPasos);	
+					cantidadPasos = this.dividirRecorrido(i, cantidadPasos);
 					caminoDividido = true;
 				}
-				/*if(this.tablero.getContenido(recorrido.get(i)).esChispa()){ FALLA CUANDO LA CHISPA LLAMA A ESCHISPA
+
+				if (this.tablero.getContenido(siguientePosicion).esChispa() ) {
 					algoformer.tieneLaChispa();
-					tablero.quitarContenido(recorrido.get(i));
-				}*/
-				this.tablero.setContenido(recorrido.get(i), algoformer);
-				algoformer.setNuevaPosicion(recorrido.get(i));
-			} catch(MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
+					tablero.quitarContenido(siguientePosicion);
+				}
+
+				this.tablero.setContenido(siguientePosicion, algoformer);
+				algoformer.setNuevaPosicion(siguientePosicion);
+
+			} catch (MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion e) {
 				clon.copiarA(algoformer);
 				this.tablero.setContenido(algoformer.getPosicion(), algoformer);
 				throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion();
-			} catch(AlgoformerInmovilizadoExcepcion e) {
+
+			} catch (AlgoformerInmovilizadoExcepcion e) {
 				//throw new AlgoformerInmovilizadoExcepcion();
 			}
 			i++;			
 		}
-		if(algoformer.movimientoDisminuido())
+
+		if (algoformer.movimientoDisminuido()) {
 			algoformer.normalizarMovimiento();
+		}
 	}
 
 	private int dividirRecorrido(int i, int distancia) {
