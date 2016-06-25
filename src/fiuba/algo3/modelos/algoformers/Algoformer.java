@@ -21,6 +21,7 @@ public abstract class Algoformer extends Contenido {
 	protected int ataqueAfectado;
 	protected Turno turno;
 	protected boolean movimientoDisminuido;
+	private boolean tieneLaChispa;
 
 
 	public Algoformer(Posicion posicion, Tablero tablero, Turno turno) {
@@ -30,6 +31,7 @@ public abstract class Algoformer extends Contenido {
 		this.hayAlgo = true;
 		this.turno = turno;
 		this.movimientoDisminuido = false;
+		this.tieneLaChispa = false;
 	}
 
 
@@ -207,9 +209,12 @@ public abstract class Algoformer extends Contenido {
 		this.modo = null;
 	}
 
-
-	public void tieneLaChispa() {
-		//la solucion basica seria ganar, si no podriamos hacer un atributo que sea tieneLaChispa
-		//y hacerlo volver a su columna inicial
+	public void agarroLaChispa(){
+		this.tieneLaChispa = true;
 	}
+	
+	public boolean tieneLaChispa(){
+		return this.tieneLaChispa;
+	}
+		
 }

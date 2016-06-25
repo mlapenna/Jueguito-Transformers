@@ -91,13 +91,13 @@ public class Jugador {
     	if(misAlgoformers.size()<3)
     		throw new CantidadDeAlgoformersInsuficienteException();
     	
-    	Posicion posicion1 = this.misAlgoformers.get(0).getPosicion();  //HARDCODE
-    	Posicion posicion2 = this.misAlgoformers.get(1).getPosicion();
-    	Posicion posicion3 = this.misAlgoformers.get(2).getPosicion();
-    	if(!posicion1.sePuedenCombinar(posicion2,posicion3))
+    	ArrayList<Posicion> posicion = new ArrayList<Posicion>();
+    	for (int i=0; i<this.misAlgoformers.size(); i++)
+    		posicion.add(this.misAlgoformers.get(i).getPosicion());
+    	if(!posicion.get(0).sePuedenCombinar(posicion.get(1),posicion.get(2)))
     		throw new AlgoformersNoAlineadosException();
 
-    	Posicion posicionDelMedio = posicion1.posicionDelMedioVertical(posicion2,posicion3);
+    	Posicion posicionDelMedio = posicion.get(0).posicionDelMedioVertical(posicion.get(1),posicion.get(2));
     	int contadorDeVida = 0;
     	
     	Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
@@ -120,4 +120,14 @@ public class Jugador {
     public Tablero tablero(){ //es para un test en integracion, se puede eliminar y cambiar el test
     	return this.tablero;
     }
+
+
+	public boolean noLeQuedanAlgoformers() {
+		return (this.getAlgoformers().size() == 0);
+	}
+
+
+	public void gano() {
+		
+	}
 }
