@@ -130,4 +130,14 @@ public class Jugador {
 	public void gano() {
 		
 	}
+
+    public void chequearJuegoTerminado(Jugador otroJugador) {
+        if (this.noLeQuedanAlgoformers())
+        	otroJugador.gano();
+        
+    	Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
+        while (algoformers.hasNext()) 
+        	if (algoformers.next().tieneLaChispa())
+        		this.gano();
+	}
 }
