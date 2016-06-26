@@ -1,8 +1,8 @@
 package fiuba.algo3.modelos;
 
-public class Chispa extends Contenido {
+public class ChispaSuprema extends Contenido {
 	
-	public Chispa(){
+	public ChispaSuprema(){
 		this.hayAlgo = true;
 	}
 

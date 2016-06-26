@@ -15,8 +15,7 @@ public class Turno {
     private Jugador jugador2;
     private Jugador jugadorDelQueEsElTurno;
 
-
-    public void siguiente() {
+	public void siguiente() {
         if (this.jugadorDelQueEsElTurno == this.jugador1) {
             this.jugadorDelQueEsElTurno = this.jugador2;
             //jugador1.chequearJuegoTerminado(jugador2);
