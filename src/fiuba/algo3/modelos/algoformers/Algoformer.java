@@ -217,4 +217,9 @@ public abstract class Algoformer extends Contenido {
 		return this.tieneLaChispa;
 	}
 
+
+	public Turno getTurno() {
+		return this.turno;
+	}
+
 }

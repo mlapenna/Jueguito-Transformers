@@ -59,20 +59,23 @@ public class IntegracionTest {
     @Test
     public void testCombinarTresAlgoformersAlineados() throws IOException, ParseException, AlgoformersNoAlineadosException,
                                                                             CantidadDeAlgoformersInsuficienteException {
-		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
-        Tablero tablero = new Tablero(jsonTablero);
-		Turno turno = new Turno();
-		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, tablero, turno, new Juego(jsonTablero)); //ALGOFORMERS EN Y=0 Y=2 Y=4
 
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
+		Juego juego = new Juego(jsonTablero);
+
+		Jugador jugador1 = juego.getJugador1();
+		Jugador jugador2 = juego.getJugador2();
+		
 		Posicion posicion1 = new Posicion(0,1);
 		Posicion posicion2 = new Posicion(0,3);
 
         ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
         algoformers.get(0).mover(posicion1);
+        jugador2.getAlgoformers().get(0).cambiarModo();
         algoformers.get(2).mover(posicion2);
 		
-		jugador1.combinarAlgoformers(turno);
+		jugador1.combinarAlgoformers(new Turno());
 
         ArrayList<Algoformer> algoformersCombinados = jugador1.getAlgoformers();
         Algoformer elAlgoformerCombinado = algoformersCombinados.get(0);

@@ -80,15 +80,17 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 
 			Jugador jugador1 = juego.getJugador1();
 			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
-			Optimus optimusJugador1 = (Optimus) robots.next();
+			robots.next();
+			robots.next();
+			Algoformer robotJugador1 = robots.next();
 
 			Jugador jugador2 = juego.getJugador2();
 			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
 			Algoformer unRobotJugador2 = robotsJugador2.next();
 
-			optimusJugador1.atacar(unRobotJugador2);
+			robotJugador1.atacar(unRobotJugador2);
 
-			optimusJugador1.atacar(unRobotJugador2);
+			robotJugador1.atacar(unRobotJugador2);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -107,16 +109,20 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 
 			Jugador jugador1 = juego.getJugador1();
 			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
-			Optimus optimusJugador1 = (Optimus) robots.next();
+			robots.next();
+			robots.next();
+			Algoformer unRobotJugador1 = robots.next();
 
 			Jugador jugador2 = juego.getJugador2();
 			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
+			robotsJugador2.next();
+			robotsJugador2.next();
 			Algoformer unRobotJugador2 = robotsJugador2.next();
 
-			optimusJugador1.atacar(unRobotJugador2);
+			unRobotJugador1.atacar(unRobotJugador2);
 
 			try {
-				unRobotJugador2.atacar(optimusJugador1);
+				unRobotJugador2.atacar(unRobotJugador1);
 			} catch (NoEsElTurnoDelJugadorExcepcion e) {
 				Assert.fail();
 			}

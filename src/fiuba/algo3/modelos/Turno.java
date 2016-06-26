@@ -18,20 +18,20 @@ public class Turno {
 	public void siguiente() {
         if (this.jugadorDelQueEsElTurno == this.jugador1) {
             this.jugadorDelQueEsElTurno = this.jugador2;
-            //jugador1.chequearJuegoTerminado(jugador2);
+            jugador1.chequearJuegoTerminado(jugador2);
         } else {
             this.jugadorDelQueEsElTurno = this.jugador1;
-            //jugador2.chequearJuegoTerminado(jugador1);
+            jugador2.chequearJuegoTerminado(jugador1);
         }
 
-        if (this.jugadorDelQueEsElTurno == null) return; // Esto es desprolijo pero sino los tests entregables hay que refactorizarlos y no se si importan
+        if ( this.jugadorDelQueEsElTurno == null ) return; // Esto es desprolijo pero sino los tests entregables hay que refactorizarlos y no se si importan
 
         Iterator<Algoformer> algoformers = this.jugadorDelQueEsElTurno.getAlgoformersIterator();
 
         while (algoformers.hasNext() ) {
             algoformers.next().nuevoTurno();
+	
         }
-
     }
 
 	public void setJugadores(Jugador jugador1, Jugador jugador2) {

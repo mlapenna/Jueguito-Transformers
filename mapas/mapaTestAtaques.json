@@ -1,6 +1,6 @@
 {"_comment": "Un mapa chico para que los algoformers arranquen cerca y ya puedan atacarse",
- "dimensionX": 3,
- "dimensionY": 5,
+ "dimensionX": 5,
+ "dimensionY": 6,
  "casilleros": [
    {"posicionX": 0, "posicionY": 0, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
    {"posicionX": 0, "posicionY": 1, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
@@ -12,13 +12,6 @@
    {"posicionX": 1, "posicionY": 1, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
    {"posicionX": 1, "posicionY": 2, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
    {"posicionX": 1, "posicionY": 3, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
-   {"posicionX": 1, "posicionY": 4, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
-
-   {"posicionX": 2, "posicionY": 0, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
-   {"posicionX": 2, "posicionY": 1, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
-   {"posicionX": 2, "posicionY": 2, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
-   {"posicionX": 2, "posicionY": 3, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
-   {"posicionX": 2, "posicionY": 4, "superficies": { "tierra": "Rocas", "aire": "Nube"} }
-
- ]
+   {"posicionX": 1, "posicionY": 4, "superficies": { "tierra": "Rocas", "aire": "Nube"} }
+   ]
 }

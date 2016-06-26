@@ -3,12 +3,15 @@ package fiuba.algo3.tests.unitarios;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
 
 import fiuba.algo3.modelos.Turno;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import fiuba.algo3.modelos.Juego;
+import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.algoformers.Algoformer;
@@ -57,16 +60,19 @@ public class AlgoformerTests {
 
 	@Test
 	public void testMoverAlgoformer() throws FileNotFoundException, IOException, ParseException {
+
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
-		Tablero tablero = new Tablero(jsonTablero);
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		Juego juego = new Juego(jsonTablero);
+
+		Jugador jugador1 = juego.getJugador1();
+		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
+		Algoformer unRobotJugador1 = robotsJugador1.next();
 		
-		Posicion posDestino = new Posicion(2,1);
-		Posicion posOptimus = new Posicion(1,1);
-		Algoformer optimus = new Optimus(posOptimus, tablero, new Turno() );
+		Posicion posDestino = new Posicion(2,0);
 		
-		optimus.mover(posDestino);
-		Assert.assertEquals(optimus.getPosicion(),posDestino);		
+		unRobotJugador1.mover(posDestino);
+		Assert.assertEquals(unRobotJugador1.getPosicion(),posDestino);		
 	}
 
 }
