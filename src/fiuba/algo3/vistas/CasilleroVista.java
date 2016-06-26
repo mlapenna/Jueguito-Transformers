@@ -12,15 +12,15 @@ import javafx.scene.layout.StackPane;
 
 public class CasilleroVista extends StackPane { //DEJO LAS RUTAS DE NACHO, hagamos un directorio igual o algo asi
     	
-	  static final Image noughtImage = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR//TicTacToe/src/Megatron_Humanoide.png");
-	  static final Image crossImage = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR//TicTacToe/src/Optimus-Prime-Humanoide.png");
+	  static final Image noughtImage = new Image("file:imagenes/Megatron_Humanoide.png");
+	  static final Image crossImage = new Image("file:imagenes/Optimus-Prime-Humanoide.png");
 	
-	  static final Image imagenRocas = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_roca.png");
-	  static final Image imagenPantano = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_pantano.png");
-	  static final Image imagenEspinas = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/src/superficie_espina.png");
-	  static final Image imagenNube = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_nube.png");
-	  static final Image imagenNebulosa = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_nebulosa.png");
-	  static final Image imagenTormenta = new Image("C:/Users/joako/Desktop/Algo_AUXILIAR/TicTacToe/src/superficie_tormenta_psionica.png");
+	  static final Image imagenRocas = new Image("file:imagenes/superficie_roca.png");
+	  static final Image imagenPantano = new Image("file:imagenes/superficie_pantano.png");
+	  static final Image imagenEspinas = new Image("file:imagenes/superficie_espina.png");
+	  static final Image imagenNube = new Image("file:imagenes/superficie_nube.png");
+	  static final Image imagenNebulosa = new Image("file:imagenes/superficie_nebulosa.png");
+	  static final Image imagenTormenta = new Image("file:imagenes/superficie_tormenta_psionica.png");
 	  
 	  private final ImageView imageView = new ImageView();
 	
