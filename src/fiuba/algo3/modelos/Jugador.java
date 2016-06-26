@@ -125,17 +125,26 @@ public class Jugador {
 
 
 	public boolean noLeQuedanAlgoformers() {
-		return (this.getAlgoformers().size() == 0);
+		Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
+		boolean perdio = true;
+		while(algoformers.hasNext())
+			if(algoformers.next().estaVivo())
+				perdio = false;
+		return perdio;
 	}
 
-    public void chequearJuegoTerminado(Jugador otroJugador) {
-        if (this.noLeQuedanAlgoformers())
-        	this.juego.gano(otroJugador);
-        
+    public boolean chequearJuegoTerminado(Jugador otroJugador) {
+        if (otroJugador.noLeQuedanAlgoformers()){
+        	this.juego.gano(this);
+        	return true;
+        }
     	Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
         while (algoformers.hasNext()) 
-        	if (algoformers.next().tieneLaChispa())
+        	if (algoformers.next().tieneLaChispa()){
         		this.juego.gano(this);
+        		return true;
+        	}
+        return false;
 	}
 
 	public String nombre() {

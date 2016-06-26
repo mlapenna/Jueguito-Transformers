@@ -97,5 +97,55 @@ public class IntegracionTest {
 		Assert.assertTrue(jugador1.tablero().getContenido(jugador1.tablero().posicionCentro()).esChispa());
 		
 	}
+	
+    @Test
+    public void testMatarAlgoformer() throws IOException, ParseException, AlgoformersNoAlineadosException,
+                                                                            CantidadDeAlgoformersInsuficienteException {
 
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		Juego juego = new Juego(jsonTablero);
+
+		Jugador jugador1 = juego.getJugador1();
+		Jugador jugador2 = juego.getJugador2();
+
+        ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
+        Algoformer rival = jugador2.getAlgoformers().get(1);
+        Algoformer ratchet = algoformers.get(2);//(0,4)
+        ratchet.cambiarModo();
+        rival.cambiarModo();
+        ratchet.mover(new Posicion(3,4));
+        rival.cambiarModo();
+        ratchet.mover(new Posicion(3,6));
+        rival.cambiarModo();
+        ratchet.mover(new Posicion(7,6));
+        rival.cambiarModo();
+        
+        for(int i=0; i<6; i++){
+        	ratchet.atacar(rival);
+        	if (rival.estaVivo())
+        		rival.cambiarModo();
+        }
+        Assert.assertTrue(!rival.estaVivo());
+    }
+    
+    @Test
+    public void testGanarPorAgarrarChispa() throws IOException, ParseException, AlgoformersNoAlineadosException,
+                                                                            CantidadDeAlgoformersInsuficienteException {
+
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		Juego juego = new Juego(jsonTablero);
+		String nombre = juego.getJugador1().nombre();
+		
+        Algoformer ratchet = juego.getJugador1().getAlgoformers().get(2);//(0,4)
+        Algoformer rival = juego.getJugador2().getAlgoformers().get(1);
+        
+        ratchet.cambiarModo();
+        rival.cambiarModo();
+        
+        ratchet.mover(new Posicion(7,4));//la chispa esta en (4,4)
+        
+        Assert.assertEquals(juego.ganador(), nombre);
+    }
 }

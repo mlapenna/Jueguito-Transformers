@@ -18,10 +18,10 @@ public class Turno {
 	public void siguiente() {
         if (this.jugadorDelQueEsElTurno == this.jugador1) {
             this.jugadorDelQueEsElTurno = this.jugador2;
-            jugador1.chequearJuegoTerminado(jugador2);
+            if(jugador1.chequearJuegoTerminado(jugador2)) return;
         } else {
             this.jugadorDelQueEsElTurno = this.jugador1;
-            jugador2.chequearJuegoTerminado(jugador1);
+            if(jugador2.chequearJuegoTerminado(jugador1)) return;
         }
 
         if ( this.jugadorDelQueEsElTurno == null ) return; // Esto es desprolijo pero sino los tests entregables hay que refactorizarlos y no se si importan

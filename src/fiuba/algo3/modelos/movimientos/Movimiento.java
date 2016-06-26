@@ -53,7 +53,7 @@ public abstract class Movimiento {
 		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
 		int cantidadPasos = recorrido.size();
 		
-		for (int j=0; j>cantidadPasos; j++)
+		for (int j=0; j<cantidadPasos; j++)
 			if (!casilleroVacio(recorrido.get(j)))
 				throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
 		

@@ -21,6 +21,7 @@ public abstract class Algoformer extends Contenido {
 	protected Turno turno;
 	protected boolean movimientoDisminuido;
 	private boolean tieneLaChispa;
+	private boolean muerto;
 
 
 	public Algoformer(Posicion posicion, Tablero tablero, Turno turno) {
@@ -31,6 +32,7 @@ public abstract class Algoformer extends Contenido {
 		this.turno = turno;
 		this.movimientoDisminuido = false;
 		this.tieneLaChispa = false;
+		this.muerto = false;
 	}
 
 
@@ -83,10 +85,14 @@ public abstract class Algoformer extends Contenido {
 	
 	public void recibirAtaque(Algoformer algoformerAtacante) {
 		int vidaAux = this.getVida() - algoformerAtacante.getAtaque();
-		if (vidaAux < 0) vidaAux = 0;
+		if (vidaAux < 0){
+			this.eliminar();
+			return;
+		}
 		this.setVida(vidaAux);
 	}
-	
+
+
 	public void atacar(Algoformer algoformerObjetivo) {
 		this.validarQueEsMiTurno();
 		Ataque ataque = new Ataque();
@@ -207,6 +213,7 @@ public abstract class Algoformer extends Contenido {
 		this.modo = null;
 		this.posicion = null;
 		this.turno = null;
+		this.muerto = true;
 	}
 
 	public void agarroLaChispa(){
@@ -220,6 +227,11 @@ public abstract class Algoformer extends Contenido {
 
 	public Turno getTurno() {
 		return this.turno;
+	}
+
+
+	public boolean estaVivo() {
+		return !(this.muerto);
 	}
 
 }

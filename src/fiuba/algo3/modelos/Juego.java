@@ -7,6 +7,7 @@ public class Juego {
 
     private Jugador jugador1;
     private Jugador jugador2;
+    private String ganador;
 
     public Juego(JSONObject jsonTablero) {
 
@@ -30,10 +31,16 @@ public class Juego {
 	public void gano(Jugador ganador) {
 		System.out.println("GANO JUGADOR:\n");
 		System.out.println(ganador.nombre());
+		this.ganador = ganador.nombre();
 		this.jugador1.eliminar();
 		this.jugador2.eliminar();
 		this.jugador1 = null;
 		this.jugador2 = null;
+	}
+
+
+	public String ganador() {
+		return this.ganador;
 	}
 
 }
