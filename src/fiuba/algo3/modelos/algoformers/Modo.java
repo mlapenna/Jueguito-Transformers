@@ -15,7 +15,7 @@ public abstract class Modo {
 
     public Modo(Algoformer algoformer, Tablero tablero) {
         this.algoformer = algoformer;
-        this.movimiento = new MovimientoHumanoide(this.tablero);
+        this.movimiento = new MovimientoHumanoide(tablero);
         this.tablero = tablero;
         this.ataque = this.getAtaqueInicial();
     }
