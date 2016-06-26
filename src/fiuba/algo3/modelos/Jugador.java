@@ -153,9 +153,9 @@ public class Jugador {
 	
 
 	public void eliminar() {
-		Iterator<Algoformer> misAlgoformers = this.getAlgoformersIterator();
+		/*Iterator<Algoformer> misAlgoformers = this.getAlgoformersIterator();
 		while(misAlgoformers.hasNext())
-			misAlgoformers.next().eliminar();
+			misAlgoformers.next().eliminar();*/    //ESTA PARTE BORRA A LOS ALGOFORMERS; PERO LOS QUE MURIERON YA ESTAN BORRADOS Y HAY NULL POINTER
 		
 		this.tablero = null;
 		this.misAlgoformers = null;

@@ -114,7 +114,7 @@ public class IntegracionTest {
         Algoformer ratchet = algoformers.get(2);//(0,4)
         ratchet.cambiarModo();
         rival.cambiarModo();
-        ratchet.mover(new Posicion(3,4));
+        ratchet.mover(new Posicion(3,4));//esquivo la chispa en (4,4)
         rival.cambiarModo();
         ratchet.mover(new Posicion(3,6));
         rival.cambiarModo();
@@ -148,4 +148,51 @@ public class IntegracionTest {
         
         Assert.assertEquals(juego.ganador(), nombre);
     }
+
+	@Test
+	public void testGanarPorMatarAlgoformers() throws IOException, ParseException, AlgoformersNoAlineadosException,
+	                                                                        CantidadDeAlgoformersInsuficienteException {
+	
+		JSONParser parser = new JSONParser();
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
+		Juego juego = new Juego(jsonTablero);
+	
+		Jugador jugador1 = juego.getJugador1();
+		Jugador jugador2 = juego.getJugador2();
+		String nombre = jugador1.nombre();
+	    ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
+	    Algoformer rival = jugador2.getAlgoformers().get(1);
+	    Algoformer ratchet = algoformers.get(2);//(0,4)
+	    ratchet.cambiarModo();
+	    rival.cambiarModo();
+	    ratchet.mover(new Posicion(3,4));//esquivo la chispa en (4,4)
+	    rival.cambiarModo();
+	    ratchet.mover(new Posicion(3,7));
+	    rival.cambiarModo();
+	    ratchet.mover(new Posicion(7,7));
+	    
+	    for(int i=0; i<6; i++){
+	    	rival.cambiarModo();
+	    	ratchet.atacar(rival);
+	    }
+	    Assert.assertTrue(!rival.estaVivo());
+	    
+	    rival = jugador2.getAlgoformers().get(2);
+	    for(int i=0; i<12; i++){
+	    	rival.cambiarModo();
+	    	ratchet.atacar(rival);
+	    }
+	    Assert.assertTrue(!rival.estaVivo());
+	    
+	    rival = jugador2.getAlgoformers().get(0);
+	    rival.cambiarModo();
+	    ratchet.mover(new Posicion(7,4));
+	    for(int i=0; i<16; i++){
+	    	rival.cambiarModo();
+	    	ratchet.atacar(rival);
+	    }
+	    Assert.assertTrue(juego.ganador()==nombre);
+	    	
+	}
+
 }

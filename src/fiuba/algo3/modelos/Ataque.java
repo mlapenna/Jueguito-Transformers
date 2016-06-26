@@ -13,6 +13,7 @@ public class Ataque {
     }
     
     private void validarAtaque(Algoformer algoformerAtacante, Algoformer algoformerObjetivo) {
+
 		Posicion posicionOrigen = algoformerAtacante.getPosicion();
 		Posicion posicionDestino = algoformerObjetivo.getPosicion();
 		
