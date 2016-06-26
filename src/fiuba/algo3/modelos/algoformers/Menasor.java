@@ -39,14 +39,14 @@ public class Menasor extends Decepticon {
 
 	@Override
 	public Algoformer clonarAlgoformer() {
-		Algoformer clon = new Menasor(this.getPosicion(), this.tablero, this.turno);
+		Algoformer clon = new Menasor(this.getPosicion(), this.modo.getTablero(), this.turno);
 		this.copiarA(clon);
 		return clon;	
 	}
 
 	@Override
 	public Movimiento getMovimientoAlterno() {
-		return new MovimientoAlternoTerrestre(this.tablero);
+		return new MovimientoAlternoTerrestre(this.modo.getTablero());
 	}
 
 }

@@ -39,13 +39,13 @@ public class Superion extends Autobot {
 
 	@Override
 	public Algoformer clonarAlgoformer() {
-		Algoformer clon = new Superion(this.getPosicion(), this.tablero, this.turno);
+		Algoformer clon = new Superion(this.getPosicion(), this.modo.getTablero(), this.turno);
 		this.copiarA(clon);
 		return clon;	
 	}
 
 	@Override
 	public Movimiento getMovimientoAlterno() {
-		return new MovimientoAlternoTerrestre(this.tablero);
+		return new MovimientoAlternoTerrestre(this.modo.getTablero());
 	}
 }

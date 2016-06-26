@@ -41,14 +41,14 @@ public class Megatron extends Decepticon {
 	
 	@Override
 	public Algoformer clonarAlgoformer() {
-		Algoformer clon = new Megatron(this.getPosicion(), this.tablero, this.turno);
+		Algoformer clon = new Megatron(this.getPosicion(), this.modo.getTablero(), this.turno);
 		this.copiarA(clon);
 		return clon;	
 	}
 
 	@Override
 	public Movimiento getMovimientoAlterno() {
-		return new MovimientoAlternoAereo(this.tablero);
+		return new MovimientoAlternoAereo(this.modo.getTablero());
 	}
 
 

@@ -15,8 +15,8 @@ public abstract class Modo {
 
     public Modo(Algoformer algoformer, Tablero tablero) {
         this.algoformer = algoformer;
-        this.tablero = tablero;
         this.movimiento = new MovimientoHumanoide(this.tablero);
+        this.tablero = tablero;
         this.ataque = this.getAtaqueInicial();
     }
 
@@ -47,5 +47,9 @@ public abstract class Modo {
 	public void eliminar(Algoformer algoformer) {
 		this.tablero.quitarContenido(algoformer.getPosicion());
 		this.movimiento = null;
+	}
+
+	public Tablero getTablero() {
+		return this.tablero;
 	}
 }

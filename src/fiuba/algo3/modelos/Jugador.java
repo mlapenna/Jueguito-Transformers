@@ -14,12 +14,14 @@ public class Jugador {
     private ArrayList<Algoformer> misAlgoformers;
     private Tablero tablero;
     private int modo;
+    private Juego juego;
 
-    public Jugador(String nombre, int modo, Tablero tablero, Turno turno) {
+    public Jugador(String nombre, int modo, Tablero tablero, Turno turno, Juego juego) {
         this.nombre = nombre;
         this.tablero = tablero;
         this.misAlgoformers = new ArrayList<Algoformer>();
         this.modo = modo;
+        this.juego = juego;
         this.agregarAlgoformersAlTablero(modo, turno);
     }
 
@@ -126,18 +128,28 @@ public class Jugador {
 		return (this.getAlgoformers().size() == 0);
 	}
 
-
-	public void gano() {
-		
-	}
-
     public void chequearJuegoTerminado(Jugador otroJugador) {
         if (this.noLeQuedanAlgoformers())
-        	otroJugador.gano();
+        	this.juego.gano(otroJugador);
         
     	Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
         while (algoformers.hasNext()) 
         	if (algoformers.next().tieneLaChispa())
-        		this.gano();
+        		this.juego.gano(this);
+	}
+
+	public String nombre() {
+		return this.nombre;
+	}
+	
+
+	public void eliminar() {
+		Iterator<Algoformer> misAlgoformers = this.getAlgoformersIterator();
+		while(misAlgoformers.hasNext())
+			misAlgoformers.next().eliminar();
+		
+		this.tablero = null;
+		this.misAlgoformers = null;
+		this.juego = null;
 	}
 }

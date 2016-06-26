@@ -15,7 +15,6 @@ public abstract class Algoformer extends Contenido {
 	protected int vida;
 	protected Posicion posicion;
 	protected int turnosInmovil;
-	protected Tablero tablero;
 	protected boolean afectadoPorTormentaPsionica = false;
 	protected Modo modo;
 	protected int ataqueAfectado;
@@ -26,7 +25,7 @@ public abstract class Algoformer extends Contenido {
 
 	public Algoformer(Posicion posicion, Tablero tablero, Turno turno) {
 		this.posicion = posicion;
-		this.tablero = tablero;
+
 		this.modo = new ModoHumanoide(this, tablero);
 		this.hayAlgo = true;
 		this.turno = turno;
@@ -160,11 +159,11 @@ public abstract class Algoformer extends Contenido {
 		this.validarQueEsMiTurno();
 
 		if (this.modo.esHumanoide()) {
-			this.modo = new ModoAlterno(this, this.tablero);
+			this.modo = new ModoAlterno(this, this.modo.getTablero());
 			if (this.afectadoPorTormentaPsionica())
 				this.afectarAtaque(this.ataqueAfectado());
 		} else {
-			this.modo = new ModoHumanoide(this, this.tablero);
+			this.modo = new ModoHumanoide(this, this.modo.getTablero());
 		}
 
 		this.turno.siguiente();
@@ -175,8 +174,8 @@ public abstract class Algoformer extends Contenido {
 	}
 
 
-	public Movimiento getMovimientoHumanoide() {
-		return new MovimientoHumanoide(this.tablero);
+	public Movimiento getMovimientoHumanoide(Tablero tablero) {
+		return new MovimientoHumanoide(tablero);
 	}
 
 	public abstract Movimiento getMovimientoAlterno();
@@ -207,6 +206,8 @@ public abstract class Algoformer extends Contenido {
 	public void eliminar() {
 		this.modo.eliminar(this);
 		this.modo = null;
+		this.posicion = null;
+		this.turno = null;
 	}
 
 	public void agarroLaChispa(){

@@ -43,14 +43,14 @@ public class Optimus extends Autobot {
 
 	@Override
 	public Algoformer clonarAlgoformer() {
-		Algoformer clon = new Optimus(this.getPosicion(), this.tablero, this.turno);
+		Algoformer clon = new Optimus(this.getPosicion(), this.modo.getTablero(), this.turno);
 		this.copiarA(clon);
 		return clon;	
 	}
 
 	@Override
 	public Movimiento getMovimientoAlterno() {
-		return new MovimientoAlternoTerrestre(this.tablero);
+		return new MovimientoAlternoTerrestre(this.modo.getTablero());
 	}
 
 

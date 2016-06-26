@@ -6,7 +6,7 @@ public class ModoHumanoide extends Modo {
 
     public ModoHumanoide(Algoformer algoformer, Tablero tablero) {
         super(algoformer, tablero);
-        this.movimiento = algoformer.getMovimientoHumanoide();
+        this.movimiento = algoformer.getMovimientoHumanoide(tablero);
     }
 
     public int getAtaqueInicial() {

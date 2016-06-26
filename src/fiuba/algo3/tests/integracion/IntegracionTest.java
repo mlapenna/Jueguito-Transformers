@@ -51,7 +51,7 @@ public class IntegracionTest {
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
         Tablero tablero = new Tablero(jsonTablero);
 		Turno turno = new Turno();
-		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, tablero, turno); //ALGOFORMERS EN Y=0 Y=2 Y=4
+		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, tablero, turno, new Juego(jsonTablero)); //ALGOFORMERS EN Y=0 Y=2 Y=4
 
 		jugador1.combinarAlgoformers(turno);
     }
@@ -63,7 +63,7 @@ public class IntegracionTest {
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
         Tablero tablero = new Tablero(jsonTablero);
 		Turno turno = new Turno();
-		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, tablero, turno); //ALGOFORMERS EN Y=0 Y=2 Y=4
+		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, tablero, turno, new Juego(jsonTablero)); //ALGOFORMERS EN Y=0 Y=2 Y=4
 
 		Posicion posicion1 = new Posicion(0,1);
 		Posicion posicion2 = new Posicion(0,3);
