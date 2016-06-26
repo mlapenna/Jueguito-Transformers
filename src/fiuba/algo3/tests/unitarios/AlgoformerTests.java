@@ -28,7 +28,7 @@ public class AlgoformerTests {
 	@Test(expected=AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion.class)
 	public void testValidarQueNoSePuedenAtacarASuMismoEquipo() throws FileNotFoundException, IOException, ParseException {
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		
 		Posicion posOptimus = new Posicion(1,1);
@@ -46,7 +46,7 @@ public class AlgoformerTests {
 	@Test(expected=AlgoformerInmovilizadoExcepcion.class)
 	public void testValidarQueNoSePuedenMoverCuandoEstaAtrapado() throws FileNotFoundException, IOException, ParseException {
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
 		Tablero tablero = new Tablero(jsonTablero);
 		
 		Posicion posDestino = new Posicion(2,1);

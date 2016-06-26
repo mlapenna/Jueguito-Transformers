@@ -201,26 +201,28 @@ public class e0613Test {
 
 	@Test
 	public void testLlenarZonaRocasYHacerPasarAMegatronAlternoPorElla() throws IOException, ParseException {
-/* NULL POINTER
+
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
 		Juego juego = new Juego(jsonTablero);
 
-		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
-		Jugador jugador2 = juego.getJugador2();
-		ArrayList<Algoformer> algoformers = jugador2.getAlgoformers();
-		Algoformer megatron = algoformers.get(0); //en (8,4) esta
-		int vidaOriginal = megatron.getVida();
-		
-		Posicion posicionDestino = new Posicion(1,4);
+		// Turno 1
+		Algoformer unRobotJugador1 = juego.getJugador1().getAlgoformers().get(0);
+		unRobotJugador1.cambiarModo();
 
+		Algoformer megatron = juego.getJugador2().getAlgoformers().get(0); //en (8,4) esta
+		int vidaOriginal = megatron.getVida();
+		Posicion posicionDestino = new Posicion(6, 4);
 		megatron.cambiarModo();
-		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
+
+		// TURNO 2
+		unRobotJugador1.cambiarModo();
 		megatron.mover(posicionDestino);
 
 		Assert.assertEquals(megatron.getPosicion(), posicionDestino);
-		Assert.assertEquals(vidaOriginal, megatron.getVida());*/
+		Assert.assertEquals(vidaOriginal, megatron.getVida());
 	}
+
 
 	@Test
 	public void testLlenarZonaRocasYHacerPasarABonecrusherHumanoidePorElla() throws IOException, ParseException {
@@ -622,28 +624,31 @@ public class e0613Test {
 	public void testLlenarZonaTormentaPsionicaYVerificarQueUnidadesAereasYPasarDosVecesYVerQueNoDismunyenMasSuCapacidadDeAtaque()
 			throws IOException, ParseException {
 
-/* NULL POINTER
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaTormentaPsionica.json"));
 		Juego juego = new Juego(jsonTablero);
 
-		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
+		// Turno 1
+		Algoformer unRobotJugador1 = juego.getJugador1().getAlgoformers().get(0);
+		unRobotJugador1.cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
-		ArrayList<Algoformer> algoformers = jugador2.getAlgoformers();
-		Algoformer megatron = algoformers.get(0);
+		ArrayList<Algoformer> algoformersJugador2 = jugador2.getAlgoformers();
+		Algoformer megatron = algoformersJugador2.get(0);
 
 		megatron.cambiarModo();
-		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
+
+		// Turno 2
+		unRobotJugador1.cambiarModo();
 		
 		double ataqueInicial = (double) megatron.getAtaque();
-		megatron.mover(new Posicion(6,4));
+		megatron.mover(new Posicion(6, 4));
 
 		int ataqueEsperado = (int) (ataqueInicial * 0.4);
-		
-		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
-		megatron.mover(new Posicion(4,4));
 
-		Assert.assertEquals(megatron.getAtaque(), ataqueEsperado);*/
+		// Turno 3
+		unRobotJugador1.cambiarModo();
+
+		Assert.assertEquals(megatron.getAtaque(), ataqueEsperado);
 	}
 
 }

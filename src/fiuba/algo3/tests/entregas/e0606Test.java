@@ -45,7 +45,7 @@ public class e0606Test {
 	public void testAgregarAlgoformerAlternoMoverYVerificarPosicion() throws IOException, ParseException {
 
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
 		Juego juego = new Juego(jsonTablero);
 
 		Jugador jugador1 = juego.getJugador1();
@@ -61,37 +61,44 @@ public class e0606Test {
 	}
 
 
-/*	@Test(expected=MovimientoInvalidoDistanciaNoValidaExcepcion.class)
+	@Test(expected=MovimientoInvalidoDistanciaNoValidaExcepcion.class)
 	public void testAgregarAlgoformerYCambiarDeModoEnAmbasDirecciones() throws IOException, ParseException {
 		
 		JSONParser parser = new JSONParser();
-		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestSinZonas.json"));
+		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
 		Juego juego = new Juego(jsonTablero);
 
-		Jugador jugador1 = juego.getJugador1();
-		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
-		Algoformer unRobotJugador1 = robotsJugador1.next();
+		Algoformer optimusJugador1 = juego.getJugador1().getAlgoformers().get(0); // En 0,0
+		Algoformer unRobotJugador2 = juego.getJugador2().getAlgoformers().get(0);
 		
-		Posicion posicionDestino = new Posicion(4,0);
+		Posicion posicionDestino = new Posicion(2,0); // Máxima distancia válida
 		
-		unRobotJugador1.cambiarModo();
-		
-		unRobotJugador1.mover(posicionDestino);
+		// Turno 1
+		optimusJugador1.mover(posicionDestino);
+		unRobotJugador2.cambiarModo(); // Este no importa
 
-		Assert.assertEquals(unRobotJugador1.getPosicion(), posicionDestino);
-		
-		unRobotJugador1.cambiarModo();
-		
-		Posicion ultimaPosicionHumanoide = new Posicion (6,0);
-		unRobotJugador1.mover(ultimaPosicionHumanoide);
+		Assert.assertEquals(optimusJugador1.getPosicion(), posicionDestino);
 
-		Assert.assertEquals(unRobotJugador1.getPosicion(), ultimaPosicionHumanoide);
+		// Siguiente turno
+		optimusJugador1.cambiarModo(); // Paso a alterno
+		unRobotJugador2.cambiarModo(); // Este no importa
 
-		Posicion posicionInvalidaHumanoide = new Posicion (9,0);
-		unRobotJugador1.mover(ultimaPosicionHumanoide);
+		// Siguiente turno
+		posicionDestino.setCoordenadas(7, 0);  // Máxima distancia válida
+		optimusJugador1.mover(posicionDestino);
+		unRobotJugador2.cambiarModo(); // Este no importa
 
+		Assert.assertEquals(optimusJugador1.getPosicion(), posicionDestino);
+
+		// Siguiente turno
+		optimusJugador1.cambiarModo(); // Paso a humanoide
+		unRobotJugador2.cambiarModo(); // Este no importa
+
+		// Siguiente turno
+		posicionDestino.setCoordenadas(7, 3);
+		optimusJugador1.mover(posicionDestino); // Trato de moverlo 3 casilleros en humanoide, pero su velocidad es 2
 	}
-*/
+
 
 	@Test
 	public void testAutobotAtacaDecepticonConDanos() throws IOException, ParseException {
