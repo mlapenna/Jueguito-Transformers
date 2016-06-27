@@ -13,12 +13,12 @@ import fiuba.algo3.modelos.superficies.*;
 
 public class CasilleroVista extends StackPane{
 
-    static final Image imagenRocas = new Image("file:imagenes/superficie_roca.png");
-    static final Image imagenPantano = new Image("file:imagenes/superficie_pantano.png");
-    static final Image imagenEspinas = new Image("file:imagenes/superficie_espina.png");
-    static final Image imagenNube = new Image("file:imagenes/superficie_nube.png");
-    static final Image imagenNebulosa = new Image("file:imagenes/superficie_nebulosa.png");
-    static final Image imagenTormenta = new Image("file:imagenes/superficie_tormenta_psionica.png");
+    static final Image imagenRocas = new Image("file:imagenes/img/rocas.png");
+    static final Image imagenPantano = new Image("file:imagenes/img/pantano1.png");
+    static final Image imagenEspinas = new Image("file:imagenes/img/espinas.png");
+    static final Image imagenNube = new Image("file:imagenes/img/nube.png");
+    static final Image imagenNebulosa = new Image("file:imagenes/img/nebulosa.png");
+    static final Image imagenTormenta = new Image("file:imagenes/img/tormenta.png");
 
     private final ImageView imageView = new ImageView();
     private Casillero casillero;
