@@ -24,7 +24,7 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
-			Juego juego = new Juego(jsonTablero);
+			Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 			Jugador jugador1 = juego.getJugador1();
 			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
 
@@ -46,7 +46,7 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
-			Juego juego = new Juego(jsonTablero);
+			Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 			Jugador jugador1 = juego.getJugador1();
 			Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
@@ -76,7 +76,7 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestAtaques.json"));
-			Juego juego = new Juego(jsonTablero);
+			Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 			Jugador jugador1 = juego.getJugador1();
 			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
@@ -105,7 +105,7 @@ public class NoEsElTurnoDelJugadorExcepcionTest {
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestAtaques.json"));
-			Juego juego = new Juego(jsonTablero);
+			Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 			Jugador jugador1 = juego.getJugador1();
 			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();

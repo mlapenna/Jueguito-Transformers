@@ -63,7 +63,7 @@ public class AlgoformerTests {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();

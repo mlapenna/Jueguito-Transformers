@@ -13,5 +13,7 @@ public class ChispaTest {
 		Assert.assertTrue(chispa.esChispa());
 		Assert.assertTrue(chispa.hayAlgo());
 	}
+	
+	//TEST GANAR POR CHISPA EN INTEGRADORES
 
 }

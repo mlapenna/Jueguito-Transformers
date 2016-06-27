@@ -51,7 +51,7 @@ public class IntegracionTest {
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
         Tablero tablero = new Tablero(jsonTablero);
 		Turno turno = new Turno();
-		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, turno, new Juego(jsonTablero)); //ALGOFORMERS EN Y=0 Y=2 Y=4
+		Jugador jugador1 = new Jugador("pepe", Algoformer.MODO_AUTOBOT, turno, new Juego(jsonTablero, "Pedro", "Juan")); //ALGOFORMERS EN Y=0 Y=2 Y=4
 
 		jugador1.combinarAlgoformers(turno);
     }
@@ -62,7 +62,7 @@ public class IntegracionTest {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Jugador jugador2 = juego.getJugador2();
@@ -91,7 +91,7 @@ public class IntegracionTest {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Assert.assertTrue(juego.getTablero().getContenido(juego.getTablero().posicionCentro()).esChispa());
 		
@@ -103,7 +103,7 @@ public class IntegracionTest {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Jugador jugador2 = juego.getJugador2();
@@ -134,7 +134,7 @@ public class IntegracionTest {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 		String nombre = juego.getJugador1().nombre();
 		
         Algoformer ratchet = juego.getJugador1().getAlgoformers().get(2);//(0,4)
@@ -154,7 +154,7 @@ public class IntegracionTest {
 	
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 	
 		Jugador jugador1 = juego.getJugador1();
 		Jugador jugador2 = juego.getJugador2();

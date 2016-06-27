@@ -26,7 +26,7 @@ public class e0606Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaNebulosaDeAndromeda.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
@@ -46,7 +46,7 @@ public class e0606Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
@@ -66,7 +66,7 @@ public class e0606Test {
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Algoformer optimusJugador1 = juego.getJugador1().getAlgoformers().get(0); // En 0,0
 		Algoformer unRobotJugador2 = juego.getJugador2().getAlgoformers().get(0);
@@ -105,7 +105,7 @@ public class e0606Test {
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestAtaques.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
@@ -130,7 +130,7 @@ public class e0606Test {
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestAtaques.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();

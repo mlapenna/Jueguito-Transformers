@@ -31,7 +31,7 @@ public class JuegoVista extends Application {
         JSONParser parser = new JSONParser();
         FileReader fileReader = new FileReader("mapas/mapaParaJugar.json");
         JSONObject jsonTablero = (JSONObject) parser.parse(fileReader);
-        Juego juego = new Juego(jsonTablero);
+        Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 
        TableroVista tableroVista = new TableroVista(juego.getTablero());

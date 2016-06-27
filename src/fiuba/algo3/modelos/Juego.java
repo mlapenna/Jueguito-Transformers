@@ -10,13 +10,13 @@ public class Juego {
     private String ganador;
     private Tablero tablero;
 
-    public Juego(JSONObject jsonTablero) {
+    public Juego(JSONObject jsonTablero, String nombreJugador1, String nombreJugador2) {
 
         this.tablero = new Tablero(jsonTablero);
         tablero.setContenido(this.tablero.posicionCentro(), new ChispaSuprema());
         Turno turno = new Turno();
-        this.jugador1 = new Jugador("Pedro", Algoformer.MODO_AUTOBOT, turno, this);
-        this.jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, turno, this);
+        this.jugador1 = new Jugador(nombreJugador1, Algoformer.MODO_AUTOBOT, turno, this);
+        this.jugador2 = new Jugador(nombreJugador2, Algoformer.MODO_DECEPTICON, turno, this);
         turno.setJugadores(jugador1, jugador2);
     }
 

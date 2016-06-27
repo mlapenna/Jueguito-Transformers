@@ -30,7 +30,7 @@ public class e0613Test {
 		//9x9 el mapa
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
@@ -50,7 +50,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
@@ -72,7 +72,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
@@ -94,7 +94,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
@@ -114,7 +114,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
@@ -134,7 +134,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
@@ -156,7 +156,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
@@ -183,7 +183,7 @@ public class e0613Test {
 		//9x9 el mapa
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -204,7 +204,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		// Turno 1
 		Algoformer unRobotJugador1 = juego.getJugador1().getAlgoformers().get(0);
@@ -229,7 +229,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -249,7 +249,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -272,7 +272,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -292,7 +292,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -314,7 +314,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -342,7 +342,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -359,7 +359,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		ArrayList<Algoformer> algoformers = jugador1.getAlgoformers();
@@ -380,7 +380,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
@@ -413,7 +413,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -436,7 +436,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaEspinas.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -460,7 +460,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaEspinas.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -487,7 +487,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaEspinas.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -511,7 +511,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaNubes.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -534,7 +534,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaNebulosaDeAndromeda.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		Jugador jugador1 = juego.getJugador1();
 		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
@@ -606,7 +606,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaTormentaPsionica.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		Jugador jugador2 = juego.getJugador2();
@@ -632,7 +632,7 @@ public class e0613Test {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaTormentaPsionica.json"));
-		Juego juego = new Juego(jsonTablero);
+		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 		// Turno 1
 		Algoformer unRobotJugador1 = juego.getJugador1().getAlgoformers().get(0);
