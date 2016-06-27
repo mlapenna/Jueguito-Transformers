@@ -1,5 +1,7 @@
 package fiuba.algo3.vistas;
 
+import fiuba.algo3.modelos.Juego;
+import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.Tablero;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -28,9 +30,10 @@ public class JuegoVista extends Application {
         JSONParser parser = new JSONParser();
         FileReader fileReader = new FileReader("mapas/mapaParaJugar.json");
         JSONObject jsonTablero = (JSONObject) parser.parse(fileReader);
-        Tablero tablero = new Tablero(jsonTablero);
+        Juego juego = new Juego(jsonTablero);
 
-		TableroVista tableroVista = new TableroVista(tablero);
+
+       TableroVista tableroVista = new TableroVista(juego.getTablero());
 
 		MouseClickHandler mouseClickHandler = new MouseClickHandler(tableroVista);
 
@@ -55,10 +58,10 @@ public class JuegoVista extends Application {
 		HBox contenedorHorizontal = new HBox(moverButton, atacarButton, combinarButton, cambiarMapaButton);
 
 		contenedorHorizontal.setSpacing(10);
-		CambiarMapaButtonHandler cambiarMapaButtonHandler = new CambiarMapaButtonHandler(tableroVista, tablero);
+		CambiarMapaButtonHandler cambiarMapaButtonHandler = new CambiarMapaButtonHandler(tableroVista, juego.getTablero() );
 
 		cambiarMapaButton.setOnAction(cambiarMapaButtonHandler);
-		System.out.println(tablero.getActualSkin());
+		//System.out.println(tablero.getActualSkin());
 		VBox contenedorPrincipal = new VBox(tableroVista,contenedorHorizontal);
 		contenedorPrincipal.setSpacing(10);
 		contenedorPrincipal.setPadding(new Insets(20));

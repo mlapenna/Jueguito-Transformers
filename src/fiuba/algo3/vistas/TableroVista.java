@@ -27,9 +27,6 @@ import fiuba.algo3.modelos.Casillero;
 
 public class TableroVista extends GridPane {
 	
-	private static final String INICIAL = "inicial";
-	private static final String FINAL = "final";
-
 	public static final int ACCION_NADA = 0;
 	public static final int ACCION_MOVER = 1;
 	public static final int ACCION_ATACAR = 2;
@@ -52,13 +49,13 @@ public class TableroVista extends GridPane {
     }
 
 
-    private void llenarCadaCuadradoDelGridPane(Tablero tablero) {
+    public void llenarCadaCuadradoDelGridPane(Tablero tablero) {
         String skinRequerido = tablero.getActualSkin();
 
         for (int i = 0; i < tablero.getDimensionX(); i++) {
             for (int j = 0; j < tablero.getDimensionY(); j++) {
                 Posicion posicion = new Posicion(i,j);
-            	System.out.println(tablero.getCasillero(posicion).estaVacio());
+            	//System.out.println(tablero.getCasillero(posicion).estaVacio());
 
                 if(!tablero.getCasillero(posicion).estaVacio()) {
                 	if(!tablero.getCasillero(posicion).getContenido().esChispa())
@@ -75,7 +72,7 @@ public class TableroVista extends GridPane {
                 } else {
                 	tablero.getCasillero(posicion).setActualSkin(skinRequerido);
                 	CasilleroVista nuevoCasilleroVista = new CasilleroVista(tablero.getCasillero(posicion),tablero.getCasillero(posicion).getSuperficie(skinRequerido).getNombreJSON());
-                	System.out.println("Superficie seleccionada en casillero :"+tablero.getCasillero(posicion).getSuperficie(skinRequerido).getNombreJSON());
+                	//System.out.println("Superficie seleccionada en casillero :"+tablero.getCasillero(posicion).getSuperficie(skinRequerido).getNombreJSON());
                 	this.add(nuevoCasilleroVista,i,j);
                 }
             }
@@ -88,114 +85,118 @@ public class TableroVista extends GridPane {
 		tablero.setProximoSkin(actualSkin);
 	}
 	
-//	public Tablero getTablero() {
-//		return this.tablero;
-//	}
-	
-	public void actualizarTableroVista() {
-		this.llenarCadaCuadradoDelGridPane(this.tablero);
-	}
 
-	public void dosPosicionesCliqueadas(Posicion posicionInicial, Posicion posicionFinal) {
-		Casillero inicial = tablero.getCasillero(posicionInicial);
-		Casillero ultimo = tablero.getCasillero(posicionFinal);
+	public void realizarAccion(Posicion posicionInicial, Posicion posicionFinal) {
+		Casillero casilleroInicial = tablero.getCasillero(posicionInicial);
+		Casillero casilleroDestino = tablero.getCasillero(posicionFinal);
 
 		switch (this.proximaAccion) {
 			case TableroVista.ACCION_MOVER:
-				try{
-					if(!ultimo.estaVacio() || inicial.estaVacio()) throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
-					if(!inicial.estaVacio() && !inicial.getContenido().esChispa()) {
-						((Algoformer)inicial.getContenido()).mover(posicionFinal);
+
+				try {
+					if (casilleroInicial.estaVacio() || !casilleroDestino.estaVacio()) {
+                        throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
+                    }
+
+					if (!casilleroInicial.estaVacio() && !casilleroInicial.getContenido().esChispa()) {
+						( (Algoformer) casilleroInicial.getContenido() ).mover(posicionFinal);
+
 						System.out.println("MOVER DE " + posicionInicial.getX() + "," + posicionFinal.getY()+" a "
 							+ posicionFinal.getX() + "," + posicionFinal.getY());
-					}
-					else
-					{
+					} else {
 						throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 					}
-		    	}
-		        catch (MovimientoInvalidoCasilleroOcupadoExcepcion movimientoInvalidoCasilleroOcupadoExcepcion) {
+
+				} catch (MovimientoInvalidoCasilleroOcupadoExcepcion movimientoInvalidoCasilleroOcupadoExcepcion) {
+
 		        	new AlertHandler(
 		        			movimientoInvalidoCasilleroOcupadoExcepcion.getExcepcionTitulo(),
 		        			movimientoInvalidoCasilleroOcupadoExcepcion.getExcepcionHeader(),
 		        			movimientoInvalidoCasilleroOcupadoExcepcion.getExcepcionContent());
-		        }
-		        catch (MovimientoInvalidoDistanciaNoValidaExcepcion movimientoInvalidoDistanciaNoValidaExcepcion) {
+
+				} catch (MovimientoInvalidoDistanciaNoValidaExcepcion movimientoInvalidoDistanciaNoValidaExcepcion) {
 		        	new AlertHandler(
 		        			movimientoInvalidoDistanciaNoValidaExcepcion.getExcepcionTitulo(),
 		        			movimientoInvalidoDistanciaNoValidaExcepcion.getExcepcionHeader(),
 		        			movimientoInvalidoDistanciaNoValidaExcepcion.getExcepcionContent());
-		        }
-		        catch (MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion) {
+
+				} catch (MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion) {
 		        	new AlertHandler(
 		        			movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion.getExcepcionTitulo(),
 		        			movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion.getExcepcionHeader(),
 		        			movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion.getExcepcionContent());
-		        }
-		        catch (AlgoformerInmovilizadoExcepcion algoformerInmovilizadoExcepcion) {    		
-		        	new AlertHandler(
-		        			algoformerInmovilizadoExcepcion.getExcepcionTitulo(),
-		        			algoformerInmovilizadoExcepcion.getExcepcionHeader(),
-		        			algoformerInmovilizadoExcepcion.getExcepcionContent());}
-		        catch (MovimientoInvalidoCasilleroInvalidoExcepcion movimientoInvalidoCasilleroInvalidoExcepcion) {
+
+				} catch (AlgoformerInmovilizadoExcepcion algoformerInmovilizadoExcepcion) {
+					new AlertHandler(
+							algoformerInmovilizadoExcepcion.getExcepcionTitulo(),
+							algoformerInmovilizadoExcepcion.getExcepcionHeader(),
+							algoformerInmovilizadoExcepcion.getExcepcionContent());
+
+				} catch (MovimientoInvalidoCasilleroInvalidoExcepcion movimientoInvalidoCasilleroInvalidoExcepcion) {
 		        	new AlertHandler(
 		        			movimientoInvalidoCasilleroInvalidoExcepcion.getExcepcionTitulo(),
 		        			movimientoInvalidoCasilleroInvalidoExcepcion.getExcepcionHeader(),
 		        			movimientoInvalidoCasilleroInvalidoExcepcion.getExcepcionContent());
-		        }
-		        catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
+
+				} catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
 		        	new AlertHandler(
 		        			noEsElTurnoDelJugadorExcepcion.getExcepcionTitulo(),
 		        			noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
 		        			noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
-		        }
-		        catch (Exception e) {
+
+				} catch (Exception e) {
 		        	String titulo = "Ha ocurrido un error que no es reconocido.";
-		        	String header = "Ha ocurrido un error que no es reconocido.";
-		        	String content = "Ha ocurrido un error que no es reconocido.";
-		        	new AlertHandler(titulo,header,content);
+		        	String header = titulo;
+		        	String content = titulo;
+		        	new AlertHandler(titulo, header, content);
 		        };				
 				
 				break;
+
 			case TableroVista.ACCION_ATACAR:
-				try{
-					if(ultimo.estaVacio() || inicial.estaVacio()) throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
-					if(!inicial.estaVacio() && !inicial.getContenido().esChispa() && !ultimo.estaVacio() && !ultimo.getContenido().esChispa()) 
-					{
-						((Algoformer)inicial.getContenido()).atacar((Algoformer)ultimo.getContenido());
+				try {
+					if (casilleroDestino.estaVacio() || casilleroInicial.estaVacio()) throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
+
+					if (!casilleroInicial.estaVacio()
+						&& !casilleroInicial.getContenido().esChispa()
+						&& !casilleroDestino.estaVacio() &&
+						!casilleroDestino.getContenido().esChispa()) {
+
+						( (Algoformer) casilleroInicial.getContenido() ).atacar( (Algoformer) casilleroDestino.getContenido());
+
 						System.out.println("ATACAR DE " + posicionInicial.getX() + "," + posicionFinal.getY()+" a "
 								+ posicionFinal.getX() + "," + posicionFinal.getY());
-					}
-					else
-					{
+
+					} else {
 						throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 					}
-				}
-			   	catch (AtaqueInvalidoDistanciaInsuficienteExcepcion ataqueInvalidoDistanciaInsuficienteExcepcion) {
+
+				} catch (AtaqueInvalidoDistanciaInsuficienteExcepcion ataqueInvalidoDistanciaInsuficienteExcepcion) {
 			   		new AlertHandler(
 			   				ataqueInvalidoDistanciaInsuficienteExcepcion.getExcepcionTitulo(),
 			   				ataqueInvalidoDistanciaInsuficienteExcepcion.getExcepcionHeader(),
 			   				ataqueInvalidoDistanciaInsuficienteExcepcion.getExcepcionContent());
-			   	}
-			   	catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
+
+			   	} catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
 			   		new AlertHandler(
 			   				noEsElTurnoDelJugadorExcepcion.getExcepcionTitulo(),
 			   				noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
 			  				noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
-			   	}
-			   	catch (AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion) {
+
+			   	} catch (AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion) {
 			   		new AlertHandler(
 			   				ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion.getExcepcionTitulo(),
 			   				ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion.getExcepcionHeader(),
 			   				ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion.getExcepcionContent());
-			   	}
-				catch (Exception e) {
+
+			   	} catch (Exception e) {
 					String titulo = "Ha ocurrido un error que no es reconocido.";
 					String header = "Ha ocurrido un error que no es reconocido.";
 					String content = "Ha ocurrido un error que no es reconocido.";
 					new AlertHandler(titulo,header,content);
 				}
 				break;
+
 			default:
 				// Nada, se olvid� de cliquear ATACAR o MOVER
 				break;

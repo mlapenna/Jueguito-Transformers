@@ -12,13 +12,11 @@ public class Jugador {
 
     private String nombre;
     private ArrayList<Algoformer> misAlgoformers;
-    private Tablero tablero;
     private int modo;
     private Juego juego;
 
-    public Jugador(String nombre, int modo, Tablero tablero, Turno turno, Juego juego) {
+    public Jugador(String nombre, int modo, Turno turno, Juego juego) {
         this.nombre = nombre;
-        this.tablero = tablero;
         this.misAlgoformers = new ArrayList<Algoformer>();
         this.modo = modo;
         this.juego = juego;
@@ -38,9 +36,9 @@ public class Jugador {
                 posicion2 = new Posicion(0, 2);
                 posicion3 = new Posicion(0, 4);
 
-                Optimus optimus = new Optimus(posicion1, tablero, turno);
-                BumbleBee bumbleBee = new BumbleBee(posicion2, tablero, turno);
-                Ratchet ratchet = new Ratchet(posicion3, tablero, turno);
+                Optimus optimus = new Optimus(posicion1, this.juego.getTablero(), turno);
+                BumbleBee bumbleBee = new BumbleBee(posicion2, this.juego.getTablero(), turno);
+                Ratchet ratchet = new Ratchet(posicion3, this.juego.getTablero(), turno);
 
                 this.misAlgoformers.add(optimus);
                 this.misAlgoformers.add(bumbleBee);
@@ -49,13 +47,13 @@ public class Jugador {
                 break;
             case Algoformer.MODO_DECEPTICON:
                 // Esquina inferior derecha
-                posicion1 = new Posicion(this.tablero.getDimensionX() - 1, this.tablero.getDimensionY() - 5);
-                posicion2 = new Posicion(this.tablero.getDimensionX() - 1, this.tablero.getDimensionY() - 3);
-                posicion3 = new Posicion(this.tablero.getDimensionX() - 1, this.tablero.getDimensionY() - 1);
+                posicion1 = new Posicion(this.juego.getTablero().getDimensionX() - 1, this.juego.getTablero().getDimensionY() - 5);
+                posicion2 = new Posicion(this.juego.getTablero().getDimensionX() - 1, this.juego.getTablero().getDimensionY() - 3);
+                posicion3 = new Posicion(this.juego.getTablero().getDimensionX() - 1, this.juego.getTablero().getDimensionY() - 1);
 
-                Megatron megatron = new Megatron(posicion1, tablero, turno);
-                Bonecrusher bonecrusher = new Bonecrusher(posicion2 ,tablero, turno);
-                Frenzy frenzy = new Frenzy(posicion3, tablero, turno);
+                Megatron megatron = new Megatron(posicion1, this.juego.getTablero(), turno);
+                Bonecrusher bonecrusher = new Bonecrusher(posicion2 ,this.juego.getTablero(), turno);
+                Frenzy frenzy = new Frenzy(posicion3, this.juego.getTablero(), turno);
 
                 this.misAlgoformers.add(megatron);
                 this.misAlgoformers.add(bonecrusher);
@@ -112,18 +110,13 @@ public class Jugador {
     	
     	switch(this.modo){
     		case(Algoformer.MODO_AUTOBOT):
-    			this.misAlgoformers.add(new Superion(posicionDelMedio,this.tablero,turno));break;
+    			this.misAlgoformers.add(new Superion(posicionDelMedio,this.juego.getTablero(),turno));break;
     		case(Algoformer.MODO_DECEPTICON):
-    			this.misAlgoformers.add(new Menasor(posicionDelMedio,this.tablero,turno));break;
+    			this.misAlgoformers.add(new Menasor(posicionDelMedio,this.juego.getTablero(),turno));break;
     	}
     	this.misAlgoformers.get(0).afectarVida(contadorDeVida); //HARDCODE
     }
     
-    public Tablero tablero(){ //es para un test en integracion, se puede eliminar y cambiar el test
-    	return this.tablero;
-    }
-
-
 	public boolean noLeQuedanAlgoformers() {
 		Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
 		boolean perdio = true;
@@ -156,8 +149,7 @@ public class Jugador {
 		/*Iterator<Algoformer> misAlgoformers = this.getAlgoformersIterator();
 		while(misAlgoformers.hasNext())
 			misAlgoformers.next().eliminar();*/    //ESTA PARTE BORRA A LOS ALGOFORMERS; PERO LOS QUE MURIERON YA ESTAN BORRADOS Y HAY NULL POINTER
-		
-		this.tablero = null;
+
 		this.misAlgoformers = null;
 		this.juego = null;
 	}

@@ -19,9 +19,6 @@ public class MouseClickHandler {
 
 	private TableroVista tableroVista;
 
-	private static final String INICIAL = "inicial";
-	private static final String FINAL = "inicial";
-
 	public MouseClickHandler(TableroVista tableroVista) {
 
 		this.tableroVista = tableroVista;
@@ -39,19 +36,18 @@ public class MouseClickHandler {
 
                     if( node instanceof CasilleroVista && this.posiciones.size() <= 2) {
                         if( node.getBoundsInParent().contains(e.getSceneX(),  e.getSceneY())) {
-//                            System.out.println( "Node1: " + node + " at " + TableroVista.getRowIndex( node) + "/" + TableroVista.getColumnIndex( node));
+                            System.out.println( "Cliqueado casillero " + TableroVista.getColumnIndex( node) + ',' + TableroVista.getRowIndex(node));
 							this.posiciones.add(new Posicion(TableroVista.getColumnIndex( node),TableroVista.getRowIndex( node)));
                         }
                     }
                 }
 
-                if(this.posiciones.size()==2) {
+                if(this.posiciones.size() == 2) {
                 	posicionInicial = this.posiciones.get(0);
                 	posicionFinal = this.posiciones.get(1);
 
-					tableroVista.dosPosicionesCliqueadas(posicionInicial, posicionFinal);
-//					this.posiciones.clear();
-					this.posiciones = new ArrayList<Posicion>();
+					tableroVista.realizarAccion(posicionInicial, posicionFinal);
+					this.posiciones.clear();
               }
                 
             }

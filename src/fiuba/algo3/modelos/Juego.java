@@ -8,14 +8,15 @@ public class Juego {
     private Jugador jugador1;
     private Jugador jugador2;
     private String ganador;
+    private Tablero tablero;
 
     public Juego(JSONObject jsonTablero) {
 
-        Tablero tablero = new Tablero(jsonTablero);
-        tablero.setContenido(tablero.posicionCentro(), new ChispaSuprema());
+        this.tablero = new Tablero(jsonTablero);
+        tablero.setContenido(this.tablero.posicionCentro(), new ChispaSuprema());
         Turno turno = new Turno();
-        this.jugador1 = new Jugador("Pedro", Algoformer.MODO_AUTOBOT, tablero, turno, this);
-        this.jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, tablero, turno, this);
+        this.jugador1 = new Jugador("Pedro", Algoformer.MODO_AUTOBOT, turno, this);
+        this.jugador2 = new Jugador("Juan", Algoformer.MODO_DECEPTICON, turno, this);
         turno.setJugadores(jugador1, jugador2);
     }
 
@@ -38,6 +39,10 @@ public class Juego {
 		this.jugador2 = null;
 	}
 
+
+    public Tablero getTablero() {
+        return this.tablero;
+    }
 
 	public String ganador() {
 		return this.ganador;
