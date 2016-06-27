@@ -18,14 +18,14 @@ public class CasilleroTest {
 
 	@Test
 	public void testCrearCasilleroVerificarQueElContenidoEsVacio() {
-		Casillero casillero = new Casillero();
+		Casillero casillero = new Casillero( new Posicion(0, 0) );
 		Assert.assertEquals(casillero.getContenido(), Vacio.getInstancia());
 	}
 
 
 	@Test
 	public void testCrearCasilleroVerificarSuperficiesRocasYNube() {
-		Casillero casillero = new Casillero();
+		Casillero casillero = new Casillero( new Posicion(0, 0) );
 		JSONObject superficies = new JSONObject();
 
 		superficies.put("tierra", "Rocas");
@@ -40,7 +40,7 @@ public class CasilleroTest {
 
 	@Test
 	public void testCrearCasilleroVerificarSuperficiesPantanoYNebulosaDeAndromeda() {
-		Casillero casillero = new Casillero();
+		Casillero casillero = new Casillero( new Posicion(0, 0) );
 		JSONObject superficies = new JSONObject();
 
 		superficies.put("tierra", "Pantano");
@@ -55,7 +55,7 @@ public class CasilleroTest {
 
 	@Test
 	public void testCrearCasilleroVerificarSuperficiesEspinasYTormentaPsionica() {
-		Casillero casillero = new Casillero();
+		Casillero casillero = new Casillero( new Posicion(0, 0) );
 		JSONObject superficies = new JSONObject();
 
 		superficies.put("tierra", "Espinas");
@@ -70,7 +70,7 @@ public class CasilleroTest {
 
 	@Test
 	public void testCrearCasilleroPonerAlgoformer()  throws IOException, ParseException {
-		Casillero casillero = new Casillero();
+		Casillero casillero = new Casillero( new Posicion(0, 0) );
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
 		Tablero tablero = new Tablero(jsonTablero);

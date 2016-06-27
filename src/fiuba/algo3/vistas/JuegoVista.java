@@ -71,7 +71,7 @@ public class JuegoVista extends Application {
 		contenedorPrincipal.setSpacing(10);
 		contenedorPrincipal.setPadding(new Insets(20));
 
-		stage.setTitle("Algoformers Wars");
+		stage.setTitle("Algoformers");
 		final Scene scene = new Scene(contenedorPrincipal,1024,768);
 		stage.setScene(scene);
 		stage.show();
