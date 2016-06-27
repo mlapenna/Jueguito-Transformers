@@ -5,9 +5,9 @@ public class MovimientoInvalidoCasilleroOcupadoExcepcion extends RuntimeExceptio
         super();
     }
 	private String title = "Movimiento Inv\u00e1lido";
-	private String header = "El casillero de destino est\u00e1 ocupado.";
+	private String header = "El recorrido atraviesa al menos un casillero ocupado.";
 	private String content = "";
-	
+
     public String getExcepcionTitulo() {
     	return this.title;
     }
