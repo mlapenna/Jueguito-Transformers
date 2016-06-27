@@ -13,7 +13,7 @@ import fiuba.algo3.modelos.superficies.*;
 
 public class ChispaSupremaVista extends StackPane{
 
-	  static final Image chispaSuprema = new Image("file:imagenes/chispSuperma.png");
+	  static final Image chispaSuprema = new Image("file:imagenes/ChispaSuperma.png");
 	  private final ImageView imageView = new ImageView();
 	  
 	  public ChispaSupremaVista(Casillero casillero) {
