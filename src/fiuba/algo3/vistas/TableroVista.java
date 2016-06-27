@@ -40,21 +40,18 @@ public class TableroVista extends GridPane {
         getStyleClass().add("tablero");
         this.setGridLinesVisible(true);
         this.tablero = tablero;
-        this.llenarCadaCuadradoDelGridPane(tablero);
+        this.llenarCadaCuadradoDelGridPane();
 
     }
 
 
     public void cambiar(Tablero tablero) {
         this.setNextSkin(tablero);
-        this.llenarCadaCuadradoDelGridPane(tablero);
+        this.llenarCadaCuadradoDelGridPane();
     }
 
-    public void actualizarTableroVista() {
-    	this.llenarCadaCuadradoDelGridPane(tablero);
-    }
 
-    public void llenarCadaCuadradoDelGridPane(Tablero tablero) {
+    public void llenarCadaCuadradoDelGridPane() {
         String skinRequerido = tablero.getActualSkin();
 
         for (int i = 0; i < tablero.getDimensionX(); i++) {
