@@ -31,7 +31,9 @@ public class Tablero {
 		for (int i = 0; i < this.dimensionY; i++) {
 			ArrayList<Casillero> fila = new ArrayList<Casillero>();
 			for (int j=0; j < this.dimensionX ; j++) {
-				fila.add( new Casillero() );
+				Posicion posicion = new Posicion(j, i);
+				Casillero casillero = new Casillero(posicion);
+				fila.add(casillero);
 			}
 			this.casilleros.add(fila);
 		}

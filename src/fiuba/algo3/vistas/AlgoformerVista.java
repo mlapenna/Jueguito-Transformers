@@ -29,17 +29,23 @@ public class AlgoformerVista extends StackPane{
 	  static final Image menasorHumanoide = new Image("file:imagenes/menasorHumanoide.png");
 	  
 	  private final ImageView imageView = new ImageView();
-	  
+	  private Algoformer algoformer;
+
 	  public AlgoformerVista(Casillero casillero) {
 		  
-		  if((casillero.getContenido().hayAlgo()) && (!casillero.getContenido().esChispa()))
+		  if ((casillero.getContenido().hayAlgo()) && (!casillero.getContenido().esChispa()))
 		    getStyleClass().add("algoformer");
 
 		    imageView.setMouseTransparent(true);
 		    getChildren().setAll(imageView);
 		    setPrefSize(optimusHumanoide.getHeight(), optimusHumanoide.getHeight());
-		    if(((Algoformer)casillero.getContenido()).getModo().esHumanoide()) {
-		    	switch (((Algoformer)casillero.getContenido()).getNombre()) {
+
+			this.algoformer = (Algoformer) casillero.getContenido();
+
+		    if(this.algoformer .getModo().esHumanoide()) {
+
+		    	switch (this.algoformer .getNombre()) {
+
 	        		case Optimus.nombreAlgoformer:  imageView.setImage(optimusHumanoide); break;
 	        		case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetHumanoide); break;
 	        		case BumbleBee.nombreAlgoformer:  imageView.setImage(bumblebeeHumanoide); break;
@@ -49,8 +55,8 @@ public class AlgoformerVista extends StackPane{
 	        		case Superion.nombreAlgoformer:  imageView.setImage(superionHumanoide); break;
 	        		case Menasor.nombreAlgoformer:  imageView.setImage(menasorHumanoide); break;
 		    	}
-		    } else if (((Algoformer)casillero.getContenido()).getModo().esAlterno()) {
-		    	switch (((Algoformer)casillero.getContenido()).getNombre()) {
+		    } else if (this.algoformer .getModo().esAlterno()) {
+		    	switch (this.algoformer .getNombre()) {
         			case Optimus.nombreAlgoformer:  imageView.setImage(optimusAlterno); break;
         			case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetAlterno); break;
         			case BumbleBee.nombreAlgoformer:  imageView.setImage(bumblebeeAlterno); break;
@@ -60,5 +66,9 @@ public class AlgoformerVista extends StackPane{
 		    	}
 		    }
 	  }
-	  
+
+
+	public Algoformer getAlgoformer() {
+		return this.algoformer;
+	}
 }

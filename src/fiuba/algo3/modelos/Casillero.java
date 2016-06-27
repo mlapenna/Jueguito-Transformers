@@ -16,9 +16,11 @@ public class Casillero {
 	
 	private Tierra tierra;
 	private Aire aire;
+	private Posicion posicion;
 
-	public Casillero() {
+	public Casillero(Posicion posicion) {
 		this.contenido = Vacio.getInstancia();
+		this.posicion = posicion;
 	}
 
 	public void setSuperficies(JSONObject superficies) {
@@ -103,6 +105,10 @@ public class Casillero {
 		String actualSkin = this.getActualSkin();
 		this.actualSkin = this.getProximoSkin();
 		this.proximoSkin = actualSkin;
+	}
+
+	public Posicion getPosicion() {
+		return this.posicion;
 	}
 	
 }
