@@ -48,6 +48,9 @@ public class TableroVista extends GridPane {
         this.llenarCadaCuadradoDelGridPane(tablero);
     }
 
+    public void actualizarTableroVista() {
+    	this.llenarCadaCuadradoDelGridPane(this.tablero);
+    }
 
     public void llenarCadaCuadradoDelGridPane(Tablero tablero) {
         String skinRequerido = tablero.getActualSkin();
@@ -61,12 +64,12 @@ public class TableroVista extends GridPane {
                 	if(!tablero.getCasillero(posicion).getContenido().esChispa())
                 	{
                 		AlgoformerVista nuevoAlgoformerVista = new AlgoformerVista(tablero.getCasillero(posicion));
-                        System.out.println("Contenido seleccionado en casillero :"+((Algoformer)tablero.getCasillero(posicion).getContenido()).getNombre());
+                        //System.out.println("Contenido seleccionado en casillero :"+((Algoformer)tablero.getCasillero(posicion).getContenido()).getNombre());
                 		this.add(nuevoAlgoformerVista, i, j);
                 	} 
                 	else if (tablero.getCasillero(posicion).getContenido().esChispa()) {
                 		ChispaSupremaVista nuevaChispaSuprema = new ChispaSupremaVista(tablero.getCasillero(posicion));
-                		System.out.println("Contenido seleccionado en casillero es chispa suprema :"+tablero.getCasillero(posicion).getContenido().esChispa());
+                		//System.out.println("Contenido seleccionado en casillero es chispa suprema :"+tablero.getCasillero(posicion).getContenido().esChispa());
                 		this.add(nuevaChispaSuprema, i, j);
                 	}
                 } else {
@@ -98,7 +101,11 @@ public class TableroVista extends GridPane {
                         throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
                     }
 
-					if (!casilleroInicial.estaVacio() && !casilleroInicial.getContenido().esChispa()) {
+					if (!casilleroInicial.estaVacio() && 
+							casilleroDestino.estaVacio() && 
+							casilleroInicial.getContenido().hayAlgo() && 
+							!casilleroInicial.getContenido().esChispa()) {
+						System.out.println("Intento mover");
 						( (Algoformer) casilleroInicial.getContenido() ).mover(posicionFinal);
 
 						System.out.println("MOVER DE " + posicionInicial.getX() + "," + posicionFinal.getY()+" a "

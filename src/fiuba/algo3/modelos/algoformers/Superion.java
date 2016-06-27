@@ -49,4 +49,8 @@ public class Superion extends Autobot {
 	public Movimiento getMovimientoAlterno() {
 		return new MovimientoAlternoTerrestre(this.modo.getTablero());
 	}
+	
+	public String getNombre() {
+		return this.nombreAlgoformer;
+	}
 }

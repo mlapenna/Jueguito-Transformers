@@ -39,7 +39,8 @@ public class AlgoformerVista extends StackPane{
 		    getChildren().setAll(imageView);
 		    setPrefSize(optimusHumanoide.getHeight(), optimusHumanoide.getHeight());
 		    if(((Algoformer)casillero.getContenido()).getModo().esHumanoide()) {
-		    	System.out.println(((Algoformer)casillero.getContenido()));
+		    	System.out.println("Dentro de AlgoformersVista");
+		    	System.out.println(((Algoformer)casillero.getContenido()).getNombre());
 		    	switch (((Algoformer)casillero.getContenido()).getNombre()) {
 	        		case Optimus.nombreAlgoformer:  imageView.setImage(optimusHumanoide); break;
 	        		case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetHumanoide); break;

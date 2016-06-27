@@ -236,8 +236,6 @@ public abstract class Algoformer extends Contenido {
 		return !(this.muerto);
 	}
 	
-	public String getNombre() {
-		return this.nombreAlgoformer;
-	}
+	public abstract String getNombre();
 
 }

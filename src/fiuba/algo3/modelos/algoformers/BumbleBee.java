@@ -52,5 +52,7 @@ public class BumbleBee extends Autobot {
 		return new MovimientoAlternoTerrestre(this.modo.getTablero());
 	}
 
-
+	public String getNombre() {
+		return this.nombreAlgoformer;
+	}
 }
