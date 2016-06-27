@@ -20,6 +20,7 @@ import fiuba.algo3.controladores.CombinarButtonHandler;
 import fiuba.algo3.controladores.AtacarButtonHandler;
 import fiuba.algo3.controladores.MoverButtonHandler;
 import fiuba.algo3.controladores.MouseClickHandler;
+import fiuba.algo3.controladores.TransformarButtonHandler;
 
 
 public class JuegoVista extends Application {
@@ -46,6 +47,11 @@ public class JuegoVista extends Application {
 		atacarButton.setText("Atacar");
 		AtacarButtonHandler atacarButtonHandler = new AtacarButtonHandler(tableroVista);
 		atacarButton.setOnAction(atacarButtonHandler);
+		
+		Button transformarButton = new Button();
+		transformarButton.setText("Transformar");
+		TransformarButtonHandler transformarButtonHandler = new TransformarButtonHandler(tableroVista);
+		transformarButton.setOnAction(transformarButtonHandler);
 
 		Button combinarButton = new Button();
 		combinarButton.setText("Combinar");
@@ -55,13 +61,12 @@ public class JuegoVista extends Application {
 		Button cambiarMapaButton = new Button();
 		cambiarMapaButton.setText("Cambiar de superficie");
 
-		HBox contenedorHorizontal = new HBox(moverButton, atacarButton, combinarButton, cambiarMapaButton);
+		HBox contenedorHorizontal = new HBox(moverButton, atacarButton, transformarButton, combinarButton, cambiarMapaButton);
 
 		contenedorHorizontal.setSpacing(10);
 		CambiarMapaButtonHandler cambiarMapaButtonHandler = new CambiarMapaButtonHandler(tableroVista, juego.getTablero() );
 
 		cambiarMapaButton.setOnAction(cambiarMapaButtonHandler);
-		//System.out.println(tablero.getActualSkin());
 		VBox contenedorPrincipal = new VBox(tableroVista,contenedorHorizontal);
 		contenedorPrincipal.setSpacing(10);
 		contenedorPrincipal.setPadding(new Insets(20));

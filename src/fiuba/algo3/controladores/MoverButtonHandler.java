@@ -31,7 +31,7 @@ public class MoverButtonHandler implements EventHandler<ActionEvent>{
 
     @Override
 	public void handle(ActionEvent actionEvent) {
-        this.tableroVista.setProximaAccion(TableroVista.ACCION_MOVER);
+		this.tableroVista.setProximaAccion(TableroVista.ACCION_MOVER);
         this.tableroVista.actualizarTableroVista();
     }
 }

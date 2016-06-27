@@ -30,7 +30,9 @@ public class TableroVista extends GridPane {
 	public static final int ACCION_NADA = 0;
 	public static final int ACCION_MOVER = 1;
 	public static final int ACCION_ATACAR = 2;
-
+	public static final int ACCION_TRANSFORMAR = 3;
+	public static final int ACCION_COMBINAR = 4;
+	
 	private int proximaAccion;
 	private Tablero tablero;
 
@@ -49,7 +51,7 @@ public class TableroVista extends GridPane {
     }
 
     public void actualizarTableroVista() {
-    	this.llenarCadaCuadradoDelGridPane(this.tablero);
+    	this.llenarCadaCuadradoDelGridPane(tablero);
     }
 
     public void llenarCadaCuadradoDelGridPane(Tablero tablero) {
@@ -97,6 +99,8 @@ public class TableroVista extends GridPane {
 			case TableroVista.ACCION_MOVER:
 
 				try {
+					System.out.println("Intento mover");
+
 					if (casilleroInicial.estaVacio() || !casilleroDestino.estaVacio()) {
                         throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
                     }
@@ -173,7 +177,7 @@ public class TableroVista extends GridPane {
 
 						System.out.println("ATACAR DE " + posicionInicial.getX() + "," + posicionFinal.getY()+" a "
 								+ posicionFinal.getX() + "," + posicionFinal.getY());
-
+						
 					} else {
 						throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 					}
@@ -203,8 +207,12 @@ public class TableroVista extends GridPane {
 					new AlertHandler(titulo,header,content);
 				}
 				break;
-
+			case TableroVista.ACCION_TRANSFORMAR:
+				break;
+			case TableroVista.ACCION_COMBINAR:
+				break;	
 			default:
+				System.out.println("What's up?");
 				// Nada, se olvid� de cliquear ATACAR o MOVER
 				break;
 		}
