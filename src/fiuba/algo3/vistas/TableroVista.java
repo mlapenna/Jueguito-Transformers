@@ -30,7 +30,9 @@ public class TableroVista extends GridPane {
 	public static final int ACCION_NADA = 0;
 	public static final int ACCION_MOVER = 1;
 	public static final int ACCION_ATACAR = 2;
-
+	public static final int ACCION_TRANSFORMAR = 3;
+	public static final int ACCION_COMBINAR = 4;
+	
 	private int proximaAccion;
 	private Tablero tablero;
 
@@ -38,18 +40,18 @@ public class TableroVista extends GridPane {
         getStyleClass().add("tablero");
         this.setGridLinesVisible(true);
         this.tablero = tablero;
-        this.llenarCadaCuadradoDelGridPane(tablero);
+        this.llenarCadaCuadradoDelGridPane();
 
     }
 
 
     public void cambiar(Tablero tablero) {
         this.setNextSkin(tablero);
-        this.llenarCadaCuadradoDelGridPane(tablero);
+        this.llenarCadaCuadradoDelGridPane();
     }
 
 
-    public void llenarCadaCuadradoDelGridPane(Tablero tablero) {
+    public void llenarCadaCuadradoDelGridPane() {
         String skinRequerido = tablero.getActualSkin();
 
         for (int i = 0; i < tablero.getDimensionX(); i++) {
@@ -61,12 +63,12 @@ public class TableroVista extends GridPane {
                 	if(!tablero.getCasillero(posicion).getContenido().esChispa())
                 	{
                 		AlgoformerVista nuevoAlgoformerVista = new AlgoformerVista(tablero.getCasillero(posicion));
-                        System.out.println("Contenido seleccionado en casillero :"+((Algoformer)tablero.getCasillero(posicion).getContenido()).getNombre());
+                        //System.out.println("Contenido seleccionado en casillero :"+((Algoformer)tablero.getCasillero(posicion).getContenido()).getNombre());
                 		this.add(nuevoAlgoformerVista, i, j);
                 	} 
                 	else if (tablero.getCasillero(posicion).getContenido().esChispa()) {
                 		ChispaSupremaVista nuevaChispaSuprema = new ChispaSupremaVista(tablero.getCasillero(posicion));
-                		System.out.println("Contenido seleccionado en casillero es chispa suprema :"+tablero.getCasillero(posicion).getContenido().esChispa());
+                		//System.out.println("Contenido seleccionado en casillero es chispa suprema :"+tablero.getCasillero(posicion).getContenido().esChispa());
                 		this.add(nuevaChispaSuprema, i, j);
                 	}
                 } else {
@@ -94,11 +96,17 @@ public class TableroVista extends GridPane {
 			case TableroVista.ACCION_MOVER:
 
 				try {
+					System.out.println("Intento mover");
+
 					if (casilleroInicial.estaVacio() || !casilleroDestino.estaVacio()) {
                         throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
                     }
 
-					if (!casilleroInicial.estaVacio() && !casilleroInicial.getContenido().esChispa()) {
+					if (!casilleroInicial.estaVacio() && 
+							casilleroDestino.estaVacio() && 
+							casilleroInicial.getContenido().hayAlgo() && 
+							!casilleroInicial.getContenido().esChispa()) {
+						System.out.println("Intento mover");
 						( (Algoformer) casilleroInicial.getContenido() ).mover(posicionFinal);
 
 						System.out.println("MOVER DE " + posicionInicial.getX() + "," + posicionFinal.getY()+" a "
@@ -166,7 +174,7 @@ public class TableroVista extends GridPane {
 
 						System.out.println("ATACAR DE " + posicionInicial.getX() + "," + posicionFinal.getY()+" a "
 								+ posicionFinal.getX() + "," + posicionFinal.getY());
-
+						
 					} else {
 						throw new MovimientoInvalidoCasilleroInvalidoExcepcion();
 					}
@@ -196,8 +204,12 @@ public class TableroVista extends GridPane {
 					new AlertHandler(titulo,header,content);
 				}
 				break;
-
+			case TableroVista.ACCION_TRANSFORMAR:
+				break;
+			case TableroVista.ACCION_COMBINAR:
+				break;	
 			default:
+				System.out.println("What's up?");
 				// Nada, se olvid� de cliquear ATACAR o MOVER
 				break;
 		}

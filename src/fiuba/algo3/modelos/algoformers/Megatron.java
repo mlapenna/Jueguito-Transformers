@@ -52,5 +52,7 @@ public class Megatron extends Decepticon {
 		return new MovimientoAlternoAereo(this.modo.getTablero());
 	}
 
-
+	public String getNombre() {
+		return this.nombreAlgoformer;
+	}
 }

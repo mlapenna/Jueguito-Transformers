@@ -51,4 +51,7 @@ public class Ratchet extends Autobot {
 		return new MovimientoAlternoAereo(this.modo.getTablero());
 	}
 
+	public String getNombre() {
+		return this.nombreAlgoformer;
+	}
 }

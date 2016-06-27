@@ -53,5 +53,7 @@ public class Frenzy extends Decepticon {
 		return new MovimientoAlternoTerrestre(this.modo.getTablero());
 	}
 
-
+	public String getNombre() {
+		return this.nombreAlgoformer;
+	}
 }
