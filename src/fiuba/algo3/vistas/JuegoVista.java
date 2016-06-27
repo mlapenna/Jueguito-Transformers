@@ -1,69 +1,76 @@
 package fiuba.algo3.vistas;
-import fiuba.algo3.modelos.Tablero;
-/*
-import fiuba.algo3.controladores.TableroControlador;
+
 import fiuba.algo3.modelos.Tablero;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.io.FileReader;
+
+import fiuba.algo3.controladores.CambiarMapaButtonHandler;
+import fiuba.algo3.controladores.CombinarButtonHandler;
+import fiuba.algo3.controladores.AtacarButtonHandler;
+import fiuba.algo3.controladores.MoverButtonHandler;
+import fiuba.algo3.controladores.MouseClickHandler;
 
 
 public class JuegoVista extends Application {
 
-	private TableroControlador tablero;
 
+	@Override
+    public void start(Stage stage) throws Exception {
+        JSONParser parser = new JSONParser();
+        FileReader fileReader = new FileReader("mapas/mapaParaJugar.json");
+        JSONObject jsonTablero = (JSONObject) parser.parse(fileReader);
+        Tablero tablero = new Tablero(jsonTablero);
 
-	public void mostrar(TableroControlador tablero) {
-		this.tablero = tablero;
+		TableroVista tableroVista = new TableroVista(tablero);
 
-		// En alg�n lugar se deber� usar el contenido de la variable:
-		//TableroVista tableroVista = new TableroVista(this.tablero); ESTO LO HACE TABLERO CONTROLADOR
+		MouseClickHandler mouseClickHandler = new MouseClickHandler(tableroVista);
 
-		String[] argumentos = new String[0];
-		try {
-			launch(argumentos);
-		} catch(Exception e) {
-		}
+		Button moverButton = new Button();
+		moverButton.setText("Mover");
+		MoverButtonHandler moverButtonHandler = new MoverButtonHandler(tableroVista);
+		moverButton.setOnAction(moverButtonHandler);
 
-	}
+		Button atacarButton = new Button();
+		atacarButton.setText("Atacar");
+		AtacarButtonHandler atacarButtonHandler = new AtacarButtonHandler(tableroVista);
+		atacarButton.setOnAction(atacarButtonHandler);
 
+		Button combinarButton = new Button();
+		combinarButton.setText("Combinar");
+		CombinarButtonHandler combinarButtonHandler = new CombinarButtonHandler(tableroVista);
+		combinarButton.setOnAction(combinarButtonHandler);
 
-	public void start(Stage stage) throws Exception {
+		Button cambiarMapaButton = new Button();
+		cambiarMapaButton.setText("Cambiar de superficie");
 
-		/* C�digo de prueba */
-/*
-		stage.setTitle("Algoformers");
+		HBox contenedorHorizontal = new HBox(moverButton, atacarButton, combinarButton, cambiarMapaButton);
 
-		StackPane layOut = new StackPane();
+		contenedorHorizontal.setSpacing(10);
+		CambiarMapaButtonHandler cambiarMapaButtonHandler = new CambiarMapaButtonHandler(tableroVista, tablero);
 
-		Button button = new Button();
-		button.setText("hola");
-		layOut.getChildren().add(button);
-		button.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent actionEvent) {
-				System.out.println("me clickearon");
-			}
-		});
+		cambiarMapaButton.setOnAction(cambiarMapaButtonHandler);
+		System.out.println(tablero.getActualSkin());
+		VBox contenedorPrincipal = new VBox(tableroVista,contenedorHorizontal);
+		contenedorPrincipal.setSpacing(10);
+		contenedorPrincipal.setPadding(new Insets(20));
 
-		Scene scene = new Scene(layOut);
+		stage.setTitle("Algoformers Wars");
+		final Scene scene = new Scene(contenedorPrincipal,1024,768);
 		stage.setScene(scene);
 		stage.show();
-
-	}*/
-import javafx.scene.layout.VBox;
-
-public class JuegoVista extends VBox{
-
-	JuegoVista(Tablero tablero) {
-	    getChildren().addAll(
-	        //tablero.getSkin()
-	    );
 	}
-	
-}
 
-	
+	public void main(String[] args) {
+		Application.launch(JuegoVista.class);
+	}
+
+}
