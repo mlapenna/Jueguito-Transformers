@@ -7,6 +7,7 @@ import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
 public class Superion extends Autobot {
+	public static final String nombreAlgoformer = "Superion";
 	private static final int DISTANCIA_ATAQUE = 2;
 	private static final int ATAQUE = 100;
 	private static final int VELOCIDAD = 3;

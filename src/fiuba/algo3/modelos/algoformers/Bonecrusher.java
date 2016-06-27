@@ -7,6 +7,7 @@ import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
 public class Bonecrusher extends Decepticon {
+	public static final String nombreAlgoformer = "Bonecrusher";
 	private static final int ATAQUE_HUMANOIDE = 30;
 	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 3;
 	private static final int VELOCIDAD_HUMANOIDE = 1;

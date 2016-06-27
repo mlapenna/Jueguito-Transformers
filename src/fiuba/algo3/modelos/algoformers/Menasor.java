@@ -7,6 +7,7 @@ import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
 public class Menasor extends Decepticon {
+	public static final String nombreAlgoformer = "Menasor";
 	private static final int DISTANCIA_ATAQUE = 2;
 	private static final int ATAQUE = 115;
 	private static final int VELOCIDAD = 2;

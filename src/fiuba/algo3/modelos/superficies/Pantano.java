@@ -17,6 +17,11 @@ public class Pantano extends Tierra {
 	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
 		throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion();
 	} 
+	
+	public String getNombreJSON() {
+		return NOMBRE_JSON;
+	}
+
 
 
 }

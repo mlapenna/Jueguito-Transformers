@@ -8,6 +8,7 @@ import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
 
 public class Optimus extends Autobot {
+	public static final String nombreAlgoformer = "Optimus";
 	private static final int ATAQUE_HUMANOIDE = 50;
 	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 2;
 	private static final int VELOCIDAD_HUMANOIDE = 2;

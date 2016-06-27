@@ -7,4 +7,19 @@ public class ZonaPantanoProhibidoPasarExcepcion extends RuntimeException {
     public ZonaPantanoProhibidoPasarExcepcion() {
         super();
     }
+	private String title = "Zona Pantano";
+	private String header = "Prohibido Pasar";
+	private String content = "";
+	
+    public String getExcepcionTitulo() {
+    	return this.title;
+    }
+
+    public String getExcepcionHeader() {
+    	return this.header;
+    }
+
+    public String getExcepcionContent() {
+    	return this.content;
+    }
 }

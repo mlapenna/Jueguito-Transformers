@@ -548,23 +548,20 @@ public class e0613Test {
 		// TURNO 1
 		unRobotJugador1.mover( new Posicion(2, 0) );
 
-		megatronJugador2.cambiarModo();
+		megatronJugador2.cambiarModo();  // Arranca en 9,3
 
-		// TURNO 2
+		// Siguiente turno
 		unRobotJugador1.mover(new Posicion(1, 0));
 
-		megatronJugador2.mover(new Posicion(7, 3)); // ATRAVIESA LA NEBULOSA Y QUEDA ATRAPADO 3 TURNOS
-
-		// TURNO 3
-		unRobotJugador1.mover( new Posicion(0, 0) );
 		try {
-			megatronJugador2.mover(new Posicion(6, 3));
+			megatronJugador2.mover(new Posicion(7, 3));
 			Assert.fail();
 		} catch(AlgoformerInmovilizadoExcepcion e) {
+			Assert.assertEquals(megatronJugador2.getPosicion(), new Posicion(8,3) ); // Quedó atascado en 8,3 mientras viajaba hacia 7,3
 		};
-		bonecrusherJugador2.mover( new Posicion(9, 6) ); // Se mueve otro robot del mismo jugador nada más para que pase el turno
+		bonecrusherJugador2.mover(new Posicion(9, 6)); // Se mueve otro robot del mismo jugador nada más para que pase el turno
 
-		// TURNO 4
+		// Siguiente turno - Se atascó en el turno anterior, a partir de este turno son 3 turnos atrapado
 		unRobotJugador1.mover( new Posicion(2, 0) );
 		try {
 			megatronJugador2.mover(new Posicion(6, 3));
@@ -573,7 +570,7 @@ public class e0613Test {
 		};
 		bonecrusherJugador2.mover( new Posicion(9, 5) ); // Se mueve otro robot del mismo jugador nada más para que pase el turno
 
-		// TURNO 5
+		// Siguiente turno
 		unRobotJugador1.mover( new Posicion(0, 0) );
 		try {
 			megatronJugador2.mover(new Posicion(6, 3));
@@ -582,7 +579,16 @@ public class e0613Test {
 		};
 		bonecrusherJugador2.mover( new Posicion(9, 6) ); // Se mueve otro robot del mismo jugador nada más para que pase el turno
 
-		// TURNO 6 - MEGATRON LIBRE
+		// Siguiente turno
+		unRobotJugador1.mover( new Posicion(1, 0) );
+		try {
+			megatronJugador2.mover(new Posicion(6, 3));
+			Assert.fail();
+		} catch(AlgoformerInmovilizadoExcepcion e) {
+		};
+		bonecrusherJugador2.mover( new Posicion(9, 5) ); // Se mueve otro robot del mismo jugador nada más para que pase el turno
+
+		// Siguiente turno - MEGATRON LIBRE
 		unRobotJugador1.mover( new Posicion(2, 0) );
 		try {
 			megatronJugador2.mover(new Posicion(6, 3));  // Ahora se vuelve a mover sin problemas
