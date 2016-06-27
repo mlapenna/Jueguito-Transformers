@@ -70,9 +70,7 @@ public class MouseClickHandler {
                             System.out.println("Intento mover");
 
                             this.algoformerQueRealizaAccion.mover(this.posicionDestinoDeLaAccion);
-
-                            //System.out.println("MOVER DE " + posicionInicial.getX() + "," + posicionFinal.getY()+" a "
-                              //          + posicionFinal.getX() + "," + posicionFinal.getY());
+                            tableroVista.llenarCadaCuadradoDelGridPane();
 
                         } catch (MovimientoInvalidoCasilleroOcupadoExcepcion movimientoInvalidoCasilleroOcupadoExcepcion) {
 
@@ -124,13 +122,11 @@ public class MouseClickHandler {
                         try {
                            System.out.println("Intento atacar");
 
-                                // CAMBIAR ESTO:
-                                Algoformer algoformerDestino = (Algoformer) tableroVista.getTablero().getCasillero(this.posicionDestinoDeLaAccion).getContenido();
+                            // CAMBIAR ESTO:
+                            Algoformer algoformerDestino = (Algoformer) tableroVista.getTablero().getCasillero(this.posicionDestinoDeLaAccion).getContenido();
 
-                                this.algoformerQueRealizaAccion.atacar(algoformerDestino);
-
-                                /*System.out.println("ATACAR DE " + posicionInicial.getX() + "," + posicionFinal.getY()+" a "
-                                        + posicionFinal.getX() + "," + posicionFinal.getY()); */
+                            this.algoformerQueRealizaAccion.atacar(algoformerDestino);
+                            tableroVista.llenarCadaCuadradoDelGridPane();
 
                         } catch (AtaqueInvalidoDistanciaInsuficienteExcepcion ataqueInvalidoDistanciaInsuficienteExcepcion) {
                             new AlertHandler(

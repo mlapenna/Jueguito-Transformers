@@ -49,7 +49,8 @@ public class TableroVista extends GridPane {
                 	}
                 } else {
                 	tablero.getCasillero(posicion).setActualSkin(skinRequerido);
-                	CasilleroVista nuevoCasilleroVista = new CasilleroVista(tablero.getCasillero(posicion),tablero.getCasillero(posicion).getSuperficie(skinRequerido).getNombreJSON());
+                	CasilleroVista nuevoCasilleroVista = new CasilleroVista(tablero.getCasillero(posicion),
+                                                                    tablero.getCasillero(posicion).getSuperficie(skinRequerido).getNombreJSON());
                 	this.add(nuevoCasilleroVista,i,j);
                 }
             }
