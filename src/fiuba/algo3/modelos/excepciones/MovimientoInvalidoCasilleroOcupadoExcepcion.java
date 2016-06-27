@@ -4,8 +4,8 @@ public class MovimientoInvalidoCasilleroOcupadoExcepcion extends RuntimeExceptio
     public MovimientoInvalidoCasilleroOcupadoExcepcion() {
         super();
     }
-	private String title = "Movimiento Invalido";
-	private String header = "Casillero Ocupado";
+	private String title = "Movimiento Inv\u00e1lido";
+	private String header = "El casillero de destino est\u00e1 ocupado.";
 	private String content = "";
 	
     public String getExcepcionTitulo() {

@@ -2,8 +2,8 @@ package fiuba.algo3.modelos.excepciones;
 
 public class AtaqueInvalidoDistanciaInsuficienteExcepcion extends RuntimeException {
 	
-	private String title = "Ataque inválido.";
-	private String header = "Distancia de ataque insuficiente.";
+	private String title ="Ataque Inv\u00e1lido";
+	private String header = "La distancia de ataque es insuficiente.";
 	private String content = "Acerca tu algoformer y ataca al enemigo.";
 	
     public AtaqueInvalidoDistanciaInsuficienteExcepcion() {

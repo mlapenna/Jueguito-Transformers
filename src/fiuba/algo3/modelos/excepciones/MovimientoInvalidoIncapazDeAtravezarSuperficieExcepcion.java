@@ -4,8 +4,8 @@ public class MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion extends Run
     public MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion() {
         super();
     }
-	private String title = "Movimiento Invalido";
-	private String header = "Incapaz De Atravezar Superficie";
+	private String title ="Movimiento Inv\u00e1lido";
+	private String header = "El Algoformer en el modo actual no es capaz de atravesar todas las superficies del recorrido.";
 	private String content = "";
 	
     public String getExcepcionTitulo() {

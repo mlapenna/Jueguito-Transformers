@@ -4,8 +4,8 @@ public class NoEsElTurnoDelJugadorExcepcion extends RuntimeException {
     public NoEsElTurnoDelJugadorExcepcion() {
         super();
     }
-	private String title = "No Es El Turno Del Jugador";
-	private String header = "";
+	private String title = "No es su turno";
+	private String header = "El turno es de los robots del otro jugador.";
 	private String content = "";
 	
     public String getExcepcionTitulo() {

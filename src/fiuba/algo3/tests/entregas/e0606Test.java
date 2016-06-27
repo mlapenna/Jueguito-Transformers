@@ -32,7 +32,7 @@ public class e0606Test {
 		Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
 		Algoformer unRobotJugador1 = robotsJugador1.next();
 		
-		Posicion posicionDestino = new Posicion(0,2);
+		Posicion posicionDestino = new Posicion(0,1);
 		
 		unRobotJugador1.mover(posicionDestino);
 
@@ -71,7 +71,7 @@ public class e0606Test {
 		Algoformer optimusJugador1 = juego.getJugador1().getAlgoformers().get(0); // En 0,0
 		Algoformer unRobotJugador2 = juego.getJugador2().getAlgoformers().get(0);
 		
-		Posicion posicionDestino = new Posicion(2,0); // Máxima distancia válida
+		Posicion posicionDestino = new Posicion(2,0); // Mï¿½xima distancia vï¿½lida
 		
 		// Turno 1
 		optimusJugador1.mover(posicionDestino);
@@ -84,7 +84,7 @@ public class e0606Test {
 		unRobotJugador2.cambiarModo(); // Este no importa
 
 		// Siguiente turno
-		posicionDestino.setCoordenadas(7, 0);  // Máxima distancia válida
+		posicionDestino.setCoordenadas(7, 0);  // Mï¿½xima distancia vï¿½lida
 		optimusJugador1.mover(posicionDestino);
 		unRobotJugador2.cambiarModo(); // Este no importa
 

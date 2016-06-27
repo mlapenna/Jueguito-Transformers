@@ -5,7 +5,7 @@ public class MovimientoInvalidoCasilleroInvalidoExcepcion extends RuntimeExcepti
         super();
     }
 	private String title = "Movimiento Invalido";
-	private String header = "Casillero Invalido";
+	private String header = "No puede realizar el movimiento solicitado.";
 	private String content = "";
 	
     public String getExcepcionTitulo() {

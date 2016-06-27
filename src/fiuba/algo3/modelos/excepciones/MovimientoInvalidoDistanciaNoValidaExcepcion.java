@@ -4,8 +4,8 @@ public class MovimientoInvalidoDistanciaNoValidaExcepcion extends RuntimeExcepti
     public MovimientoInvalidoDistanciaNoValidaExcepcion() {
         super();
     }
-	private String title = "Movimiento Invalido";
-	private String header = "Distancia No Valida";
+    private String title = "Movimiento Inv\u00e1lido";
+    private String header = "La distancia solicitada supera la velocidad del Algoformer.";
 	private String content = "";
 	
     public String getExcepcionTitulo() {
