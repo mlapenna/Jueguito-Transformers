@@ -45,7 +45,6 @@ public class AlgoformerVista extends StackPane{
 		    if(this.algoformer .getModo().esHumanoide()) {
 
 		    	switch (this.algoformer .getNombre()) {
-
 	        		case Optimus.nombreAlgoformer:  imageView.setImage(optimusHumanoide); break;
 	        		case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetHumanoide); break;
 	        		case BumbleBee.nombreAlgoformer:  imageView.setImage(bumblebeeHumanoide); break;
@@ -55,7 +54,7 @@ public class AlgoformerVista extends StackPane{
 	        		case Superion.nombreAlgoformer:  imageView.setImage(superionHumanoide); break;
 	        		case Menasor.nombreAlgoformer:  imageView.setImage(menasorHumanoide); break;
 		    	}
-		    } else if (this.algoformer .getModo().esAlterno()) {
+		    } else if (this.algoformer.getModo().esAlterno()) {
 		    	switch (this.algoformer .getNombre()) {
         			case Optimus.nombreAlgoformer:  imageView.setImage(optimusAlterno); break;
         			case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetAlterno); break;

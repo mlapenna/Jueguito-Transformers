@@ -53,9 +53,16 @@ public abstract class Movimiento {
 		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
 		int cantidadPasos = recorrido.size();
 		
-		for (int j=0; j>cantidadPasos; j++)
-			if (!casilleroVacio(recorrido.get(j)))
+		// No hay otro algoformer en el camino?
+		for (int i = 0; i < cantidadPasos; i++) {
+			Posicion siguientePosicion = recorrido.get(i);
+
+			if (this.tablero.getContenido(siguientePosicion) != Vacio.getInstancia()
+				&& !this.tablero.getContenido(siguientePosicion).esChispa()) {
+
 				throw new MovimientoInvalidoCasilleroOcupadoExcepcion();
+			}
+		}
 		
 		// Movimiento
 		int i = 0;
@@ -106,13 +113,7 @@ public abstract class Movimiento {
 			mitadRecorrido = (((i+1) + distancia) /2 );
 		return (int)mitadRecorrido;
 	}
-	
-	private boolean casilleroVacio(Posicion posicion){
-		Contenido contenidoDestino = this.tablero.getContenido(posicion);
-		if (contenidoDestino != Vacio.getInstancia() && !contenidoDestino.esChispa())
-			return false;
-		return true;
-	}
+
 
 	public abstract void afectarAlgoformer(Algoformer algoformer, Posicion posicion);
 
