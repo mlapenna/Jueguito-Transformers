@@ -4,8 +4,8 @@ public class AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion extends Runtime
     public AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion() {
         super();
     }
-	private String title = "Ataque inválido.";
-	private String header = "No puedes atacar a los miembros de tu equipos.";
+    private String title ="Ataque Inv\u00e1lido";
+	private String header = "No puedes atacar a los miembros de tu equipo.";
 	private String content = ":)";
 	
     public String getExcepcionTitulo() {

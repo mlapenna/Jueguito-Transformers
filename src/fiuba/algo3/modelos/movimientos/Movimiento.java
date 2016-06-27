@@ -52,7 +52,7 @@ public abstract class Movimiento {
 		// Establecer recorrido casilero por casillero
 		ArrayList<Posicion> recorrido = this.getRecorrido(algoformer.getPosicion(), posicionDestino);
 		int cantidadPasos = recorrido.size();
-		
+
 		// No hay otro algoformer en el camino?
 		for (int i = 0; i < cantidadPasos; i++) {
 			Posicion siguientePosicion = recorrido.get(i);

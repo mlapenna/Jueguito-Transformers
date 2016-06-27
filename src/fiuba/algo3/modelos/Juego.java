@@ -30,8 +30,6 @@ public class Juego {
     }
 
 	public void gano(Jugador ganador) {
-		System.out.println("GANO JUGADOR:\n");
-		System.out.println(ganador.nombre());
 		this.ganador = ganador.nombre();
 		this.jugador1.eliminar();
 		this.jugador2.eliminar();

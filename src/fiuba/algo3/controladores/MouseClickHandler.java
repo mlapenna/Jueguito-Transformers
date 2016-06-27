@@ -65,10 +65,8 @@ public class MouseClickHandler {
 
                 switch (tableroVista.getProximaAccion()) {
                     case TableroVista.ACCION_MOVER:
-
+                       
                         try {
-                            System.out.println("Intento mover");
-
                             this.algoformerQueRealizaAccion.mover(this.posicionDestinoDeLaAccion);
                             tableroVista.llenarCadaCuadradoDelGridPane();
 
@@ -120,7 +118,6 @@ public class MouseClickHandler {
 
                     case TableroVista.ACCION_ATACAR:
                         try {
-                           System.out.println("Intento atacar");
 
                             // CAMBIAR ESTO:
                             Algoformer algoformerDestino = (Algoformer) tableroVista.getTablero().getCasillero(this.posicionDestinoDeLaAccion).getContenido();
@@ -158,7 +155,6 @@ public class MouseClickHandler {
                     case TableroVista.ACCION_COMBINAR:
                         break;
                     default:
-                        System.out.println("What's up?");
                         // Nada, se olvido de cliquear ATACAR o MOVER
                         break;
                 }
