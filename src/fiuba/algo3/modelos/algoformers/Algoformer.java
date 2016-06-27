@@ -27,6 +27,7 @@ public abstract class Algoformer extends Contenido {
 
 	public Algoformer(Posicion posicion, Tablero tablero, Turno turno) {
 		this.posicion = posicion;
+		tablero.setContenido(posicion, this);
 
 		this.modo = new ModoHumanoide(this, tablero);
 		this.hayAlgo = true;
