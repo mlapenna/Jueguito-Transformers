@@ -11,7 +11,8 @@ import fiuba.algo3.modelos.movimientos.MovimientoHumanoide;
 public abstract class Algoformer extends Contenido {
 	static public final int MODO_AUTOBOT = 0;
 	static public final int MODO_DECEPTICON = 1;
-
+	public static final String nombreAlgoformer = "";
+	
 	protected int vida;
 	protected Posicion posicion;
 	protected int turnosInmovil;
@@ -148,7 +149,7 @@ public abstract class Algoformer extends Contenido {
 		return this.turnosInmovil;
 	}
 
-	protected Modo getModo() {
+	public Modo getModo() {
 		return this.modo;
 	}
 	
@@ -232,6 +233,10 @@ public abstract class Algoformer extends Contenido {
 
 	public boolean estaVivo() {
 		return !(this.muerto);
+	}
+	
+	public String getNombre() {
+		return this.nombreAlgoformer;
 	}
 
 }

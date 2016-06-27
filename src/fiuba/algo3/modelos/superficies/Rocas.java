@@ -15,5 +15,9 @@ public class Rocas extends Tierra {
 		//NO AFECTA
 		
 	}
+	
+	public String getNombreJSON() {
+		return NOMBRE_JSON;
+	}
 
 }

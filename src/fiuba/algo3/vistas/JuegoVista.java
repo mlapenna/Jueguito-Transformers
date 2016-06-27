@@ -1,5 +1,6 @@
 package fiuba.algo3.vistas;
-
+import fiuba.algo3.modelos.Tablero;
+/*
 import fiuba.algo3.controladores.TableroControlador;
 import fiuba.algo3.modelos.Tablero;
 import javafx.application.Application;
@@ -19,7 +20,7 @@ public class JuegoVista extends Application {
 	public void mostrar(TableroControlador tablero) {
 		this.tablero = tablero;
 
-		// En algún lugar se deberá usar el contenido de la variable:
+		// En algï¿½n lugar se deberï¿½ usar el contenido de la variable:
 		//TableroVista tableroVista = new TableroVista(this.tablero); ESTO LO HACE TABLERO CONTROLADOR
 
 		String[] argumentos = new String[0];
@@ -33,8 +34,8 @@ public class JuegoVista extends Application {
 
 	public void start(Stage stage) throws Exception {
 
-		/* Código de prueba */
-
+		/* Cï¿½digo de prueba */
+/*
 		stage.setTitle("Algoformers");
 
 		StackPane layOut = new StackPane();
@@ -52,6 +53,17 @@ public class JuegoVista extends Application {
 		stage.setScene(scene);
 		stage.show();
 
+	}*/
+import javafx.scene.layout.VBox;
+
+public class JuegoVista extends VBox{
+
+	JuegoVista(Tablero tablero) {
+	    getChildren().addAll(
+	        //tablero.getSkin()
+	    );
 	}
 	
 }
+
+	

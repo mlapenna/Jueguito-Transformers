@@ -7,6 +7,7 @@ import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoAereo;
 
 public class Ratchet extends Autobot {
+	public static final String nombreAlgoformer = "Ratchet";
 	private static final int ATAQUE_HUMANOIDE = 5;
 	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 5;
 	private static final int VELOCIDAD_HUMANOIDE = 1;

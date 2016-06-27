@@ -15,4 +15,8 @@ public class Nube extends Aire {
 		//NO AFECTA
 	}
 	
+	public String getNombreJSON() {
+		return NOMBRE_JSON;
+	}
+	
 }

@@ -1,9 +1,8 @@
 package fiuba.algo3.modelos;
-
+ 
 import java.util.ArrayList;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
-
 
 public class Tablero {
 
@@ -11,20 +10,23 @@ public class Tablero {
 	
 	private int dimensionX;
 	private int dimensionY;
-
+	
 	private static final String JSON_FIELD_KEY_DIMENSION_X = "dimensionX";
 	private static final String JSON_FIELD_KEY_DIMENSION_Y = "dimensionY";
 	private static final String JSON_FIELD_KEY_CASILLEROS = "casilleros";
 	private static final String JSON_FIELD_KEY_POSICION_X = "posicionX";
 	private static final String JSON_FIELD_KEY_POSICION_Y = "posicionY";
 	private static final String JSON_FIELD_KEY_SUPERFICIES = "superficies";
+	private static final String JSON_FIELD_KEY_SUPERFICIE_TIERRA = "tierra";
+	private static final String JSON_FIELD_KEY_SUPERFICIE_AIRE = "aire";
 
+	private String actualSkin = JSON_FIELD_KEY_SUPERFICIE_TIERRA;
+	private String proximoSkin = JSON_FIELD_KEY_SUPERFICIE_AIRE;
+	
 	public Tablero(JSONObject json) {
 
-		this.dimensionX = Integer.parseInt( json.get(JSON_FIELD_KEY_DIMENSION_X).toString() );
-		this.dimensionY = Integer.parseInt( json.get(JSON_FIELD_KEY_DIMENSION_Y).toString() );
-
-
+		 this.dimensionX = Integer.parseInt( json.get(JSON_FIELD_KEY_DIMENSION_X).toString() );
+		 this.dimensionY = Integer.parseInt( json.get(JSON_FIELD_KEY_DIMENSION_Y).toString() );
 		// Se crea cada casillero
 		for (int i = 0; i < this.dimensionY; i++) {
 			ArrayList<Casillero> fila = new ArrayList<Casillero>();
@@ -33,7 +35,7 @@ public class Tablero {
 			}
 			this.casilleros.add(fila);
 		}
-
+		
 		// Por cada casillero del mapa, se guardan sus superficies
 		JSONArray casilleros = (JSONArray) json.get(JSON_FIELD_KEY_CASILLEROS);
 
@@ -45,11 +47,11 @@ public class Tablero {
 			JSONObject superficies = (JSONObject) unCasillero.get(JSON_FIELD_KEY_SUPERFICIES);
 
 			this.casilleros.get(posicionY).get(posicionX).setSuperficies(superficies);
-
 		}
+		
 	}
-
-	public Casillero getCasillero(Posicion posicion) {
+		 
+	public Casillero getCasillero(Posicion posicion) { 
 		ArrayList<Casillero> fila = this.casilleros.get( posicion.getY() );
 		Casillero unCasillero = fila.get( posicion.getX() );
 		return unCasillero;		
@@ -76,7 +78,23 @@ public class Tablero {
 	public int getDimensionY() {
 		return this.dimensionY;
 	}
-
+	
+	public String getActualSkin() {
+		return this.actualSkin;
+	}
+	
+	public void setActualSkin(String skin) {
+		this.actualSkin = skin;
+	}
+	
+	public String getProximoSkin() {
+		return this.proximoSkin;
+	}
+	
+	public void setProximoSkin(String skin) {
+		this.proximoSkin = skin;
+	}
+				
 	public Posicion posicionCentro() {
 		int medioX, medioY;
 		if ((this.getDimensionX()/2)%1 != 0)

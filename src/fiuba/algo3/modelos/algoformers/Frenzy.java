@@ -7,6 +7,7 @@ import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
 public class Frenzy extends Decepticon {
+	public static final String nombreAlgoformer = "Frenzy";
 	private static final int ATAQUE_HUMANOIDE = 10;
 	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 5;
 	private static final int VELOCIDAD_HUMANOIDE = 2;

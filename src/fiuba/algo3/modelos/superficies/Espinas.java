@@ -22,4 +22,8 @@ public class Espinas extends Tierra {
 		this.afectarAlgoformerAmbosModos(algoformer);
 	}
 	
+	public String getNombreJSON() {
+		return NOMBRE_JSON;
+	}
+	
 }

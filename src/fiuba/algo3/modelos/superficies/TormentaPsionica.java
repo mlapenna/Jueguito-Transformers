@@ -21,4 +21,8 @@ public class TormentaPsionica extends Aire {
 		//NO AFECTA		
 	}
 
+	public String getNombreJSON() {
+		return NOMBRE_JSON;
+	}
+
 }

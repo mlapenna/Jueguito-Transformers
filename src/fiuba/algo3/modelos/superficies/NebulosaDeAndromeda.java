@@ -16,4 +16,8 @@ public class NebulosaDeAndromeda extends Aire {
 	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
 		//NO AFECTA
 	}
+	
+	public String getNombreJSON() {
+		return NOMBRE_JSON;
+	}
 }

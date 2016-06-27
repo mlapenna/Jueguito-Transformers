@@ -10,7 +10,7 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
 
-public class Jugar {  // Nota de Joaquín: Segun dijeron en clase el main estaba en una clase q herede de application...
+public class Jugar {  // Nota de Joaquï¿½n: Segun dijeron en clase el main estaba en una clase q herede de application...
 					  // ya se que hacen el launch en juegoVista y es parecido, pero habria q verlo
 	
     public static void main (String[] args) throws Exception {
@@ -19,9 +19,9 @@ public class Jugar {  // Nota de Joaquín: Segun dijeron en clase el main estaba 
         JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
         Juego juego = new Juego(jsonTablero);
 
-    	TableroControlador tableroControlador = new TableroControlador(juego);
-        JuegoVista juegoVista = new JuegoVista();
-        juegoVista.mostrar(tableroControlador);
+ //   	TableroControlador tableroControlador = new TableroControlador(juego);
+ //       JuegoVista juegoVista = new JuegoVista();
+ //       juegoVista.mostrar(tableroControlador);
 
     }
 

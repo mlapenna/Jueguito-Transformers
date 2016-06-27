@@ -7,6 +7,7 @@ import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.movimientos.MovimientoAlternoTerrestre;
 
 public class BumbleBee extends Autobot {
+	public static final String nombreAlgoformer = "BumbleBee";
 	private static final int ATAQUE_HUMANOIDE = 40;
 	private static final int DISTANCIA_ATAQUE_HUMANOIDE = 1;
 	private static final int VELOCIDAD_HUMANOIDE = 2;
