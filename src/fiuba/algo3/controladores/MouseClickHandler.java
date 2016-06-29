@@ -150,8 +150,25 @@ public class MouseClickHandler {
                             new AlertHandler(titulo,header,content);
                         }
                         break;
+                        
                     case TableroVista.ACCION_TRANSFORMAR:
+                    	try {
+                    		this.algoformerQueRealizaAccion.cambiarModo();
+                            tableroVista.actualizarRobotsYChispa();
+                    	}catch (MenasorNoPuedeTransformarseExcepcion menasorNoPuedeTransformarseException){
+                    		new AlertHandler(
+                    				menasorNoPuedeTransformarseException.getExcepcionTitulo(),
+                    				menasorNoPuedeTransformarseException.getExcepcionHeader(),
+                    				menasorNoPuedeTransformarseException.getExcepcionContent());
+                    	}
+	            	catch (SuperionNoPuedeTransformarseExcepcion superionNoPuedeTransformarseException){
+	            		new AlertHandler(
+	            				superionNoPuedeTransformarseException.getExcepcionTitulo(),
+	            				superionNoPuedeTransformarseException.getExcepcionHeader(),
+	            				superionNoPuedeTransformarseException.getExcepcionContent());
+	            	}
                         break;
+                        
                     case TableroVista.ACCION_COMBINAR:
                         break;
                     default:

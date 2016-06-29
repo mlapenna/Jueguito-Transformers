@@ -20,7 +20,7 @@ public class AlgoformerVista extends StackPane {
 	  static final Image ratchetHumanoide = new Image("file:imagenes/ratchetHumanoide.png");
 	  static final Image ratchetAlterno = new Image("file:imagenes/ratchetAlterno.png");
 	  static final Image megatronHumanoide = new Image("file:imagenes/megatronHumanoide.png");
-	  static final Image megatronAlterno = new Image("file:imagenes/megatronsAlterno.png");
+	  static final Image megatronAlterno = new Image("file:imagenes/megatronAlterno.png");
 	  static final Image bonecrusherHumanoide = new Image("file:imagenes/bonecrusherHumanoide.png");
 	  static final Image bonecrusherAlterno = new Image("file:imagenes/bonecrusherAlterno.png");
 	  static final Image frenzyHumanoide = new Image("file:imagenes/frenzyHumanoide.png");

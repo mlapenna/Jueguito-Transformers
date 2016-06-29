@@ -2,7 +2,7 @@ package fiuba.algo3.vistas;
 
 import fiuba.algo3.modelos.Casillero;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import fiuba.algo3.modelos.superficies.*;
 

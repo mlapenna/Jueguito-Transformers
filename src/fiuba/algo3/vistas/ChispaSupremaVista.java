@@ -8,11 +8,11 @@ import javafx.scene.layout.StackPane;
 
 public class ChispaSupremaVista extends StackPane {
 
-	  static final Image chispaSuprema = new Image("file:imagenes/ChispaSuperma.png");
+	  static final Image chispaSuprema = new Image("file:imagenes/ChispaSuprema.png");
 	  private final ImageView imageView = new ImageView();
 	  
 	  public ChispaSupremaVista(Casillero casillero) {
-		    getStyleClass().add("casillero");
+		    getStyleClass().add("chispa");
 
 		    imageView.setMouseTransparent(true);
 		    getChildren().setAll(imageView);
