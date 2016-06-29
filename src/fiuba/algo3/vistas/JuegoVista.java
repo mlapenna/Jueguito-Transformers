@@ -1,8 +1,6 @@
 package fiuba.algo3.vistas;
 
 import fiuba.algo3.modelos.Juego;
-import fiuba.algo3.modelos.Jugador;
-import fiuba.algo3.modelos.Tablero;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

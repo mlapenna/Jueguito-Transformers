@@ -11,7 +11,7 @@ import javafx.scene.layout.StackPane;
 import fiuba.algo3.modelos.algoformers.*;
 
 
-public class AlgoformerVista extends StackPane{
+public class AlgoformerVista extends StackPane {
 
 	  static final Image optimusHumanoide = new Image("file:imagenes/optimusHumanoide.png");
 	  static final Image optimusAlterno = new Image("file:imagenes/optimusAlterno.png");

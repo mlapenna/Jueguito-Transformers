@@ -9,8 +9,7 @@ import fiuba.algo3.vistas.CasilleroVista;
 public class Casillero {
 	private static final String JSON_FIELD_KEY_TIERRA = "tierra";
 	private static final String JSON_FIELD_KEY_AIRE = "aire";
-	private String actualSkin = JSON_FIELD_KEY_TIERRA;
-	private String proximoSkin = JSON_FIELD_KEY_AIRE;
+
 
 	private Contenido contenido;
 	
@@ -51,7 +50,6 @@ public class Casillero {
 				this.aire = new TormentaPsionica();
 				break;
 		}
-		this.proximoSkin = proximoSkin;
 	}
 
 
@@ -85,26 +83,6 @@ public class Casillero {
 	
 	public void quitarContenido(){
 		this.contenido = Vacio.getInstancia();
-	}
-	
-	public void setActualSkin(String skin) {
-		String proximoSkin = this.getProximoSkin();
-		this.proximoSkin = this.getActualSkin();
-		this.actualSkin = proximoSkin;
-	}
-
-	public String getActualSkin() {
-		return this.actualSkin;
-	}
-	
-	public String getProximoSkin() {
-		return this.proximoSkin;
-	}
-	
-	public void setNextSkin() {
-		String actualSkin = this.getActualSkin();
-		this.actualSkin = this.getProximoSkin();
-		this.proximoSkin = actualSkin;
 	}
 
 	public Posicion getPosicion() {

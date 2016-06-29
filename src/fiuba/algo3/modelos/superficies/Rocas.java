@@ -3,6 +3,7 @@ package fiuba.algo3.modelos.superficies;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 
 public class Rocas extends Tierra {
+	public static final String NOMBRE = "Rocas";
 	public static final String NOMBRE_JSON = "Rocas";
 
 	@Override
@@ -15,9 +16,15 @@ public class Rocas extends Tierra {
 		//NO AFECTA
 		
 	}
-	
+
+
+	public String getNombre() {
+		return NOMBRE;
+	}
+
 	public String getNombreJSON() {
 		return NOMBRE_JSON;
 	}
+
 
 }

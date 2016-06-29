@@ -3,6 +3,7 @@ package fiuba.algo3.modelos.superficies;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 
 public class TormentaPsionica extends Aire {
+	public static final String NOMBRE = "TormentaPsionica";
 	public static final String NOMBRE_JSON = "TormentaPsionica";
 	public static final double DANIO = 0.40;
 	
@@ -19,6 +20,11 @@ public class TormentaPsionica extends Aire {
 	@Override
 	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
 		//NO AFECTA		
+	}
+
+
+	public String getNombre() {
+		return NOMBRE;
 	}
 
 	public String getNombreJSON() {

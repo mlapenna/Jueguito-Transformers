@@ -17,6 +17,6 @@ public class TransformarButtonHandler implements EventHandler<ActionEvent>{
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.tableroVista.setProximaAccion(TableroVista.ACCION_TRANSFORMAR);
+        this.tableroVista.setAccion(TableroVista.ACCION_TRANSFORMAR);
     }
 }

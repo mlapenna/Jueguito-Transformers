@@ -63,12 +63,12 @@ public class MouseClickHandler {
 
             public void realizarAccion() {
 
-                switch (tableroVista.getProximaAccion()) {
+                switch (tableroVista.getAccion()) {
                     case TableroVista.ACCION_MOVER:
                        
                         try {
                             this.algoformerQueRealizaAccion.mover(this.posicionDestinoDeLaAccion);
-                            tableroVista.llenarCadaCuadradoDelGridPane();
+                            tableroVista.actualizarRobotsYChispa();
 
                         } catch (MovimientoInvalidoCasilleroOcupadoExcepcion movimientoInvalidoCasilleroOcupadoExcepcion) {
 
@@ -123,7 +123,7 @@ public class MouseClickHandler {
                             Algoformer algoformerDestino = (Algoformer) tableroVista.getTablero().getCasillero(this.posicionDestinoDeLaAccion).getContenido();
 
                             this.algoformerQueRealizaAccion.atacar(algoformerDestino);
-                            tableroVista.llenarCadaCuadradoDelGridPane();
+                            tableroVista.actualizarRobotsYChispa();
 
                         } catch (AtaqueInvalidoDistanciaInsuficienteExcepcion ataqueInvalidoDistanciaInsuficienteExcepcion) {
                             new AlertHandler(
@@ -159,7 +159,7 @@ public class MouseClickHandler {
                         break;
                 }
 
-                tableroVista.setProximaAccion(TableroVista.ACCION_NADA);
+                tableroVista.setAccion(TableroVista.ACCION_NADA);
             }
 
         });

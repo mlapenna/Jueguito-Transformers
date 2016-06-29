@@ -1,17 +1,13 @@
 package fiuba.algo3.vistas;
 
 import fiuba.algo3.modelos.Casillero;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.ImageView;;
 import javafx.scene.layout.StackPane;
 import fiuba.algo3.modelos.superficies.*;
 
 
-public class CasilleroVista extends StackPane{
+public class CasilleroVista extends StackPane {
 
     static final Image imagenRocas = new Image("file:imagenes/img/rocas.png");
     static final Image imagenPantano = new Image("file:imagenes/img/pantano1.png");
@@ -23,24 +19,44 @@ public class CasilleroVista extends StackPane{
     private final ImageView imageView = new ImageView();
     private Casillero casillero;
 
-    public CasilleroVista(Casillero casillero, String superficie) {
+
+    public CasilleroVista(Casillero casillero, String tipoSuperficie) {
         this.casillero = casillero;
         getStyleClass().add("casillero");
 
         imageView.setMouseTransparent(true);
         getChildren().setAll(imageView);
         setPrefSize(imagenRocas.getHeight(), imagenRocas.getHeight());
-        switch (superficie) {
-            case Rocas.NOMBRE_JSON:  imageView.setImage(imagenRocas);        break;
-            case Pantano.NOMBRE_JSON: imageView.setImage(imagenPantano); break;
-            case Espinas.NOMBRE_JSON:  imageView.setImage(imagenEspinas);  break;
-            case Nube.NOMBRE_JSON:  imageView.setImage(imagenNube);        break;
-            case NebulosaDeAndromeda.NOMBRE_JSON: imageView.setImage(imagenNebulosa); break;
-            case TormentaPsionica.NOMBRE_JSON:  imageView.setImage(imagenTormenta);  break;
-        }
+
+        this.setImagen(tipoSuperficie);;
     }
+
 
     public Casillero getCasillero() {
         return this.casillero;
+    }
+
+
+    public void setImagen(String tipoSuperficie) {
+        switch (casillero.getSuperficie(tipoSuperficie).getNombre()) {
+            case Rocas.NOMBRE:
+                imageView.setImage(imagenRocas);
+                break;
+            case Pantano.NOMBRE:
+                imageView.setImage(imagenPantano);
+                break;
+            case Espinas.NOMBRE:
+                imageView.setImage(imagenEspinas);
+                break;
+            case Nube.NOMBRE:
+                imageView.setImage(new Image("file:imagenes/img/nube.png"));
+                break;
+            case NebulosaDeAndromeda.NOMBRE:
+                imageView.setImage(imagenNebulosa);
+                break;
+            case TormentaPsionica.NOMBRE:
+                imageView.setImage(imagenTormenta);
+                break;
+        }
     }
 }

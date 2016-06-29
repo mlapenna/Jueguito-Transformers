@@ -17,6 +17,6 @@ public class AtacarButtonHandler implements EventHandler<ActionEvent>{
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.tableroVista.setProximaAccion(TableroVista.ACCION_ATACAR);
+        this.tableroVista.setAccion(TableroVista.ACCION_ATACAR);
     }
 }

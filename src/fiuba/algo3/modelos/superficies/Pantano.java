@@ -4,8 +4,8 @@ import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
 
 public class Pantano extends Tierra {
+	public static final String NOMBRE = "Pantano";
 	public static final String NOMBRE_JSON = "Pantano";
-	static final int TURNOS_ATRAPADO = 1;
 
 	@Override
 	public void afectarAlgoformerAlterno(Algoformer algoformer) {
@@ -16,8 +16,13 @@ public class Pantano extends Tierra {
 	@Override
 	public void afectarAlgoformerHumanoide(Algoformer algoformer) {
 		throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion();
-	} 
-	
+	}
+
+
+	public String getNombre() {
+		return NOMBRE;
+	}
+
 	public String getNombreJSON() {
 		return NOMBRE_JSON;
 	}
