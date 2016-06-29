@@ -33,7 +33,6 @@ public class AlgoformerVista extends StackPane {
 
 	  public AlgoformerVista(Casillero casillero) {
 		  
-		  if ((casillero.getContenido().hayAlgo()) && (!casillero.getContenido().esChispa()))
 		    getStyleClass().add("algoformer");
 
 		    imageView.setMouseTransparent(true);
