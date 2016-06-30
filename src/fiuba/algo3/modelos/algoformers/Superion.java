@@ -53,4 +53,8 @@ public class Superion extends Autobot {
 	public String getNombre() {
 		return this.nombreAlgoformer;
 	}
+
+	public boolean esUnRobotCombinado() {
+		return true;
+	}
 }

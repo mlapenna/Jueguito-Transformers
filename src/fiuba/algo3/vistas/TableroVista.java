@@ -32,6 +32,7 @@ public class TableroVista extends GridPane {
         this.tablero = tablero;
         this.mostrarSuperficies();
         this.mostrarRobotsYChispa();
+        this.accion = TableroVista.ACCION_NADA;
     }
 
 

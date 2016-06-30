@@ -7,6 +7,7 @@ import fiuba.algo3.modelos.excepciones.*;
 import fiuba.algo3.vistas.AlgoformerVista;
 import javafx.event.EventHandler;
 import fiuba.algo3.vistas.TableroVista;
+import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
 import fiuba.algo3.vistas.CasilleroVista;
 import fiuba.algo3.modelos.Posicion;
@@ -27,31 +28,33 @@ public class MouseClickHandler {
 
             @Override
             public void handle(MouseEvent e) {
+                if (tableroVista.getAccion() != TableroVista.ACCION_NADA) {
 
-                if (e.getTarget() instanceof AlgoformerVista) {
+                    if (e.getTarget() instanceof AlgoformerVista) {
 
-                    Algoformer algoformer = ((AlgoformerVista) e.getTarget()).getAlgoformer();
+                        Algoformer algoformer = ((AlgoformerVista) e.getTarget()).getAlgoformer();
 
-                    if (this.algoformerQueRealizaAccion == null) {
-                        this.algoformerQueRealizaAccion = algoformer;
-                    } else {
-                        this.posicionDestinoDeLaAccion = algoformer.getPosicion();
+                        if (this.algoformerQueRealizaAccion == null) {
+                            this.algoformerQueRealizaAccion = algoformer;
+                        } else {
+                            this.posicionDestinoDeLaAccion = algoformer.getPosicion();
+                        }
+
+                    } else if (e.getTarget() instanceof CasilleroVista) {
+                        if (this.algoformerQueRealizaAccion != null) {
+                            this.posicionDestinoDeLaAccion = ((CasilleroVista) e.getTarget()).getCasillero().getPosicion();
+                        }
                     }
 
-                } else if (e.getTarget() instanceof CasilleroVista) {
-                    if (this.algoformerQueRealizaAccion != null) {
-                        this.posicionDestinoDeLaAccion = ((CasilleroVista) e.getTarget()).getCasillero().getPosicion();
+                    if (this.algoformerQueRealizaAccion != null &&
+                            (this.posicionDestinoDeLaAccion != null
+                                    || tableroVista.getAccion() == TableroVista.ACCION_TRANSFORMAR
+                                    || tableroVista.getAccion() == TableroVista.ACCION_COMBINAR)) {
+
+                        this.realizarAccion();
+                        this.algoformerQueRealizaAccion = null;
+                        this.posicionDestinoDeLaAccion = null;
                     }
-                }
-
-                if (this.algoformerQueRealizaAccion != null &&
-                        (this.posicionDestinoDeLaAccion != null
-                         || tableroVista.getAccion() == TableroVista.ACCION_TRANSFORMAR
-                         || tableroVista.getAccion() == TableroVista.ACCION_COMBINAR )) {
-
-                    this.realizarAccion();
-                    this.algoformerQueRealizaAccion = null;
-                    this.posicionDestinoDeLaAccion = null;
                 }
 
             }
@@ -174,6 +177,12 @@ public class MouseClickHandler {
 	                            noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
 	                            noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
 
+                        } catch (AlgoformerCombinadoNoPuedeTransformarseExcepcion algoformerCombinadoNoPuedeTransformarseExcepcion) {
+                            new AlertHandler(
+                                    algoformerCombinadoNoPuedeTransformarseExcepcion.getExcepcionTitulo(),
+                                    algoformerCombinadoNoPuedeTransformarseExcepcion.getExcepcionHeader(),
+                                    algoformerCombinadoNoPuedeTransformarseExcepcion.getExcepcionContent());
+
                         } catch (Exception e) {
                             String titulo = "Ha ocurrido un error que no es reconocido.";
                             String header = titulo;
@@ -213,16 +222,13 @@ public class MouseClickHandler {
 		                    new AlertHandler(titulo, header, content);
 		                }
                     	break;
-                    	
-                    default:
-                        // Nada, se olvido de cliquear una acción
-                        break;
+
                 }
 
                 tableroVista.setAccion(TableroVista.ACCION_NADA);
-                        }
+            }
 
-                });
+        });
 	}
 
 }

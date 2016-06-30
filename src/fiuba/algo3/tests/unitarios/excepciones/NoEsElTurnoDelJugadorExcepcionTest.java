@@ -3,7 +3,6 @@ package fiuba.algo3.tests.unitarios.excepciones;
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.Jugador;
-import fiuba.algo3.modelos.algoformers.Optimus;
 import fiuba.algo3.modelos.excepciones.NoEsElTurnoDelJugadorExcepcion;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

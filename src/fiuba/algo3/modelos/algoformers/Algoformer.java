@@ -1,11 +1,11 @@
 package fiuba.algo3.modelos.algoformers;
 
 import fiuba.algo3.modelos.*;
+import fiuba.algo3.modelos.excepciones.AlgoformerCombinadoNoPuedeTransformarseExcepcion;
 import fiuba.algo3.modelos.excepciones.NoEsElTurnoDelJugadorExcepcion;
 import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelos.movimientos.MovimientoHumanoide;
-//import javafx.geometry.Pos;
 
 
 public abstract class Algoformer extends Contenido {
@@ -163,6 +163,9 @@ public abstract class Algoformer extends Contenido {
 
 	public void cambiarModo() {
 		this.validarQueEsMiTurno();
+		if (this.esUnRobotCombinado()) {
+			throw new AlgoformerCombinadoNoPuedeTransformarseExcepcion();
+		}
 
 		if (this.modo.esHumanoide()) {
 			this.modo = new ModoAlterno(this, this.modo.getTablero());
@@ -240,5 +243,9 @@ public abstract class Algoformer extends Contenido {
 	}
 	
 	public abstract String getNombre();
+
+	public boolean esUnRobotCombinado() {
+		return false;
+	}
 
 }

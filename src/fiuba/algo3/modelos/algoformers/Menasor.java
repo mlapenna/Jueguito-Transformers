@@ -53,4 +53,8 @@ public class Menasor extends Decepticon {
 	public String getNombre() {
 		return this.nombreAlgoformer;
 	}
+
+	public boolean esUnRobotCombinado() {
+		return true;
+	}
 }
