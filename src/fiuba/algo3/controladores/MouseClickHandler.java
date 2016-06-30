@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import fiuba.algo3.vistas.TableroVista;
 import javafx.scene.input.MouseEvent;
 import fiuba.algo3.vistas.CasilleroVista;
+import fiuba.algo3.vistas.ChispaSupremaVista;
 import fiuba.algo3.modelos.Posicion;
 
 
@@ -44,17 +45,21 @@ public class MouseClickHandler {
                         if (this.algoformerQueRealizaAccion != null) {
                             this.posicionDestinoDeLaAccion = ((CasilleroVista) e.getTarget()).getCasillero().getPosicion();
                         }
+                    } else if (e.getTarget() instanceof ChispaSupremaVista) {
+                        if (this.algoformerQueRealizaAccion != null) {
+                        	this.posicionDestinoDeLaAccion = ((ChispaSupremaVista) e.getTarget()).getPosicion();
+                        }
                     }
+                }
 
-                    if (this.algoformerQueRealizaAccion != null &&
-                            (this.posicionDestinoDeLaAccion != null
-                                    || tableroVista.getAccion() == TableroVista.ACCION_TRANSFORMAR
-                                    || tableroVista.getAccion() == TableroVista.ACCION_COMBINAR)) {
+                if (this.algoformerQueRealizaAccion != null &&
+                        (this.posicionDestinoDeLaAccion != null
+                                || tableroVista.getAccion() == TableroVista.ACCION_TRANSFORMAR
+                                || tableroVista.getAccion() == TableroVista.ACCION_COMBINAR)) {
 
-                        this.realizarAccion();
-                        this.algoformerQueRealizaAccion = null;
-                        this.posicionDestinoDeLaAccion = null;
-                    }
+                    this.realizarAccion();
+                    this.algoformerQueRealizaAccion = null;
+                    this.posicionDestinoDeLaAccion = null;
                 }
 
             }
