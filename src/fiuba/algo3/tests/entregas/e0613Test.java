@@ -167,12 +167,13 @@ public class e0613Test {
 		juego.getJugador2().getAlgoformers().get(0).cambiarModo();
 		
 		jugador1.combinarAlgoformers(algoformers.get(0).getTurno()); //SUPERION EN (0,2)
+		juego.getJugador2().getAlgoformers().get(0).cambiarModo();
 		
 		Algoformer superion = jugador1.getAlgoformers().get(0);
 		Posicion posicionDestino = new Posicion(2,2);
 		int vidaOriginal = superion.getVida();
 		superion.mover(posicionDestino);
- 
+
 		Assert.assertEquals(superion.getPosicion(), posicionDestino);
 		Assert.assertEquals(vidaOriginal, superion.getVida());
 	}
@@ -326,6 +327,7 @@ public class e0613Test {
 		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		
 		jugador2.combinarAlgoformers(algoformers.get(0).getTurno()); //MENASOR EN (8,6)
+		juego.getJugador1().getAlgoformers().get(0).cambiarModo();
 		
 		Algoformer menasor = jugador2.getAlgoformers().get(0);
 		Posicion posicionDestino = new Posicion(6,6);

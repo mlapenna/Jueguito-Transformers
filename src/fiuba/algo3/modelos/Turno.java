@@ -46,4 +46,8 @@ public class Turno {
 
         return this.jugadorDelQueEsElTurno.algoformerEsMio(algoformer);
     }
+
+	public Object getJugadorDelQueEsElTurno() {
+		return jugadorDelQueEsElTurno;
+	}
 }
