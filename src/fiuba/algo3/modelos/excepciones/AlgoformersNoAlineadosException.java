@@ -1,25 +1,12 @@
 package fiuba.algo3.modelos.excepciones;
 
-public class AlgoformersNoAlineadosException extends RuntimeException {
+public class AlgoformersNoAlineadosException extends RuntimeExceptionConMensajes {
 
-	   public AlgoformersNoAlineadosException() {
-	        super();
-	    }
-	
-	private String title = "Movimiento inválido.";
-	private String header = "Casilleros seleccionados incorrectos.";
-	private String content = "El algoformer no puede moverse en esa dirección.";
-	
-    public String getExcepcionTitulo() {
-    	return this.title;
+    public AlgoformersNoAlineadosException() {
+        super();
+        this.title = "Movimiento inválido.";
+        this.header = "Casilleros seleccionados incorrectos.";
+        this.content = "El algoformer no puede moverse en esa dirección.";
     }
 
-    public String getExcepcionHeader() {
-    	return this.header;
-    }
-
-    public String getExcepcionContent() {
-    	return this.content;
-    }
-    
 }

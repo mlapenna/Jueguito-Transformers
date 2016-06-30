@@ -5,9 +5,9 @@ import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.excepciones.*;
 import fiuba.algo3.vistas.AlgoformerVista;
+import fiuba.algo3.vistas.MostrarAlUsuarioError;
 import javafx.event.EventHandler;
 import fiuba.algo3.vistas.TableroVista;
-import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
 import fiuba.algo3.vistas.CasilleroVista;
 import fiuba.algo3.modelos.Posicion;
@@ -69,47 +69,26 @@ public class MouseClickHandler {
                             this.algoformerQueRealizaAccion.mover(this.posicionDestinoDeLaAccion);
                             tableroVista.actualizarRobotsYChispa();
 
-                        } catch (MovimientoInvalidoCasilleroOcupadoExcepcion movimientoInvalidoCasilleroOcupadoExcepcion) {
-                            new AlertHandler(
-                                    movimientoInvalidoCasilleroOcupadoExcepcion.getExcepcionTitulo(),
-                                    movimientoInvalidoCasilleroOcupadoExcepcion.getExcepcionHeader(),
-                                    movimientoInvalidoCasilleroOcupadoExcepcion.getExcepcionContent());
+                        } catch (MovimientoInvalidoCasilleroOcupadoExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (MovimientoInvalidoDistanciaNoValidaExcepcion movimientoInvalidoDistanciaNoValidaExcepcion) {
-                            new AlertHandler(
-                                    movimientoInvalidoDistanciaNoValidaExcepcion.getExcepcionTitulo(),
-                                    movimientoInvalidoDistanciaNoValidaExcepcion.getExcepcionHeader(),
-                                    movimientoInvalidoDistanciaNoValidaExcepcion.getExcepcionContent());
+                        } catch (MovimientoInvalidoDistanciaNoValidaExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion) {
-                            new AlertHandler(
-                                    movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion.getExcepcionTitulo(),
-                                    movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion.getExcepcionHeader(),
-                                    movimientoInvalidoIncapazDeAtravezarSuperficieExcepcion.getExcepcionContent());
+                        } catch (MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (AlgoformerInmovilizadoExcepcion algoformerInmovilizadoExcepcion) {
-                            new AlertHandler(
-                                    algoformerInmovilizadoExcepcion.getExcepcionTitulo(),
-                                    algoformerInmovilizadoExcepcion.getExcepcionHeader(),
-                                    algoformerInmovilizadoExcepcion.getExcepcionContent());
+                        } catch (AlgoformerInmovilizadoExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (MovimientoInvalidoCasilleroInvalidoExcepcion movimientoInvalidoCasilleroInvalidoExcepcion) {
-                            new AlertHandler(
-                                    movimientoInvalidoCasilleroInvalidoExcepcion.getExcepcionTitulo(),
-                                    movimientoInvalidoCasilleroInvalidoExcepcion.getExcepcionHeader(),
-                                    movimientoInvalidoCasilleroInvalidoExcepcion.getExcepcionContent());
+                        } catch (MovimientoInvalidoCasilleroInvalidoExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
-                            new AlertHandler(
-                                    noEsElTurnoDelJugadorExcepcion.getExcepcionTitulo(),
-                                    noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
-                                    noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
+                        } catch (NoEsElTurnoDelJugadorExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
                         } catch (Exception e) {
-                            String titulo = "Ha ocurrido un error que no es reconocido.";
-                            String header = titulo;
-                            String content = titulo;
-                            new AlertHandler(titulo, header, content);
+                            new MostrarAlUsuarioError(new ErrorDesconocidoEnLaVistaExcepcion() );
                         };
 
                         break;
@@ -128,29 +107,17 @@ public class MouseClickHandler {
                                 tableroVista.actualizarRobotsYChispa();
                             }
 
-                        } catch (AtaqueInvalidoDistanciaInsuficienteExcepcion ataqueInvalidoDistanciaInsuficienteExcepcion) {
-                            new AlertHandler(
-                                    ataqueInvalidoDistanciaInsuficienteExcepcion.getExcepcionTitulo(),
-                                    ataqueInvalidoDistanciaInsuficienteExcepcion.getExcepcionHeader(),
-                                    ataqueInvalidoDistanciaInsuficienteExcepcion.getExcepcionContent());
+                        } catch (AtaqueInvalidoDistanciaInsuficienteExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
-                            new AlertHandler(
-                                    noEsElTurnoDelJugadorExcepcion.getExcepcionTitulo(),
-                                    noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
-                                    noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
+                        } catch (NoEsElTurnoDelJugadorExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion) {
-                            new AlertHandler(
-                                    ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion.getExcepcionTitulo(),
-                                    ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion.getExcepcionHeader(),
-                                    ataqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion.getExcepcionContent());
+                        } catch (AtaqueInvalidoFriendlyFireNoEstaHabilitadoExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
                         } catch (Exception e) {
-                            String titulo = "Ha ocurrido un error que no es reconocido.";
-                            String header = "Ha ocurrido un error que no es reconocido.";
-                            String content = "Ha ocurrido un error que no es reconocido.";
-                            new AlertHandler(titulo,header,content);
+                            new MostrarAlUsuarioError(new ErrorDesconocidoEnLaVistaExcepcion() );
                         }
                         break;
                         
@@ -159,35 +126,20 @@ public class MouseClickHandler {
                     		this.algoformerQueRealizaAccion.cambiarModo();
                             tableroVista.actualizarRobotsYChispa();
 
-                    	} catch (MenasorNoPuedeTransformarseExcepcion menasorNoPuedeTransformarseException) {
-                    		new AlertHandler(
-                                menasorNoPuedeTransformarseException.getExcepcionTitulo(),
-                                menasorNoPuedeTransformarseException.getExcepcionHeader(),
-                                menasorNoPuedeTransformarseException.getExcepcionContent());
+                    	} catch (MenasorNoPuedeTransformarseExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                    	} catch (SuperionNoPuedeTransformarseExcepcion superionNoPuedeTransformarseException){
-	            		    new AlertHandler(
-	            				superionNoPuedeTransformarseException.getExcepcionTitulo(),
-	            				superionNoPuedeTransformarseException.getExcepcionHeader(),
-	            				superionNoPuedeTransformarseException.getExcepcionContent());
+                    	} catch (SuperionNoPuedeTransformarseExcepcion excepcion){
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
-                            new AlertHandler(
-	                            noEsElTurnoDelJugadorExcepcion.getExcepcionTitulo(),
-	                            noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
-	                            noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
+                        } catch (NoEsElTurnoDelJugadorExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (AlgoformerCombinadoNoPuedeTransformarseExcepcion algoformerCombinadoNoPuedeTransformarseExcepcion) {
-                            new AlertHandler(
-                                    algoformerCombinadoNoPuedeTransformarseExcepcion.getExcepcionTitulo(),
-                                    algoformerCombinadoNoPuedeTransformarseExcepcion.getExcepcionHeader(),
-                                    algoformerCombinadoNoPuedeTransformarseExcepcion.getExcepcionContent());
+                        } catch (AlgoformerCombinadoNoPuedeTransformarseExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
                         } catch (Exception e) {
-                            String titulo = "Ha ocurrido un error que no es reconocido.";
-                            String header = titulo;
-                            String content = titulo;
-                            new AlertHandler(titulo,header,content);
+                            new MostrarAlUsuarioError(new ErrorDesconocidoEnLaVistaExcepcion() );
                         }
                         break;
                         
@@ -197,29 +149,17 @@ public class MouseClickHandler {
                            	jugador.combinarAlgoformers(this.algoformerQueRealizaAccion.getTurno());
                            	tableroVista.actualizarRobotsYChispa();
 
-                        } catch (AlgoformersNoAlineadosException algoformersNoAlineadosException) {
-                    		new AlertHandler(
-                                algoformersNoAlineadosException.getExcepcionTitulo(),
-                                algoformersNoAlineadosException.getExcepcionHeader(),
-                                algoformersNoAlineadosException.getExcepcionContent());
+                        } catch (AlgoformersNoAlineadosException excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (CantidadDeAlgoformersInsuficienteException cantidadDeAlgoformersInsuficienteException) {
-                    		new AlertHandler(
-                                cantidadDeAlgoformersInsuficienteException.getExcepcionTitulo(),
-                                cantidadDeAlgoformersInsuficienteException.getExcepcionHeader(),
-                                cantidadDeAlgoformersInsuficienteException.getExcepcionContent());
+                        } catch (CantidadDeAlgoformersInsuficienteException excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
-                        } catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
-    	                    new AlertHandler(
-                                noEsElTurnoDelJugadorExcepcion.getExcepcionTitulo(),
-                                noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
-                                noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
+                        } catch (NoEsElTurnoDelJugadorExcepcion excepcion) {
+                            new MostrarAlUsuarioError(excepcion);
 
                         } catch (Exception e) {
-		                    String titulo = "Ha ocurrido un error que no es reconocido.";
-		                    String header = titulo;
-		                    String content = titulo;
-		                    new AlertHandler(titulo, header, content);
+                            new MostrarAlUsuarioError(new ErrorDesconocidoEnLaVistaExcepcion() );
 		                }
                     	break;
 

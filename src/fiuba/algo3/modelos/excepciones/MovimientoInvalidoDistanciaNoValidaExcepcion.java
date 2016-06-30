@@ -1,22 +1,12 @@
 package fiuba.algo3.modelos.excepciones;
 
-public class MovimientoInvalidoDistanciaNoValidaExcepcion extends RuntimeException{
+public class MovimientoInvalidoDistanciaNoValidaExcepcion extends RuntimeExceptionConMensajes {
+
     public MovimientoInvalidoDistanciaNoValidaExcepcion() {
         super();
-    }
-    private String title = "Movimiento Inv\u00e1lido";
-    private String header = "La distancia solicitada supera la velocidad del Algoformer.";
-	private String content = "";
-	
-    public String getExcepcionTitulo() {
-    	return this.title;
+        this.title = "Movimiento Inv\u00e1lido";
+        this.header = "La distancia solicitada supera la velocidad del Algoformer.";
+        this.content = "";
     }
 
-    public String getExcepcionHeader() {
-    	return this.header;
-    }
-
-    public String getExcepcionContent() {
-    	return this.content;
-    }
 }

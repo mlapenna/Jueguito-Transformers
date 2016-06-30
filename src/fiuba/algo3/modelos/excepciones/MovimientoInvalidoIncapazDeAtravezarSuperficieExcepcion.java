@@ -1,22 +1,11 @@
 package fiuba.algo3.modelos.excepciones;
 
-public class MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion extends RuntimeException {
+public class MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion extends RuntimeExceptionConMensajes {
     public MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion() {
         super();
-    }
-	private String title ="Movimiento Inv\u00e1lido";
-	private String header = "El Algoformer en el modo actual no es capaz de atravesar todas las superficies del recorrido.";
-	private String content = "";
-	
-    public String getExcepcionTitulo() {
-    	return this.title;
+		this.title ="Movimiento Inv\u00e1lido";
+		this.header = "El Algoformer en el modo actual no es capaz de atravesar todas las superficies del recorrido.";
+		this.content = "";
     }
 
-    public String getExcepcionHeader() {
-    	return this.header;
-    }
-
-    public String getExcepcionContent() {
-    	return this.content;
-    }
 }

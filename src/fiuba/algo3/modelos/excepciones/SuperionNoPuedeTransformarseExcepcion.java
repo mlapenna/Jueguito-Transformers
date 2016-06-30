@@ -1,22 +1,12 @@
 package fiuba.algo3.modelos.excepciones;
 
-public class SuperionNoPuedeTransformarseExcepcion extends RuntimeException {
+public class SuperionNoPuedeTransformarseExcepcion extends RuntimeExceptionConMensajes {
+
     public SuperionNoPuedeTransformarseExcepcion() {
         super();
+		this.title = "Superion No Puede Transformarse";
+		this.header = "";
+		this.content = "";
     }
-	private String title = "Superion No Puede Transformarse";
-	private String header = "";
-	private String content = "";
 	
-    public String getExcepcionTitulo() {
-    	return this.title;
-    }
-
-    public String getExcepcionHeader() {
-    	return this.header;
-    }
-
-    public String getExcepcionContent() {
-    	return this.content;
-    }
 }
