@@ -1,12 +1,8 @@
 package fiuba.algo3.vistas;
 
 import fiuba.algo3.modelos.Casillero;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import fiuba.algo3.modelos.algoformers.*;
 
@@ -25,8 +21,8 @@ public class AlgoformerVista extends StackPane {
 	  static final Image bonecrusherAlterno = new Image("file:imagenes/bonecrusherAlterno.png");
 	  static final Image frenzyHumanoide = new Image("file:imagenes/frenzyHumanoide.png");
 	  static final Image frenzyAlterno = new Image("file:imagenes/frenzyAlterno.png");
-	  static final Image superionHumanoide = new Image("file:imagenes/superionHumanoide.png");
-	  static final Image menasorHumanoide = new Image("file:imagenes/menasorHumanoide.png");
+	  static final Image superionHumanoide = new Image("file:imagenes/superion.png");
+	  static final Image menasorHumanoide = new Image("file:imagenes/menasor.png");
 	  
 	  private final ImageView imageView = new ImageView();
 	  private Algoformer algoformer;
@@ -41,8 +37,7 @@ public class AlgoformerVista extends StackPane {
 
 			this.algoformer = (Algoformer) casillero.getContenido();
 
-		    if(this.algoformer .getModo().esHumanoide()) {
-
+		    if (this.algoformer .getModo().esHumanoide()) {
 		    	switch (this.algoformer .getNombre()) {
 	        		case Optimus.nombreAlgoformer:  imageView.setImage(optimusHumanoide); break;
 	        		case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetHumanoide); break;
@@ -53,7 +48,7 @@ public class AlgoformerVista extends StackPane {
 	        		case Superion.nombreAlgoformer:  imageView.setImage(superionHumanoide); break;
 	        		case Menasor.nombreAlgoformer:  imageView.setImage(menasorHumanoide); break;
 		    	}
-		    } else if (this.algoformer.getModo().esAlterno()) {
+		    } else {
 		    	switch (this.algoformer .getNombre()) {
         			case Optimus.nombreAlgoformer:  imageView.setImage(optimusAlterno); break;
         			case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetAlterno); break;
