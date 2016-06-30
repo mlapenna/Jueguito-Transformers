@@ -1,5 +1,6 @@
 package fiuba.algo3.vistas;
 
+import fiuba.algo3.modelos.Casillero;
 import fiuba.algo3.modelos.Juego;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -20,6 +21,15 @@ import fiuba.algo3.controladores.MoverButtonHandler;
 import fiuba.algo3.controladores.MouseClickHandler;
 import fiuba.algo3.controladores.TransformarButtonHandler;
 
+import javafx.scene.control.ProgressBar;
+import java.awt.Label;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import java.util.Collection;
+import javafx.scene.text.Text;
+import fiuba.algo3.modelos.algoformers.*;
+import fiuba.algo3.modelos.Posicion;
+import fiuba.algo3.vistas.BarraJugadorVista;
 
 public class JuegoVista extends Application {
 
@@ -65,10 +75,17 @@ public class JuegoVista extends Application {
 		CambiarMapaButtonHandler cambiarMapaButtonHandler = new CambiarMapaButtonHandler(tableroVista, juego.getTablero() );
 
 		cambiarMapaButton.setOnAction(cambiarMapaButtonHandler);
-		VBox contenedorPrincipal = new VBox(tableroVista,contenedorHorizontal);
-		contenedorPrincipal.setSpacing(10);
-		contenedorPrincipal.setPadding(new Insets(20));
+		VBox contenedorCentral = new VBox(tableroVista,contenedorHorizontal);
+		contenedorCentral.setSpacing(10);
+		contenedorCentral.setPadding(new Insets(20));
 
+		BarraJugadorVista barraJugador1 = new BarraJugadorVista(juego.getJugador1());
+		BarraJugadorVista barraJugador2 = new BarraJugadorVista(juego.getJugador2());
+		
+		VBox contenedorIzquierda = barraJugador1.getAlgoformersContenedor();
+		VBox contenedorDerecha = barraJugador2.getAlgoformersContenedor();
+		HBox contenedorPrincipal = new HBox(contenedorIzquierda,contenedorCentral,contenedorDerecha);
+		
 		stage.setTitle("Algoformers");
 		final Scene scene = new Scene(contenedorPrincipal,1024,768);
 		stage.setScene(scene);
@@ -79,4 +96,6 @@ public class JuegoVista extends Application {
 		Application.launch(JuegoVista.class);
 	}
 
+
+	
 }
