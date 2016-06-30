@@ -1,6 +1,7 @@
 package fiuba.algo3.controladores;
 
 import fiuba.algo3.modelos.Casillero;
+import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.excepciones.*;
 import fiuba.algo3.vistas.AlgoformerVista;
@@ -167,10 +168,50 @@ public class MouseClickHandler {
 	            				superionNoPuedeTransformarseException.getExcepcionHeader(),
 	            				superionNoPuedeTransformarseException.getExcepcionContent());
 	            	}
+	                catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
+	                    new AlertHandler(
+	                            noEsElTurnoDelJugadorExcepcion.getExcepcionTitulo(),
+	                            noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
+	                            noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
+	                } catch (Exception e) {
+                        String titulo = "Ha ocurrido un error que no es reconocido.";
+                        String header = "Ha ocurrido un error que no es reconocido.";
+                        String content = "Ha ocurrido un error que no es reconocido.";
+                        new AlertHandler(titulo,header,content);
+                    }
                         break;
                         
                     case TableroVista.ACCION_COMBINAR:
-                        break;
+                    	try{
+                    		Jugador jugador = (Jugador) this.algoformerQueRealizaAccion.getTurno().getJugadorDelQueEsElTurno();
+                           	jugador.combinarAlgoformers(this.algoformerQueRealizaAccion.getTurno());
+                           	tableroVista.actualizarRobotsYChispa();
+                    	}
+                    	catch (AlgoformersNoAlineadosException algoformersNoAlineadosException){
+                    		new AlertHandler(
+                    				algoformersNoAlineadosException.getExcepcionTitulo(),
+                    				algoformersNoAlineadosException.getExcepcionHeader(),
+                    				algoformersNoAlineadosException.getExcepcionContent());
+                    	}
+                    	catch (CantidadDeAlgoformersInsuficienteException cantidadDeAlgoformersInsuficienteException){
+                    		new AlertHandler(
+                    				cantidadDeAlgoformersInsuficienteException.getExcepcionTitulo(),
+                    				cantidadDeAlgoformersInsuficienteException.getExcepcionHeader(),
+                    				cantidadDeAlgoformersInsuficienteException.getExcepcionContent());
+                    	}
+                    	catch (NoEsElTurnoDelJugadorExcepcion noEsElTurnoDelJugadorExcepcion) {
+    	                    new AlertHandler(
+    	                            noEsElTurnoDelJugadorExcepcion.getExcepcionTitulo(),
+    	                            noEsElTurnoDelJugadorExcepcion.getExcepcionHeader(),
+    	                            noEsElTurnoDelJugadorExcepcion.getExcepcionContent());
+                    	}catch (Exception e) {
+		                    String titulo = "Ha ocurrido un error que no es reconocido.";
+		                    String header = "Ha ocurrido un error que no es reconocido.";
+		                    String content = "Ha ocurrido un error que no es reconocido.";
+		                    new AlertHandler(titulo,header,content);
+		                }
+                    	break;
+                    	
                     default:
                         // Nada, se olvido de cliquear ATACAR o MOVER
                         break;

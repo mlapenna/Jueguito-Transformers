@@ -3,6 +3,7 @@ package fiuba.algo3.modelos;
 import fiuba.algo3.modelos.algoformers.*;
 import fiuba.algo3.modelos.excepciones.AlgoformersNoAlineadosException;
 import fiuba.algo3.modelos.excepciones.CantidadDeAlgoformersInsuficienteException;
+import fiuba.algo3.modelos.excepciones.NoEsElTurnoDelJugadorExcepcion;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -87,9 +88,12 @@ public class Jugador {
     }
     
     public void combinarAlgoformers(Turno turno) throws AlgoformersNoAlineadosException, CantidadDeAlgoformersInsuficienteException {
-    	
-    	if(misAlgoformers.size()<3)
+    	    	
+    	if(this.misAlgoformers.size()<3)
     		throw new CantidadDeAlgoformersInsuficienteException();
+    	
+    	if(this.misAlgoformers.get(0).getTurno().getJugadorDelQueEsElTurno() != this)
+    		throw new NoEsElTurnoDelJugadorExcepcion(); //ESTE IF VA ARRIBA Y ESTA MAL; LO PONGO ACA POR SI NO ESTA EL GET(0)
     	
     	ArrayList<Posicion> posicion = new ArrayList<Posicion>();
     	for (int i=0; i<this.misAlgoformers.size(); i++)
@@ -115,6 +119,7 @@ public class Jugador {
     			this.misAlgoformers.add(new Menasor(posicionDelMedio,this.juego.getTablero(),turno));break;
     	}
     	this.misAlgoformers.get(0).afectarVida(contadorDeVida); //HARDCODE
+    	this.misAlgoformers.get(0).siguienteTurno();
     }
     
 	public boolean noLeQuedanAlgoformers() {

@@ -1,5 +1,6 @@
 package fiuba.algo3.modelos.algoformers;
 
+import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.Posicion;
 import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.Turno;

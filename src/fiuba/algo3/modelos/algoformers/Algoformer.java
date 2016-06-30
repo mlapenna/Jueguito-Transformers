@@ -24,7 +24,6 @@ public abstract class Algoformer extends Contenido {
 	private boolean tieneLaChispa;
 	private boolean muerto;
 
-
 	public Algoformer(Posicion posicion, Tablero tablero, Turno turno) {
 		this.posicion = posicion;
 		tablero.setContenido(posicion, this);
@@ -173,6 +172,10 @@ public abstract class Algoformer extends Contenido {
 			this.modo = new ModoHumanoide(this, this.modo.getTablero());
 		}
 
+		this.siguienteTurno();
+	}
+	
+	public void siguienteTurno(){
 		this.turno.siguiente();
 	}
 
