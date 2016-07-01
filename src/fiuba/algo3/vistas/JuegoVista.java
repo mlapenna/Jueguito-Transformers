@@ -42,7 +42,7 @@ public class JuegoVista extends Application {
         Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
 
-       TableroVista tableroVista = new TableroVista(juego.getTablero());
+       TableroVista tableroVista = new TableroVista(juego);
 
 		MouseClickHandler mouseClickHandler = new MouseClickHandler(tableroVista);
 
@@ -79,12 +79,13 @@ public class JuegoVista extends Application {
 		contenedorCentral.setSpacing(10);
 		contenedorCentral.setPadding(new Insets(20));
 
-		BarraJugadorVista barraJugador1 = new BarraJugadorVista(juego.getJugador1());
-		BarraJugadorVista barraJugador2 = new BarraJugadorVista(juego.getJugador2());
+//		BarraJugadorVista barraJugador1 = new BarraJugadorVista(juego.getJugador1());
+//		BarraJugadorVista barraJugador2 = new BarraJugadorVista(juego.getJugador2());
+//		
+//		VBox contenedorIzquierda = barraJugador1.getAlgoformersContenedor();
+//		VBox contenedorDerecha = barraJugador2.getAlgoformersContenedor();
 		
-		VBox contenedorIzquierda = barraJugador1.getAlgoformersContenedor();
-		VBox contenedorDerecha = barraJugador2.getAlgoformersContenedor();
-		HBox contenedorPrincipal = new HBox(contenedorIzquierda,contenedorCentral,contenedorDerecha);
+		HBox contenedorPrincipal = new HBox(tableroVista.getContenedorIzquierda(),contenedorCentral,tableroVista.getContenedorDerecha());
 		
 		stage.setTitle("Algoformers");
 		final Scene scene = new Scene(contenedorPrincipal,1024,768);

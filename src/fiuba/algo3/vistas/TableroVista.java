@@ -5,9 +5,11 @@ import javafx.scene.layout.GridPane;
 import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.Posicion;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import fiuba.algo3.modelos.Juego;
 
 public class TableroVista extends GridPane {
 	
@@ -22,16 +24,22 @@ public class TableroVista extends GridPane {
 
 	private int accion;
 	private Tablero tablero;
+	private Juego juego;
+	private BarraJugadorVista barraJugador1;
+	private BarraJugadorVista barraJugador2;
     ArrayList<ArrayList<CasilleroVista>> casillerosVistas = new ArrayList<ArrayList<CasilleroVista>>();
     ArrayList<StackPane> algoformersYchispaVistas = new ArrayList<StackPane>();
-
-
-    public TableroVista(Tablero tablero) {
+    private VBox contenedorIzquierda;
+    private VBox contenedorDerecha;
+    
+    public TableroVista(Juego juego) {
         getStyleClass().add("tablero");
         this.setGridLinesVisible(true);
-        this.tablero = tablero;
+        this.tablero = juego.getTablero();
+        this.juego = juego;
         this.mostrarSuperficies();
         this.mostrarRobotsYChispa();
+        this.crearBarrasJugadores();
         this.accion = TableroVista.ACCION_NADA;
     }
 
@@ -113,7 +121,27 @@ public class TableroVista extends GridPane {
         this.algoformersYchispaVistas.clear();
 
         this.mostrarRobotsYChispa();
-
+        this.actualizarBarrasJugadores();
+    }
+    
+    private void crearBarrasJugadores() {
+    	this.barraJugador1 = new BarraJugadorVista(this.juego.getJugador1());
+		this.barraJugador2 = new BarraJugadorVista(this.juego.getJugador2());
+		
+		this.contenedorIzquierda = barraJugador1.getAlgoformersContenedor();
+		this.contenedorDerecha = barraJugador2.getAlgoformersContenedor();
+    }
+    
+    private void actualizarBarrasJugadores() {
+    	this.contenedorIzquierda.getChildren().clear();
+    	BarraJugadorVista barraJugador1 = new BarraJugadorVista(juego.getJugador1());
+    	VBox contenedorAux1 = barraJugador1.getAlgoformersContenedor();
+    	this.contenedorIzquierda.getChildren().add(contenedorAux1);
+    	
+    	this.contenedorDerecha.getChildren().clear();
+    	BarraJugadorVista barraJugador2= new BarraJugadorVista(juego.getJugador2());
+    	VBox contenedorAux2 = barraJugador2.getAlgoformersContenedor();
+    	this.contenedorDerecha.getChildren().add(contenedorAux2);
     }
 
 	public void setAccion(int accion) {
@@ -128,4 +156,12 @@ public class TableroVista extends GridPane {
 		return this.tablero;
 	}
 
+    public VBox getContenedorDerecha() {
+    	return this.contenedorDerecha;
+    }
+    
+    public VBox getContenedorIzquierda() {
+    	return this.contenedorIzquierda;
+    }
+    
 }

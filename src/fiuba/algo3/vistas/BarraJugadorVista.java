@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import java.util.ArrayList;
+import javafx.concurrent.Task;
 
 public class BarraJugadorVista {
 	
@@ -53,15 +54,17 @@ public class BarraJugadorVista {
 	}
 	
 	private HBox crearContenedor(String atributo,Integer valorOriginal,float valorActual) {
-		
+
 		Text label = new Text(atributo+" ( "+valorActual+" )");
-		ProgressBar pb = new ProgressBar(1.2f);
-		pb.setProgress((float)valorActual/valorOriginal);
+//		ProgressBar pb = new ProgressBar(1.2f);
+//		pb.setProgress((float)valorActual/valorOriginal);
+		
 		HBox contenedorAtributo = new HBox();
 		contenedorAtributo.setSpacing(10);
 		contenedorAtributo.setAlignment(Pos.TOP_RIGHT);
 		contenedorAtributo.setPadding(new Insets(3));
-		contenedorAtributo.getChildren().addAll(label,pb);
+//		contenedorAtributo.getChildren().addAll(label,pb);
+		contenedorAtributo.getChildren().addAll(label);
 		return contenedorAtributo;
 		
 	}
