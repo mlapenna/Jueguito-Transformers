@@ -21,7 +21,7 @@ import org.junit.Test;
 public class AlgoformerCombinadoNoPuedeTransformarseExcepcionTest {
 
 	@Test(expected = AlgoformerCombinadoNoPuedeTransformarseExcepcion.class)
-	public void testMuevoDosVecesSeguidasMismoAlgoformerYLanzaExcepcion() {
+	public void testCombinoAlgoformerYLuegoTratoDeTransformarloLanzaExcepcion() {
 		try {
 
 			JSONParser parser = new JSONParser();
@@ -50,101 +50,5 @@ public class AlgoformerCombinadoNoPuedeTransformarseExcepcionTest {
 			e.printStackTrace();
 		}
 	}
-
-
-	@Test
-	public void testMuevoDosAlgoformersDeDistintoJugadorYNoLanzaExcepcion() {
-		try {
-			JSONParser parser = new JSONParser();
-			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/1.json"));
-			Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
-
-			Jugador jugador1 = juego.getJugador1();
-			Iterator<Algoformer> robotsJugador1 = jugador1.getAlgoformersIterator();
-			Algoformer unRobotJugador1 = robotsJugador1.next();
-			unRobotJugador1.mover( new Posicion(2,0) );
-
-			Jugador jugador2 = juego.getJugador2();
-			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
-			Algoformer unRobotJugador2 = robotsJugador2.next();
-
-			try {
-				unRobotJugador2.mover( new Posicion(8,3) );
-			} catch (NoEsElTurnoDelJugadorExcepcion e) {
-				Assert.fail();
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	@Test(expected = NoEsElTurnoDelJugadorExcepcion.class)
-	public void testAtacoDosVecesSeguidasConElMismoAlgoformerYLanzaExcepcion() {
-		try {
-			JSONParser parser = new JSONParser();
-			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestAtaques.json"));
-			Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
-
-			Jugador jugador1 = juego.getJugador1();
-			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
-			robots.next();
-			robots.next();
-			Algoformer robotJugador1 = robots.next();
-
-			Jugador jugador2 = juego.getJugador2();
-			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
-			Algoformer unRobotJugador2 = robotsJugador2.next();
-
-			robotJugador1.atacar(unRobotJugador2);
-
-			robotJugador1.atacar(unRobotJugador2);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-	}
-
-
-	@Test
-	public void testAtacoDesdeUnAlgoformerYLuegoDesdeUnoDelOtroJugadorYNoLanzaExcepcion() {
-		try {
-			JSONParser parser = new JSONParser();
-			JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestAtaques.json"));
-			Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
-
-			Jugador jugador1 = juego.getJugador1();
-			Iterator<Algoformer> robots = jugador1.getAlgoformersIterator();
-			robots.next();
-			robots.next();
-			Algoformer unRobotJugador1 = robots.next();
-
-			Jugador jugador2 = juego.getJugador2();
-			Iterator<Algoformer> robotsJugador2 = jugador2.getAlgoformersIterator();
-			robotsJugador2.next();
-			robotsJugador2.next();
-			Algoformer unRobotJugador2 = robotsJugador2.next();
-
-			unRobotJugador1.atacar(unRobotJugador2);
-
-			try {
-				unRobotJugador2.atacar(unRobotJugador1);
-			} catch (NoEsElTurnoDelJugadorExcepcion e) {
-				Assert.fail();
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 
 }
