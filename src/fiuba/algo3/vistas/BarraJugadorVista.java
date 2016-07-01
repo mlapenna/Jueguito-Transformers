@@ -32,10 +32,10 @@ public class BarraJugadorVista {
 			
 			algoformer = algoformers.get(i);
 
-			HBox contenedorVida = crearContenedor("Vida",algoformer.getVida(),algoformer.getVida());
-			HBox contenedorAtaque = crearContenedor("Ataque",algoformer.getAtaque(),algoformer.getAtaque());
-			HBox contenedorVelocidad = crearContenedor("Velocidad",algoformer.getVelocidad(),algoformer.getVelocidad());
-			HBox contenedorDistancia = crearContenedor("Distancia de ataque",algoformer.getDistanciaAtaque(),algoformer.getDistanciaAtaque());
+			HBox contenedorVida = crearContenedor("Vida",algoformer.getModo().getVida(),algoformer.getVida());
+			HBox contenedorAtaque = crearContenedor("Ataque",algoformer.getModo().getAtaqueInicial(),algoformer.getAtaque());
+			HBox contenedorVelocidad = crearContenedor("Velocidad",algoformer.getModo().getVelocidad(),algoformer.getVelocidad());
+			HBox contenedorDistancia = crearContenedor("Distancia de ataque",algoformer.getModo().getDistanciaAtaque(),algoformer.getDistanciaAtaque());
 			
 			VBox contenedorAtributos = new VBox(contenedorVida,contenedorAtaque,contenedorVelocidad,contenedorDistancia);
 			contenedorAtributos.setPadding(new Insets(15));
@@ -56,15 +56,14 @@ public class BarraJugadorVista {
 	private HBox crearContenedor(String atributo,Integer valorOriginal,float valorActual) {
 
 		Text label = new Text(atributo+" ( "+valorActual+" )");
-//		ProgressBar pb = new ProgressBar(1.2f);
-//		pb.setProgress((float)valorActual/valorOriginal);
+		ProgressBar pb = new ProgressBar(1.2f);
+		pb.setProgress((float)valorActual/valorOriginal);
 		
 		HBox contenedorAtributo = new HBox();
 		contenedorAtributo.setSpacing(10);
 		contenedorAtributo.setAlignment(Pos.TOP_RIGHT);
 		contenedorAtributo.setPadding(new Insets(3));
-//		contenedorAtributo.getChildren().addAll(label,pb);
-		contenedorAtributo.getChildren().addAll(label);
+		contenedorAtributo.getChildren().addAll(label,pb);
 		return contenedorAtributo;
 		
 	}

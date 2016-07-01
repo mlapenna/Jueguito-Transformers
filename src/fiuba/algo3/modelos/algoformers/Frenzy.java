@@ -40,6 +40,10 @@ public class Frenzy extends Decepticon {
 	public int getVelocidadAlterno() {
 		return VELOCIDAD_ALTERNO;
 	}
+	
+	public int getVidaInicial() {
+		return VIDA;
+	}
 
 	@Override
 	public Algoformer clonarAlgoformer() {

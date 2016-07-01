@@ -24,4 +24,8 @@ public class ModoHumanoide extends Modo {
     public boolean esHumanoide() {
         return true;
     }
+    
+    public int getVida() {
+    	return this.algoformer.getVidaInicial();
+    }
 }

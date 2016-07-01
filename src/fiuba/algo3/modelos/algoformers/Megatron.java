@@ -40,6 +40,10 @@ public class Megatron extends Decepticon {
 		return VELOCIDAD_ALTERNO;
 	}
 	
+	public int getVidaInicial() {
+		return VIDA;
+	}
+	
 	@Override
 	public Algoformer clonarAlgoformer() {
 		Algoformer clon = new Megatron(this.getPosicion(), this.modo.getTablero(), this.turno);

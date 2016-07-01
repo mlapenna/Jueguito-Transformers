@@ -37,6 +37,10 @@ public class Menasor extends Decepticon {
 	public int getVelocidadAlterno() {
 		return VELOCIDAD;
 	}
+	
+	public int getVidaInicial() {
+		return VIDA;
+	}
 
 	@Override
 	public Algoformer clonarAlgoformer() {

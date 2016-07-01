@@ -20,5 +20,9 @@ public class ModoCombinado extends Modo {
     public int getVelocidad() {
         return this.algoformer.getVelocidad();
     }
+    
+    public int getVida() {
+    	return this.algoformer.getVidaInicial();
+    }
 
 }

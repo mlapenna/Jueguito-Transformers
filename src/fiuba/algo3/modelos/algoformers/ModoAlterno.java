@@ -24,4 +24,8 @@ public class ModoAlterno extends Modo {
     public boolean esAlterno() {
         return true;
     }
+    
+    public int getVida() {
+    	return this.algoformer.getVidaInicial();
+    }
 }

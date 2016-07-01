@@ -7,7 +7,6 @@ import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.excepciones.AlgoformerInmovilizadoExcepcion;
 import fiuba.algo3.modelos.movimientos.MovimientoHumanoide;
 
-
 public abstract class Algoformer extends Contenido {
 	static public final int MODO_AUTOBOT = 0;
 	static public final int MODO_DECEPTICON = 1;
@@ -205,7 +204,7 @@ public abstract class Algoformer extends Contenido {
 	public abstract int getAtaqueInicialAlterno();
 	public abstract int getDistanciaAtaqueAlterno();
 	public abstract int getVelocidadAlterno();
-
+	public abstract int getVidaInicial();
 
 	public void disminuirMovimientoEsteTurno() {
 		this.movimientoDisminuido = true;  //LO MEJOR SERIA HACER Q ESTO DURE UN TURNO Y BORRAR EL METODO NORMALIZAR

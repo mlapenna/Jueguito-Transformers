@@ -31,7 +31,8 @@ public abstract class Modo {
     public abstract int getAtaqueInicial();
     public abstract int getDistanciaAtaque();
     public abstract int getVelocidad();
-
+    public abstract int getVida();
+    
     public void mover(Posicion posicion) {
         this.movimiento.mover(this.algoformer, posicion);
     }
