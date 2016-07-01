@@ -103,7 +103,7 @@ public class MouseClickHandler {
                             Casillero casillero = tableroVista.getTablero().getCasillero(this.posicionDestinoDeLaAccion);
 
                             if (casillero.estaVacio() || casillero.getContenido().esChispa()) {
-                                String titulo = "Ataque Inv\u00e1lido";
+                                String titulo = "Ataque Invalido";
                                 String header = "El casillero de destino no tiene un algoformer.";
                                 String content = "Debes atacar casilleros ocupados por robots del otro jugador.";
                                 new AlertHandler(titulo, header, content);
