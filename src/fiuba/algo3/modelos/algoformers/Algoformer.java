@@ -111,7 +111,13 @@ public abstract class Algoformer extends Contenido {
 	public void mover(Posicion posicionDestino) {
 		this.validarQueEsMiTurno();
 		this.validarQueNoEstaInmovilizado();
-		this.modo.mover(posicionDestino);
+		try{
+			this.modo.mover(posicionDestino);
+		}
+		catch(AlgoformerInmovilizadoExcepcion exception){
+			this.turno.siguiente();
+			throw new AlgoformerQuedoInmovilizadoExcepcion();
+		}
 		this.turno.siguiente();
 	}
 

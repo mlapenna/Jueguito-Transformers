@@ -3,6 +3,7 @@ package fiuba.algo3.controladores;
 import fiuba.algo3.modelos.Casillero;
 import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.algoformers.Algoformer;
+import fiuba.algo3.modelos.algoformers.AlgoformerQuedoInmovilizadoExcepcion;
 import fiuba.algo3.modelos.excepciones.*;
 import fiuba.algo3.vistas.AlgoformerVista;
 import fiuba.algo3.vistas.MostrarAlUsuarioError;
@@ -84,8 +85,12 @@ public class MouseClickHandler {
                             new MostrarAlUsuarioError(excepcion);
 
                         } catch (AlgoformerInmovilizadoExcepcion excepcion) {
-                            new MostrarAlUsuarioError(excepcion);
-
+                        	new MostrarAlUsuarioError(excepcion);
+                        	
+                        } catch (AlgoformerQuedoInmovilizadoExcepcion excepcion) {
+                        	tableroVista.actualizarRobotsYChispa();
+                        	new MostrarAlUsuarioError(excepcion);
+                        	
                         } catch (MovimientoInvalidoCasilleroInvalidoExcepcion excepcion) {
                             new MostrarAlUsuarioError(excepcion);
 

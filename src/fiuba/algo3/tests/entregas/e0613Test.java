@@ -558,9 +558,10 @@ public class e0613Test {
 		try {
 			megatronJugador2.mover(new Posicion(7, 3));
 			Assert.fail();
-		} catch(AlgoformerInmovilizadoExcepcion e) {
+		} catch(AlgoformerQuedoInmovilizadoExcepcion e) {
 			Assert.assertEquals(megatronJugador2.getPosicion(), new Posicion(8,3) ); // Quedó atascado en 8,3 mientras viajaba hacia 7,3
 		};
+		unRobotJugador1.cambiarModo();
 		bonecrusherJugador2.mover(new Posicion(9, 6)); // Se mueve otro robot del mismo jugador nada más para que pase el turno
 
 		// Siguiente turno - Se atascó en el turno anterior, a partir de este turno son 3 turnos atrapado

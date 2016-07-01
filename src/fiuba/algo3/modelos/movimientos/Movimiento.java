@@ -69,11 +69,15 @@ public abstract class Movimiento {
 		Posicion siguientePosicion;
 
 		while (i < cantidadPasos) {
+			try{
+				algoformer.validarQueNoEstaInmovilizado();
+			} catch (AlgoformerInmovilizadoExcepcion e) {
+				throw new AlgoformerInmovilizadoExcepcion();
+			}
+			
 			this.tablero.quitarContenido(algoformer.getPosicion());
 
 			try {
-
-				algoformer.validarQueNoEstaInmovilizado();
 
 				siguientePosicion = recorrido.get(i);
 				this.afectarAlgoformer(algoformer, siguientePosicion);
@@ -96,8 +100,6 @@ public abstract class Movimiento {
 				this.tablero.setContenido(algoformer.getPosicion(), algoformer);
 				throw new MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion();
 
-			} catch (AlgoformerInmovilizadoExcepcion e) {
-				throw new AlgoformerInmovilizadoExcepcion();
 			}
 			i++;			
 		}
