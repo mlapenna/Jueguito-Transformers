@@ -88,7 +88,7 @@ public abstract class Movimiento {
 				}
 
 				if (this.tablero.getContenido(siguientePosicion).esChispa() ) {
-					algoformer.agarroLaChispa();
+					algoformer.setTieneLaChispa();
 					tablero.quitarContenido(siguientePosicion);
 				}
 

@@ -229,11 +229,11 @@ public abstract class Algoformer extends Contenido {
 		this.muerto = true;
 	}
 
-	public void agarroLaChispa(){
+	public void setTieneLaChispa(){
 		this.tieneLaChispa = true;
 	}
 	
-	public boolean tieneLaChispa(){
+	public boolean getTieneLaChispa(){
 		return this.tieneLaChispa;
 	}
 

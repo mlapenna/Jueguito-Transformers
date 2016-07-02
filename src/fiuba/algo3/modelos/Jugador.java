@@ -138,7 +138,7 @@ public class Jugador {
         }
     	Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
         while (algoformers.hasNext()) 
-        	if (algoformers.next().tieneLaChispa()){
+        	if (algoformers.next().getTieneLaChispa()){
         		this.juego.gano(this);
         		return true;
         	}

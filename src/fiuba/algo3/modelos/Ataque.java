@@ -7,7 +7,7 @@ public class Ataque {
 
     public void atacar(Algoformer algoformerAtacante, Algoformer algoformerObjetivo) {
     	
-    	this.validarAtaque(algoformerAtacante,algoformerObjetivo);
+    	this.validarAtaque(algoformerAtacante, algoformerObjetivo);
     	algoformerObjetivo.recibirAtaque(algoformerAtacante);
     	
     }
