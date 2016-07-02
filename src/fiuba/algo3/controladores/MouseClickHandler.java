@@ -3,7 +3,6 @@ package fiuba.algo3.controladores;
 import fiuba.algo3.modelos.Casillero;
 import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.algoformers.Algoformer;
-import fiuba.algo3.modelos.algoformers.AlgoformerQuedoInmovilizadoExcepcion;
 import fiuba.algo3.modelos.excepciones.*;
 import fiuba.algo3.vistas.AlgoformerVista;
 import fiuba.algo3.vistas.MostrarAlUsuarioError;

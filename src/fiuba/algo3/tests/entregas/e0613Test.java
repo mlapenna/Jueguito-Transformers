@@ -5,6 +5,7 @@ import java.io.FileReader;
 import fiuba.algo3.modelos.*;
 import fiuba.algo3.modelos.algoformers.*;
 import fiuba.algo3.modelos.excepciones.AlgoformerInmovilizadoExcepcion;
+import fiuba.algo3.modelos.excepciones.AlgoformerQuedoInmovilizadoExcepcion;
 import fiuba.algo3.modelos.excepciones.MovimientoInvalidoIncapazDeAtravezarSuperficieExcepcion;
 import fiuba.algo3.modelos.Posicion;
 

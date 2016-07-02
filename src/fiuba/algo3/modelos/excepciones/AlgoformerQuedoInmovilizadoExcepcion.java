@@ -1,6 +1,4 @@
-package fiuba.algo3.modelos.algoformers;
-
-import fiuba.algo3.modelos.excepciones.RuntimeExceptionConMensajes;
+package fiuba.algo3.modelos.excepciones;
 
 public class AlgoformerQuedoInmovilizadoExcepcion extends RuntimeExceptionConMensajes {
 
