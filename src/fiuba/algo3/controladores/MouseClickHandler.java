@@ -159,10 +159,10 @@ public class MouseClickHandler {
                            	jugador.combinarAlgoformers(this.algoformerQueRealizaAccion.getTurno());
                            	tableroVista.actualizarRobotsYChispa();
 
-                        } catch (AlgoformersNoAlineadosException excepcion) {
+                        } catch (AlgoformersNoAlineadosExcepcion excepcion) {
                             new MostrarAlUsuarioError(excepcion);
 
-                        } catch (CantidadDeAlgoformersInsuficienteException excepcion) {
+                        } catch (CantidadDeAlgoformersInsuficienteExcepcion excepcion) {
                             new MostrarAlUsuarioError(excepcion);
 
                         } catch (NoEsElTurnoDelJugadorExcepcion excepcion) {

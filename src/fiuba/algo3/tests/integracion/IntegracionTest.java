@@ -8,8 +8,8 @@ import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.algoformers.Megatron;
 import fiuba.algo3.modelos.algoformers.Superion;
-import fiuba.algo3.modelos.excepciones.AlgoformersNoAlineadosException;
-import fiuba.algo3.modelos.excepciones.CantidadDeAlgoformersInsuficienteException;
+import fiuba.algo3.modelos.excepciones.AlgoformersNoAlineadosExcepcion;
+import fiuba.algo3.modelos.excepciones.CantidadDeAlgoformersInsuficienteExcepcion;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,7 +20,6 @@ import org.junit.Test;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class IntegracionTest {
 
@@ -44,9 +43,9 @@ public class IntegracionTest {
         }
     }
     
-    @Test(expected=AlgoformersNoAlineadosException.class)
-    public void testIntentarCombinarTresAlgoformersNoAlineadosYQueSalteExcepcion() throws IOException, ParseException, AlgoformersNoAlineadosException,
-                                                                                            CantidadDeAlgoformersInsuficienteException {
+    @Test(expected=AlgoformersNoAlineadosExcepcion.class)
+    public void testIntentarCombinarTresAlgoformersNoAlineadosYQueSalteExcepcion() throws IOException, ParseException, AlgoformersNoAlineadosExcepcion,
+			CantidadDeAlgoformersInsuficienteExcepcion {
     	JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
 		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
@@ -55,8 +54,8 @@ public class IntegracionTest {
     }
     
     @Test
-    public void testCombinarTresAlgoformersAlineados() throws IOException, ParseException, AlgoformersNoAlineadosException,
-                                                                            CantidadDeAlgoformersInsuficienteException {
+    public void testCombinarTresAlgoformersAlineados() throws IOException, ParseException, AlgoformersNoAlineadosExcepcion,
+			CantidadDeAlgoformersInsuficienteExcepcion {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
@@ -96,8 +95,8 @@ public class IntegracionTest {
 	}
 	
     @Test
-    public void testMatarAlgoformer() throws IOException, ParseException, AlgoformersNoAlineadosException,
-                                                                            CantidadDeAlgoformersInsuficienteException {
+    public void testMatarAlgoformer() throws IOException, ParseException, AlgoformersNoAlineadosExcepcion,
+			CantidadDeAlgoformersInsuficienteExcepcion {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
@@ -127,8 +126,8 @@ public class IntegracionTest {
     }
     
     @Test
-    public void testGanarPorAgarrarChispa() throws IOException, ParseException, AlgoformersNoAlineadosException,
-                                                                            CantidadDeAlgoformersInsuficienteException {
+    public void testGanarPorAgarrarChispa() throws IOException, ParseException, AlgoformersNoAlineadosExcepcion,
+			CantidadDeAlgoformersInsuficienteExcepcion {
 
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));
@@ -147,8 +146,8 @@ public class IntegracionTest {
     }
 
 	@Test
-	public void testGanarPorMatarAlgoformers() throws IOException, ParseException, AlgoformersNoAlineadosException,
-	                                                                        CantidadDeAlgoformersInsuficienteException {
+	public void testGanarPorMatarAlgoformers() throws IOException, ParseException, AlgoformersNoAlineadosExcepcion,
+			CantidadDeAlgoformersInsuficienteExcepcion {
 	
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaRocosa.json"));

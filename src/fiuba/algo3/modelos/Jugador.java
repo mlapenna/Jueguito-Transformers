@@ -1,8 +1,8 @@
 package fiuba.algo3.modelos;
 
 import fiuba.algo3.modelos.algoformers.*;
-import fiuba.algo3.modelos.excepciones.AlgoformersNoAlineadosException;
-import fiuba.algo3.modelos.excepciones.CantidadDeAlgoformersInsuficienteException;
+import fiuba.algo3.modelos.excepciones.AlgoformersNoAlineadosExcepcion;
+import fiuba.algo3.modelos.excepciones.CantidadDeAlgoformersInsuficienteExcepcion;
 import fiuba.algo3.modelos.excepciones.NoEsElTurnoDelJugadorExcepcion;
 
 import java.util.ArrayList;
@@ -87,10 +87,10 @@ public class Jugador {
         return esMio;
     }
     
-    public void combinarAlgoformers(Turno turno) throws AlgoformersNoAlineadosException, CantidadDeAlgoformersInsuficienteException {
+    public void combinarAlgoformers(Turno turno) throws AlgoformersNoAlineadosExcepcion, CantidadDeAlgoformersInsuficienteExcepcion {
     	    	
     	if(this.misAlgoformers.size()<3)
-    		throw new CantidadDeAlgoformersInsuficienteException();
+    		throw new CantidadDeAlgoformersInsuficienteExcepcion();
     	
     	if(this.misAlgoformers.get(0).getTurno().getJugadorDelQueEsElTurno() != this)
     		throw new NoEsElTurnoDelJugadorExcepcion(); //ESTE IF VA ARRIBA Y ESTA MAL; LO PONGO ACA POR SI NO ESTA EL GET(0)
@@ -99,7 +99,7 @@ public class Jugador {
     	for (int i=0; i<this.misAlgoformers.size(); i++)
     		posicion.add(this.misAlgoformers.get(i).getPosicion());
     	if(!posicion.get(0).sePuedenCombinar(posicion.get(1),posicion.get(2)))
-    		throw new AlgoformersNoAlineadosException();
+    		throw new AlgoformersNoAlineadosExcepcion();
 
     	Posicion posicionDelMedio = posicion.get(0).posicionDelMedioVertical(posicion.get(1),posicion.get(2));
     	int contadorDeVida = 0;
