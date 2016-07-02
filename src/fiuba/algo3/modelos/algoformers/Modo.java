@@ -24,10 +24,6 @@ public abstract class Modo {
         return false;
     }
 
-    public boolean esAlterno() {
-        return false;
-    }
-
     public abstract int getAtaqueInicial();
     public abstract int getDistanciaAtaque();
     public abstract int getVelocidad();

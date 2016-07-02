@@ -2,12 +2,8 @@ package fiuba.algo3.modelos;
 
 
 import fiuba.algo3.modelos.algoformers.Algoformer;
-
-import java.io.FileReader;
 import java.util.Iterator;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 public class Turno {
 	
