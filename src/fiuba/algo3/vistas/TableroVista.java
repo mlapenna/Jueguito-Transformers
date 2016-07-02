@@ -1,5 +1,6 @@
 package fiuba.algo3.vistas;
 
+import fiuba.algo3.controladores.AlertHandler;
 import fiuba.algo3.modelos.Casillero;
 import javafx.scene.layout.GridPane;
 import fiuba.algo3.modelos.Tablero;
@@ -122,9 +123,25 @@ public class TableroVista extends GridPane {
 
         this.mostrarRobotsYChispa();
         this.actualizarBarrasJugadores();
+        this.chequearFinDeJuego();
     }
     
-    private void crearBarrasJugadores() {
+    private void chequearFinDeJuego() {
+		if (this.juego.hayGanador()){
+			String ganador = this.juego.ganador();
+			String mensajeGanador = "el ganador del juego es: xxxx";
+			mensajeGanador = mensajeGanador.replace("xxxx", ganador);
+					
+			new AlertHandler(
+		            "FIN DEL JUEGO",
+		            mensajeGanador,
+		            "hasta luego!"
+		        );
+		}
+	}
+
+
+	private void crearBarrasJugadores() {
     	this.barraJugador1 = new BarraJugadorVista(this.juego.getJugador1());
 		this.barraJugador2 = new BarraJugadorVista(this.juego.getJugador2());
 		
