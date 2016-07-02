@@ -9,20 +9,20 @@ import fiuba.algo3.modelos.algoformers.*;
 
 public class AlgoformerVista extends StackPane {
 
-	  static final Image optimusHumanoide = new Image("file:imagenes/optimusHumanoide.png");
-	  static final Image optimusAlterno = new Image("file:imagenes/optimusAlterno.png");
-	  static final Image bumblebeeHumanoide = new Image("file:imagenes/bumblebeeHumanoide.png");
-	  static final Image bumblebeeAlterno = new Image("file:imagenes/bumblebeeAlterno.png");
-	  static final Image ratchetHumanoide = new Image("file:imagenes/ratchetHumanoide.png");
-	  static final Image ratchetAlterno = new Image("file:imagenes/ratchetAlterno.png");
-	  static final Image megatronHumanoide = new Image("file:imagenes/megatronHumanoide.png");
-	  static final Image megatronAlterno = new Image("file:imagenes/megatronAlterno.png");
-	  static final Image bonecrusherHumanoide = new Image("file:imagenes/bonecrusherHumanoide.png");
-	  static final Image bonecrusherAlterno = new Image("file:imagenes/bonecrusherAlterno.png");
-	  static final Image frenzyHumanoide = new Image("file:imagenes/frenzyHumanoide.png");
-	  static final Image frenzyAlterno = new Image("file:imagenes/frenzyAlterno.png");
-	  static final Image superionHumanoide = new Image("file:imagenes/superion.png");
-	  static final Image menasorHumanoide = new Image("file:imagenes/menasor.png");
+	  static final Image optimusHumanoide = new Image("file:imagenes/OptimusHumanoide.png");
+	  static final Image optimusAlterno = new Image("file:imagenes/OptimusAlterno.png");
+	  static final Image bumblebeeHumanoide = new Image("file:imagenes/BumbleBeeHumanoide.png");
+	  static final Image bumblebeeAlterno = new Image("file:imagenes/BumbleBeeAlterno.png");
+	  static final Image ratchetHumanoide = new Image("file:imagenes/RatchetHumanoide.png");
+	  static final Image ratchetAlterno = new Image("file:imagenes/RatchetAlterno.png");
+	  static final Image megatronHumanoide = new Image("file:imagenes/MegatronHumanoide.png");
+	  static final Image megatronAlterno = new Image("file:imagenes/MegatronAlterno.png");
+	  static final Image bonecrusherHumanoide = new Image("file:imagenes/BonecrusherHumanoide.png");
+	  static final Image bonecrusherAlterno = new Image("file:imagenes/BonecrusherAlterno.png");
+	  static final Image frenzyHumanoide = new Image("file:imagenes/FrenzyHumanoide.png");
+	  static final Image frenzyAlterno = new Image("file:imagenes/FrenzyAlterno.png");
+	  static final Image superionHumanoide = new Image("file:imagenes/Superion.png");
+	  static final Image menasorHumanoide = new Image("file:imagenes/Menasor.png");
 	  
 	  private final ImageView imageView = new ImageView();
 	  private Algoformer algoformer;
@@ -37,7 +37,7 @@ public class AlgoformerVista extends StackPane {
 
 			this.algoformer = (Algoformer) casillero.getContenido();
 
-		    if (this.algoformer .getModo().esHumanoide()) {
+		    if (this.algoformer.getModo().esHumanoide()) {
 		    	switch (this.algoformer .getNombre()) {
 	        		case Optimus.nombreAlgoformer:  imageView.setImage(optimusHumanoide); break;
 	        		case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetHumanoide); break;
@@ -49,7 +49,7 @@ public class AlgoformerVista extends StackPane {
 	        		case Menasor.nombreAlgoformer:  imageView.setImage(menasorHumanoide); break;
 		    	}
 		    } else {
-		    	switch (this.algoformer .getNombre()) {
+		    	switch (this.algoformer.getNombre()) {
         			case Optimus.nombreAlgoformer:  imageView.setImage(optimusAlterno); break;
         			case Ratchet.nombreAlgoformer:  imageView.setImage(ratchetAlterno); break;
         			case BumbleBee.nombreAlgoformer:  imageView.setImage(bumblebeeAlterno); break;
