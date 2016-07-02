@@ -1,6 +1,5 @@
 package fiuba.algo3.vistas;
 
-import fiuba.algo3.modelos.Casillero;
 import fiuba.algo3.modelos.Juego;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -21,28 +20,28 @@ import fiuba.algo3.controladores.MoverButtonHandler;
 import fiuba.algo3.controladores.MouseClickHandler;
 import fiuba.algo3.controladores.TransformarButtonHandler;
 
-import javafx.scene.control.ProgressBar;
-import java.awt.Label;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import java.util.Collection;
-import javafx.scene.text.Text;
-import fiuba.algo3.modelos.algoformers.*;
-import fiuba.algo3.modelos.Posicion;
-import fiuba.algo3.vistas.BarraJugadorVista;
+
+import java.io.File;
+import com.sun.media.jfxmedia.Media;
+import javafx.scene.media.MediaPlayer;
+import com.sun.media.jfxmedia.AudioClip;
+import java.net.URL;
 
 public class JuegoVista extends Application {
 
-
 	@Override
     public void start(Stage stage) throws Exception {
+
+//		String source =  "/home/nachox/workspace/Algoformers/sounds/Thunderstruck.mp3";
+//		AudioClip opening = new AudioClip(source);
+//		opening.play();
+		
         JSONParser parser = new JSONParser();
         FileReader fileReader = new FileReader("mapas/mapaParaJugar.json");
         JSONObject jsonTablero = (JSONObject) parser.parse(fileReader);
-        Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
+        Juego juego = new Juego(jsonTablero, "Autobot", "Decepticon");  
 
-
-       TableroVista tableroVista = new TableroVista(juego);
+        TableroVista tableroVista = new TableroVista(juego);
 
 		MouseClickHandler mouseClickHandler = new MouseClickHandler(tableroVista);
 
