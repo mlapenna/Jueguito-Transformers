@@ -37,7 +37,7 @@ public class JuegoVista extends Application {
 	@Override
     public void start(Stage stage) throws Exception {
         JSONParser parser = new JSONParser();
-        FileReader fileReader = new FileReader("mapas/mapaParaJugar2.json");
+        FileReader fileReader = new FileReader("mapas/mapaParaJugar.json");
         JSONObject jsonTablero = (JSONObject) parser.parse(fileReader);
         Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
@@ -75,16 +75,11 @@ public class JuegoVista extends Application {
 		CambiarMapaButtonHandler cambiarMapaButtonHandler = new CambiarMapaButtonHandler(tableroVista, juego.getTablero() );
 
 		cambiarMapaButton.setOnAction(cambiarMapaButtonHandler);
-		VBox contenedorCentral = new VBox(tableroVista,contenedorHorizontal);
+		
+		VBox contenedorCentral = new VBox(tableroVista.getContenedorSuperior(),tableroVista,contenedorHorizontal);
 		contenedorCentral.setSpacing(10);
 		contenedorCentral.setPadding(new Insets(20));
 
-//		BarraJugadorVista barraJugador1 = new BarraJugadorVista(juego.getJugador1());
-//		BarraJugadorVista barraJugador2 = new BarraJugadorVista(juego.getJugador2());
-//		
-//		VBox contenedorIzquierda = barraJugador1.getAlgoformersContenedor();
-//		VBox contenedorDerecha = barraJugador2.getAlgoformersContenedor();
-		
 		HBox contenedorPrincipal = new HBox(tableroVista.getContenedorIzquierda(),contenedorCentral,tableroVista.getContenedorDerecha());
 		
 		stage.setTitle("Algoformers");

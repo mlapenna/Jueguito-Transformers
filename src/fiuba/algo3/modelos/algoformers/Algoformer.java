@@ -5,7 +5,6 @@ import fiuba.algo3.modelos.excepciones.AlgoformerCombinadoNoPuedeTransformarseEx
 import fiuba.algo3.modelos.excepciones.NoEsElTurnoDelJugadorExcepcion;
 import fiuba.algo3.modelos.movimientos.Movimiento;
 import fiuba.algo3.modelos.excepciones.AlgoformerInmovilizadoExcepcion;
-import fiuba.algo3.modelos.excepciones.AlgoformerQuedoInmovilizadoExcepcion;
 import fiuba.algo3.modelos.movimientos.MovimientoHumanoide;
 
 public abstract class Algoformer extends Contenido {
@@ -234,7 +233,7 @@ public abstract class Algoformer extends Contenido {
 		this.tieneLaChispa = true;
 	}
 	
-	public boolean tieneLaChispa(){
+	public boolean getTieneLaChispa(){
 		return this.tieneLaChispa;
 	}
 

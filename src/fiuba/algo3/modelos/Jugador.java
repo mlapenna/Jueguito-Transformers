@@ -15,12 +15,14 @@ public class Jugador {
     private ArrayList<Algoformer> misAlgoformers;
     private int modo;
     private Juego juego;
+    private Turno turno;
 
     public Jugador(String nombre, int modo, Turno turno, Juego juego) {
         this.nombre = nombre;
         this.misAlgoformers = new ArrayList<Algoformer>();
         this.modo = modo;
         this.juego = juego;
+        this.turno = turno;
         this.agregarAlgoformersAlTablero(modo, turno);
     }
 
@@ -138,7 +140,7 @@ public class Jugador {
         }
     	Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
         while (algoformers.hasNext()) 
-        	if (algoformers.next().tieneLaChispa()){
+        	if (algoformers.next().getTieneLaChispa()){
         		this.juego.gano(this);
         		return true;
         	}
@@ -158,4 +160,9 @@ public class Jugador {
 		this.misAlgoformers = null;
 		this.juego = null;
 	}
+	
+	public Turno getTurno() {
+		return this.turno;
+	}
+	
 }

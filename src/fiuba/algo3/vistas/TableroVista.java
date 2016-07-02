@@ -1,7 +1,8 @@
 package fiuba.algo3.vistas;
 
-import fiuba.algo3.controladores.AlertHandler;
 import fiuba.algo3.modelos.Casillero;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import fiuba.algo3.modelos.Tablero;
 import fiuba.algo3.modelos.Posicion;
@@ -11,6 +12,8 @@ import javafx.scene.layout.VBox;
 import java.util.ArrayList;
 import java.util.Iterator;
 import fiuba.algo3.modelos.Juego;
+import fiuba.algo3.modelos.Jugador;
+import javafx.scene.text.Text;
 
 public class TableroVista extends GridPane {
 	
@@ -19,7 +22,7 @@ public class TableroVista extends GridPane {
 	public static final int ACCION_ATACAR = 2;
 	public static final int ACCION_TRANSFORMAR = 3;
 	public static final int ACCION_COMBINAR = 4;
-
+	public static final String TURNO_DE = "Es el turno de los ";
 
     private String tipoSuperficie = Tablero.SUPERFICIE_TIERRA;
 
@@ -32,6 +35,8 @@ public class TableroVista extends GridPane {
     ArrayList<StackPane> algoformersYchispaVistas = new ArrayList<StackPane>();
     private VBox contenedorIzquierda;
     private VBox contenedorDerecha;
+    private VBox contenedorSuperior;
+    private String jugadorTurno;
     
     public TableroVista(Juego juego) {
         getStyleClass().add("tablero");
@@ -42,6 +47,12 @@ public class TableroVista extends GridPane {
         this.mostrarRobotsYChispa();
         this.crearBarrasJugadores();
         this.accion = TableroVista.ACCION_NADA;
+        this.jugadorTurno = this.juego.getJugador1().getTurno().getJugadorDelQueEsElTurno().nombre();
+        this.contenedorSuperior = new VBox();
+        this.contenedorSuperior.setAlignment(Pos.TOP_CENTER);
+        this.contenedorSuperior.setPadding(new Insets(3));
+        Text label = new Text(TURNO_DE+this.jugadorTurno);
+        this.contenedorSuperior.getChildren().add(label);
     }
 
 
@@ -123,25 +134,17 @@ public class TableroVista extends GridPane {
 
         this.mostrarRobotsYChispa();
         this.actualizarBarrasJugadores();
-        this.chequearFinDeJuego();
+        this.actualizarJugadorTurno();
     }
     
-    private void chequearFinDeJuego() {
-		if (this.juego.hayGanador()){
-			String ganador = this.juego.ganador();
-			String mensajeGanador = "el ganador del juego es: xxxx";
-			mensajeGanador = mensajeGanador.replace("xxxx", ganador);
-					
-			new AlertHandler(
-		            "FIN DEL JUEGO",
-		            mensajeGanador,
-		            "hasta luego!"
-		        );
-		}
-	}
-
-
-	private void crearBarrasJugadores() {
+    private void actualizarJugadorTurno() {
+    	this.jugadorTurno = this.juego.getJugador1().getTurno().getJugadorDelQueEsElTurno().nombre();
+    	this.contenedorSuperior.getChildren().clear();
+    	Text label = new Text(TURNO_DE+this.jugadorTurno);
+        this.contenedorSuperior.getChildren().add(label);
+    }
+    
+    private void crearBarrasJugadores() {
     	this.barraJugador1 = new BarraJugadorVista(this.juego.getJugador1());
 		this.barraJugador2 = new BarraJugadorVista(this.juego.getJugador2());
 		
@@ -181,4 +184,8 @@ public class TableroVista extends GridPane {
     	return this.contenedorIzquierda;
     }
     
+    public VBox getContenedorSuperior() {
+    	return this.contenedorSuperior;
+    }
+       
 }

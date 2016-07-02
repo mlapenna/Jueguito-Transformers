@@ -187,7 +187,6 @@ public class IntegracionTest {
 	    	rival.cambiarModo();
 	    	ratchet.atacar(rival);
 	    }
-	    Assert.assertTrue(juego.hayGanador());
 	    Assert.assertTrue(juego.ganador()==nombre);
 	    	
 	}
