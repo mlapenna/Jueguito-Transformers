@@ -27,7 +27,8 @@ public class BarraJugadorVista {
 		VBox contenedorAlgoformers = new VBox();
 		ArrayList<Algoformer> algoformers = this.jugador.getAlgoformers();
 		Algoformer algoformer;
-		
+		Text nombre = new Text(this.jugador.nombre());
+		contenedorAlgoformers.getChildren().add(nombre);
 		for(int i=0;i<algoformers.size();i++) {
 			
 			algoformer = algoformers.get(i);

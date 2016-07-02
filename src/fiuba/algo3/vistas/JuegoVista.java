@@ -37,7 +37,7 @@ public class JuegoVista extends Application {
 	@Override
     public void start(Stage stage) throws Exception {
         JSONParser parser = new JSONParser();
-        FileReader fileReader = new FileReader("mapas/mapaParaJugar.json");
+        FileReader fileReader = new FileReader("mapas/mapaParaJugar2.json");
         JSONObject jsonTablero = (JSONObject) parser.parse(fileReader);
         Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
 
