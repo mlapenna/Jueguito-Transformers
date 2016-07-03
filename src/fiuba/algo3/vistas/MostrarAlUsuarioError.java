@@ -1,7 +1,6 @@
 package fiuba.algo3.vistas;
 
 
-import fiuba.algo3.controladores.AlertHandler;
 import fiuba.algo3.modelos.excepciones.RuntimeExceptionConMensajes;
 
 public class MostrarAlUsuarioError {

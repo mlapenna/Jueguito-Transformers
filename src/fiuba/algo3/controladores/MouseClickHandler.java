@@ -5,13 +5,9 @@ import fiuba.algo3.modelos.Jugador;
 import fiuba.algo3.modelos.algoformers.Algoformer;
 import fiuba.algo3.modelos.algoformers.AlgoformerQuedoInmovilizadoExcepcion;
 import fiuba.algo3.modelos.excepciones.*;
-import fiuba.algo3.vistas.AlgoformerVista;
-import fiuba.algo3.vistas.MostrarAlUsuarioError;
+import fiuba.algo3.vistas.*;
 import javafx.event.EventHandler;
-import fiuba.algo3.vistas.TableroVista;
 import javafx.scene.input.MouseEvent;
-import fiuba.algo3.vistas.CasilleroVista;
-import fiuba.algo3.vistas.ChispaSupremaVista;
 import fiuba.algo3.modelos.Posicion;
 
 

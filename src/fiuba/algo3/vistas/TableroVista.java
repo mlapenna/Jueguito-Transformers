@@ -1,6 +1,5 @@
 package fiuba.algo3.vistas;
 
-import fiuba.algo3.controladores.AlertHandler;
 import fiuba.algo3.modelos.Casillero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,7 +12,6 @@ import javafx.scene.layout.VBox;
 import java.util.ArrayList;
 import java.util.Iterator;
 import fiuba.algo3.modelos.Juego;
-import fiuba.algo3.modelos.Jugador;
 import javafx.scene.text.Text;
 
 public class TableroVista extends GridPane {

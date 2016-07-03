@@ -1,4 +1,4 @@
-package fiuba.algo3.controladores;
+package fiuba.algo3.vistas;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
