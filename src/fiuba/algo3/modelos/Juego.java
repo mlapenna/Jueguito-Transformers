@@ -31,10 +31,6 @@ public class Juego {
 
 	public void gano(Jugador ganador) {
 		this.ganador = ganador.nombre();
-		//this.jugador1.eliminar();
-		//this.jugador2.eliminar();
-		//this.jugador1 = null;
-		//this.jugador2 = null;
 	}
 
 

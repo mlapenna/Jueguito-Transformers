@@ -207,7 +207,7 @@ public abstract class Algoformer extends Contenido {
 	public abstract int getVidaInicial();
 
 	public void disminuirMovimientoEsteTurno() {
-		this.movimientoDisminuido = true;  //LO MEJOR SERIA HACER Q ESTO DURE UN TURNO Y BORRAR EL METODO NORMALIZAR
+		this.movimientoDisminuido = true;
 	}
 
 
@@ -233,7 +233,7 @@ public abstract class Algoformer extends Contenido {
 		this.tieneLaChispa = true;
 	}
 	
-	public boolean tieneLaChispa(){
+	public boolean getTieneLaChispa(){
 		return this.tieneLaChispa;
 	}
 

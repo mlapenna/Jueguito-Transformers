@@ -140,7 +140,7 @@ public class Jugador {
         }
     	Iterator<Algoformer> algoformers = this.getAlgoformersIterator();
         while (algoformers.hasNext()) 
-        	if (algoformers.next().tieneLaChispa()){
+        	if (algoformers.next().getTieneLaChispa()){
         		this.juego.gano(this);
         		return true;
         	}
@@ -152,15 +152,6 @@ public class Jugador {
 	}
 	
 
-	public void eliminar() {
-		/*Iterator<Algoformer> misAlgoformers = this.getAlgoformersIterator();
-		while(misAlgoformers.hasNext())
-			misAlgoformers.next().eliminar();*/    //ESTA PARTE BORRA A LOS ALGOFORMERS; PERO LOS QUE MURIERON YA ESTAN BORRADOS Y HAY NULL POINTER
-
-		this.misAlgoformers = null;
-		this.juego = null;
-	}
-	
 	public Turno getTurno() {
 		return this.turno;
 	}
