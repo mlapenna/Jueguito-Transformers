@@ -50,7 +50,7 @@
    {"posicionX": 5, "posicionY": 1, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
    {"posicionX": 5, "posicionY": 2, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
    {"posicionX": 5, "posicionY": 3, "superficies": { "tierra": "Rocas", "aire": "NebulosaDeAndromeda"} },
-   {"posicionX": 5, "posicionY": 4, "superficies": { "tierra": "Pantano", "aire": "NebulosaDeAndromeda"} },
+   {"posicionX": 5, "posicionY": 4, "superficies": { "tierra": "Rocas", "aire": "NebulosaDeAndromeda"} },
    {"posicionX": 5, "posicionY": 5, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
    {"posicionX": 5, "posicionY": 6, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
    {"posicionX": 5, "posicionY": 7, "superficies": { "tierra": "Rocas", "aire": "Nube"} },
