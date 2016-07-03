@@ -9,12 +9,12 @@ import fiuba.algo3.modelos.superficies.*;
 
 public class CasilleroVista extends StackPane {
 
-    static final Image imagenRocas = new Image("file:imagenes/img/rocas.png");
-    static final Image imagenPantano = new Image("file:imagenes/img/pantano1.png");
-    static final Image imagenEspinas = new Image("file:imagenes/img/espinas.png");
-    static final Image imagenNube = new Image("file:imagenes/img/nube.png");
-    static final Image imagenNebulosa = new Image("file:imagenes/img/nebulosa.png");
-    static final Image imagenTormenta = new Image("file:imagenes/img/tormenta.png");
+    static final Image imagenRocas = new Image("file:imagenes/superficies/rocas.png");
+    static final Image imagenPantano = new Image("file:imagenes/superficies/pantano1.png");
+    static final Image imagenEspinas = new Image("file:imagenes/superficies/espinas.png");
+    static final Image imagenNube = new Image("file:imagenes/superficies/nube.png");
+    static final Image imagenNebulosa = new Image("file:imagenes/superficies/nebulosa.png");
+    static final Image imagenTormenta = new Image("file:imagenes/superficies/tormenta.png");
 
     private final ImageView imageView = new ImageView();
     private Casillero casillero;
@@ -49,7 +49,7 @@ public class CasilleroVista extends StackPane {
                 imageView.setImage(imagenEspinas);
                 break;
             case Nube.NOMBRE:
-                imageView.setImage(new Image("file:imagenes/img/nube.png"));
+                imageView.setImage(imagenNube);
                 break;
             case NebulosaDeAndromeda.NOMBRE:
                 imageView.setImage(imagenNebulosa);
