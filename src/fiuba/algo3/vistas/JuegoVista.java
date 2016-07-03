@@ -7,10 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.io.File;
 import java.io.FileReader;
 
 import fiuba.algo3.controladores.CambiarMapaButtonHandler;
@@ -20,22 +23,21 @@ import fiuba.algo3.controladores.MoverButtonHandler;
 import fiuba.algo3.controladores.MouseClickHandler;
 import fiuba.algo3.controladores.TransformarButtonHandler;
 
-
-import java.io.File;
-import com.sun.media.jfxmedia.Media;
-import javafx.scene.media.MediaPlayer;
-import com.sun.media.jfxmedia.AudioClip;
-import java.net.URL;
-
 public class JuegoVista extends Application {
+
+    private static final String temaDeFondo = "sonidos/temaDeFondo-thunderstruck.mp3";
+
 
 	@Override
     public void start(Stage stage) throws Exception {
 
-//		String source =  "/home/nachox/workspace/Algoformers/sounds/Thunderstruck.mp3";
-//		AudioClip opening = new AudioClip(source);
-//		opening.play();
-		
+        // Música de fondo
+		String archivoURI = new File(this.temaDeFondo).toURI().toString();
+		Media sonidoFondo = new Media(archivoURI);
+		MediaPlayer mediaPlayer = new MediaPlayer(sonidoFondo);
+		mediaPlayer.play();
+
+        // Cargar tablero
         JSONParser parser = new JSONParser();
         FileReader fileReader = new FileReader("mapas/mapaParaJugar.json");
         JSONObject jsonTablero = (JSONObject) parser.parse(fileReader);
@@ -43,7 +45,8 @@ public class JuegoVista extends Application {
 
         TableroVista tableroVista = new TableroVista(juego);
 
-		MouseClickHandler mouseClickHandler = new MouseClickHandler(tableroVista);
+        // Controladores de eventos
+		new MouseClickHandler(tableroVista);
 
 		Button moverButton = new Button();
 		moverButton.setText("Mover");
@@ -87,10 +90,9 @@ public class JuegoVista extends Application {
 		stage.show();
 	}
 
+
 	public void main(String[] args) {
 		Application.launch(JuegoVista.class);
 	}
-
-
 	
 }
