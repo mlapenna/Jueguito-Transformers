@@ -22,8 +22,9 @@ public class JuegoTest {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonTablero = (JSONObject) parser.parse(new FileReader("mapas/mapaTestZonaPantano2.json"));
 		Juego juego = new Juego(jsonTablero, "Pedro", "Juan");
-		
+		Assert.assertFalse(juego.hayGanador());
 		juego.gano(juego.getJugador1());
+		Assert.assertTrue(juego.hayGanador());
 		Assert.assertEquals(juego.ganador(), "Pedro");
 	}
 

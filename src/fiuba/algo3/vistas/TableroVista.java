@@ -1,5 +1,6 @@
 package fiuba.algo3.vistas;
 
+import fiuba.algo3.controladores.AlertHandler;
 import fiuba.algo3.modelos.Casillero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -121,6 +122,19 @@ public class TableroVista extends GridPane {
         }
     }
 
+    private void chequearFinDeJuego() {
+   		if (this.juego.hayGanador()){
+    	 	String ganador = this.juego.ganador();
+    		String mensajeGanador = "el ganador del juego es: xxxx";
+    	 	mensajeGanador = mensajeGanador.replace("xxxx", ganador);
+				
+    		new AlertHandler(
+                "FIN DEL JUEGO",
+                mensajeGanador,
+                "hasta luego!"
+    	       );
+   		}
+   	}
 
 
     public void actualizarRobotsYChispa() {
@@ -135,6 +149,7 @@ public class TableroVista extends GridPane {
         this.mostrarRobotsYChispa();
         this.actualizarBarrasJugadores();
         this.actualizarJugadorTurno();
+        this.chequearFinDeJuego();
     }
     
     private void actualizarJugadorTurno() {

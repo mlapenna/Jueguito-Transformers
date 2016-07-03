@@ -233,7 +233,7 @@ public abstract class Algoformer extends Contenido {
 		this.tieneLaChispa = true;
 	}
 	
-	public boolean getTieneLaChispa(){
+	public boolean tieneLaChispa(){
 		return this.tieneLaChispa;
 	}
 
