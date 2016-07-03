@@ -154,7 +154,7 @@ public class AlgoformerTests {
 	    rival.cambiarModo();
 	    ratchet.mover(new Posicion(4,4));
 	    
-	    Assert.assertTrue(ratchet.tieneLaChispa());
+	    Assert.assertTrue(ratchet.getTieneLaChispa());
 	}
 	
 	@Test

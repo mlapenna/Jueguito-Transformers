@@ -123,13 +123,14 @@ public class TableroVista extends GridPane {
     private void chequearFinDeJuego() {
    		if (this.juego.hayGanador()){
     	 	String ganador = this.juego.ganador();
-    		String mensajeGanador = "el ganador del juego es: xxxx";
-    	 	mensajeGanador = mensajeGanador.replace("xxxx", ganador);
-				
-    		new AlertHandler(
+    		String mensajeGanador = "El ganador del juego es: " + ganador;
+
+            new ReproducirSonido(JuegoVista.sonidoFinJuego);
+
+            new AlertHandler(
                 "FIN DEL JUEGO",
                 mensajeGanador,
-                "hasta luego!"
+                "Hasta luego!"
     	       );
    		}
    	}

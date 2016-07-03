@@ -7,15 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
-import java.io.File;
 import java.io.FileReader;
-
 import fiuba.algo3.controladores.CambiarMapaButtonHandler;
 import fiuba.algo3.controladores.CombinarButtonHandler;
 import fiuba.algo3.controladores.AtacarButtonHandler;
@@ -25,17 +20,19 @@ import fiuba.algo3.controladores.TransformarButtonHandler;
 
 public class JuegoVista extends Application {
 
-    private static final String temaDeFondo = "sonidos/temaDeFondo-thunderstruck.mp3";
+    private static final String temaDeFondo = "temaDeFondo-thunderstruck.mp3";
+    public static final String sonidoMovimiento = "movimiento.mp3";
+    public static final String sonidoAtaque = "disparo.mp3";
+    public static final String sonidoTransformacion = "transformacion.mp3";
+    public static final String sonidoCombinacion = "combinacion.mp3";
+    public static final String sonidoFinJuego = "juegoTerminado.mp3";
 
 
 	@Override
     public void start(Stage stage) throws Exception {
 
         // Música de fondo
-		String archivoURI = new File(this.temaDeFondo).toURI().toString();
-		Media sonidoFondo = new Media(archivoURI);
-		MediaPlayer mediaPlayer = new MediaPlayer(sonidoFondo);
-		mediaPlayer.play();
+		new ReproducirSonido(this.temaDeFondo, 0.6);
 
         // Cargar tablero
         JSONParser parser = new JSONParser();

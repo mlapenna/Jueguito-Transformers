@@ -9,7 +9,7 @@ import fiuba.algo3.vistas.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import fiuba.algo3.modelos.Posicion;
-
+import fiuba.algo3.vistas.ReproducirSonido;
 
 public class MouseClickHandler {
 
@@ -69,6 +69,7 @@ public class MouseClickHandler {
                        
                         try {
                             this.algoformerQueRealizaAccion.mover(this.posicionDestinoDeLaAccion);
+                            new ReproducirSonido(JuegoVista.sonidoMovimiento);
                             tableroVista.actualizarRobotsYChispa();
 
                         } catch (MovimientoInvalidoCasilleroOcupadoExcepcion excepcion) {
@@ -110,6 +111,7 @@ public class MouseClickHandler {
                                 new AlertHandler(titulo, header, content);
                             } else {
                                 this.algoformerQueRealizaAccion.atacar((Algoformer) casillero.getContenido());
+                                new ReproducirSonido(JuegoVista.sonidoAtaque);
                                 tableroVista.actualizarRobotsYChispa();
                             }
 
@@ -130,6 +132,7 @@ public class MouseClickHandler {
                     case TableroVista.ACCION_TRANSFORMAR:
                     	try {
                     		this.algoformerQueRealizaAccion.cambiarModo();
+                            new ReproducirSonido(JuegoVista.sonidoTransformacion);
                             tableroVista.actualizarRobotsYChispa();
 
                     	} catch (MenasorNoPuedeTransformarseExcepcion excepcion) {
@@ -153,6 +156,7 @@ public class MouseClickHandler {
                     	try {
                     		Jugador jugador = this.algoformerQueRealizaAccion.getTurno().getJugadorDelQueEsElTurno();
                            	jugador.combinarAlgoformers(this.algoformerQueRealizaAccion.getTurno());
+                            new ReproducirSonido(JuegoVista.sonidoCombinacion);
                            	tableroVista.actualizarRobotsYChispa();
 
                         } catch (AlgoformersNoAlineadosExcepcion excepcion) {
