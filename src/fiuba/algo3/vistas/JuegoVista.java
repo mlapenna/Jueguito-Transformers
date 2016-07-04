@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
+import java.util.List;
 import fiuba.algo3.controladores.CambiarMapaButtonHandler;
 import fiuba.algo3.controladores.CombinarButtonHandler;
 import fiuba.algo3.controladores.AtacarButtonHandler;
@@ -27,18 +28,32 @@ public class JuegoVista extends Application {
     public static final String sonidoCombinacion = "combinacion.mp3";
     public static final String sonidoFinJuego = "juegoTerminado.mp3";
 
+    public static final Integer PARAM_MAPA = 0;
+    public static final Integer PARAM_JUGADOR1 = 1;
+    public static final Integer PARAM_JUGADOR2 = 2;
+
+    private String mapa;
+    private String nombreJugador1;
+    private String nombreJugador2;
+
 
 	@Override
     public void start(Stage stage) throws Exception {
+
+        // Recibo parámetros
+        List paramsList = this.getParameters().getUnnamed();
+        this.mapa = (String) paramsList.get(this.PARAM_MAPA);
+        this.nombreJugador1 = (String) paramsList.get(PARAM_JUGADOR1);
+        this.nombreJugador2 = (String) paramsList.get(PARAM_JUGADOR2);
 
         // Música de fondo
 		new ReproducirSonido(this.temaDeFondo, 0.6);
 
         // Cargar tablero
         JSONParser parser = new JSONParser();
-        FileReader fileReader = new FileReader("mapas/mapaParaJugar.json");
+        FileReader fileReader = new FileReader(this.mapa);
         JSONObject jsonTablero = (JSONObject) parser.parse(fileReader);
-        Juego juego = new Juego(jsonTablero, "Mariano", "Nacho");  
+        Juego juego = new Juego(jsonTablero, this.nombreJugador1, this.nombreJugador2);
 
         TableroVista tableroVista = new TableroVista(juego);
 
@@ -89,7 +104,7 @@ public class JuegoVista extends Application {
 
 
 	public void main(String[] args) {
-		Application.launch(JuegoVista.class);
+		Application.launch(JuegoVista.class, args);
 	}
 	
 }

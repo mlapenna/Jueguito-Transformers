@@ -1,10 +1,7 @@
 package fiuba.algo3.controladores;
 
-import java.io.File;
 
 import fiuba.algo3.vistas.JuegoVista;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 
 public class Juego {
@@ -13,8 +10,13 @@ public class Juego {
 
         JuegoVista juegoVista = new JuegoVista();
 
-        String musicFile = "sounds/Thunderstruck.mp3";   
-        juegoVista.main(args);
+        // Paso parámetros a la vista... no es fácil, por extender de Application
+        String[] params = new String[3];
+        params[JuegoVista.PARAM_MAPA] = "mapas/mapaParaJugar.json";
+        params[JuegoVista.PARAM_JUGADOR1] = "Nacho";
+        params[JuegoVista.PARAM_JUGADOR2] = "Mariano";
+
+        juegoVista.main(params);
     }
 
 }
