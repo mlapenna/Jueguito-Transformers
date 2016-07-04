@@ -93,7 +93,7 @@ public abstract class Algoformer extends Contenido {
 
 
 	private boolean murio() {
-		return (this.getVida()<0);
+		return (this.getVida()<=0);
 	}
 
 
