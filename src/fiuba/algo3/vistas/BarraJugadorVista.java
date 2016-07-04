@@ -30,6 +30,8 @@ public class BarraJugadorVista {
 		
 		Text nombre = new Text(this.jugador.nombre());
 		contenedorAlgoformers.getChildren().add(nombre);
+		Text bando = new Text(this.jugador.modo());
+		contenedorAlgoformers.getChildren().add(bando);
 
 		for(int i=0;i<algoformers.size();i++) {
 			

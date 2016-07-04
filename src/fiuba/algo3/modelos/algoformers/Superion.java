@@ -11,7 +11,7 @@ public class Superion extends Autobot {
 	private static final int DISTANCIA_ATAQUE = 2;
 	private static final int ATAQUE = 100;
 	private static final int VELOCIDAD = 3;
-	private static final int VIDA = 3; // hay que ver el proceso de fusion
+	private static final int VIDA = 1000; // hay que ver el proceso de fusion
 	
 	public Superion(Posicion posicion, Tablero tablero, Turno turno) {
 		super(posicion, tablero, turno);

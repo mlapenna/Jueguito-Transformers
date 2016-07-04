@@ -156,4 +156,9 @@ public class Jugador {
 		return this.turno;
 	}
 	
+	public String modo(){
+		if (this.modo==Algoformer.MODO_AUTOBOT)
+			return "Autobots";
+		return "Decepticons";
+	}
 }

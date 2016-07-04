@@ -11,7 +11,7 @@ public class Menasor extends Decepticon {
 	private static final int DISTANCIA_ATAQUE = 2;
 	private static final int ATAQUE = 115;
 	private static final int VELOCIDAD = 2;
-	private static final int VIDA = 2;
+	private static final int VIDA = 1150;
 	
 	public Menasor(Posicion posicion, Tablero tablero, Turno turno) {
 		super(posicion, tablero, turno);
