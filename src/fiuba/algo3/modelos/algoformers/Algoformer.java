@@ -85,12 +85,15 @@ public abstract class Algoformer extends Contenido {
 	
 	public void recibirAtaque(Algoformer algoformerAtacante) {
 		int vidaAux = this.getVida() - algoformerAtacante.getAtaque();
-		if (vidaAux <= 0){
-			this.afectarVida(0);
-			this.eliminar();
-			return;
-		}
 		this.setVida(vidaAux);
+		if (this.murio())
+			this.eliminar();
+
+	}
+
+
+	private boolean murio() {
+		return (this.getVida()<0);
 	}
 
 
@@ -224,6 +227,7 @@ public abstract class Algoformer extends Contenido {
 
 	public void eliminar() {
 		this.modo.eliminar(this);
+		this.afectarVida(0);
 		//this.modo = null;
 		//this.posicion = null;
 		//this.turno = null;
