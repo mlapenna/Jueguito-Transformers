@@ -1,4 +1,4 @@
-"Algoformers"                                                                                                                                                                 
+Algoformers                                                                                                                                                                 
 ==========
 
 Trabajo práctico grupal (2 integrantes + yo) cuyo objeto fue aplicar principios básicos de diseño de código como POO
